@@ -1,6 +1,6 @@
 "use client";
-import React, { useState } from "react";
-import { sendNotification } from "../actions/actions";
+import { useState } from "react";
+import { sendNotification } from "../../app/actions/actions";
 
 export default function AdminNotificationPanel() {
   const [message, setMessage] = useState("");
