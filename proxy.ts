@@ -8,7 +8,7 @@ export function proxy(request: NextRequest) {
   const isPreview = environment === "preview";
   const isProduction = environment === "production";
   const developmentCspHeader = `
-    font-src 'self';
+    font-src 'self' https://fonts.gstatic.com;
     style-src 'self' 'unsafe-inline';
     script-src 'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com;
     connect-src 'self' https://api.emailjs.com/ https://vercel.live https://vercel.com;
@@ -21,7 +21,7 @@ export function proxy(request: NextRequest) {
     script-src 'self' 'nonce-${nonce}' https://vercel.live https://va.vercel-scripts.com;
     style-src 'self' 'unsafe-inline' https://vercel.live;
     img-src 'self' data: blob: https://vercel.live https://vercel.com;
-    font-src 'self' https://vercel.live https://assets.vercel.com;
+    font-src 'self' https://vercel.live https://assets.vercel.com https://fonts.gstatic.com;
     object-src 'none';
     base-uri 'self';
     form-action 'self';
