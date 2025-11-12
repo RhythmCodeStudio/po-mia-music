@@ -31,16 +31,16 @@ export function proxy(request: NextRequest) {
   `;
   const productionCspHeader = `
     default-src 'self';
-    script-src 'self' 'nonce-${nonce}';
-    connect-src 'self' https://api.emailjs.com/;
-    style-src 'self' 'unsafe-inline';
-    img-src 'self' data: blob:;
-    font-src 'self';
+    connect-src 'self' https://api.emailjs.com/ https://vercel.live;
+    script-src 'self' 'nonce-${nonce}' 'strict-dynamic' https://vercel.live/ wss://ws-us3.pusher.com https://va.vercel-scripts.com;
+    style-src 'self' 'unsafe-inline' https://vercel.live;
+    img-src 'self' data: blob: https://vercel.live https://vercel.com;
+    font-src 'self' https://vercel.live https://assets.vercel.com;
     object-src 'none';
     base-uri 'self';
     form-action 'self';
     frame-ancestors 'none';
-    frame-src 'self';
+    frame-src 'self' https://vercel.live;
     upgrade-insecure-requests;
   `;
 
