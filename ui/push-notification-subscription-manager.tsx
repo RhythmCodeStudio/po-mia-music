@@ -1,10 +1,5 @@
 "use client";
 import { useState, useEffect } from "react";
-// import {
-//   subscribeUser,
-//   unsubscribeUser,
-//   // sendNotification,
-// } from "../app/actions/actions";
 
 async function subscribeUser(sub: any) {
   await fetch("/api/subscribe", {
@@ -22,7 +17,7 @@ async function unsubscribeUser(endpoint: string) {
   });
 }
 
-// Use (or adapt) this utility for generating keys
+// for generating keys
 function urlBase64ToUint8Array(base64String: string) {
   const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
   const base64 = (base64String + padding).replace(/-/g, "+").replace(/_/g, "/");
@@ -95,36 +90,17 @@ export default function PushNotificationSubscriptionManager() {
   }
 
   return (
-    <div className="">
-      {/* <h3>Push Notification Admin</h3> */}
+    <div>
       {subscription ? (
-        <>
+        <div>
           <p>You are subscribed to push notifications.</p>
           <button onClick={unsubscribeFromPush}>Unsubscribe</button>
-          <br />
-          {/* <input
-            type="text"
-            placeholder="Enter Notification Message"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            className="border p-1 rounded-md my-2 w-full max-w-md"
-          />
-          <br />
-           <input
-            type="text"
-            placeholder="Enter URL to open on click"
-            value={url}
-            onChange={(e) => setUrl(e.target.value)}
-            className="border p-1 rounded-md my-2 w-full max-w-md"
-          />
-          <br />
-          <button onClick={sendTestNotification}>Send Test</button> */}
-        </>
+        </div>
       ) : (
-        <>
+        <div>
           <p>You are not subscribed to push notifications.</p>
           <button onClick={subscribeToPush} className="cursor-pointer">Subscribe</button>
-        </>
+        </div>
       )}
     </div>
   );

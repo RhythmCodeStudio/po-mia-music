@@ -6,10 +6,8 @@ import PushNotificationSubscriptionManager from "@/ui/push-notification-subscrip
 
 export default function Home() {
   return (
-    <div className="text-white">
+    <div className="">
       {/* <Background /> */}
-      <Link href="/admin">Admin Panel</Link>
-      <h1 className="text-2xl font-bold my-4">Push Notification Subscription Manager</h1>
       <PushNotificationSubscriptionManager /> 
     </div>
   );
