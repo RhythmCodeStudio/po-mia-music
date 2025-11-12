@@ -1,5 +1,5 @@
 // import components
-import AdminNotificationPanel from "@/ui/admin/admin-notification-panel";
+import AdminNotificationPanel from "@/app/ui/admin/admin-notification-panel";
 export default function AdminPage() {
   return (
     <div className="min-h-screen p-6">

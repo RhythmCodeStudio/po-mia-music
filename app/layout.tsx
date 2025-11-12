@@ -3,6 +3,9 @@ import { Analytics } from "@vercel/analytics/next"
 // import from next
 import type { Metadata } from "next";
 // import { Geist, Geist_Mono } from "next/font/google";
+// import components
+import Header from "./ui/header";
+// import styles
 import "./globals.css";
 
 // const geistSans = Geist({
@@ -30,6 +33,7 @@ export default function RootLayout({
       <body
         className={`antialiased`}
       >
+        <Header />
         {children}
         <Analytics />
       </body>
