@@ -17,7 +17,7 @@ export function proxy(request: NextRequest) {
   `;
   const previewCspHeader = `
     default-src 'self';
-    connect-src 'self' https://api.emailjs.com/ https://vercel.live;
+    connect-src 'self' https://api.emailjs.com/ https://vercel.live/;
     script-src 'self' 'nonce-${nonce}' 'strict-dynamic' https://vercel.live/ wss://ws-us3.pusher.com https://va.vercel-scripts.com;
     style-src 'self' 'unsafe-inline' https://vercel.live;
     img-src 'self' data: blob: https://vercel.live https://vercel.com;
@@ -31,7 +31,7 @@ export function proxy(request: NextRequest) {
   `;
   const productionCspHeader = `
     default-src 'self';
-    connect-src 'self' https://api.emailjs.com/ https://vercel.live;
+    connect-src 'self' https://api.emailjs.com/ https://vercel.live/;
     script-src 'self' 'nonce-${nonce}' 'strict-dynamic' https://vercel.live/ wss://ws-us3.pusher.com https://va.vercel-scripts.com;
     style-src 'self' 'unsafe-inline' https://vercel.live;
     img-src 'self' data: blob: https://vercel.live https://vercel.com;
