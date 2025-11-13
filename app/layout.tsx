@@ -1,10 +1,11 @@
 // import from vercel
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/next";
 // import from next
 import type { Metadata } from "next";
 // import { Geist, Geist_Mono } from "next/font/google";
 // import components
 import Header from "./ui/header";
+import Footer from "./ui/footer";
 // import styles
 import "./globals.css";
 
@@ -20,7 +21,8 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Po Mia Music",
-  description: "The official web application for Po Mia Music. Discover music, shows, media, and more.",
+  description:
+    "The official web application for Po Mia Music. Discover music, shows, media, and more.",
 };
 
 export default function RootLayout({
@@ -30,11 +32,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`antialiased`}
-      >
+      <body className={`flex flex-col min-h-screen antialiased`}>
         <Header />
-        {children}
+        <main className="flex-1">
+          {children}
+        </main>
+        <Footer />
         <Analytics />
       </body>
     </html>
