@@ -35,6 +35,7 @@ export default function NavListItem({
         )}
         tabIndex={isActive ? -1 : 0}
         aria-disabled={isActive ? "true" : undefined}
+        onClick={onClick}
       >
         {label}
       </Link>

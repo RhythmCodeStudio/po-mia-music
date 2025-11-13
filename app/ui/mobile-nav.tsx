@@ -42,7 +42,7 @@ export default function MobileNav({ navListItems }: MobileMenuProps) {
       {/* Menu Button */}
       <button
         onClick={toggleMenu}
-         className={`absolute top-6 right-6 `}
+         className={``}
         value={isMenuOpen ? "Close menu" : "Open menu"}
         aria-label={isMenuOpen ? "Close menu" : "Open menu"}>
         <FiMenu size={28} />
@@ -69,19 +69,19 @@ export default function MobileNav({ navListItems }: MobileMenuProps) {
             {/* Close Button */}
             <button
               onClick={toggleMenu}
-              className={`absolute top-6 right-6 `}
+              className={`absolute top-8 right-6 `}
               aria-label="Close menu">
               <FiXCircle size={28} />
             </button>
             {/* Dialog Title */}
             <DialogTitle
               as="h1"
-              className={`flex items-center justify-center text-center  font-blenny text-xl`}>
+              className={`flex items-center justify-center text-center font-blenny text-xl`}>
               Po Mia
             </DialogTitle>
 
             <Link href="/">
-              <div className="flex justify-center mb-12" onClick={toggleMenu}>
+              <div className="flex justify-center mb-12 mx-auto w-1/2" onClick={toggleMenu}>
                 <Image
                   src="/logos/pomia-horizontal-logo-colorful.png"
                   width={1400}
