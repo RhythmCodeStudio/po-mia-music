@@ -3,6 +3,7 @@
 // import components
 // import Background from "./ui/background";
 // import PushNotificationSubscriptionManager from "./ui/push-notification-subscription-manager";
+import Toaster from "./ui/toaster";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       {/* <PushNotificationSubscriptionManager /> */}
       <h1 className="text-2xl">Hi Po!</h1>
       <p>Not much to look at yet, but this is your new website in the making!</p>
+      <Toaster />
     </div>
   );
 }
