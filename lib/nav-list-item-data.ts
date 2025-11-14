@@ -23,8 +23,7 @@ export const navListItemData = [
     label: "Shows",
     href: "/shows",
     htmlElement: "internalLink",
-  },
-  
+  }
 ];
 
 // export const navSubMenuItemData = [

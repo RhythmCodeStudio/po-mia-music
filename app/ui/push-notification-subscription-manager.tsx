@@ -1,5 +1,9 @@
 "use client";
 import { useState, useEffect } from "react";
+// import from react-icons
+import { IoIosNotifications, IoIosNotificationsOff } from "react-icons/io";
+// import from headlessui
+import { Description, Dialog, DialogPanel, DialogTitle } from '@headlessui/react'
 
 async function subscribeUser(sub: any) {
   await fetch("/api/subscribe", {
@@ -29,8 +33,11 @@ function urlBase64ToUint8Array(base64String: string) {
   return outputArray;
 }
 
+interface PushNotificationSubscriptionManagerProps {
+  renderedAs: "icon" | "button";
+}
 // Manage the browser's push subscription
-export default function PushNotificationSubscriptionManager() {
+export default function PushNotificationSubscriptionManager({ renderedAs }: PushNotificationSubscriptionManagerProps) {
   const [isSupported, setIsSupported] = useState(false);
   const [subscription, setSubscription] = useState<PushSubscription | null>(null);
   // const [message, setMessage] = useState("");
@@ -63,11 +70,13 @@ export default function PushNotificationSubscriptionManager() {
     });
     setSubscription(sub);
     const serializedSub = JSON.parse(JSON.stringify(sub));
+    console.log("Subscribing to push notifications:", serializedSub);
     await subscribeUser(serializedSub);
   }
 
   async function unsubscribeFromPush() {
     if (subscription) {
+      console.log("Unsubscribing from push notifications:", subscription);
       await subscription.unsubscribe();
     }
     setSubscription(null);
@@ -91,17 +100,47 @@ export default function PushNotificationSubscriptionManager() {
 
   return (
     <div>
-      {subscription ? (
-        <div>
-          <p>You are subscribed to push notifications.</p>
-          <button onClick={unsubscribeFromPush}>Unsubscribe</button>
-        </div>
+      {renderedAs === "icon" ? (
+        subscription ? (
+          <IoIosNotificationsOff
+            className="cursor-pointer"
+            size={24}
+            title="Unsubscribe from push notifications"
+            onClick={unsubscribeFromPush}
+          />
+        ) : (
+          <IoIosNotifications
+            className="cursor-pointer"
+            size={24}
+            title="Subscribe to push notifications"
+            onClick={subscribeToPush}
+          />
+        )
       ) : (
-        <div>
-          <p>You are not subscribed to push notifications.</p>
-          <button onClick={subscribeToPush} className="cursor-pointer">Subscribe</button>
-        </div>
+        subscription ? (
+          <button onClick={unsubscribeFromPush} className="cursor-pointer border-2 p-2 rounded-full px-4">
+            Unsubscribe from Push Notifications
+          </button>
+        ) : (
+          <button onClick={subscribeToPush} className="cursor-pointer border-2 p-2 rounded-full px-4">
+            Subscribe to Push Notifications
+          </button>
+        )
       )}
     </div>
+
+    // <div>
+    //   {subscription ? (
+    //     <div>
+    //       <p>You are subscribed to push notifications.</p>
+    //       <button onClick={unsubscribeFromPush}>Unsubscribe</button>
+    //     </div>
+    //   ) : (
+    //     <div>
+    //       <p>You are not subscribed to push notifications.</p>
+    //       <button onClick={subscribeToPush} className="cursor-pointer">Subscribe</button>
+    //     </div>
+    //   )}
+    // </div>
   );
 }

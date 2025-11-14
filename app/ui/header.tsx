@@ -12,6 +12,7 @@ import { navListItemData } from "@/lib/nav-list-item-data";
 // import components
 import MobileNav from "./mobile-nav";
 import DesktopNav from "./desktop-nav";
+import PushNotificationSubscriptionManager from "./push-notification-subscription-manager";
 // import Heading from "./heading";
 
 export default function Header() {
@@ -37,8 +38,9 @@ export default function Header() {
               />
             </Link>
         </div>
-        <div className="hidden lg:flex items-center">
+        <div className="hidden lg:flex items-center w-full justify-end gap-12">
           <DesktopNav navListItems={navListItemData} />
+          <PushNotificationSubscriptionManager renderedAs="icon" />
         </div>
         <div className="flex lg:hidden items-center">
           <MobileNav navListItems={navListItemData} />

@@ -16,6 +16,7 @@ import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import NavListItem from "./nav-list-item";
 // import ContactIconLinks from "./contact-icon-links";
 import Heading from "./heading";
+import PushNotificationSubscriptionManager from "./push-notification-subscription-manager";
 
 interface MobileMenuProps {
   navListItems: {
@@ -76,7 +77,7 @@ export default function MobileNav({ navListItems }: MobileMenuProps) {
             {/* Dialog Title */}
             <DialogTitle
               as="h1"
-              className={`flex items-center justify-center text-center font-blenny text-xl`}>
+              className={`sr-only flex items-center justify-center text-center font-blenny text-xl`}>
               Po Mia
             </DialogTitle>
 
@@ -107,6 +108,10 @@ export default function MobileNav({ navListItems }: MobileMenuProps) {
                 ))}
               </ul>
             </nav>
+            <div className="flex justify-center mt-12">
+              <PushNotificationSubscriptionManager renderedAs="button" />
+            </div>
+            
             <div className="flex justify-center absolute bottom-12 left-0 w-full">
               {/* <ContactIconLinks orientation="horizontal" /> */}
             </div>
