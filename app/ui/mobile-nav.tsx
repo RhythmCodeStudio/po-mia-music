@@ -14,8 +14,8 @@ import { FiXCircle } from "react-icons/fi";
 import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 // import components
 import NavListItem from "./nav-list-item";
-// import ContactIconLinks from "./contact-icon-links";
-import Heading from "./heading";
+import ContactIconLinks from "./contact-icon-links";
+// import Heading from "./heading";
 import PushNotificationSubscriptionManager from "./push-notification-subscription-manager";
 
 interface MobileMenuProps {
@@ -112,8 +112,8 @@ export default function MobileNav({ navListItems }: MobileMenuProps) {
               <PushNotificationSubscriptionManager renderedAs="button" />
             </div>
             
-            <div className="flex justify-center absolute bottom-12 left-0 w-full">
-              {/* <ContactIconLinks orientation="horizontal" /> */}
+            <div className="flex justify-center w-full mt-12">
+              <ContactIconLinks orientation="horizontal" />
             </div>
           </DialogPanel>
         </div>
