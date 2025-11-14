@@ -3,6 +3,18 @@ import { IoLogoFacebook } from "react-icons/io";
 import { IoLogoTiktok } from "react-icons/io5";
 import { HiEnvelope } from "react-icons/hi2";
 // import { IoMdPhonePortrait } from "react-icons/io";
+import { SiApplemusic } from "react-icons/si";
+import { SiSpotify } from "react-icons/si";
+import { SiYoutube } from "react-icons/si";
+import { SiYoutubemusic } from "react-icons/si";
+import { SiAmazonmusic } from "react-icons/si";
+import { SiBandcamp } from "react-icons/si";
+import { SiTidal } from "react-icons/si";
+import { FaDeezer } from "react-icons/fa6";
+
+import { SiVenmo } from "react-icons/si";
+import { SiCashapp } from "react-icons/si";
+import { BiLogoVenmo } from "react-icons/bi";
 
 export const contactIconLinkData = [
   {

@@ -61,7 +61,7 @@ export default function MobileNav({ navListItems }: MobileMenuProps) {
         {/* Dialog Content */}
         <div className="fixed inset-0 flex flex-col items-center justify-center">
           <DialogPanel
-            className="h-[100vh] w-[100vw] relative border-2 border-black bg-neutral-800 text-black flex flex-col justify-center p-4"
+            className="h-[100vh] w-[100vw] relative border-2 border-black bg-neutral-800 flex flex-col justify-center p-4"
             style={{
               // backgroundImage: `url(${themeObj.avif}), url(${themeObj.webp})`,
               backgroundSize: "cover",
