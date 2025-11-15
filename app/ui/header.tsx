@@ -26,17 +26,27 @@ export default function Header() {
     <header className={`w-full p-6`}>
       <div className="flex justify-between items-center">
         <div className="h-auto w-34">
-            <Link href="/" className="block">
+            {isHome ? (
               <Image
-                className={`w-full h-auto`}
+                className="w-full h-auto"
                 src="/logos/pomia-horizontal-logo-colorful.png"
                 width={1400}
                 height={460}
                 alt="Po Mia Logo"
                 priority
-                // sizes="(max-width: 768px) 160px, (max-width: 1280px) 192px, (max-width: 1536px) 200px, 256px"
               />
-            </Link>
+            ) : (
+              <Link href="/" className="block">
+                <Image
+                  className="w-full h-auto"
+                  src="/logos/pomia-horizontal-logo-colorful.png"
+                  width={1400}
+                  height={460}
+                  alt="Po Mia Logo"
+                  priority
+                />
+              </Link>
+            )}
         </div>
         <div className="hidden lg:flex items-center w-full justify-end gap-12">
           <DesktopNav navListItems={navListItemData} />

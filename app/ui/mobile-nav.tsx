@@ -7,6 +7,7 @@ import { useState } from "react";
 // import from next
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 //import icons
 import { FiMenu } from "react-icons/fi";
 import { FiXCircle } from "react-icons/fi";
@@ -31,6 +32,8 @@ interface MobileMenuProps {
 }
 
 export default function MobileNav({ navListItems }: MobileMenuProps) {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
   // const { theme } = useTheme();
   // const themeObj = themes[theme];
   // const color = themeObj.color;
@@ -83,10 +86,8 @@ export default function MobileNav({ navListItems }: MobileMenuProps) {
               className={`sr-only flex items-center justify-center text-center font-blenny text-xl`}>
               Po Mia
             </DialogTitle>
-            <Link href="/">
-                <div
-                className="flex justify-center items-center mx-auto w-1/2 h-full"
-                onClick={toggleMenu}>
+            {isHome ? (
+              <div className="flex justify-center items-center mx-auto w-1/2 h-full">
                 <Image
                   src="/logos/pomia-horizontal-logo-colorful.png"
                   width={1400}
@@ -95,8 +96,23 @@ export default function MobileNav({ navListItems }: MobileMenuProps) {
                   priority
                   // className={`${logoInvert}`}
                 />
+              </div>
+            ) : (
+              <Link href="/">
+                <div
+                  className="flex justify-center items-center mx-auto w-1/2 h-full"
+                  onClick={toggleMenu}>
+                  <Image
+                    src="/logos/pomia-horizontal-logo-colorful.png"
+                    width={1400}
+                    height={460}
+                    alt="Po Mia Music Logo"
+                    priority
+                    // className={`${logoInvert}`}
+                  />
                 </div>
-            </Link>
+              </Link>
+            )}
             {/* Navigation */}
             <nav className="mt-6">
               <ul
