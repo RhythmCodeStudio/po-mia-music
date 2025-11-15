@@ -87,15 +87,19 @@ export default function MobileNav({ navListItems }: MobileMenuProps) {
               Po Mia
             </DialogTitle>
             {isHome ? (
-              <div className="flex justify-center items-center mx-auto w-1/2 h-full">
-                <Image
-                  src="/logos/pomia-horizontal-logo-colorful.png"
-                  width={1400}
-                  height={460}
-                  alt="Po Mia Music Logo"
-                  priority
-                  // className={`${logoInvert}`}
-                />
+              <div>
+                <div
+                  className="flex justify-center items-center mx-auto w-1/2 h-full"
+                  onClick={toggleMenu}>
+                  <Image
+                    src="/logos/pomia-horizontal-logo-colorful.png"
+                    width={1400}
+                    height={460}
+                    alt="Po Mia Music Logo"
+                    priority
+                    // className={`${logoInvert}`}
+                  />
+                </div>
               </div>
             ) : (
               <Link href="/">
@@ -113,8 +117,9 @@ export default function MobileNav({ navListItems }: MobileMenuProps) {
                 </div>
               </Link>
             )}
+
             {/* Navigation */}
-            <nav className="mt-6">
+            <nav className="mt-12">
               <ul
                 className={`flex flex-col gap-12 font-semibold items-center text-lg`}>
                 {navListItems.map((item) => (
@@ -133,10 +138,16 @@ export default function MobileNav({ navListItems }: MobileMenuProps) {
             </div>
 
             <div className="flex justify-center w-full p-6">
-              <IconLinkGroup orientation="horizontal" linkData={contactLinkData} />
+              <IconLinkGroup
+                orientation="horizontal"
+                linkData={contactLinkData}
+              />
             </div>
             <div className="flex justify-center w-full p-6">
-              <IconLinkGroup orientation="horizontal" linkData={musicLinkData} />
+              <IconLinkGroup
+                orientation="horizontal"
+                linkData={musicLinkData}
+              />
             </div>
           </DialogPanel>
         </div>

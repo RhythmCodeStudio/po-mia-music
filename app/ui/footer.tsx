@@ -7,8 +7,11 @@ import IconLinkGroup from "./icon-link-group";
 // import link data
 import { contactLinkData } from "../../lib/contact-link-data";
 import { musicLinkData } from "@/lib/music-link-data";
+// import context
+import { usePushNotification } from "../../context/push-notification-context-provider";
 
 export default function Footer() {
+    const { isSubscribed, refreshSubscription } = usePushNotification();
   // const pathname = usePathname();
   return (
     // Don't render footer on the home page
@@ -21,9 +24,11 @@ export default function Footer() {
       <div className="p-2">
         <IconLinkGroup orientation="horizontal" linkData={contactLinkData}/>
       </div>
+      {isSubscribed === false && (
       <div className="p-2">
         <PushNotificationSubscriptionManager renderedAs="button" />
       </div>
+      )}
       <div className="text-sm text-white p-2 text-center">
         <p className="">©2025</p>
         <p className="">

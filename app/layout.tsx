@@ -8,6 +8,8 @@ import Header from "./ui/header";
 import Footer from "./ui/footer";
 // import styles
 import "./globals.css";
+// import context providers
+import { PushNotificationContextProvider } from "../context/push-notification-context-provider";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -33,12 +35,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`flex flex-col min-h-screen antialiased`}>
+        <PushNotificationContextProvider>
         <Header />
         <main className="flex-1">
           {children}
         </main>
         <Footer />
         <Analytics />
+        </PushNotificationContextProvider>
       </body>
     </html>
   );

@@ -3,7 +3,9 @@ import { useState, useEffect } from "react";
 // import from react-icons
 import { IoIosNotifications, IoIosNotificationsOff } from "react-icons/io";
 // import from headlessui
-import { Description, Dialog, DialogPanel, DialogTitle } from '@headlessui/react'
+// import { Description, Dialog, DialogPanel, DialogTitle } from '@headlessui/react'
+// import from context
+import { usePushNotification } from "../../context/push-notification-context-provider";
 
 async function subscribeUser(sub: any) {
   await fetch("/api/subscribe", {
@@ -38,6 +40,7 @@ interface PushNotificationSubscriptionManagerProps {
 }
 // Manage the browser's push subscription
 export default function PushNotificationSubscriptionManager({ renderedAs }: PushNotificationSubscriptionManagerProps) {
+  const { setIsSubscribed } = usePushNotification();
   const [isSupported, setIsSupported] = useState(false);
   const [subscription, setSubscription] = useState<PushSubscription | null>(null);
   // const [message, setMessage] = useState("");
@@ -69,6 +72,7 @@ export default function PushNotificationSubscriptionManager({ renderedAs }: Push
       ),
     });
     setSubscription(sub);
+    setIsSubscribed(true);
     const serializedSub = JSON.parse(JSON.stringify(sub));
     console.log("Subscribing to push notifications:", serializedSub);
     await subscribeUser(serializedSub);
@@ -80,6 +84,7 @@ export default function PushNotificationSubscriptionManager({ renderedAs }: Push
       await subscription.unsubscribe();
     }
     setSubscription(null);
+    setIsSubscribed(false);
     if (subscription) {
       const serializedSub = JSON.parse(JSON.stringify(subscription));
       await unsubscribeUser(serializedSub);
@@ -118,7 +123,7 @@ export default function PushNotificationSubscriptionManager({ renderedAs }: Push
         )
       ) : (
         subscription ? (
-          <button onClick={unsubscribeFromPush} className="cursor-pointer border-2 p-2 rounded-full px-4">
+          <button onClick={unsubscribeFromPush} className="cursor-pointer border-2 p-1 rounded-full px-4 text-sm">
             Unsubscribe from Push Notifications
           </button>
         ) : (

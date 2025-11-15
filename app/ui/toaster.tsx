@@ -1,13 +1,18 @@
 "use client";
+// import from react
 import { useEffect, useRef } from "react";
-import { ToastContainer, toast, Bounce, Slide } from "react-toastify";
+// import from react-toastify
+import { ToastContainer, toast, Slide } from "react-toastify";
+//  import components
 import PushNotificationSubscriptionManager from "./push-notification-subscription-manager";
+// import context
+import { usePushNotification } from "../../context/push-notification-context-provider";
 
 // Dummy function: replace with your real check
-async function isUserSubscribed(): Promise<boolean> {
-  // Implement your real logic here!
-  return false;
-}
+// async function isUserSubscribed(): Promise<boolean> {
+//   // Implement your real logic here!
+//   return false;
+// }
 
 const toastMessage = () => {
   toast(
@@ -41,21 +46,21 @@ const toastMessage = () => {
 };
 
 export default function Toaster() {
+  const { isSubscribed } = usePushNotification();
   const shownRef = useRef(false);
 
   useEffect(() => {
-    const handler = async () => {
+    if (isSubscribed !== false) return; 
+    const handler = () => {
       if (shownRef.current) return;
       shownRef.current = true;
-      if (!(await isUserSubscribed())) {
-        setTimeout(() => {
-          toastMessage();
-        }, 1500); // 1.5s delay after first interaction
-      }
+      setTimeout(() => {
+        toastMessage();
+      }, 1500);
     };
     window.addEventListener("pointerdown", handler, { once: true });
     return () => window.removeEventListener("pointerdown", handler);
-  }, []);
+  }, [isSubscribed]);
 
   return (
     <ToastContainer
