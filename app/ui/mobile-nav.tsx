@@ -14,9 +14,12 @@ import { FiXCircle } from "react-icons/fi";
 import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 // import components
 import NavListItem from "./nav-list-item";
-import ContactIconLinks from "./contact-icon-links";
+import IconLinkGroup from "./icon-link-group";
 // import Heading from "./heading";
 import PushNotificationSubscriptionManager from "./push-notification-subscription-manager";
+// import contact link data
+import { contactLinkData } from "@/lib/contact-link-data";
+import { musicLinkData } from "@/lib/music-link-data";
 
 interface MobileMenuProps {
   navListItems: {
@@ -43,7 +46,7 @@ export default function MobileNav({ navListItems }: MobileMenuProps) {
       {/* Menu Button */}
       <button
         onClick={toggleMenu}
-         className={``}
+        className={``}
         value={isMenuOpen ? "Close menu" : "Open menu"}
         aria-label={isMenuOpen ? "Close menu" : "Open menu"}>
         <FiMenu size={28} />
@@ -61,7 +64,7 @@ export default function MobileNav({ navListItems }: MobileMenuProps) {
         {/* Dialog Content */}
         <div className="fixed inset-0 flex flex-col items-center justify-center">
           <DialogPanel
-            className="h-[100vh] w-[100vw] relative border-2 border-black bg-neutral-800 flex flex-col justify-center p-4"
+            className="h-[100vh] w-[100vw] relative border-2 border-black bg-black flex flex-col justify-center p-4"
             style={{
               // backgroundImage: `url(${themeObj.avif}), url(${themeObj.webp})`,
               backgroundSize: "cover",
@@ -80,9 +83,10 @@ export default function MobileNav({ navListItems }: MobileMenuProps) {
               className={`sr-only flex items-center justify-center text-center font-blenny text-xl`}>
               Po Mia
             </DialogTitle>
-
             <Link href="/">
-              <div className="flex justify-center mb-12 mx-auto w-1/2" onClick={toggleMenu}>
+                <div
+                className="flex justify-center items-center mx-auto w-1/2 h-full"
+                onClick={toggleMenu}>
                 <Image
                   src="/logos/pomia-horizontal-logo-colorful.png"
                   width={1400}
@@ -91,10 +95,10 @@ export default function MobileNav({ navListItems }: MobileMenuProps) {
                   priority
                   // className={`${logoInvert}`}
                 />
-              </div>
+                </div>
             </Link>
             {/* Navigation */}
-            <nav>
+            <nav className="mt-6">
               <ul
                 className={`flex flex-col gap-12 font-semibold items-center text-lg`}>
                 {navListItems.map((item) => (
@@ -108,12 +112,15 @@ export default function MobileNav({ navListItems }: MobileMenuProps) {
                 ))}
               </ul>
             </nav>
-            <div className="flex justify-center mt-12">
+            <div className="flex justify-center items-center w-full p-6">
               <PushNotificationSubscriptionManager renderedAs="button" />
             </div>
-            
-            <div className="flex justify-center w-full mt-12">
-              <ContactIconLinks orientation="horizontal" />
+
+            <div className="flex justify-center w-full p-6">
+              <IconLinkGroup orientation="horizontal" linkData={contactLinkData} />
+            </div>
+            <div className="flex justify-center w-full p-6">
+              <IconLinkGroup orientation="horizontal" linkData={musicLinkData} />
             </div>
           </DialogPanel>
         </div>

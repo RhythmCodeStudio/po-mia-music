@@ -3,42 +3,31 @@ import { IoLogoFacebook } from "react-icons/io";
 import { IoLogoTiktok } from "react-icons/io5";
 import { HiEnvelope } from "react-icons/hi2";
 // import { IoMdPhonePortrait } from "react-icons/io";
-import { SiApplemusic } from "react-icons/si";
-import { SiSpotify } from "react-icons/si";
-import { SiYoutube } from "react-icons/si";
-import { SiYoutubemusic } from "react-icons/si";
-import { SiAmazonmusic } from "react-icons/si";
-import { SiBandcamp } from "react-icons/si";
-import { SiTidal } from "react-icons/si";
-import { FaDeezer } from "react-icons/fa6";
 
-import { SiVenmo } from "react-icons/si";
-import { SiCashapp } from "react-icons/si";
-import { BiLogoVenmo } from "react-icons/bi";
 
-export const contactIconLinkData = [
+export const contactLinkData = [
   {
+    name: "Instagram",
     href: "https://www.instagram.com/po._.mia/",
     icon: IoLogoInstagram,
-    name: "Instagram",
     label: "Follow po mia on Instagram"
   },
   {
+    name: "Facebook",
     href: "https://www.facebook.com/pomiamusic/",
     icon: IoLogoFacebook,
-    name: "Facebook",
     label: "Follow po mia on Facebook"
   },
   {
+    name: "TikTok",
     href: "https://www.tiktok.com/@po._.mia",
     icon: IoLogoTiktok,
-    name: "TikTok",
     label: "Follow po mia on TikTok"
   },
   {
+    name: "Email",
     href: "mailto:pomiamusic@gmail.com",
     icon: HiEnvelope,
-    name: "Email",
     label: "Email pomiamusic@gmail.com"
   },
   // {
