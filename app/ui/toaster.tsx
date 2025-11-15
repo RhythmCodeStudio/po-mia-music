@@ -48,18 +48,39 @@ const toastMessage = () => {
 export default function Toaster() {
   const { isSubscribed } = usePushNotification();
   const shownRef = useRef(false);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     if (isSubscribed !== false) return; 
+
+    // const handler = () => {
+    //   if (shownRef.current) return;
+    //   shownRef.current = true;
+    //   setTimeout(() => {
+    //     toastMessage();
+    //   }, 1500);
+    // };
     const handler = () => {
       if (shownRef.current) return;
       shownRef.current = true;
-      setTimeout(() => {
-        toastMessage();
+      timeoutRef.current = setTimeout(() => {
+        // Double-check before showing toast
+        if (isSubscribed === false) {
+          toastMessage();
+        }
       }, 1500);
     };
+
     window.addEventListener("pointerdown", handler, { once: true });
     return () => window.removeEventListener("pointerdown", handler);
+  }, [isSubscribed]);
+
+  // If user subscribes before toast shows, clear the pending timeout
+  useEffect(() => {
+    if (isSubscribed && timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
   }, [isSubscribed]);
 
   return (
