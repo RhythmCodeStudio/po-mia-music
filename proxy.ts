@@ -11,7 +11,19 @@ export function proxy(request: NextRequest) {
     font-src 'self' https://fonts.gstatic.com;
     style-src 'self' 'unsafe-inline';
     script-src 'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com;
-    connect-src 'self' https://api.emailjs.com/ https://vercel.live https://vercel.com;
+    connect-src 'self'
+    https://api.emailjs.com/
+    https://vercel.live
+    https://vercel.com
+    https://api.stack-auth.com
+    https://api.stack-auth.com/
+    https://api.stack-auth.com/api/v1/projects/current
+    https://api.stack-auth.com/health
+    https://app.stack-auth.com
+    https://app.stack-auth.com/
+    https://va.vercel-scripts.com
+    https://va.vercel-scripts.com/v1/script.debug.js
+    https://1.1.1.1;
     img-src 'self' data: blob:;
     frame-src 'none';
   `;

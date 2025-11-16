@@ -1,3 +1,5 @@
+// import { StackProvider, StackTheme } from "@stackframe/stack";
+import { stackClientApp } from "../stack/client";
 // import from vercel
 import { Analytics } from "@vercel/analytics/next";
 // import from next
@@ -10,6 +12,7 @@ import Footer from "./ui/footer";
 import "./globals.css";
 // import context providers
 import { PushNotificationContextProvider } from "../context/push-notification-context-provider";
+import { StackProvider, StackTheme } from "@stackframe/stack";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -34,7 +37,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`flex flex-col min-h-screen antialiased`}>
+      <body className={`flex flex-col min-h-screen antialiased`}><StackProvider app={stackClientApp}><StackTheme>
         <PushNotificationContextProvider>
         <Header />
         <main className="flex-1">
@@ -43,7 +46,7 @@ export default function RootLayout({
         <Footer />
         <Analytics />
         </PushNotificationContextProvider>
-      </body>
+      </StackTheme></StackProvider></body>
     </html>
   );
 }

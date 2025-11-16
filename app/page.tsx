@@ -10,8 +10,7 @@ export default function Home() {
     <div className="text-center">
       {/* <Background /> */}
       {/* <PushNotificationSubscriptionManager /> */}
-      <h1 className="text-2xl">Hi Po!</h1>
-      <p>Not much to look at yet, but this is your new website in the making!</p>
+      <h1 className="text-4xl font-bold">po mia</h1>
       <Toaster />
     </div>
   );

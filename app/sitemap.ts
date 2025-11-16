@@ -24,6 +24,8 @@ function getLastModified(filePath: string): Date {
   return stats.mtime;
 }
 
+const EXCLUDED_PATHS = ["/handler/", "/admin/"];
+
 // Function to generate URLs from filenames
 function generateUrls(directory: string, baseUrl: string = ""): Url[] {
   const files = fs.readdirSync(directory);
@@ -47,7 +49,7 @@ function generateUrls(directory: string, baseUrl: string = ""): Url[] {
         priority: 1.0,
       }; // Default values
       urls.push({
-        url: `https://www.kevinlong.dev${urlPath}`,
+        url: `https://www.pomiamusic.com${urlPath}`,
         lastModified: getLastModified(filePath),
         changeFrequency: config.changeFrequency,
         priority: config.priority,
@@ -61,7 +63,15 @@ function generateUrls(directory: string, baseUrl: string = ""): Url[] {
 export default function sitemap(): Url[] {
   const appDirectory = path.join(process.cwd(), "app");
   // Generate URLs from the app directory
-  const urls = generateUrls(appDirectory);
+  let urls = generateUrls(appDirectory);
+
+  // Exclude URLs that start with /handler/ or /admin/
+  urls = urls.filter(
+    (item) =>
+      !EXCLUDED_PATHS.some((excluded) =>
+        item.url.replace("https://www.pomiamusic.com", "").startsWith(excluded)
+      )
+  );
 
   return urls;
 }
