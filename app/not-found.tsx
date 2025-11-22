@@ -10,7 +10,7 @@ export default async function NotFound() {
     <div className="p-8 text-center flex flex-col items-center justify-center">
       <h1 className="text-2xl font-bold">Page Not Found</h1>
       <p className="m-4">The page you are looking for does not exist.</p>
-      <Link href="/">
+      {/* <Link href="/">
         <div className="flex flex-col justify-center items-center">
           <Image
             className="w-2/5 h-auto max-w-180"
@@ -21,9 +21,7 @@ export default async function NotFound() {
             priority
           />
         </div>
-      </Link>
-      <h2 className="font-blenny text-2xl mt-4">Rhythm Code Studio</h2>
-      <h3 className="text-lg">Custom web solutions to match your beat</h3>
+      </Link> */}
     </div>
   );
 }
