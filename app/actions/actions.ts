@@ -29,7 +29,7 @@ export async function sendNotification(message: string, url?: string) {
   // const subscriptions = getSubscriptions();
   const subscriptions = await getSubscriptionsFromDB();
   if (subscriptions.length === 0) {
-    throw new Error("No subscriptions available");
+    return { success: false, error: "No subscriptions available" };
   }
 
   try {
@@ -53,6 +53,7 @@ export async function sendNotification(message: string, url?: string) {
         );
       })
     );
+    return { success: true };
   } catch (error) {
     console.error("Error sending push notification:", error);
     return { success: false, error: "Failed to send notification" };

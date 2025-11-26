@@ -12,10 +12,10 @@ export default function AdminPage() {
       </div> */}
       <div>
         {/* <h1>Sign In</h1> */}
-        <SignIn
+        {/* <SignIn
           fullPage={true}
-       
-        />
+        /> */}
+        <AdminNotificationPanel />
       </div>
     </div>
   );
