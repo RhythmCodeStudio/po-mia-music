@@ -35,7 +35,7 @@ export default function UploadButtonContainer({
     <div>
       <UploadButton
         endpoint={file_route}
-        onClientUploadComplete={(res) => {
+        onClientUploadComplete={(res: unknown) => {
           console.log("Files: ", res);
           alert("Upload Completed");
         }}
