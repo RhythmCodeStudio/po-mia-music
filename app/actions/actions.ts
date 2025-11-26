@@ -1,15 +1,16 @@
 "use server";
- 
-import webpush from 'web-push'
-import type { PushSubscription } from 'web-push'
-import { getSubscriptions, saveSubscription, removeSubscription } from "@/lib/push-notification-subscriptions";
- 
+
+import webpush from "web-push";
+import type { PushSubscription } from "web-push";
+// import { getSubscriptions, saveSubscription, removeSubscription } from "@/lib/push-notification-subscriptions";
+import { getSubscriptionsFromDB } from "@/lib/notification-subscriptions-db";
+
 webpush.setVapidDetails(
-  'mailto:pomiamusic@gmail.com',
+  "mailto:pomiamusic@gmail.com",
   process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY!,
   process.env.VAPID_PRIVATE_KEY!
-)
- 
+);
+
 // let subscription: PushSubscription | null = null
 // let subscriptions: PushSubscription[] = [];
 
@@ -25,14 +26,20 @@ webpush.setVapidDetails(
 // }
 
 export async function sendNotification(message: string, url?: string) {
-  const subscriptions = getSubscriptions();
-if (subscriptions.length === 0) {
-  throw new Error("No subscriptions available");
-}
+  // const subscriptions = getSubscriptions();
+  const subscriptions = await getSubscriptionsFromDB();
+  if (subscriptions.length === 0) {
+    throw new Error("No subscriptions available");
+  }
 
   try {
     await Promise.all(
-      subscriptions.map((subscription: PushSubscription) => {
+      subscriptions.map((row) => {
+        // Convert Row to PushSubscription
+        const subscription: PushSubscription = {
+          endpoint: row.endpoint,
+          keys: JSON.parse(row.keys),
+        };
         return webpush.sendNotification(
           subscription,
           JSON.stringify({
@@ -40,13 +47,12 @@ if (subscriptions.length === 0) {
             body: message,
             icon: "/icons/web-app-manifest-192x192.png",
             data: {
-              url: url || "https://indie-stream.vercel.app/",
+              url: url || "https://pomiamusic.com/",
             },
           })
         );
       })
     );
-    return { success: true };
   } catch (error) {
     console.error("Error sending push notification:", error);
     return { success: false, error: "Failed to send notification" };

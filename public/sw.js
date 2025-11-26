@@ -6,6 +6,7 @@ const ASSETS_TO_CACHE = [
   "/icons/web-app-manifest-192x192.png",
   "/icons/web-app-manifest-512x512.png",
   "/icons/96x96.png",
+  "/icons/favicon.ico",
   "/sw.js",
   // add other assets from 'public' when finalized
 ]
@@ -62,7 +63,7 @@ self.addEventListener('push', function (event) {
     const options = {
       body: data.body,
       icon: data.icon || '/icons/96x96.png',
-      badge: '/icons/96x96.png',
+      badge: '/icons/notification-badge.png',
       vibrate: [100, 50, 100],
       data: {
         dateOfArrival: Date.now(),
