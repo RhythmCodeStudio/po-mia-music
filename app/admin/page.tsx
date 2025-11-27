@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 // import data
 import { getSubscriptionsFromDB } from "@/lib/notification-subscriptions-db";
 // import from neon auth
