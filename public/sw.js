@@ -1,4 +1,4 @@
-const CACHE_NAME = 'indie-stream-cache-v1';
+const CACHE_NAME = 'po-mia-cache-v1';
 const ASSETS_TO_CACHE = [
   // "/",
   // "/manifest.webmanifest",
@@ -68,7 +68,7 @@ self.addEventListener('push', function (event) {
       data: {
         dateOfArrival: Date.now(),
         primaryKey: '2',
-        url: data.data?.url || "https://indie-stream.vercel.app/",
+        url: data.data?.url || "https://pomiamusic.com/",
       },
       actions: [
         {

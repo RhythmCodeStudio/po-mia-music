@@ -18,7 +18,11 @@ export default function AdminNotificationPanel( {numberOfSubscriptions}: {number
   return (
     <div className="p-2">
       <h2>Welcome back Po.</h2>
-      <p>There are currently {numberOfSubscriptions ?? "Loading..."} people subscribed to notifications.</p>
+      <p>
+        {numberOfSubscriptions === 1
+              ? `There is currently ${numberOfSubscriptions} person subscribed to notifications.`
+          : `There are currently ${numberOfSubscriptions ?? "Loading..."} people subscribed to notifications.`}
+      </p>
       <br />
       <p>Send a new notification:</p>
       <input
