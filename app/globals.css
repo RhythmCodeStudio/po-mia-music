@@ -37,3 +37,13 @@ body {
     opacity: 0.5;
   }
 }
+
+.text-shadow-black {
+  text-shadow: 1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white,
+    -1px 1px 0 white, 0px 1px 0 white, 0px -1px 0 white, -1px 0px 0 white,
+    1px 0px 0 white;
+  /* background-color: rgba(0, 0, 0, 1); */
+  /* background-clip: text; */
+  /* -webkit-background-clip: text; */
+  /* -moz-background-clip: text; */
+}
