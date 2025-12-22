@@ -8,6 +8,7 @@ import type { Metadata } from "next";
 // import components
 import Header from "./ui/header";
 import Footer from "./ui/footer";
+// import StarrySky from "./ui/starry-sky";
 // import styles
 import "./globals.css";
 // import context providers
@@ -37,16 +38,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`flex flex-col min-h-screen antialiased`}><StackProvider app={stackClientApp}><StackTheme>
-        <PushNotificationContextProvider>
-        <Header />
-        <main className="flex-1">
-          {children}
-        </main>
-        <Footer />
-        <Analytics />
-        </PushNotificationContextProvider>
-      </StackTheme></StackProvider></body>
+      <body className={`flex flex-col min-h-screen antialiased`}>
+        <StackProvider app={stackClientApp}>
+          <StackTheme>
+            <PushNotificationContextProvider>
+              <Header />
+              <main className="flex-1 ">
+                {/* <StarrySky /> */}
+                {children}</main>
+              <Footer />
+              <Analytics />
+            </PushNotificationContextProvider>
+          </StackTheme>
+        </StackProvider>
+      </body>
     </html>
   );
 }
+
+
+// bg-gradient-to-br from-red-400 via-orange-400 via-yellow-400 via-green-500 via-blue-500 via-indigo-400 to-violet-400 dark:from-red-700 dark:via-green-700 dark:via-blue-700 dark:to-violet-700 dark:bg-gradient-to-br

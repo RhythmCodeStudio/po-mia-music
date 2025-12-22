@@ -32,7 +32,7 @@ const toastMessage = () => {
       progress: undefined,
       transition: Slide, // smoother transition
       style: {
-        borderRadius: "1rem",
+        borderRadius: "0, 1rem, 1rem, 0",
         background: "rgba(30,30,30,0.95)",
         color: "#fff",
         boxShadow: "0 4px 24px rgba(0,0,0,0.18)",

@@ -49,10 +49,10 @@ export default function InstallPrompt() {
   }
 
   return (
-    <div className="m-6 p-4 border border-gray-300 rounded-md bg-white bg-opacity-80 text-center max-w-sm mx-auto text-black relative">
+    <div className="m-6 p-4 border border-gray-300 rounded-md bg-white bg-opacity-80 text-center max-w-sm mx-auto text-black relative shadow-xl bg-gradient-to-br from-red-400 via-orange-400 via-[40%]_yellow-400 via-green-500 via-[70%]_blue-500 via-indigo-400 to-violet-400 dark:from-red-700 dark:via-green-700 dark:via-[70%]_blue-700 dark:to-violet-700 dark:bg-gradient-to-br">
       <button
         onClick={handleDismiss}
-        className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-lg font-bold px-2"
+        className="absolute top-2 right-2 hover:text-gray-700 text-2xl font-bold px-2 cursor-pointer"
         aria-label="Dismiss install prompt"
         type="button"
       >
@@ -65,7 +65,7 @@ export default function InstallPrompt() {
       {deferredPrompt && (
         <button
           onClick={handleInstallClick}
-          className="bg-gradient-to-r from-pink-500 via-yellow-400 to-blue-500 px-4 py-2 rounded-md border border-gray-300 text-sm font-medium shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer text-shadow-black w-full max-w-xs hover:scale-105 transform transition-transform duration-600 active:scale-95">
+          className="bg-gradient-to-br from-red-400 via-orange-400 via-[40%]_yellow-400 via-green-500 via-[70%]_blue-500 via-indigo-400 to-violet-400 dark:from-red-700 dark:via-green-700 dark:via-[70%]_blue-700 dark:to-violet-700 dark:bg-gradient-to-br px-4 py-2 rounded-md border border-gray-300 text-sm font-medium shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer text-shadow-black w-full max-w-xs hover:scale-105 transform transition-transform duration-600 active:scale-95">
           Install App
         </button>
       )}
