@@ -1,8 +1,4 @@
-// import from next
 import Image from "next/image";
-// import Link from "next/link";
-// import components
-// import Background from "./ui/background";
 import Toaster from "./ui/toaster";
 import InstallPrompt from "./ui/install-prompt";
 
@@ -12,17 +8,17 @@ export default function Home() {
       <div className="fixed top-20 left-0 w-full z-50">
         <InstallPrompt />
       </div>
-      <div className="flex flex-col flex-grow w-full max-w-4xl mx-auto px-6">
+      <div className="flex flex-col items-center w-full max-w-4xl mx-auto px-6 lg:px-0">
         <h1 className="hidden">po mia</h1>
-        <div className="">
-          <Image
-            src="/images/po-hearts.webp"
-            alt="Po Mia Music Logo"
-            width={2664}
-            height={1902}
-            priority
-          />
-        </div>
+        <Image
+          fetchPriority="high"
+          src="/images/po-hearts.webp"
+          alt="po surrounded by hearts"
+          width={2664}
+          height={1902}
+          priority
+          className="rounded-4xl shadow-white shadow-lg"
+        />
         <Toaster />
       </div>
     </>

@@ -43,7 +43,7 @@ export default function RootLayout({
           <StackTheme>
             <PushNotificationContextProvider>
               <Header />
-              <main className="flex-1 ">
+              <main className="flex-1 flex flex-col justify-center items-center conic-gradient w-full overflow-x-hidden relative">
                 {/* <StarrySky /> */}
                 {children}</main>
               <Footer />
