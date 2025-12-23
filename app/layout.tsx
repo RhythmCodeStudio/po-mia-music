@@ -9,6 +9,7 @@ import type { Metadata } from "next";
 import Header from "./ui/header";
 import Footer from "./ui/footer";
 import StarrySky from "./ui/starry-sky";
+import ScrollToTopButton from "./ui/scroll-to-top-button";
 // import styles
 import "./globals.css";
 // import context providers
@@ -45,7 +46,9 @@ export default function RootLayout({
               <Header />
               <main className="flex-1 flex flex-col justify-center items-center rainbow-gradient w-full overflow-x-hidden relative">
                 <StarrySky />
-                {children}</main>
+                {children}
+                <ScrollToTopButton />
+              </main>
               <Footer />
               <Analytics />
             </PushNotificationContextProvider>
