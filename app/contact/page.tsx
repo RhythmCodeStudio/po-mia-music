@@ -1,8 +1,11 @@
+// import components
+import ContactFormContainer from "../ui/contact-form-container";
+
 export default function Contact() {
   return (
-    <div>
-      <h1>Contact Page</h1>
-      <p>This is the contact page of the application.</p>
+    <div className="flex flex-col items-center justify-center w-full max-w-6xl">
+      <h1>Contact Po</h1>
+      <ContactFormContainer />
     </div>
   );
 }
