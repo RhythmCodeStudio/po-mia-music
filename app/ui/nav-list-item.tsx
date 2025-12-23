@@ -30,7 +30,7 @@ export default function NavListItem({
       <Link
         href={href}
         className={clsx(
-          "font-bold",
+          "font-bold ",
           isActive ? "text-blue-600 underline pointer-events-none opacity-50" : "black"
         )}
         tabIndex={isActive ? -1 : 0}

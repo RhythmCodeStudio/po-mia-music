@@ -39,6 +39,14 @@ body {
   }
 }
 
+.text-shadow-black-background-black {
+  text-shadow: 2px 2px 0 black;
+  background-color: rgba(0, 0, 0, 1);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+}
+
 .text-shadow-black {
   text-shadow: 1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white,
     -1px 1px 0 white, 0px 1px 0 white, 0px -1px 0 white, -1px 0px 0 white,
@@ -61,10 +69,10 @@ body {
     #8b00ff,
     #ff0000
   );
-  /* -webkit-background-clip: text;
+  -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: sparkle 3s linear infinite; */
+  animation: sparkle 3s linear infinite;
 }
 
 .rainbow-gradient {
@@ -79,7 +87,30 @@ body {
     #8b00ff,
     #ff0000
   );
+   /* -webkit-background-clip: text; */
+   /* background-clip: text; */
+   /* -webkit-text-fill-color: transparent; */
+   /* animation: sparkle 3s linear infinite; */
 }
+
+.rainbow-gradient-text {
+  background: linear-gradient(
+    135deg,
+    #ff0000,
+    #ff7f00,
+    #ffff00,
+    #00ff00,
+    #0000ff,
+    #4b0082,
+    #8b00ff,
+    #ff0000
+  );
+   -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* animation: sparkle 3s linear infinite; */
+}
+
 
 /* .rainbow-gradient::after {
   content: "";
