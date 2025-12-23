@@ -17,7 +17,7 @@ export default function Home() {
           width={2664}
           height={1902}
           priority
-          className="rounded-4xl shadow-white shadow-lg"
+          className="rounded-4xl shadow-white shadow-lg z-50 border border-black"
         />
         <Toaster />
       </div>

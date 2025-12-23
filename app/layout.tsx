@@ -8,7 +8,7 @@ import type { Metadata } from "next";
 // import components
 import Header from "./ui/header";
 import Footer from "./ui/footer";
-// import StarrySky from "./ui/starry-sky";
+import StarrySky from "./ui/starry-sky";
 // import styles
 import "./globals.css";
 // import context providers
@@ -43,8 +43,8 @@ export default function RootLayout({
           <StackTheme>
             <PushNotificationContextProvider>
               <Header />
-              <main className="flex-1 flex flex-col justify-center items-center conic-gradient w-full overflow-x-hidden relative">
-                {/* <StarrySky /> */}
+              <main className="flex-1 flex flex-col justify-center items-center rainbow-gradient w-full overflow-x-hidden relative">
+                <StarrySky />
                 {children}</main>
               <Footer />
               <Analytics />
