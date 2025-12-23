@@ -16,7 +16,7 @@ import { usePushNotification } from "../../context/push-notification-context-pro
 
 const toastMessage = () => {
   toast(
-    <div className="flex flex-col items-center text-shadow-black-background-black">
+    <div className="flex flex-col items-center text-center text-shadow-black-background-black rounded-[1rem]">
       Subscribe to notifications to stay up to date with the latest from po mia!
       <div className="flex justify-center mx-auto">
         🎵✨🎵✨
@@ -35,12 +35,12 @@ const toastMessage = () => {
       progress: undefined,
       transition: Slide, // smoother transition
       style: {
-        borderRadius: "0, 1rem, 1rem, 0",
+        borderRadius: "1rem 1rem 1rem 1rem",
         background:
           "linear-gradient(135deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff, #ff0000)",
         color: "#fff",
         boxShadow: "0 4px 24px rgba(0,0,0,0.18)",
-        fontSize: "1.05rem",
+        fontSize: "1rem",
         minWidth: "260px",
         maxWidth: "90vw",
         padding: "1rem",
