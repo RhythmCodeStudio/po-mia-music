@@ -13,11 +13,10 @@ export default function ContactFormContainer() {
     <div className="flex flex-col items-stretch sm:text-lg xl:text-xl 2xl:text-2xl w-full max-w-xs sm:max-w-sm md:max-w-lg lg:max-w-2xl">
       {formSubmitted ? (
         <div className="items-center justify-center ">
-          <h2 className="text-4xl text-center">
-            Thank you!
-          </h2>
+          <h2 className="text-4xl text-center">Thank you!</h2>
           <p className="m-8 text-center text-balance">
-            I will be in touch soon. In the meantime, you can follow my work on GitHub and LinkedIn. I look forward to connecting with you.
+            I will be in touch soon. In the meantime, you can follow my work on
+            GitHub and LinkedIn. I look forward to connecting with you.
           </p>
           <div className="flex items-center justify-center">
             {/* <ContactIconLinks 
@@ -34,7 +33,6 @@ export default function ContactFormContainer() {
           <div className="mt-6 lg:mt-12 items-center justify-center">
             <ContactForm setFormSubmitted={setFormSubmitted} />
           </div>
-          
         </>
       )}
     </div>
