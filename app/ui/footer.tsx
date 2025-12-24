@@ -20,7 +20,6 @@ export default function Footer() {
        <div className="p-2">
         <IconLinkGroup orientation="horizontal" linkData={musicLinkData}/>
       </div>
-
       <div className="p-2">
         <IconLinkGroup orientation="horizontal" linkData={contactLinkData}/>
       </div>

@@ -5,25 +5,30 @@ export const navListItemData = [
     htmlElement: "internalLink",
   },
   {
-    label: "Contact",
-    href: "/contact",
-    htmlElement: "internalLink",
-  },
-  {
-    label: "Media",
-    href: "/media",
-    htmlElement: "internalLink",
-  },
-  {
     label: "Music",
     href: "/music",
     htmlElement: "internalLink",
   },
   {
-    label: "Shows",
-    href: "/shows",
+    label: "Photos",
+    href: "/photos",
     htmlElement: "internalLink",
-  }
+  },
+  {
+    label: "Videos",
+    href: "/videos",
+    htmlElement: "internalLink",
+  },
+  {
+    label: "Calendar",
+    href: "/calendar",
+    htmlElement: "internalLink",
+  },
+   {
+    label: "Contact",
+    href: "/contact",
+    htmlElement: "internalLink",
+  },
 ];
 
 // export const navSubMenuItemData = [
