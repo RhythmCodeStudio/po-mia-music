@@ -15,8 +15,7 @@ export default function ContactFormContainer() {
         <div className="items-center justify-center ">
           <h2 className="text-4xl text-center">Thank you!</h2>
           <p className="m-8 text-center text-balance">
-            I will be in touch soon. In the meantime, you can follow my work on
-            GitHub and LinkedIn. I look forward to connecting with you.
+            Thank you!
           </p>
           <div className="flex items-center justify-center">
             {/* <ContactIconLinks 
@@ -27,9 +26,9 @@ export default function ContactFormContainer() {
         </div>
       ) : (
         <>
-          <h2 className="text-2xl lg:text-4xl font-bold text-center mt-12 lg:mt-16">
-            How can I help?
-          </h2>
+          {/* <h2 className="text-2xl lg:text-4xl font-bold text-center mt-12 lg:mt-16">
+            Contact
+          </h2> */}
           <div className="mt-6 lg:mt-12 items-center justify-center">
             <ContactForm setFormSubmitted={setFormSubmitted} />
           </div>
