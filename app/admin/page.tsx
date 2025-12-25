@@ -7,7 +7,7 @@ import { getSubscriptionsFromDB } from "@/lib/notification-subscriptions-db";
 import { SignIn } from "@stackframe/stack";
 // import { AccountSettings } from "@stackframe/stack";
 // import components
-import MailingList from "../ui/admin/mailing-list";
+import AdminContainer from "@/app/ui/admin/admin-container";
 import AdminNotificationPanel from "@/app/ui/admin/admin-notification-panel";
 export default async function AdminPage() {
   const app = stackServerApp;
@@ -26,7 +26,8 @@ export default async function AdminPage() {
         <div className="mt-10 flex flex-col justify-center items-center gap-6 text-shadow-black-background-black">
           <h2 className="text-center text-4xl font-bold">Welcome back Po</h2>
           <div className="mb-4 bg-black/50 mt-6 p-6 rounded-4xl shadow-lg shadow-black/20 max-w-2xl mx-6 lg:mx-auto border-2 border-[rgba(255,255,255,0.3)]">
-            <MailingList />
+            {/* <MailingList /> */}
+            <AdminContainer />
           </div>
           <div className="mb-4 bg-black/50 mt-6 p-6 rounded-4xl shadow-lg shadow-black/20 max-w-2xl mx-6 lg:mx-auto border-2 border-[rgba(255,255,255,0.3)]">
             <AdminNotificationPanel
