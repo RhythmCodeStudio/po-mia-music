@@ -30,7 +30,7 @@ export default function MailingListSignUpForm() {
     });
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const value = e.target.value;
     setEmail(value);
     setEmailErrorMessage( value && !validateEmail(value) ? "Please enter a valid email address." : "" );
@@ -56,6 +56,34 @@ export default function MailingListSignUpForm() {
   };
 
   return (
-    <div></div>
+    <div>
+      <form onSubmit={handleFormSubmit} className="flex flex-col gap-4">
+        <ContactFormInput
+          inputType="input"
+          label="Email Address"
+          type="email"
+          name="email"
+          value={email}
+          handleChange={handleChange}
+          placeholder="Enter your email address"
+          required={true}
+          autoComplete="email"
+          errorMessage={emailErrorMessage}
+          setStateVariable={setEmail}
+        />
+        {emailErrorMessage && <p className="text-red-500">{emailErrorMessage}</p>}
+        <button
+          type="submit"
+          disabled={!isFormValid || submitted}
+          className={clsx(
+            "px-4 py-2 font-semibold text-white bg-blue-600 rounded hover:bg-blue-700 disabled:opacity-50",
+            { "cursor-not-allowed": !isFormValid || submitted }
+          )}
+        >
+          {submitted ? "Thank you for signing up!" : "Sign Up"}
+        </button>
+      </form>
+      <ToastContainer />
+    </div>
   );
 }
