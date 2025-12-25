@@ -49,23 +49,25 @@ export default function InstallPrompt() {
   }
 
   return (
-    <div className="m-6 p-4 border border-neutral-600 rounded-2xl  bg-opacity-80 text-center max-w-sm mx-auto text-black relative shadow-xl rainbow-gradient text-white text-shadow-black-background-black z-50">
+    <div className="m-6 p-4 border-2 border-[rgba(255,255,255,0.3)] rounded-2xl text-center max-w-sm mx-auto text-black relative shadow-xl bg-black/50 text-white z-50">
       <button
         onClick={handleDismiss}
-        className="absolute top-2 right-2 hover:text-gray-700 text-2xl font-bold px-2 cursor-pointer"
+        className="absolute top-2 right-2 hover:text-gray-700 text-2xl font-bold px-2 cursor-pointer text-shadow-black-background-black"
         aria-label="Dismiss install prompt"
         type="button"
       >
         ×
       </button>
+      <div className="text-shadow-black-background-black">
       <h2 className="text-xl font-semibold mb-2">Install Po Mia Music</h2>
       <p className="mb-4">
         Install on your device for the best experience.
       </p>
+      </div>
       {deferredPrompt && (
         <button
           onClick={handleInstallClick}
-          className="rainbow-gradient px-4 py-2 rounded-md border border-gray-300 text-sm font-medium shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full max-w-xs hover:scale-105 transform transition-transform duration-600 active:scale-95 text-shadow-black-background-black">
+          className="rainbow-gradient px-4 py-2 rounded-md border-2 border-[rgba(255,255,255,0.3)] text-sm font-medium shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full max-w-xs hover:scale-105 transform transition-transform duration-600 active:scale-95 text-shadow-black-background-black">
           Install App
         </button>
       )}

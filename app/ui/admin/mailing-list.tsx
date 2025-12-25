@@ -7,9 +7,9 @@ export default async function MailingList() {
   const numberOfMailingListSubscribers = mailingList.length;
 
   return (
-    <div>
-      <h2>Mailing List Subscribers</h2>
+    <div className="">
       <p>Total Mailing List Subscribers: {numberOfMailingListSubscribers}</p>
+      <p>Mailing List:</p>
       <ul>
         {mailingList.map((subscriber, index) => (
           <li key={index}>{subscriber.email}</li>
