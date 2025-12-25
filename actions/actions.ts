@@ -11,3 +11,10 @@ export async function signUpForMailingList(email: string) {
     ON CONFLICT (email) DO NOTHING
   `;
 }
+
+export async function getMailingList() {
+  const entries = await sql`
+    SELECT * FROM mailing_list
+  `;
+  return entries;
+}

@@ -15,7 +15,7 @@ import { validateEmail } from "../../utils/utils";
 export default function MailingListSignUpForm() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState("");
+  // const [error, setError] = useState("");
   const [emailErrorMessage, setEmailErrorMessage] = useState("");
 
   const isFormValid = validateEmail(email.trim());
@@ -71,7 +71,7 @@ export default function MailingListSignUpForm() {
           errorMessage={emailErrorMessage}
           setStateVariable={setEmail}
         />
-        {emailErrorMessage && <p className="text-red-500">{emailErrorMessage}</p>}
+        {/* {emailErrorMessage && <p className="text-red-500">{emailErrorMessage}</p>} */}
         <button
           type="submit"
           disabled={!isFormValid || submitted}

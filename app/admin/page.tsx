@@ -7,6 +7,7 @@ import { getSubscriptionsFromDB } from "@/lib/notification-subscriptions-db";
 import { SignIn } from "@stackframe/stack";
 // import { AccountSettings } from "@stackframe/stack";
 // import components
+import MailingList from "../ui/admin/mailing-list";
 import AdminNotificationPanel from "@/app/ui/admin/admin-notification-panel";
 export default async function AdminPage() {
   const app = stackServerApp;
@@ -22,7 +23,9 @@ export default async function AdminPage() {
       )}
       
       {user && (
-        <div className="mt-10 flex justify-center">
+        <div className="mt-10 flex flex-col justify-center items-center gap-6">
+          <h2 className="text-center text-4xl font-bold">Welcome back Po.</h2>
+          <MailingList />
           <AdminNotificationPanel numberOfSubscriptions={numberOfSubscriptions} />
         </div>
       )}
