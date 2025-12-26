@@ -21,7 +21,7 @@ export const releases = [
   {
     id: randomUUID(),
     title: "po logue",
-    coverImgSrc: "/images/po-logue-cover-art.webp",
+    coverImgSrc: "/images/release-cover-images/po-logue-cover.webp",
     releaseDate: "February 22, 2022",
     type: "album",
     description: "a vulnerable, expressive, 5-song collection. this debut album covers topics that range from maintaining youthfulness to trouble in paradise, often simultaneously speaking out about more sensitive and stigmatized subjects.",
@@ -73,7 +73,7 @@ export const releases = [
   {
     id: randomUUID(),
     title: "golden tongue",
-    coverImgSrc: "/images/golden-tongue-cover-art.webp",
+    coverImgSrc: "/images/release-cover-images/golden-tongue-cover.webp",
     releaseDate: "November 12, 2022",
     type: "single",
     description: "a remotely satirical, statement piece that explores and implores ideas of self determination, empowerment, as well as encouraging validation to stand up, speak out, and be heard.",
@@ -97,7 +97,7 @@ export const releases = [
   {
     id: randomUUID(),
     title: "REBIRTH",
-    coverImgSrc: "/images/rebirth-cover.webp",
+    coverImgSrc: "/images/release-cover-images/rebirth-cover.webp",
     releaseDate: "June 9, 2023",
     type: "ep",
     description: "this EP contains regenerative themes surrounding moving forward, cherishing loved ones, and learning to find enjoyment in the little things.",
@@ -136,7 +136,7 @@ export const releases = [
     id: randomUUID(),
     title: "hope is plenty",
     type: "single",
-    coverImgSrc: "/images/.webp",
+    coverImgSrc: "/images/release-cover-images/hope-is-plenty-cover.webp",
     releaseDate: "July 31, 2024",
     description: "uplifting single in collaboration with producer e-GoS and rapper A\VOID",
     links: [
