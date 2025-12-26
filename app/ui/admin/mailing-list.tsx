@@ -9,7 +9,7 @@ type MailingListProps = {
   rows: { email: string }[];
 };
 
-export default async function MailingList({
+export default function MailingList({
   rows
 }: MailingListProps) {
   
