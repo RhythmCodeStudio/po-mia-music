@@ -25,7 +25,7 @@ export default function AdminContainer({
         numberOfSubscriptions={numberOfNotificationSubscriptions}
       />
       <Messages /> */}
-      <div className="flex gap-4 mb-6">
+      <div className="flex gap-4 mb-6 flex justify-center">
         <Button
           label="Mailing List"
           onClick={() => setView("mailingList")}
@@ -34,7 +34,7 @@ export default function AdminContainer({
         <Button
           label="Notifications"
           onClick={() => setView("notifications")}
-          ariaLabel="View Notifications"
+          ariaLabel="Send Notifications"
         />
         <Button
           label="Messages"
