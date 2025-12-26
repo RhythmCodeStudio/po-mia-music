@@ -1,9 +1,11 @@
-"use client"
+"use client";
 // import from react
 import { useState } from "react";
 // import components
 import MailingList from "./mailing-list";
 import AdminNotificationPanel from "./admin-notification-panel";
+import Messages from "./messages";
+import Button from "../button";
 
 interface AdminContainerProps {
   mailingListRows: any[];
@@ -14,15 +16,41 @@ export default function AdminContainer({
   mailingListRows,
   numberOfNotificationSubscriptions,
 }: AdminContainerProps) {
-  // const mailingList = await getMailingList();
-  // Transform the result to match { email: string }[]
-  // const rows = mailingList.map((row: any) => ({ email: row.email }));
+  const [view, setView] = useState<"mailingList" | "notifications" | "messages">("notifications");
+
   return (
     <section>
-      <MailingList rows={mailingListRows} />;
+      {/* <MailingList rows={mailingListRows} />;
       <AdminNotificationPanel
         numberOfSubscriptions={numberOfNotificationSubscriptions}
       />
+      <Messages /> */}
+      <div className="flex gap-4 mb-6">
+        <Button
+          label="Mailing List"
+          onClick={() => setView("mailingList")}
+          ariaLabel="View Mailing List"
+        />
+        <Button
+          label="Notifications"
+          onClick={() => setView("notifications")}
+          ariaLabel="View Notifications"
+        />
+        <Button
+          label="Messages"
+          onClick={() => setView("messages")}
+          ariaLabel="View Messages"
+        />
+      </div>
+      <div>
+        {view === "mailingList" && <MailingList rows={mailingListRows} />}
+        {view === "notifications" && (
+          <AdminNotificationPanel
+            numberOfSubscriptions={numberOfNotificationSubscriptions}
+          />
+        )}
+        {view === "messages" && <Messages />}
+      </div>
     </section>
   );
 }
