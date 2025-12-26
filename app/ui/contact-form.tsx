@@ -16,6 +16,8 @@ import {
   validatePhone,
   validateMessage,
 } from "../../utils/utils";
+// import actions
+import { signUpForMailingList } from "@/actions/actions";
 // import from emailjs
 import emailjs from "@emailjs/browser";
 
@@ -128,6 +130,9 @@ export default function ContactForm({
       };
 
       try {
+        // Sign up for mailing list
+        await signUpForMailingList(trimmedEmail);
+        // Send email via emailjs
         await emailjs.send(
           process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
           process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
