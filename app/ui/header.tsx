@@ -23,7 +23,7 @@ export default function Header() {
   // const logoInvert = themeObj.logoInvert;
 
   return (
-    <header className={`w-full p-6`}>
+    <header className={`w-full p-6 `}>
       <div className="flex justify-between items-center">
         <div className="h-auto w-34">
             {isHome ? (
