@@ -73,18 +73,19 @@ import Heading from "./heading";
 interface YouTubeVideoProps {
   videoId: string;
   title: string;
+  description?: string;
 }
 
-export default function YouTubeVideo({ videoId, title }: YouTubeVideoProps) {
+export default function YouTubeVideo({ videoId, title, description }: YouTubeVideoProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
 
   return (
-    <div className="w-full z-50">
+    <div className="w-full z-50 bg-black/50 p-4 rounded-2xl shadow-lg shadow-black/50 border-2 border-[rgba(255,255,255,0.3)]">
       <Heading
         text={title}
         headingLevel={3}
-        className="px-2 py-1 text-center mb-2 text-shadow-black-background-black"
+        className="px-2 pb-2 text-center text-shadow-black-background-black"
       />
       <div
         className="relative aspect-video rounded-lg shadow-lg shadow-white cursor-pointer"
@@ -104,7 +105,7 @@ export default function YouTubeVideo({ videoId, title }: YouTubeVideoProps) {
               alt="YouTube Video Thumbnail"
               fill
               className="object-cover border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-lg rounded-lg"
-              // sizes="(max-width: 768px) 100vw, 640px"
+              sizes="(max-width: 768px) 100vw, 640px"
             />
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="rainbow-gradient bg-opacity-75 rounded-full p-4 border-[rgba(255,255,255,0.3)]">
@@ -119,6 +120,7 @@ export default function YouTubeVideo({ videoId, title }: YouTubeVideoProps) {
           </>
         )}
       </div>
+      {/* <p>{description}</p> */}
     </div>
   );
 }
