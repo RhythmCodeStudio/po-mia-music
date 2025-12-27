@@ -2,6 +2,7 @@
 import { useState } from "react";
 import MailingList from "./mailing-list";
 import AdminNotificationPanel from "./admin-notification-panel";
+import AdminCalendar from "./admin-calendar";
 import Messages from "./messages";
 import Button from "../button";
 import Heading from "../heading";
@@ -18,21 +19,31 @@ export default function AdminContainer({
   numberOfNotificationSubscriptions,
 }: AdminContainerProps) {
   const [view, setView] = useState<
-    "mailingList" | "notifications" | "messages"
-  >("notifications");
+    "calendar" | "mailingList" | "notifications" | "messages"
+  >("calendar");
 
   // --- set a fixed minHeight for the content area to prevent layout shift ---
   // adjust this value based on largest panel's height
   const contentMinHeight = "min-h-[320px]"; // <-- change as needed
 
   return (
-    <section>
+    <section className="w-full">
       <Heading
         headingLevel={2}
         className="text-center mb-4"
         text="Admin Panel"
       />
       <div className="flex gap-4 mb-6 justify-center">
+        <Button
+          label="Calendar"
+          onClick={() => setView("calendar")}
+          ariaLabel="View Calendar"
+          className={clsx(
+            view === "calendar"
+              ? "bg-blue-600 text-white pointer-events-none"
+              : "bg-gray-200 text-gray-800"
+          )}
+        />
         <Button
           label="Notifications"
           onClick={() => setView("notifications")}
@@ -65,9 +76,17 @@ export default function AdminContainer({
         />
       </div>
       {/* --- Changed: Render all panels, but only show the active one with absolute positioning and opacity --- */}
-      <div className={`relative w-full ${contentMinHeight}`}>
+      <div className={` w-full ${contentMinHeight}`}>
         <div
-          className={`absolute inset-0 transition-opacity duration-300 ${
+          className={`w-full ${
+            view === "calendar"
+              ? "opacity-100 pointer-events-auto"
+              : "opacity-0 pointer-events-none"
+          }`}>
+          <AdminCalendar/>
+        </div>
+        <div
+          className={`w-full ${
             view === "mailingList"
               ? "opacity-100 pointer-events-auto"
               : "opacity-0 pointer-events-none"
@@ -75,7 +94,7 @@ export default function AdminContainer({
           <MailingList rows={mailingListRows} />
         </div>
         <div
-          className={`absolute inset-0 transition-opacity duration-300 ${
+          className={`w-full ${
             view === "notifications"
               ? "opacity-100 pointer-events-auto"
               : "opacity-0 pointer-events-none"
@@ -85,7 +104,7 @@ export default function AdminContainer({
           />
         </div>
         <div
-          className={`absolute inset-0 transition-opacity duration-300 ${
+          className={`w-full ${
             view === "messages"
               ? "opacity-100 pointer-events-auto"
               : "opacity-0 pointer-events-none"
