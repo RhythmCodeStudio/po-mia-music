@@ -3,6 +3,14 @@ import Image from "next/image";
 // import components
 import Heading from "./heading";
 
+type Track = {
+  title: string;
+  by: string;
+  length: string;
+  number: number;
+  bandcampUrl: string;
+};
+
 interface ReleaseDisplayProps {
   release: {
     id: string;
@@ -16,6 +24,7 @@ interface ReleaseDisplayProps {
       label: string;
       url: string;
     }[];
+    tracks: Track[];
   };
 }
 
@@ -38,6 +47,19 @@ export default function ReleaseDisplay({ release }: ReleaseDisplayProps) {
         />
         <div className="max-w-xl"></div>
         <p className="mb-4">{release.description}</p>
+        <ul>
+          {release.tracks && release.tracks.map((track, index) => (
+            <li key={index} className="mb-1">
+              <a 
+                href={track.bandcampUrl} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="underline hover:text-blue-400">
+              {track.title} - {track.length}
+              </a>
+            </li>
+          ))}
+        </ul>
         <p className="mb-4">
           <strong>Release Date:</strong> {release.releaseDate}
         </p>
