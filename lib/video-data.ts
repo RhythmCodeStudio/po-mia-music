@@ -1,7 +1,7 @@
 export const youTubeVideos = [
   {
     youTubeId: "ABO_nv26QEc",
-    title: "po mia performs exposé with full band on My St. Louis Live!",
+    title: "po mia - exposé (My St. Louis Live!)",
     description: "po mia's full band takes The Stage on KMOV 4's My St. Louis Live!",
   },
   {
@@ -21,7 +21,7 @@ export const youTubeVideos = [
   },
   {
     youTubeId: "MQMXnzR575U",
-    title: "Season the Day- Po Mia",
+    title: "Season the Day - Po Mia",
     description: "Po Mia performs Season the Day for Basement Sessions.",
   },
 ];
