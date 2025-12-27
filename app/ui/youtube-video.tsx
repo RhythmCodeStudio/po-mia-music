@@ -29,7 +29,7 @@
 //         <iframe
 //           width={width}
 //           height={height}
-//           src={`https://www.youtube.com/embed/${videoId}?autoplay=1`} 
+//           src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
 //           title="YouTube video player"
 //           // frameBorder="0"
 //           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -51,7 +51,7 @@
 //                 className="w-8 h-8 text-red-500"
 //                 fill="currentColor"
 //                 viewBox="0 0 24 24"
-//               > 
+//               >
 //                 <path d="M8 5v14l11-7z" />
 //               </svg>
 //             </div>
@@ -63,8 +63,12 @@
 // }
 
 "use client";
+// import from react
 import { useState } from "react";
+// import from next
 import Image from "next/image";
+// import components
+import Heading from "./heading";
 
 interface YouTubeVideoProps {
   videoId: string;
@@ -76,11 +80,15 @@ export default function YouTubeVideo({ videoId, title }: YouTubeVideoProps) {
   const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
 
   return (
-    <div className="w-full">
+    <div className="w-full z-50">
+      <Heading
+        text={title}
+        headingLevel={3}
+        className="px-2 py-1 text-center mb-2 text-shadow-black-background-black"
+      />
       <div
         className="relative aspect-video rounded-lg shadow-lg shadow-white cursor-pointer"
-        onClick={() => setIsPlaying(true)}
-      >
+        onClick={() => setIsPlaying(true)}>
         <span className="sr-only">{title}</span>
         {isPlaying ? (
           <iframe
@@ -88,8 +96,7 @@ export default function YouTubeVideo({ videoId, title }: YouTubeVideoProps) {
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
-            className="absolute top-0 left-0 w-full h-full rounded-lg"
-          ></iframe>
+            className="absolute top-0 left-0 w-full h-full rounded-lg"></iframe>
         ) : (
           <>
             <Image
@@ -104,8 +111,7 @@ export default function YouTubeVideo({ videoId, title }: YouTubeVideoProps) {
                 <svg
                   className="w-8 h-8 text-red-500"
                   fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
+                  viewBox="0 0 24 24">
                   <path d="M8 5v14l11-7z" />
                 </svg>
               </div>
