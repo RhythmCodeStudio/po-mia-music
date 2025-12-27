@@ -11,7 +11,7 @@ export function proxy(request: NextRequest) {
     font-src 'self' https://fonts.gstatic.com;
     style-src 'self' 'unsafe-inline';
     script-src 'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com;
-    connect-src 'self'
+    connect-src 'self https://api.stack-auth.com/api/v1/projects/current'
     https://api.emailjs.com/
     https://vercel.live
     https://vercel.com
@@ -29,7 +29,7 @@ export function proxy(request: NextRequest) {
   `;
   const previewCspHeader = `
     default-src 'self';
-    connect-src 'self' https://api.emailjs.com/ https://vercel.live https://vercel.com;
+    connect-src 'self' https://api.emailjs.com/ https://vercel.live https://vercel.com https://api.stack-auth.com/api/v1/projects/current;
     script-src 'self' 'unsafe-inline' 'unsafe-eval' https://vercel.live https://va.vercel-scripts.com;
     style-src 'self' 'unsafe-inline' https://vercel.live;
     img-src 'self' data: blob: https://vercel.live https://vercel.com;
@@ -43,7 +43,7 @@ export function proxy(request: NextRequest) {
   `;
   const productionCspHeader = `
     default-src 'self';
-    connect-src 'self' https://api.emailjs.com/ https://vercel.live https://vercel.com;
+    connect-src 'self' https://api.emailjs.com/ https://vercel.live https://vercel.com https://api.stack-auth.com/api/v1/projects/current;
     script-src 'self' 'nonce-${nonce}' https://vercel.live https://va.vercel-scripts.com;
     style-src 'self' 'unsafe-inline' https://vercel.live;
     img-src 'self' data: blob: https://vercel.live https://vercel.com;

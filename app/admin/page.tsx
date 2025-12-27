@@ -9,7 +9,7 @@ import { SignIn } from "@stackframe/stack";
 // import { AccountSettings } from "@stackframe/stack";
 // import components
 import AdminContainer from "@/app/ui/admin/admin-container";
-import AdminNotificationPanel from "@/app/ui/admin/admin-notification-panel";
+// import AdminNotificationPanel from "@/app/ui/admin/admin-notification-panel";
 
 export default async function AdminPage() {
   const app = stackServerApp;
