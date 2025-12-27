@@ -38,7 +38,7 @@ export function proxy(request: NextRequest) {
     base-uri 'self';
     form-action 'self';
     frame-ancestors 'none';
-    frame-src 'self' https://vercel.live;
+    frame-src 'self' https://vercel.live https://www.youtube.com/;
     upgrade-insecure-requests;
   `;
   const productionCspHeader = `
@@ -52,7 +52,7 @@ export function proxy(request: NextRequest) {
     base-uri 'self';
     form-action 'self';
     frame-ancestors 'none';
-    frame-src 'self' https://vercel.live;
+    frame-src 'self' https://vercel.live https://www.youtube.com/;
     upgrade-insecure-requests;
   `;
 
