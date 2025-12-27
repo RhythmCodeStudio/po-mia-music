@@ -6,9 +6,9 @@ import { youTubeVideos } from "@/lib/video-data"
 
 export default function Videos() {
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center w-full">
       <Heading text="po's videos" headingLevel={2} className="font-bold text-4xl text-shadow-black-background-black mt-6" />
-      <div className="flex flex-col gap-8 grid grid-cols-1 md:grid-cols-2 my-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-12 max-w-6xl w-full px-6">
         {youTubeVideos.map((video, index) => (
           <YouTubeVideo key={index} videoId={video.youTubeId} title={video.title} />
         ))}
