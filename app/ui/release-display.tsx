@@ -30,10 +30,10 @@ interface ReleaseDisplayProps {
 
 export default function ReleaseDisplay({ release }: ReleaseDisplayProps) {
   return (
-    <section className="flex flex-col">
+    <section className="flex flex-col bg-black/50 border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-lg rounded-4xl p-6 z-50 max-w-2xl mx-6 lg:mx-auto">
       <Heading
         headingLevel={2}
-        className="text-center mb-6"
+        className="text-center mb-6 text-shadow-black-background-black"
         text={release.title}
       />
       <div className="flex flex-col gap-6">
@@ -46,10 +46,10 @@ export default function ReleaseDisplay({ release }: ReleaseDisplayProps) {
           style={{ border: "2px solid rgba(255, 255, 255, 0.3)" }}
         />
         <div className="max-w-xl"></div>
-        <p className="mb-4">{release.description}</p>
+        <p className="mb-4 text-shadow-black-background-black">{release.description}</p>
         <ul>
           {release.tracks && release.tracks.map((track, index) => (
-            <li key={index} className="mb-1">
+            <li key={index} className="mb-1 text-shadow-black-background-black">
               <a 
                 href={track.bandcampUrl} 
                 target="_blank" 
@@ -60,8 +60,8 @@ export default function ReleaseDisplay({ release }: ReleaseDisplayProps) {
             </li>
           ))}
         </ul>
-        <p className="mb-4">
-          <strong>Release Date:</strong> {release.releaseDate}
+        <p className="mb-4 text-shadow-black-background-black">
+          Release Date: {release.releaseDate}
         </p>
         <div className="flex flex-wrap gap-4">
           {release.links.map((link) => (
