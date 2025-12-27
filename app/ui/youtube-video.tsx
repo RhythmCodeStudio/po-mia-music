@@ -3,14 +3,16 @@
 // the component should use next/image for the thumbnail
 // the component should show the thumbnail with a play button overlay
 // when the thumbnail is clicked, it should replace the thumbnail with an embedded youtube iframe that autoplays the video
+"use client";
 import { useState } from "react";
 import Image from "next/image";
 interface YouTubeVideoProps {
   videoId: string;
+  title: string;
   width?: number;
   height?: number;
 }
-export default function YouTubeVideo({ videoId, width = 560, height = 315 }: YouTubeVideoProps) {
+export default function YouTubeVideo({ videoId, title, width = 560, height = 315 }: YouTubeVideoProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
   const handleClick = () => {
@@ -22,6 +24,7 @@ export default function YouTubeVideo({ videoId, width = 560, height = 315 }: You
       style={{ width: `${width}px`, height: `${height}px` }}
       onClick={handleClick}
     >
+      <span className="sr-only">{title}</span>
       {isPlaying ? (
         <iframe
           width={width}
