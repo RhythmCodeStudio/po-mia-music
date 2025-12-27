@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { PiArrowFatLinesUpDuotone } from "react-icons/pi";
+import { FaArrowUp } from "react-icons/fa6";
 
 export default function ScrollToTopButton() {
   const [scrollToTopButtonVisible, setScrollToTopButtonVisible] =
@@ -51,7 +51,7 @@ export default function ScrollToTopButton() {
       <button
         aria-label="scroll to top button"
         name="scroll to top button"
-        className={`z-80 shadow-md shadow-green-500/50 bg-green-500 text-neutral-800 fixed bottom-4 right-4 rounded-full p-2 w-12 hover:bg-green-800 hover:transform hover:scale-110 transition-all duration-700 ease-in-out ${
+        className={`z-80 shadow-md shadow-green-500/50 rainbow-gradient text-black fixed bottom-4 right-4 rounded-full p-2 w-12 hover:bg-green-800 hover:transform hover:scale-110 transition-all duration-700 ease-in-out ${
           scrollToTopButtonVisible
             ? "opacity-85"
             : "opacity-0 pointer-events-none"
@@ -59,7 +59,7 @@ export default function ScrollToTopButton() {
         onClick={scrollToTop}
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}>
-        <PiArrowFatLinesUpDuotone size={24} className="h-8 w-8 animate-pulse" />
+        <FaArrowUp size={24} className="h-8 w-8 animate-pulse" />
       </button>
     </div>
   );
