@@ -20,7 +20,7 @@ export default function YouTubeVideo({ videoId, title, width = 560, height = 315
   };
   return (
     <div
-      className="relative cursor-pointer"
+      className="relative cursor-pointer rounded-lg shadow-lg shadow-white"
       style={{ width: `${width}px`, height: `${height}px` }}
       onClick={handleClick}
     >
@@ -34,6 +34,7 @@ export default function YouTubeVideo({ videoId, title, width = 560, height = 315
           // frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
+          className="rounded-lg"
         ></iframe>
       ) : (
         <>
@@ -42,11 +43,12 @@ export default function YouTubeVideo({ videoId, title, width = 560, height = 315
             alt="YouTube Video Thumbnail"
             layout="fill"
             objectFit="cover"
+            className="border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-lg rounded-lg"
           />
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="bg-white bg-opacity-75 rounded-full p-4">
+            <div className="rainbow-gradient bg-opacity-75 rounded-full p-4">
               <svg
-                className="w-8 h-8 text-red-600"
+                className="w-8 h-8 text-red-500"
                 fill="currentColor"
                 viewBox="0 0 24 24"
               > 
