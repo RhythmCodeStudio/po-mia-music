@@ -15,7 +15,7 @@ export const pics = [
   },
   {
     id: 3,
-    src: "/images/ghost.webp",
+    src: "/images/ghost.png",
     alt: "Photo 3",
     width: 1184,
     height: 1776,
@@ -57,7 +57,7 @@ export const pics = [
   },
   {
     id: 9,
-    src: "/images/po-no-bg.webp",
+    src: "/images/po-no-bg.png",
     alt: "po with no background",
     width: 1184,
     height: 1776,
