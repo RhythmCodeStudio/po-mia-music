@@ -2,6 +2,7 @@
 import Image from "next/image";
 // import components
 import Heading from "./heading";
+import IconLinkGroup from "./icon-link-group";
 
 type Track = {
   title: string;
@@ -23,6 +24,7 @@ interface ReleaseDisplayProps {
       name: string;
       label: string;
       url: string;
+      icon: React.ElementType;
     }[];
     tracks: Track[];
   };
@@ -46,10 +48,10 @@ export default function ReleaseDisplay({ release }: ReleaseDisplayProps) {
           style={{ border: "2px solid rgba(255, 255, 255, 0.3)" }}
         />
         <div className="max-w-xl"></div>
-        <p className="mb-4 text-shadow-black-background-black w-full max-w-md">{release.description}</p>
+        <p className="text-shadow-black-background-black w-full max-w-md">{release.description}</p>
         <ul>
           {release.tracks && release.tracks.map((track, index) => (
-            <li key={index} className="mb-1 text-shadow-black-background-black">
+            <li key={index} className="text-shadow-black-background-black">
               <a 
                 href={track.bandcampUrl} 
                 target="_blank" 
@@ -60,19 +62,21 @@ export default function ReleaseDisplay({ release }: ReleaseDisplayProps) {
             </li>
           ))}
         </ul>
-        <p className="mb-4 text-shadow-black-background-black">
+        <p className="text-shadow-black-background-black">
           Release Date: {release.releaseDate}
         </p>
         <div className="flex flex-wrap gap-4">
           {release.links.map((link) => (
-            <a
+            <IconLinkGroup
               key={link.name}
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
-              {link.label}
-            </a>
+              orientation="horizontal"
+              linkData={[{
+                name: link.name,
+                label: link.label,
+                href: link.url,
+                icon: link.icon 
+              }]}
+            />
           ))}
         </div>
       </div>
