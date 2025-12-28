@@ -16,9 +16,8 @@ type IconLinkGroupItem = {
 type IconLinkGroupProps = {
   orientation: "vertical" | "horizontal";
   linkData: IconLinkGroupItem[];
-  include?: string[]; // array of names to include, e.g. ["GitHub", "Email"]
+  include?: string[]; // array of names to include, e.g. ["Instagram", "Email"]
   size?: number; // optional size for the icons, default can be set in IconLink component
-
 };
 
 

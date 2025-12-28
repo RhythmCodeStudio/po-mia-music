@@ -18,10 +18,10 @@ export default function Footer() {
     // pathname === "/" ? null : (
     <footer className="p-2 flex flex-col items-center">
        <div className="p-2">
-        <IconLinkGroup orientation="horizontal" linkData={musicLinkData}/>
+        <IconLinkGroup orientation="horizontal" linkData={musicLinkData} size={20}/>
       </div>
       <div className="p-2">
-        <IconLinkGroup orientation="horizontal" linkData={contactLinkData}/>
+        <IconLinkGroup orientation="horizontal" linkData={contactLinkData} size={20}/>
       </div>
       {isSubscribed === false && (
       <div className="p-2">
