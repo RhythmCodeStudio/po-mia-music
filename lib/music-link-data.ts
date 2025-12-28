@@ -53,10 +53,10 @@ export const musicLinkData = [
     icon: SiYoutube,
     label: "Watch po mia on YouTube"
   },
-  // {
-  //   name: "YouTube Music",
-  //   href: "https://music.youtube.com/channel/UClAvWVdMece174czGL0Xmnw",
-  //   icon: SiYoutubemusic,
-  //   label: "Listen to po mia on YouTube Music"
-  // },
+  {
+    name: "YouTube Music",
+    href: "https://music.youtube.com/channel/UClAvWVdMece174czGL0Xmnw",
+    icon: SiYoutubemusic,
+    label: "Listen to po mia on YouTube Music"
+  },
 ];

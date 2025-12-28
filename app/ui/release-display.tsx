@@ -36,7 +36,7 @@ export default function ReleaseDisplay({ release }: ReleaseDisplayProps) {
         className="text-center mb-6 text-shadow-black-background-black"
         text={release.title}
       />
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-6 justify-center items-center">
         <Image
           src={release.coverImgSrc}
           alt={`${release.title} cover art`}
@@ -46,7 +46,7 @@ export default function ReleaseDisplay({ release }: ReleaseDisplayProps) {
           style={{ border: "2px solid rgba(255, 255, 255, 0.3)" }}
         />
         <div className="max-w-xl"></div>
-        <p className="mb-4 text-shadow-black-background-black">{release.description}</p>
+        <p className="mb-4 text-shadow-black-background-black w-full max-w-md">{release.description}</p>
         <ul>
           {release.tracks && release.tracks.map((track, index) => (
             <li key={index} className="mb-1 text-shadow-black-background-black">

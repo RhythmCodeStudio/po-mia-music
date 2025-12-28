@@ -7,7 +7,7 @@ export default function Music() {
   return (
     <div className="flex flex-col justify-center items-center">
       <h1 className="text-shadow-black-background-black text-4xl">po's music</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mt-6 px-8">
         {releases.map((release) => (
           <ReleaseDisplay key={release.id} release={release} />
         ))}

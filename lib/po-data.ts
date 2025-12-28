@@ -20,6 +20,92 @@ export const paymentLinks = [
 export const releases = [
   {
     id: randomUUID(),
+    title: "hope is plenty",
+    type: "single",
+    coverImgSrc: "/images/release-cover-images/hope-is-plenty-cover.webp",
+    releaseDate: "July 31, 2024",
+    description: "uplifting single in collaboration with producer e-GoS and rapper A\VOID",
+    links: [
+      {
+        name: "Bandcamp",
+        label: "Bandcamp",
+        url: "https://pomia.bandcamp.com/track/hope-is-plenty",
+      },
+    ],
+    tracks: [
+      { 
+        title: "hope is plenty", 
+        by: "po mia, e-GoS, A\VOID",
+        length: "3:01",
+        number: 1,
+        bandcampUrl: "https://pomia.bandcamp.com/track/hope-is-plenty",
+      },
+    ], 
+  },
+  {
+    id: randomUUID(),
+    title: "REBIRTH",
+    coverImgSrc: "/images/release-cover-images/rebirth-cover.webp",
+    releaseDate: "June 9, 2023",
+    type: "ep",
+    description: "this EP contains regenerative themes surrounding moving forward, cherishing loved ones, and learning to find enjoyment in the little things.",
+    links: [
+      {
+        name: "Bandcamp",
+        label: "Bandcamp",
+        url: "https://pomia.bandcamp.com/album/rebirth",
+      },
+    ],
+    tracks: [
+      { 
+        title: "exposé", 
+        by: "po mia",
+        length: "3:42",
+        number: 1,
+        bandcampUrl: "https://pomia.bandcamp.com/track/expos",
+      },
+      { 
+        title: "no longer neighbors", 
+        by: "po mia",
+        length: "3:21",
+        number: 2,
+        bandcampUrl: "https://pomia.bandcamp.com/track/no-longer-neighbors",
+      },
+      { 
+        title: "season the day", 
+        by: "po mia",
+        length: "4:36",
+        number: 3,
+        bandcampUrl: "https://pomia.bandcamp.com/track/season-the-day",
+      },
+    ], 
+  },
+  {
+    id: randomUUID(),
+    title: "golden tongue",
+    coverImgSrc: "/images/release-cover-images/golden-tongue-cover.webp",
+    releaseDate: "November 12, 2022",
+    type: "single",
+    description: "a remotely satirical, statement piece that explores and implores ideas of self determination, empowerment, as well as encouraging validation to stand up, speak out, and be heard.",
+    links: [
+      {
+        name: "Bandcamp",
+        label: "Bandcamp",
+        url: "https://pomia.bandcamp.com/track/golden-tongue",
+      },
+    ],
+    tracks: [
+      { 
+        title: "golden tongue", 
+        by: "po mia",
+        length: "3:46",
+        number: 1,
+        bandcampUrl: "https://pomia.bandcamp.com/track/golden-tongue",
+      },
+    ], 
+  },
+  {
+    id: randomUUID(),
     title: "po logue",
     coverImgSrc: "/images/release-cover-images/po-logue-cover.webp",
     releaseDate: "February 22, 2022",
@@ -70,90 +156,5 @@ export const releases = [
       },
     ], 
   },
-  {
-    id: randomUUID(),
-    title: "golden tongue",
-    coverImgSrc: "/images/release-cover-images/golden-tongue-cover.webp",
-    releaseDate: "November 12, 2022",
-    type: "single",
-    description: "a remotely satirical, statement piece that explores and implores ideas of self determination, empowerment, as well as encouraging validation to stand up, speak out, and be heard.",
-    links: [
-      {
-        name: "Bandcamp",
-        label: "Bandcamp",
-        url: "https://pomia.bandcamp.com/track/golden-tongue",
-      },
-    ],
-    tracks: [
-      { 
-        title: "golden tongue", 
-        by: "po mia",
-        length: "3:46",
-        number: 1,
-        bandcampUrl: "https://pomia.bandcamp.com/track/golden-tongue",
-      },
-    ], 
-  },
-  {
-    id: randomUUID(),
-    title: "REBIRTH",
-    coverImgSrc: "/images/release-cover-images/rebirth-cover.webp",
-    releaseDate: "June 9, 2023",
-    type: "ep",
-    description: "this EP contains regenerative themes surrounding moving forward, cherishing loved ones, and learning to find enjoyment in the little things.",
-    links: [
-      {
-        name: "Bandcamp",
-        label: "Bandcamp",
-        url: "https://pomia.bandcamp.com/album/rebirth",
-      },
-    ],
-    tracks: [
-      { 
-        title: "exposé", 
-        by: "po mia",
-        length: "3:42",
-        number: 1,
-        bandcampUrl: "https://pomia.bandcamp.com/track/expos",
-      },
-      { 
-        title: "no longer neighbors", 
-        by: "po mia",
-        length: "3:21",
-        number: 2,
-        bandcampUrl: "https://pomia.bandcamp.com/track/no-longer-neighbors",
-      },
-      { 
-        title: "season the day", 
-        by: "po mia",
-        length: "4:36",
-        number: 3,
-        bandcampUrl: "https://pomia.bandcamp.com/track/season-the-day",
-      },
-    ], 
-  },
-  {
-    id: randomUUID(),
-    title: "hope is plenty",
-    type: "single",
-    coverImgSrc: "/images/release-cover-images/hope-is-plenty-cover.webp",
-    releaseDate: "July 31, 2024",
-    description: "uplifting single in collaboration with producer e-GoS and rapper A\VOID",
-    links: [
-      {
-        name: "Bandcamp",
-        label: "Bandcamp",
-        url: "https://pomia.bandcamp.com/track/hope-is-plenty",
-      },
-    ],
-    tracks: [
-      { 
-        title: "hope is plenty", 
-        by: "po mia, e-GoS, A\VOID",
-        length: "3:01",
-        number: 1,
-        bandcampUrl: "https://pomia.bandcamp.com/track/hope-is-plenty",
-      },
-    ], 
-  },
+
 ]
