@@ -44,8 +44,8 @@ export default function ReleaseDisplay({ release }: ReleaseDisplayProps) {
           alt={`${release.title} cover art`}
           width={300}
           height={300}
-          className="rounded-2xl shadow-white shadow-lg"
-          style={{ border: "2px solid rgba(255, 255, 255, 0.3)" }}
+          className="rounded-2xl shadow-white shadow-lg border-2 border-[rgba(255,255,255,0.3)]"
+          // style={{ border: "2px solid rgba(255, 255, 255, 0.3)" }}
         />
         {/* <div className="max-w-xl"></div> */}
         <p className="text-shadow-black-background-black w-full max-w-md md:min-h-30 xl:min-h-20">{release.description}</p>

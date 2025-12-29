@@ -6,8 +6,8 @@ import { poBio } from "../lib/po-data";
 
 export default function Home() {
   return (
-    <div className="relative flex flex-col flex-grow items-center justify-center space-y-2">
-      <h1 className="text-4xl lg:text-6xl font-bold text-shadow-black-background-black">
+    <div className="relative flex flex-col flex-grow items-center justify-center space-y-2 md:space-y-4">
+      <h1 className="text-4xl lg:text-6xl font-bold text-shadow-black-background-black ">
         po mia
       </h1>
       <div className="fixed top-20 left-0 w-full z-50">
@@ -21,11 +21,11 @@ export default function Home() {
           width={2664}
           height={1902}
           priority
-          className="rounded-4xl shadow-white shadow-lg z-10"
-          style={{ border: "2px solid rgba(255, 255, 255, 0.3)" }}
+          className="rounded-4xl shadow-white shadow-lg z-10 border-2 border-[rgba(255,255,255,0.3)]"
+          // style={{ border: "2px solid rgba(255, 255, 255, 0.3)" }}
         />
       </div>
-      <div className="bg-black/50 m-6 lg:mx-auto py-4 rounded-4xl shadow-lg shadow-black/20 max-w-4xl  border-2 border-[rgba(255,255,255,0.3)]">
+      <div className="bg-black/50 m-6 lg:mx-auto py-4 rounded-4xl shadow-lg shadow-black/20 max-w-4xl border-2 border-[rgba(255,255,255,0.3)]">
         <p className="px-6 text-shadow-black-background-black w-full max-w-2xl mx-auto">
           {poBio}
         </p>
