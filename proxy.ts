@@ -29,7 +29,16 @@ export function proxy(request: NextRequest) {
   `;
   const previewCspHeader = `
     default-src 'self';
-    connect-src 'self' https://api.emailjs.com/ https://vercel.live https://vercel.com https://api.stack-auth.com;
+    connect-src 'self' 
+    https://api.emailjs.com/ 
+    https://vercel.live 
+    https://vercel.com 
+    https://api.stack-auth.com
+    https://api.stack-auth.com/
+    https://api.stack-auth.com/api/v1/projects/current
+    https://api.stack-auth.com/health
+    https://app.stack-auth.com
+    https://app.stack-auth.com/;
     script-src 'self' 'unsafe-inline' 'unsafe-eval' https://vercel.live https://va.vercel-scripts.com;
     style-src 'self' 'unsafe-inline' https://vercel.live;
     img-src 'self' data: blob: https://vercel.live https://vercel.com;
