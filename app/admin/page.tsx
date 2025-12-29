@@ -27,7 +27,7 @@ export default async function AdminPage() {
       {user && (
         <div className="mt-10 flex flex-col justify-center items-center gap-6 text-shadow-black-background-black w-full">
           <h2 className="text-center text-4xl font-bold">Welcome back Po</h2>
-          <div className="mb-4 bg-black/50 mt-6 p-6 rounded-4xl shadow-lg shadow-black/20 max-w-6xl mx-6 border-2 border-[rgba(255,255,255,0.3)] w-full max-w-6xl">
+          <div className="mb-4 bg-black/50 mt-6 p-6 rounded-4xl shadow-lg shadow-white mx-6 border-2 border-[rgba(255,255,255,0.3)] w-ful min-w-6xl flex justify-center items-center">
             <AdminContainer 
               mailingListRows={await getMailingList()} 
               numberOfNotificationSubscriptions={numberOfSubscriptions}

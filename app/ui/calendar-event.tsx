@@ -31,12 +31,13 @@ export default function CalendarEvent(
   }: CalendarEventProps
 ) {
   return (
-    <section className="bg-black/50 border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-lg rounded-4xl p-6 z-50">
+    <section className="bg-black/50 border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-lg rounded-4xl p-6 z-50 w-full">
       <Heading
         text= {title}
         headingLevel={3}
-        className="text-xl font-bold mb-2 text-shadow-black-background-black"
+        className="text-xl font-bold mb-2 text-shadow-black-background-black text-center"
       />
+      <div className="text-center">
       <p className="mb-1 text-shadow-black-background-black">
        {date}
       </p>
@@ -44,7 +45,7 @@ export default function CalendarEvent(
        {time}
       </p>
       <p className="mb-1 text-shadow-black-background-black">
-       {locationName}, 
+       {locationName} 
       </p>
       <p className="mb-1 text-shadow-black-background-black">
        {locationStreetAddress}
@@ -57,7 +58,7 @@ export default function CalendarEvent(
       </p>
       {description && (
         <p className="mb-1">
-          Description: {description}
+          {description}
         </p>
       )}
       {imageUrl && (
@@ -71,6 +72,7 @@ export default function CalendarEvent(
           />
         </div>
       )}
+      </div>
     </section>
   );
 }

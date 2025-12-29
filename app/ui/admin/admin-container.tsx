@@ -1,3 +1,126 @@
+// "use client";
+// import { useState } from "react";
+// import MailingList from "./mailing-list";
+// import AdminNotificationPanel from "./admin-notification-panel";
+// import AdminCalendar from "./admin-calendar";
+// import Messages from "./messages";
+// import Button from "../button";
+// import Heading from "../heading";
+// // import clsx
+// import clsx from "clsx";
+
+// interface AdminContainerProps {
+//   mailingListRows: any[];
+//   numberOfNotificationSubscriptions?: number;
+// }
+
+// export default function AdminContainer({
+//   mailingListRows,
+//   numberOfNotificationSubscriptions,
+// }: AdminContainerProps) {
+//   const [view, setView] = useState<
+//     "calendar" | "mailingList" | "notifications" | "messages"
+//   >("calendar");
+
+//   // --- set a fixed minHeight for the content area to prevent layout shift ---
+//   // adjust this value based on largest panel's height
+//   const contentMinHeight = "min-h-[600px]"; // <-- change as needed
+
+//   return (
+//     <section className="w-full min-w-[300px] max-w-4xl flex flex-col items-center p-4">
+//       <Heading
+//         headingLevel={2}
+//         className="text-center mb-4"
+//         text="Admin Panel"
+//       />
+//       <div className="flex gap-4 mb-6 justify-center">
+//         <Button
+//           label="Calendar"
+//           onClick={() => setView("calendar")}
+//           ariaLabel="View Calendar"
+//           className={clsx(
+//             view === "calendar"
+//               ? "bg-blue-600 text-white pointer-events-none"
+//               : "bg-gray-200 text-gray-800"
+//           )}
+//         />
+//         <Button
+//           label="Notifications"
+//           onClick={() => setView("notifications")}
+//           ariaLabel="Send Notifications"
+//           className={clsx(
+//         view === "notifications"
+//           ? "bg-blue-600 text-white pointer-events-none"
+//           : "bg-gray-200 text-gray-800"
+//           )}
+//         />
+//         <Button
+//           label="Mailing List"
+//           onClick={() => setView("mailingList")}
+//           ariaLabel="View Mailing List"
+//           className={clsx(
+//         view === "mailingList"
+//           ? "bg-blue-600 text-white pointer-events-none"
+//           : "bg-gray-200 text-gray-800"
+//           )}
+//         />
+//         <Button
+//           label="Messages"
+//           onClick={() => setView("messages")}
+//           ariaLabel="View Messages"
+//           className={clsx(
+//         view === "messages"
+//           ? "bg-blue-600 text-white pointer-events-none"
+//           : "bg-gray-200 text-gray-800"
+//           )}
+//         />
+//       </div>
+//       {/* --- Changed: Render all panels, but only show the active one with absolute positioning and opacity --- */}
+//       <div className={`relative w-full ${contentMinHeight}`}>
+//         <div
+//           className={`absolute inset-0 transition-opacity duration-300 ${
+//             view === "calendar"
+//               ? "opacity-100 pointer-events-auto"
+//               : "opacity-0 pointer-events-none"
+//           }`}>
+//           <AdminCalendar/>
+//         </div>
+//         <div
+//           className={`absolute inset-0 transition-opacity duration-300 ${
+//             view === "mailingList"
+//               ? "opacity-100 pointer-events-auto"
+//               : "opacity-0 pointer-events-none"
+//           }`}>
+//           <MailingList rows={mailingListRows} />
+//         </div>
+//         <div
+//           className={`absolute inset-0 transition-opacity duration-300 ${
+//             view === "notifications"
+//               ? "opacity-100 pointer-events-auto"
+//               : "opacity-0 pointer-events-none"
+//           }`}>
+//           <AdminNotificationPanel
+//             numberOfSubscriptions={numberOfNotificationSubscriptions}
+//           />
+//         </div>
+//         <div
+//           className={`absolute inset-0 transition-opacity duration-300 ${
+//             view === "messages"
+//               ? "opacity-100 pointer-events-auto"
+//               : "opacity-0 pointer-events-none"
+//           }`}>
+//           <Messages />
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+// // --- Changes marked above ---
+// // - Added a minHeight to the content area to prevent layout shift.
+// // - Render all views absolutely stacked, only the active one is visible, so the container size doesn't change.
+
+
+
 "use client";
 import { useState } from "react";
 import MailingList from "./mailing-list";
@@ -6,7 +129,6 @@ import AdminCalendar from "./admin-calendar";
 import Messages from "./messages";
 import Button from "../button";
 import Heading from "../heading";
-// import clsx
 import clsx from "clsx";
 
 interface AdminContainerProps {
@@ -22,12 +144,11 @@ export default function AdminContainer({
     "calendar" | "mailingList" | "notifications" | "messages"
   >("calendar");
 
-  // --- set a fixed minHeight for the content area to prevent layout shift ---
-  // adjust this value based on largest panel's height
-  const contentMinHeight = "min-h-[320px]"; // <-- change as needed
+  // Adjust this value based on your shortest panel
+  const contentMinHeight = "min-h-[42rem]"; // <-- change as needed
 
   return (
-    <section className="w-full">
+    <section className="w-full min-w-[300px] max-w-4xl flex flex-col items-center p-4">
       <Heading
         headingLevel={2}
         className="text-center mb-4"
@@ -49,9 +170,9 @@ export default function AdminContainer({
           onClick={() => setView("notifications")}
           ariaLabel="Send Notifications"
           className={clsx(
-        view === "notifications"
-          ? "bg-blue-600 text-white pointer-events-none"
-          : "bg-gray-200 text-gray-800"
+            view === "notifications"
+              ? "bg-blue-600 text-white pointer-events-none"
+              : "bg-gray-200 text-gray-800"
           )}
         />
         <Button
@@ -59,9 +180,9 @@ export default function AdminContainer({
           onClick={() => setView("mailingList")}
           ariaLabel="View Mailing List"
           className={clsx(
-        view === "mailingList"
-          ? "bg-blue-600 text-white pointer-events-none"
-          : "bg-gray-200 text-gray-800"
+            view === "mailingList"
+              ? "bg-blue-600 text-white pointer-events-none"
+              : "bg-gray-200 text-gray-800"
           )}
         />
         <Button
@@ -69,52 +190,23 @@ export default function AdminContainer({
           onClick={() => setView("messages")}
           ariaLabel="View Messages"
           className={clsx(
-        view === "messages"
-          ? "bg-blue-600 text-white pointer-events-none"
-          : "bg-gray-200 text-gray-800"
+            view === "messages"
+              ? "bg-blue-600 text-white pointer-events-none"
+              : "bg-gray-200 text-gray-800"
           )}
         />
       </div>
-      {/* --- Changed: Render all panels, but only show the active one with absolute positioning and opacity --- */}
-      <div className={` w-full ${contentMinHeight}`}>
-        <div
-          className={`w-full ${
-            view === "calendar"
-              ? "opacity-100 pointer-events-auto"
-              : "opacity-0 pointer-events-none"
-          }`}>
-          <AdminCalendar/>
-        </div>
-        <div
-          className={`w-full ${
-            view === "mailingList"
-              ? "opacity-100 pointer-events-auto"
-              : "opacity-0 pointer-events-none"
-          }`}>
-          <MailingList rows={mailingListRows} />
-        </div>
-        <div
-          className={`w-full ${
-            view === "notifications"
-              ? "opacity-100 pointer-events-auto"
-              : "opacity-0 pointer-events-none"
-          }`}>
+      {/* Conditional rendering: only the active panel is mounted */}
+      <div className={`w-full ${contentMinHeight} h-auto`}>
+        {view === "calendar" && <AdminCalendar />}
+        {view === "mailingList" && <MailingList rows={mailingListRows} />}
+        {view === "notifications" && (
           <AdminNotificationPanel
             numberOfSubscriptions={numberOfNotificationSubscriptions}
           />
-        </div>
-        <div
-          className={`w-full ${
-            view === "messages"
-              ? "opacity-100 pointer-events-auto"
-              : "opacity-0 pointer-events-none"
-          }`}>
-          <Messages />
-        </div>
+        )}
+        {view === "messages" && <Messages />}
       </div>
     </section>
   );
 }
-// --- Changes marked above ---
-// - Added a minHeight to the content area to prevent layout shift.
-// - Render all views absolutely stacked, only the active one is visible, so the container size doesn't change.

@@ -28,6 +28,7 @@ export default function AdminCalendar() {
             className="bg-gray-200 text-gray-800"
           />
         </div>
+        <div className="max-w-md">
         <CalendarEvent
           title="po mia plays blacklist christmas"
           date="Sunday, December 28"
@@ -39,6 +40,7 @@ export default function AdminCalendar() {
           locationZip="63118"
           description="This is a sample event description."
         />
+        </div>
       </div>
     );
   } else if (view === "addEvent") {
