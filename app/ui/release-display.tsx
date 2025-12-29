@@ -32,10 +32,10 @@ interface ReleaseDisplayProps {
 
 export default function ReleaseDisplay({ release }: ReleaseDisplayProps) {
   return (
-    <section className="flex flex-col bg-black/50 border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-lg rounded-4xl p-6 z-50 max-w-2xl mx-6 lg:mx-auto">
+    <section className="flex flex-col bg-black/50 border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-lg rounded-4xl p-6 z-50 max-w-2xl mx-8 lg:mx-auto text-sm">
       <Heading
         headingLevel={2}
-        className="text-center mb-6 text-shadow-black-background-black"
+        className="text-center mb-6 text-shadow-black-background-black text-xl"
         text={release.title}
       />
       <div className="flex flex-col gap-6 justify-center items-center">
@@ -47,9 +47,9 @@ export default function ReleaseDisplay({ release }: ReleaseDisplayProps) {
           className="rounded-2xl shadow-white shadow-lg"
           style={{ border: "2px solid rgba(255, 255, 255, 0.3)" }}
         />
-        <div className="max-w-xl"></div>
-        <p className="text-shadow-black-background-black w-full max-w-md">{release.description}</p>
-        <ul>
+        {/* <div className="max-w-xl"></div> */}
+        <p className="text-shadow-black-background-black w-full max-w-md md:min-h-30 xl:min-h-20">{release.description}</p>
+        <ol className="list-decimal list-inside md:min-h-26 xl:min-h-16">
           {release.tracks && release.tracks.map((track, index) => (
             <li key={index} className="text-shadow-black-background-black">
               <a 
@@ -61,9 +61,9 @@ export default function ReleaseDisplay({ release }: ReleaseDisplayProps) {
               </a>
             </li>
           ))}
-        </ul>
+        </ol>
         <p className="text-shadow-black-background-black">
-          Release Date: {release.releaseDate}
+          Released {release.releaseDate}
         </p>
         <div className="flex flex-wrap gap-4">
           {release.links.map((link) => (
