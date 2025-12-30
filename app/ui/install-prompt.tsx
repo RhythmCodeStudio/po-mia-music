@@ -49,7 +49,7 @@ export default function InstallPrompt() {
   }
 
   return (
-    <div className="m-6 p-4 border-2 border-[rgba(255,255,255,0.3)] rounded-2xl text-center max-w-sm mx-auto text-black relative shadow-xl bg-black/50 text-white z-50">
+    <div className="m-6 p-4 border-2 border-[rgba(255,255,255,0.3)] rounded-2xl text-center max-w-sm mx-auto text-black relative shadow-xl bg-black/80 text-white z-50">
       <button
         onClick={handleDismiss}
         className="absolute top-2 right-2 hover:text-gray-700 text-2xl font-bold px-2 cursor-pointer text-shadow-black-background-black"
@@ -67,7 +67,7 @@ export default function InstallPrompt() {
       {deferredPrompt && (
         <button
           onClick={handleInstallClick}
-          className="rainbow-gradient px-4 py-2 rounded-md border-2 border-[rgba(255,255,255,0.3)] text-sm font-medium shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full max-w-xs hover:scale-105 transform transition-transform duration-600 active:scale-95 text-shadow-black-background-black">
+          className="rainbow-gradient p-1 rounded-full  border-2 border-[rgba(255,255,255,0.3)] text-sm shadow-black/50 shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full max-w-xs hover:scale-105 transform transition-transform duration-600 active:scale-95 text-shadow-black-background-black">
           Install App
         </button>
       )}

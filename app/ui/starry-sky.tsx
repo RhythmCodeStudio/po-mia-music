@@ -19,19 +19,34 @@ export default function StarrySky() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const stars = useRef<Star[]>([]);
 
-  // Resize canvas to fill parent
+  // Resize canvas to fill parent using ResizeObserver
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
     function resize() {
       if (!canvas) return;
-      canvas.width = canvas.offsetWidth * window.devicePixelRatio;
-      canvas.height = canvas.offsetHeight * window.devicePixelRatio;
+      const parent = canvas.parentElement;
+      if (!parent) return;
+      const { width, height } = parent.getBoundingClientRect();
+      canvas.width = width * window.devicePixelRatio;
+      canvas.height = height * window.devicePixelRatio;
     }
+
     resize();
+
+    // Use ResizeObserver for more reliable resizing
+    const observer = new window.ResizeObserver(resize);
+    if (canvas.parentElement) {
+      observer.observe(canvas.parentElement);
+    }
+
     window.addEventListener("resize", resize);
-    return () => window.removeEventListener("resize", resize);
+
+    return () => {
+      window.removeEventListener("resize", resize);
+      observer.disconnect();
+    };
   }, []);
 
   // Generate stars and animate
