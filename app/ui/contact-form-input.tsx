@@ -48,11 +48,11 @@ export default function ContactFormInput({
           required
           name="message"
           id="message"
-          className="shadow-md shadow-green-500/50 border-2 border-green-500 p-2 w-full text-black placeholder-neutral-800 rounded-2xl bg-neutral-300 font-share-tech-mono tracking-wide text-shadow-green h-80 resize-none text-lg w-full"
+          className="shadow-md shadow-green-500/50 border-2 border-green-500 p-2 w-full text-black placeholder-neutral-800 rounded-2xl bg-neutral-100 font-share-tech-mono tracking-wide h-80 resize-none text-lg w-full"
         />
       ) : (
         <input
-          className="shadow-md shadow-green-500/50 border-2 border-green-500 p-2 w-full text-black placeholder-neutral-800 rounded-2xl bg-neutral-300 font-share-tech-mono tracking-wide text-shadow-green text-lg h-10 w-full"
+          className="shadow-md shadow-green-500/50 border-2 border-green-500 p-2 w-full text-black placeholder-neutral-800 rounded-2xl bg-neutral-100 font-share-tech-mono tracking-wide text-lg h-10 w-full"
           type={type}
           id={name}
           name={name}
