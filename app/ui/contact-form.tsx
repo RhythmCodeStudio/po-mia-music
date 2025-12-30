@@ -9,6 +9,8 @@ import { clsx } from "clsx";
 import { ToastContainer, Zoom, toast } from "react-toastify";
 // import components
 import ContactFormInput from "./contact-form-input";
+import Button from "./button";
+import Heading from "./heading";
 // import from utils
 import {
   validateEmail,
@@ -204,7 +206,7 @@ export default function ContactForm({
     <div className="w-full max-w-6xl text-base">
       <form
         onSubmit={handleFormSubmit}
-        className="w-full max-w-6xl mx-auto relative text-green-500">
+        className="w-full max-w-6xl mx-auto relative text-shadow-black-background-black">
         <ContactFormInput
           inputType="input"
           label="First Name"
@@ -284,13 +286,13 @@ export default function ContactForm({
               disabled={!isFormValid || buttonSubmitted}
               aria-disabled={!isFormValid || buttonSubmitted}
               className={clsx(
-                "text-shadow-black border border-2 rounded-2xl py-1 px-6 transition-colors transition-shadow transition-transform duration-700 ease-in-out font-semibold tracking-widest will-change-transform",
+                "text-shadow-black-background-black border border-2 rounded-2xl py-1 px-6 transition-colors transition-shadow transition-transform duration-700 ease-in-out tracking-widest will-change-transform rainbow-gradient border-2",
                 {
                   // enabled styles
-                  "bg-neutral-800 text-green-500 border-green-500 hover:border-neutral-800 hover:bg-green-500 hover:text-white cursor-pointer shadow-lg shadow-green-500/50 hover:scale-105 active:scale-95":
+                  "border-green-500 hover:border-[rgba(255,255,255,0.3)] cursor-pointer shadow-lg shadow-green-500/50 hover:scale-105 active:scale-95":
                     isFormValid && !buttonSubmitted,
                   // disabled styles
-                  "border-green-600 text-green-600 cursor-not-allowed":
+                  "border-[rgba(255,255,255,0.3)] text-neutral-100 cursor-not-allowed":
                     !isFormValid || buttonSubmitted,
                 }
               )}>

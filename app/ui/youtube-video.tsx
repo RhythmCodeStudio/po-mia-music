@@ -108,9 +108,9 @@ export default function YouTubeVideo({ videoId, title, description }: YouTubeVid
               sizes="(max-width: 768px) 100vw, 640px"
             />
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="rainbow-gradient bg-opacity-75 rounded-full p-4 border-[rgba(255,255,255,0.3)]">
+              <div className="rainbow-gradient bg-opacity-75 rounded-full p-4 border-[rgba(255,255,255,0.3)] shadow-white shadow-md">
                 <svg
-                  className="w-8 h-8 text-red-500"
+                  className="w-8 h-8 text-white"
                   fill="currentColor"
                   viewBox="0 0 24 24">
                   <path d="M8 5v14l11-7z" />

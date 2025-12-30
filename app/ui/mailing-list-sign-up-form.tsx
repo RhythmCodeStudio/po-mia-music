@@ -9,6 +9,7 @@ import { clsx } from "clsx";
 import { ToastContainer, Zoom, toast } from "react-toastify";
 // import components
 import ContactFormInput from "./contact-form-input";
+import Heading from "./heading";
 // import from utils
 import { validateEmail } from "../../utils/utils";
 
@@ -57,6 +58,11 @@ export default function MailingListSignUpForm() {
 
   return (
     <div>
+      <Heading
+        text="Mailing List Sign-Up"
+        headingLevel={3}
+        className="text-2xl font-semibold text-shadow-black-background-black mb-4"
+      />
       <form onSubmit={handleFormSubmit} className="flex flex-col gap-4">
         <ContactFormInput
           inputType="input"
@@ -76,8 +82,11 @@ export default function MailingListSignUpForm() {
           type="submit"
           disabled={!isFormValid || submitted}
           className={clsx(
-            "px-4 py-2 font-semibold text-white bg-blue-600 rounded hover:bg-blue-700 disabled:opacity-50",
-            { "cursor-not-allowed": !isFormValid || submitted }
+            "border-2 border-[rgba(255,255,255,0.3)] p-1 px-4 rounded-full text-sm rainbow-gradient text-shadow-black-background-black transition-colors transition-shadow transition-opacity transition-transform duration-700 ease-in-out tracking-widest will-change-transform",
+            {
+              "cursor-not-allowed opacity-50": !isFormValid || submitted,
+              "cursor-pointer opacity-100 hover:scale-105 active:scale-95 shadow-lg shadow-green-500/50": isFormValid && !submitted,
+            }
           )}
         >
           {submitted ? "Thank you for signing up!" : "Sign Up"}

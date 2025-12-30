@@ -127,7 +127,7 @@ export default function PushNotificationSubscriptionManager({ renderedAs }: Push
             Unsubscribe from Push Notifications
           </button>
         ) : (
-          <button onClick={subscribeToPush} className="cursor-pointer border-2 p-1 rounded-full px-4 text-sm">
+          <button onClick={subscribeToPush} className="cursor-pointer border-2 border-[rgba(255,255,255,0.3)] p-1 px-4 rounded-full text-sm rainbow-gradient text-shadow-black-background-black">
             Subscribe to Push Notifications
           </button>
         )

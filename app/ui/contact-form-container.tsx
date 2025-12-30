@@ -3,6 +3,7 @@
 import { useState } from "react";
 // import components
 import ContactForm from "./contact-form";
+import Heading from "./heading";
 // import ContactIconLinks from "./contact-icon-links";
 // import copy
 // import { contactPageCopy } from "@/app/lib/copy/contact-page-copy";
@@ -10,7 +11,7 @@ import ContactForm from "./contact-form";
 export default function ContactFormContainer() {
   const [formSubmitted, setFormSubmitted] = useState(false);
   return (
-    <div className="flex flex-col items-stretch sm:text-lg xl:text-xl 2xl:text-2xl w-full max-w-xs sm:max-w-sm md:max-w-lg lg:max-w-2xl">
+    <div className="flex flex-col items-stretch sm:text-lg xl:text-xl 2xl:text-2xl w-full max-w-xs sm:max-w-sm md:max-w-lg lg:max-w-2xl p-4 lg:p-8 lg:py-0 my-8 bg-black/50 border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-lg rounded-4xl">
       {formSubmitted ? (
         <div className="items-center justify-center ">
           <h2 className="text-4xl text-center">Thank you!</h2>
@@ -30,6 +31,11 @@ export default function ContactFormContainer() {
             Contact
           </h2> */}
           <div className="mt-6 lg:mt-12 items-center justify-center">
+            <Heading
+              text="Send po a Message"
+              headingLevel={2}
+              className="text-2xl font-semibold text-shadow-black-background-black mb-4 text-center"
+            />
             <ContactForm setFormSubmitted={setFormSubmitted} />
           </div>
         </>
