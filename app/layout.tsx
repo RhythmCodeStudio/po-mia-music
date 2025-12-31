@@ -47,19 +47,19 @@ export default function RootLayout({
               <Header />
               <main className="flex-1 flex flex-col justify-center items-center rainbow-gradient w-full overflow-x-hidden relative">
                 <h1 className="sr-only text-4xl lg:text-6xl font-bold text-shadow-black-background-black ">
-        po mia
-      </h1>
-      <div className="w-64 px-6 my-4 lg:w-72 lg:my-6 lg:px-0">
-        <Image
-          // src="/logos/pomia-horizontal-logo-black.png"
-          src="/logos/pomia-horizontal-logo-colorful.png"
-          alt="Po Mia Music Logo"
-          width={2213}
-          height={725}
-          priority
-          className="w-full h-auto"
-        />
-      </div>
+                  po mia
+                </h1>
+                <div className="w-64 px-6 my-4 lg:w-72 lg:px-0">
+                  <Image
+                    // src="/logos/pomia-horizontal-logo-black.png"
+                    src="/logos/pomia-horizontal-logo-colorful.png"
+                    alt="Po Mia Music Logo"
+                    width={2213}
+                    height={725}
+                    priority
+                    className="w-full h-auto"
+                  />
+                </div>
                 <StarrySky />
                 {children}
                 <ScrollToTopButton />
@@ -73,6 +73,5 @@ export default function RootLayout({
     </html>
   );
 }
-
 
 // bg-gradient-to-br from-red-400 via-orange-400 via-yellow-400 via-green-500 via-blue-500 via-indigo-400 to-violet-400 dark:from-red-700 dark:via-green-700 dark:via-blue-700 dark:to-violet-700 dark:bg-gradient-to-br
