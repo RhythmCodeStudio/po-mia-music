@@ -7,7 +7,7 @@ export default function Contact() {
   return (
     <section className="flex flex-col items-center justify-center w-full max-w-6xl p-6 space-y-6">
       <Heading
-        text="Contact po"
+        text="Contact"
         headingLevel={2}
         className="text-4xl font-semibold text-shadow-black-background-black"
       />

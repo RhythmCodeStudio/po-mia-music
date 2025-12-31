@@ -7,19 +7,20 @@ import { poBio } from "../lib/po-data";
 export default function Home() {
   return (
     <div className="relative flex flex-col flex-grow items-center justify-center space-y-2 md:space-y-4">
-      <h1 className="sr-only text-4xl lg:text-6xl font-bold text-shadow-black-background-black ">
+      {/* <h1 className="sr-only text-4xl lg:text-6xl font-bold text-shadow-black-background-black ">
         po mia
       </h1>
-      <div className="w-xs p-6">
+      <div className="w-64 px-6 my-4 lg:w-72 lg:my-6 lg:px-0">
         <Image
-          src="/logos/pomia-horizontal-logo-black.png"
+          // src="/logos/pomia-horizontal-logo-black.png"
+          src="/logos/pomia-horizontal-logo-colorful.png"
           alt="Po Mia Music Logo"
           width={2213}
           height={725}
           priority
           className="w-full h-auto"
         />
-      </div>
+      </div> */}
       <div className="fixed top-20 left-0 w-full z-50">
         <InstallPrompt />
       </div>
