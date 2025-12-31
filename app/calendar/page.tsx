@@ -6,7 +6,7 @@ export default function Calendar() {
   return (
     <div className="flex flex-col flex-grow items-center justify-center space-y-6">
       <Heading
-        text=" po's events"
+        text="Calendar"
         headingLevel={2}
         className="text-4xl font-semibold text-shadow-black-background-black"
       />

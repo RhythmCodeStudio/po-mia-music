@@ -4,6 +4,7 @@ import { stackClientApp } from "../stack/client";
 import { Analytics } from "@vercel/analytics/next";
 // import from next
 import type { Metadata } from "next";
+import Image from "next/image";
 // import { Geist, Geist_Mono } from "next/font/google";
 // import components
 import Header from "./ui/header";
@@ -45,6 +46,20 @@ export default function RootLayout({
             <PushNotificationContextProvider>
               <Header />
               <main className="flex-1 flex flex-col justify-center items-center rainbow-gradient w-full overflow-x-hidden relative">
+                <h1 className="sr-only text-4xl lg:text-6xl font-bold text-shadow-black-background-black ">
+        po mia
+      </h1>
+      <div className="w-64 px-6 my-4 lg:w-72 lg:my-6 lg:px-0">
+        <Image
+          // src="/logos/pomia-horizontal-logo-black.png"
+          src="/logos/pomia-horizontal-logo-colorful.png"
+          alt="Po Mia Music Logo"
+          width={2213}
+          height={725}
+          priority
+          className="w-full h-auto"
+        />
+      </div>
                 <StarrySky />
                 {children}
                 <ScrollToTopButton />

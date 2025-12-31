@@ -8,6 +8,7 @@ import { getMailingList } from "../../actions/actions";
 import { SignIn } from "@stackframe/stack";
 // import { AccountSettings } from "@stackframe/stack";
 // import components
+import Heading from "@/app/ui/heading";
 import AdminContainer from "@/app/ui/admin/admin-container";
 // import AdminNotificationPanel from "@/app/ui/admin/admin-notification-panel";
 
@@ -25,8 +26,8 @@ export default async function AdminPage() {
       )}
 
       {user && (
-        <div className="mt-10 flex flex-col justify-center items-center gap-6 text-shadow-black-background-black w-full">
-          <h2 className="text-center text-4xl font-bold">Welcome back Po</h2>
+        <div className="flex flex-col justify-center items-center gap-6 text-shadow-black-background-black w-full">
+          <Heading text="Welcome back po" headingLevel={2} className="font-bold text-4xl text-shadow-black-background-black mt-6" />
           <div className="mb-4 bg-black/50 mt-6 p-6 rounded-4xl shadow-lg shadow-white mx-6 border-2 border-[rgba(255,255,255,0.3)] w-ful min-w-6xl flex justify-center items-center">
             <AdminContainer 
               mailingListRows={await getMailingList()} 
