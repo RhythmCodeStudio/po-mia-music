@@ -97,7 +97,7 @@ export default function YouTubeVideo({ videoId, title, description }: YouTubeVid
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
-            className="absolute top-0 left-0 w-full h-full rounded-lg"></iframe>
+            className="absolute top-0 left-0 w-full h-full rounded-4xl"></iframe>
         ) : (
           <>
             <Image

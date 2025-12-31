@@ -82,9 +82,9 @@ export default function MailingListSignUpForm() {
           type="submit"
           disabled={!isFormValid || submitted}
           className={clsx(
-            "border-2 border-[rgba(255,255,255,0.3)] p-1 px-4 rounded-full text-sm rainbow-gradient text-shadow-black-background-black transition-colors transition-shadow transition-opacity transition-transform duration-700 ease-in-out tracking-widest will-change-transform",
+            "z-50 border-2 border-[rgba(255,255,255,0.3)] p-1 px-4 rounded-full text-sm rainbow-gradient text-shadow-black-background-black transition-colors transition-shadow transition-opacity transition-transform duration-700 ease-in-out tracking-widest will-change-transform",
             {
-              "cursor-not-allowed opacity-50": !isFormValid || submitted,
+              "cursor-not-allowed opacity-40": !isFormValid || submitted,
               "cursor-pointer opacity-100 hover:scale-105 active:scale-95 shadow-lg shadow-green-500/50": isFormValid && !submitted,
             }
           )}
