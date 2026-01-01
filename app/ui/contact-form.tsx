@@ -33,6 +33,7 @@ export default function ContactForm({
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
+  const [mailingListSignup, setMailingListSignup] = useState(false);
   const [emailErrorMessage, setEmailErrorMessage] = useState("");
   const [phoneErrorMessage, setPhoneErrorMessage] = useState("");
   const [firstNameErrorMessage, setFirstNameErrorMessage] = useState("");
@@ -133,7 +134,9 @@ export default function ContactForm({
 
       try {
         // Sign up for mailing list
-        await signUpForMailingList(trimmedEmail);
+        if (mailingListSignup) {
+          await signUpForMailingList(trimmedEmail);
+        }
         // Send email via emailjs
         await emailjs.send(
           process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
@@ -272,6 +275,19 @@ export default function ContactForm({
           handleChange={handleChange}
           setStateVariable={setMessage}
         />
+        <input
+          type="checkbox"
+          name="mailing-list-signup"
+          id="mailing-list-signup"
+          className="m-2"
+          checked={mailingListSignup}
+          onChange={(e) => setMailingListSignup(e.target.checked)}
+        />
+        <label
+          htmlFor="mailing-list-signup"
+          className="text-sm text-neutral-300 mx-2">
+          Sign me up for the po mia mailing list!
+        </label>
 
         <div className="flex justify-center items-center p-6 mt-4">
           <span
