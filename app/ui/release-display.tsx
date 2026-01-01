@@ -24,7 +24,7 @@ interface ReleaseDisplayProps {
       name: string;
       label: string;
       url: string;
-      icon: React.ElementType;
+      icon: string;
     }[];
     tracks: Track[];
   };
