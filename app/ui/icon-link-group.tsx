@@ -1,4 +1,21 @@
 "use client";
+
+import {
+  SiApplemusic,
+  SiAmazonmusic,
+  SiBandcamp,
+  SiSpotify,
+  SiTidal,
+  SiYoutube,
+  SiYoutubemusic,
+} from "react-icons/si";
+import { FaDeezer } from "react-icons/fa";
+import { IoLogoInstagram, IoLogoFacebook } from "react-icons/io";
+import { IoLogoTiktok } from "react-icons/io5";
+import { HiEnvelope } from "react-icons/hi2";
+import { SiVenmo } from "react-icons/si";
+import { SiCashapp } from "react-icons/si";
+import { BiLogoVenmo } from "react-icons/bi";
 // import from next
 // import { usePathname } from "next/navigation";
 // import link data
@@ -8,7 +25,8 @@ import IconLink from "./icon-link";
 
 type IconLinkGroupItem = {
   href: string;
-  icon: React.ElementType;
+  // icon: React.ElementType;
+  icon: string;
   name: string;
   label: string; // descriptive label for accessibility
 };
@@ -20,7 +38,23 @@ type IconLinkGroupProps = {
   size?: number; // optional size for the icons, default can be set in IconLink component
 };
 
-
+const iconMap: { [key: string]: React.ElementType } = {
+  SiApplemusic,
+  SiAmazonmusic,
+  SiBandcamp,
+  SiSpotify,
+  SiTidal,
+  FaDeezer,
+  SiYoutube,
+  SiYoutubemusic,
+  IoLogoInstagram,
+  IoLogoFacebook,
+  IoLogoTiktok,
+  HiEnvelope,
+  SiVenmo,
+  SiCashapp,
+  BiLogoVenmo,
+};
 
 export default function IconLinkGroup({
   orientation,
@@ -38,9 +72,7 @@ export default function IconLinkGroup({
 
   // Filter links if include is provided
   const filteredLinks = include
-    ? linkData.filter((item: IconLinkGroupItem) =>
-        include.includes(item.name)
-      )
+    ? linkData.filter((item: IconLinkGroupItem) => include.includes(item.name))
     : linkData;
 
   // Provide a default size if not specified
@@ -50,11 +82,20 @@ export default function IconLinkGroup({
     <div
       className={`flex items-center space-x-12 sm:space-x-16 md:space-x-20 lg:space-x-24 xl:space-x-28 2xl:space-x-32 ${
         orientation === "vertical" ? "flex-col" : "flex-row"
-      }`}
-    >
-      {filteredLinks.map(({ href, icon: Icon, label }: IconLinkGroupItem) => (
-        <IconLink key={href} href={href} icon={Icon} size={iconSize} label={label} />
-      ))}
+      }`}>
+     {filteredLinks.map(({ href, icon, label, name }) => {
+        const Icon = iconMap[icon];
+        if (!Icon) return null; // or fallback
+        return (
+          <IconLink
+            key={href}
+            href={href}
+            icon={Icon}
+            size={iconSize}
+            label={label}
+          />
+        );
+      })}
     </div>
   );
 }
