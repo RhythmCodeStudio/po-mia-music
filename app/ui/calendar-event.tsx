@@ -5,8 +5,10 @@ import Heading from "./heading";
 
 interface CalendarEventProps {
   title: string;
-  date: string;
-  time: string;
+  startDate: string;
+  endDate?: string;
+  startTime: string;
+  endTime?: string;
   locationName: string;
   locationStreetAddress: string;
   locationCity: string;
@@ -19,8 +21,10 @@ interface CalendarEventProps {
 export default function CalendarEvent(
   {
     title,
-    date,
-    time,
+    startDate,
+    endDate,
+    startTime,
+    endTime,
     locationName,
     locationStreetAddress,
     locationCity,
@@ -39,10 +43,10 @@ export default function CalendarEvent(
       />
       <div className="text-center">
       <p className="mb-1 text-shadow-black-background-black">
-       {date}
+       {startDate} {endDate ? `- ${endDate}` : ''}
       </p>
       <p className="mb-1 text-shadow-black-background-black">
-       {time}
+       {startTime} {endTime ? `- ${endTime}` : ''}
       </p>
       <p className="mb-1 text-shadow-black-background-black">
        {locationName} 

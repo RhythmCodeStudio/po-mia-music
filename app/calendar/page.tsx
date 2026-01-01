@@ -12,8 +12,8 @@ export default function Calendar() {
       />
       <CalendarEvent
         title="po mia plays blacklist christmas"
-        date="Sunday, December 28"
-        time="7:00 PM"
+        startDate="Sunday, December 28"
+        startTime="7:00 PM"
         locationName="Moshmellow"
         locationStreetAddress="3359 S. Jefferson Ave"
         locationCity="St. Louis"
