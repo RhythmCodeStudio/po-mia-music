@@ -1,13 +1,13 @@
 // import { randomUUID } from "node:crypto"
-import { IconBase } from "react-icons";
-import { SiApplemusic } from "react-icons/si";
-import { SiSpotify } from "react-icons/si";
-import { SiYoutube } from "react-icons/si";
-import { SiYoutubemusic } from "react-icons/si";
-import { SiAmazonmusic } from "react-icons/si";
-import { SiBandcamp } from "react-icons/si";
-import { SiCashapp } from "react-icons/si";
-import { SiVenmo } from "react-icons/si";
+// import { IconBase } from "react-icons";
+// import { SiApplemusic } from "react-icons/si";
+// import { SiSpotify } from "react-icons/si";
+// import { SiYoutube } from "react-icons/si";
+// import { SiYoutubemusic } from "react-icons/si";
+// import { SiAmazonmusic } from "react-icons/si";
+// import { SiBandcamp } from "react-icons/si";
+// import { SiCashapp } from "react-icons/si";
+// import { SiVenmo } from "react-icons/si";
 // import { BiLogoVenmo } from "react-icons/bi";
 
 export const poBio = `“po mia” is an eclectic, up-and-coming singer/songwriter based in St. Louis, MO. They are best known for their versatility of musical styles, colourful stylistic expression, as well as their ability to 
@@ -19,13 +19,13 @@ export const paymentLinks = [
     name: "Cashapp",
     label: "Cashapp",
     url: "https://cash.app/$skatingsongbird",
-    icon: SiCashapp,
+    icon: "SiCashapp",
   },
   {
     name: "Venmo",
     label: "Venmo",
     url: "https://account.venmo.com/u/skatingsongbird",
-    icon: SiVenmo,
+    icon: "SiVenmo",
   },
 ];
 
@@ -43,37 +43,37 @@ export const releases = [
         name: "Amazon Music",
         label: "Listen to 'hope is plenty' on Amazon Music",
         url: "https://www.amazon.com/music/player/albums/B0D8NH2B7B",
-        icon: SiAmazonmusic,
+        icon: "SiAmazonmusic",
       },
       {
         name: "Apple Music",
         label: "Listen to 'hope is plenty' on Apple Music",
         url: "https://music.apple.com/us/album/hope-is-plenty-single/1758370619",
-        icon: SiApplemusic,
+        icon: "SiApplemusic",
       },
       {
         name: "Bandcamp",
         label: "Listen to 'hope is plenty' on Bandcamp",
         url: "https://pomia.bandcamp.com/track/hope-is-plenty",
-        icon: SiBandcamp,
+        icon: "SiBandcamp",
       },
       {
         name: "Spotify",
         label: "Listen to 'hope is plenty' on Spotify",
         url: "https://open.spotify.com/album/1lpZTVvvQ5RgL7Vn7ixcL8",
-        icon: SiSpotify,
+        icon: "SiSpotify",
       },
       {
         name: "YouTube",
         label: "Listen to 'hope is plenty' on YouTube",
         url: "https://youtu.be/B1yublwYhzc?si=i-yFH3iOKKFvU0Eg",
-        icon: SiYoutube,
+        icon: "SiYoutube",
       },
       {
         name: "YouTube Music",
         label: "Listen to 'hope is plenty' on YouTube Music",
         url: "https://music.youtube.com/watch?v=B1yublwYhzc&si=IheLG159H1mfg49l",
-        icon: SiYoutubemusic,
+        icon: "SiYoutubemusic",
       },
     ],
     tracks: [
@@ -99,37 +99,37 @@ export const releases = [
         name: "Amazon Music",
         label: "Listen to 'REBIRTH' on Amazon Music",
         url: "https://www.amazon.com/music/player/albums/B0C5G76FT2",
-        icon: SiAmazonmusic,
+        icon: "SiAmazonmusic",
       },
       {
         name: "Apple Music",
         label: "Listen to 'REBIRTH' on Apple Music",
         url: "https://music.apple.com/us/album/rebirth-single/1688287207",
-        icon: SiApplemusic,
+        icon: "SiApplemusic",
       },
       {
         name: "Bandcamp",
         label: "Listen to 'REBIRTH' on Bandcamp",
         url: "https://pomia.bandcamp.com/album/rebirth",
-        icon: SiBandcamp,
+        icon: "SiBandcamp",
       },
       {
         name: "Spotify",
         label: "Listen to 'REBIRTH' on Spotify",
         url: "https://open.spotify.com/album/3QeQh5IfEDY70c3BgEMQyK",
-        icon: SiSpotify,
+        icon: "SiSpotify",
       },
       {
         name: "YouTube",
         label: "Listen to 'REBIRTH' on YouTube",
         url: "https://www.youtube.com/watch?v=QY4K0pTxoeA&list=OLAK5uy_lz6foRD4JNHLYvBExrIGz0DWE52KPsPwc",
-        icon: SiYoutube,
+        icon: "SiYoutube",
       },
       {
         name: "YouTube Music",
         label: "Listen to 'REBIRTH' on YouTube Music",
         url: "https://music.youtube.com/playlist?list=OLAK5uy_ncwLdHR6Sa3yBIwUbdAnT4EZLPk886RDs",
-        icon: SiYoutubemusic,
+        icon: "SiYoutubemusic",
       },
     ],
     tracks: [
@@ -169,37 +169,37 @@ export const releases = [
         name: "Amazon Music",
         label: "Listen to 'golden tongue' on Amazon Music",
         url: "https://www.amazon.com/music/player/albums/B0BJJL17MW",
-        icon: SiAmazonmusic,
+        icon: "SiAmazonmusic",
       },
       {
         name: "Apple Music",
         label: "Listen to 'golden tongue' on Apple Music",
         url: "https://music.apple.com/us/album/golden-tongue-single/1650322813",
-        icon: SiApplemusic,
+        icon: "SiApplemusic",
       },
       {
         name: "Bandcamp",
         label: "Listen to 'golden tongue' on Bandcamp",
         url: "https://pomia.bandcamp.com/track/golden-tongue",
-        icon: SiBandcamp,
+        icon: "SiBandcamp",
       },
       {
         name: "Spotify",
         label: "Listen to 'golden tongue' on Spotify",
         url: "https://open.spotify.com/album/3hnlpq3Rc5cCTZHoDeri2X",
-        icon: SiSpotify,
+        icon: "SiSpotify",
       },
       {
         name: "YouTube",
         label: "Listen to 'golden tongue' on YouTube",
         url: "https://www.youtube.com/watch?v=SRPic8-Si94&list=OLAK5uy_no2j_eaD2WQq_5o8rM-TJfvIWZae7164k",
-        icon: SiYoutube,
+        icon: "SiYoutube",
       },
       {
         name: "YouTube Music",
         label: "Listen to 'golden tongue' on YouTube Music",
         url: "https://music.youtube.com/playlist?list=OLAK5uy_nx8OqTWX_plCYNDpUqDP0HwaBo6S9ZzUg",
-        icon: SiYoutubemusic,
+        icon: "SiYoutubemusic",
       },
     ],
     tracks: [
@@ -225,37 +225,37 @@ export const releases = [
         name: "Amazon Music",
         label: "Listen to 'po logue' on Amazon Music",
         url: "https://www.amazon.com/music/player/albums/B09SVXBRGZ",
-        icon: SiAmazonmusic,
+        icon: "SiAmazonmusic",
       },
       {
         name: "Apple Music",
         label: "Listen to 'po logue' on Apple Music",
         url: "https://music.apple.com/us/album/po-logue-ep/1610821422",
-        icon: SiApplemusic,
+        icon: "SiApplemusic",
       },
       {
         name: "Bandcamp",
         label: "Listen to 'po logue' on Bandcamp",
         url: "https://pomia.bandcamp.com/album/po-logue",
-        icon: SiBandcamp,
+        icon: "SiBandcamp",
       },
       {
         name: "Spotify",
         label: "Listen to 'po logue' on Spotify",
         url: "https://open.spotify.com/album/6dn0pBQ85089ddx7zZ8VH1",
-        icon: SiSpotify,
+        icon: "SiSpotify",
       },
       {
         name: "YouTube",
         label: "Listen to 'po logue' on YouTube",
         url: "https://www.youtube.com/watch?v=m30aFtK8zmk&list=OLAK5uy_n2PALtNQnow8MJ8s7i-1XB3elHy7ndYzo",
-        icon: SiYoutube,
+        icon: "SiYoutube",
       },
       {
         name: "YouTube Music",
         label: "Listen to 'po logue' on YouTube Music",
         url: "https://music.youtube.com/playlist?list=OLAK5uy_k-XKMENOXvSjkKMwHaArMJ0WGLJ1wSBmA",
-        icon: SiYoutubemusic,
+        icon: "SiYoutubemusic",
       },
     ],
     tracks: [
