@@ -34,18 +34,7 @@ export default function AdminCalendar({
             className="bg-gray-200 text-gray-800"
           />
         </div>
-        <div className="max-w-md">
-          {/* <CalendarEventDisplay
-            title="po mia plays blacklist christmas"
-            startDate="Sunday, December 28"
-            startTime="7:00 PM"
-            locationName="Moshmellow"
-            locationStreetAddress="3359 S. Jefferson Ave"
-            locationCity="St. Louis"
-            locationState="MO"
-            locationZip="63118"
-            description="This is a sample event description."
-          /> */}
+        <div className="max-w-md">  
           {calendarEventRows.map((event: any) => (
             <CalendarEventDisplay
               key={event.id}
