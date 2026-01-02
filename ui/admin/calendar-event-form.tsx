@@ -97,7 +97,7 @@ export default function CalendarEventForm() {
           handleChange={(e) => handleChange(e, setEventTitle)}
           setStateVariable={setEventTitle}
         />
-        <ContactFormInput
+        {/* <ContactFormInput
           label="Date"
           name="date"
           inputType="input"
@@ -109,8 +109,22 @@ export default function CalendarEventForm() {
           errorMessage=""
           handleChange={(e) => handleChange(e, setDate)}
           setStateVariable={setDate}
+        /> */}
+        <label className="block mb-1 font-medium" htmlFor="date">Date</label>
+        <input
+          type="date"
+          className="border border-gray-300 rounded px-3 py-2 w-full"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
         />
-        <ContactFormInput
+        <label className="block mb-1 font-medium mt-4" htmlFor="endDate">End Date</label>
+        <input
+          type="date"
+          className="border border-gray-300 rounded px-3 py-2 w-full"
+          value={endDate}
+          onChange={(e) => setEndDate(e.target.value)}
+        />
+        {/* <ContactFormInput
           label="End Date"
           name="endDate"
           inputType="input"
@@ -122,7 +136,7 @@ export default function CalendarEventForm() {
           errorMessage=""
           handleChange={(e) => handleChange(e, setEndDate)}
           setStateVariable={setEndDate}
-        />
+        /> */}
         <ContactFormInput
           label="Time"
           name="time"

@@ -2,6 +2,7 @@
 import Image from "next/image";
 // import components
 import Heading from "./heading";
+import GoogleMapsLink from "./google-maps-link";
 // import from utils
 import { formatDate } from "../utils/utils";
 
@@ -56,7 +57,15 @@ export default function CalendarEventDisplay(
       <p className="mb-1 text-shadow-black-background-black">
        {startTime} {endTime ? `- ${endTime}` : ''}
       </p>
-      <p className="mb-1 text-shadow-black-background-black">
+      <GoogleMapsLink
+        addressLineOne={locationStreetAddress}
+        addressLineTwo={locationName}
+        city={locationCity}
+        state={locationState}
+        zipCode={Number(locationZip)}
+        className="mb-1 text-shadow-black-background-black underline"
+      />
+      {/* <p className="mb-1 text-shadow-black-background-black">
        {locationName} 
       </p>
       <p className="mb-1 text-shadow-black-background-black">
@@ -67,7 +76,7 @@ export default function CalendarEventDisplay(
       </p>
       <p className="mb-1 text-shadow-black-background-black">
        {locationZip}
-      </p>
+      </p> */}
       {description && (
         <p className="mb-1">
           {description}
