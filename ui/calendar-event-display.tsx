@@ -44,16 +44,19 @@ export default function CalendarEventDisplay(
   console.log("formattedEndDate:", formattedEndDate);
 
   return (
-    <section className="bg-black/50 border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-lg rounded-4xl p-6 z-50 w-full">
+    <section className="bg-black/50 border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-lg rounded-4xl p-6 z-50 w-full text-center">
+       <p className="text-shadow-black-background-black">
+       {formattedStartDate} {formattedEndDate ? `- ${formattedEndDate}` : ''}
+      </p>
       <Heading
         text= {title}
         headingLevel={3}
-        className="text-xl font-bold mb-2 text-shadow-black-background-black text-center"
+        className="text-lg font-bold mb-2 text-shadow-black-background-black"
       />
-      <div className="text-center">
-      <p className="mb-1 text-shadow-black-background-black">
+      <div className="">
+      {/* <p className="mb-1 text-shadow-black-background-black">
        {formattedStartDate} {formattedEndDate ? `- ${formattedEndDate}` : ''}
-      </p>
+      </p> */}
       <p className="mb-1 text-shadow-black-background-black">
        {startTime} {endTime ? `- ${endTime}` : ''}
       </p>
@@ -77,7 +80,7 @@ export default function CalendarEventDisplay(
       <p className="mb-1 text-shadow-black-background-black">
        {locationZip}
       </p> */}
-      {description && (
+      {/* {description && (
         <p className="mb-1">
           {description}
         </p>
@@ -92,7 +95,7 @@ export default function CalendarEventDisplay(
             className="rounded-lg"
           />
         </div>
-      )}
+      )} */}
       </div>
     </section>
   );

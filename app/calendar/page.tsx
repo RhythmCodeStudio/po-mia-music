@@ -33,7 +33,7 @@ export default async function Calendar() {
         headingLevel={2}
         className="text-4xl font-semibold text-shadow-black-background-black"
       />
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 w-full max-w-6xl my-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 w-full max-w-6xl my-6 px-8">
         {upComingEvents.map((event) => (
           <CalendarEventDisplay
             key={event.id}

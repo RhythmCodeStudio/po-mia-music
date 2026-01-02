@@ -23,6 +23,8 @@ export default function CalendarEventForm() {
   const [locationZip, setLocationZip] = useState("");
   const [description, setDescription] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+  const [dateTouched, setDateTouched] = useState(false);
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -32,14 +34,35 @@ export default function CalendarEventForm() {
     setStateVariable(value);
   };
 
-  const handleFormSubmit = async (e: { preventDefault: () => void }) => {
+  const validate = () => {
+    const newErrors: { [key: string]: string } = {};
+    if (!eventTitle) newErrors.eventTitle = "Event title is required";
+    if (!date) newErrors.date = "Date is required";
+    if (!time) newErrors.time = "Time is required";
+    if (!locationName) newErrors.locationName = "Location name is required";
+    if (!locationStreetAddress)
+      newErrors.locationStreetAddress = "Street address is required";
+    if (!locationCity) newErrors.locationCity = "City is required";
+    if (!locationState) newErrors.locationState = "State is required";
+    if (!locationZip) newErrors.locationZip = "Zip code is required";
+    return newErrors;
+  };
+
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const validationErrors = validate();
+    setErrors(validationErrors);
+
+    if (Object.keys(validationErrors).length > 0) {
+      // Optionally, scroll to first error or focus
+      setDateTouched(true);
+      return;
+    }
+
     try {
       await createCalendarEvent({
-        // id: id.toString(),
         title: eventTitle,
         startDate: new Date(date),
-        // endDate: undefined, // or add an end date field
         endDate: endDate ? new Date(endDate) : undefined,
         startTime: time,
         endTime: endTime ? endTime : undefined,
@@ -67,6 +90,8 @@ export default function CalendarEventForm() {
       setLocationZip("");
       setDescription("");
       setImageUrl("");
+      setErrors({});
+      setDateTouched(false);
       alert("Event created successfully!");
     } catch (err) {
       console.error("Error creating calendar event:", err);
@@ -83,7 +108,7 @@ export default function CalendarEventForm() {
         className="text-center text-2xl font-bold"
         text="Add a New Event"
       />
-      <form>
+      <form onSubmit={handleFormSubmit}>
         <ContactFormInput
           label="Event Title"
           name="eventTitle"
@@ -93,50 +118,61 @@ export default function CalendarEventForm() {
           value={eventTitle}
           required={true}
           autoComplete="off"
-          errorMessage=""
+          errorMessage={errors.eventTitle || ""}
           handleChange={(e) => handleChange(e, setEventTitle)}
           setStateVariable={setEventTitle}
         />
-        {/* <ContactFormInput
-          label="Date"
-          name="date"
-          inputType="input"
-          type="text"
-          placeholder=""
-          value={date}
-          required={true}
-          autoComplete="off"
-          errorMessage=""
-          handleChange={(e) => handleChange(e, setDate)}
-          setStateVariable={setDate}
-        /> */}
-        <label className="block mb-1 font-medium" htmlFor="date">Date</label>
-        <input
-          type="date"
-          className="border border-gray-300 rounded px-3 py-2 w-full"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-        />
-        <label className="block mb-1 font-medium mt-4" htmlFor="endDate">End Date</label>
-        <input
-          type="date"
-          className="border border-gray-300 rounded px-3 py-2 w-full"
-          value={endDate}
-          onChange={(e) => setEndDate(e.target.value)}
-        />
-        {/* <ContactFormInput
-          label="End Date"
-          name="endDate"
-          inputType="input"
-          type="text"
-          placeholder=""
-          value={endDate}
-          required={false}
-          autoComplete="off"
-          errorMessage=""
-          handleChange={(e) => handleChange(e, setEndDate)}
-          setStateVariable={setEndDate}
-        /> */}
+        <div className="flex flex-col justify-start w-full">
+          <label className="m-2 text-left text-base" htmlFor="date">
+            Date*
+            <span className="text-xs"> (required)</span>
+          </label>
+          <input
+            type="date"
+            id="date"
+            name="date"
+            required
+            className="shadow-md shadow-green-500/50 border-2 border-green-500 p-2 max-w-xs w-full text-black placeholder-neutral-800 rounded-2xl bg-neutral-100 tracking-wide h-10 w-full"
+            value={date}
+            autoComplete="off"
+            onChange={(e) => setDate(e.target.value)}
+            onBlur={() => setDateTouched(true)}
+          />
+          <p
+            className="text-red-200 text-xs mt-1 ml-2 min-h-[1.25rem] transition-opacity duration-300"
+            style={{
+              visibility:
+                (dateTouched && !date) || errors.date ? "visible" : "hidden",
+              opacity: (dateTouched && !date) || errors.date ? 1 : 0,
+            }}>
+            {(dateTouched && !date) || errors.date
+              ? errors.date || "Date is required"
+              : " "}
+          </p>
+        </div>
+        <div className="flex flex-col justify-start w-full mb-4">
+          <label className="m-2 text-left text-base" htmlFor="endDate">
+            End Date
+          </label>
+          <input
+            type="date"
+            id="endDate"
+            name="endDate"
+            className="shadow-md shadow-green-500/50 border-2 border-green-500 p-2 w-xs text-black placeholder-neutral-800 rounded-2xl bg-neutral-100 tracking-wide h-10 w-full"
+            value={endDate}
+            autoComplete="off"
+            onChange={(e) => setDate(e.target.value)}
+            // onBlur={() => setDateTouched(true)}
+          />
+          {/* <p
+            className="text-red-200 text-xs mt-1 ml-2 min-h-[1.25rem] transition-opacity duration-300"
+            style={{
+              visibility: (dateTouched && !date) || errors.date ? "visible" : "hidden",
+              opacity: (dateTouched && !date) || errors.date ? 1 : 0,
+            }}>
+            {(dateTouched && !date) || errors.date ? (errors.date || "Date is required") : " "}
+          </p> */}
+        </div>
         <ContactFormInput
           label="Time"
           name="time"
@@ -146,7 +182,7 @@ export default function CalendarEventForm() {
           value={time}
           required={true}
           autoComplete="off"
-          errorMessage=""
+          errorMessage={errors.time || ""}
           handleChange={(e) => handleChange(e, setTime)}
           setStateVariable={setTime}
         />
@@ -181,7 +217,7 @@ export default function CalendarEventForm() {
           value={locationName}
           required={true}
           autoComplete="off"
-          errorMessage=""
+          errorMessage={errors.locationName || ""}
           handleChange={(e) => handleChange(e, setLocationName)}
           setStateVariable={setLocationName}
         />
@@ -194,7 +230,7 @@ export default function CalendarEventForm() {
           value={locationStreetAddress}
           required={true}
           autoComplete="off"
-          errorMessage=""
+          errorMessage={errors.locationStreetAddress || ""}
           handleChange={(e) => handleChange(e, setLocationStreetAddress)}
           setStateVariable={setLocationStreetAddress}
         />
@@ -207,7 +243,7 @@ export default function CalendarEventForm() {
           value={locationCity}
           required={true}
           autoComplete="off"
-          errorMessage=""
+          errorMessage={errors.locationCity || ""}
           handleChange={(e) => handleChange(e, setLocationCity)}
           setStateVariable={setLocationCity}
         />
@@ -220,7 +256,7 @@ export default function CalendarEventForm() {
           value={locationState}
           required={true}
           autoComplete="off"
-          errorMessage=""
+          errorMessage={errors.locationState || ""}
           handleChange={(e) => handleChange(e, setLocationState)}
           setStateVariable={setLocationState}
         />
@@ -233,7 +269,7 @@ export default function CalendarEventForm() {
           value={locationZip}
           required={true}
           autoComplete="off"
-          errorMessage=""
+          errorMessage={errors.locationZip || ""}
           handleChange={(e) => handleChange(e, setLocationZip)}
           setStateVariable={setLocationZip}
         />
