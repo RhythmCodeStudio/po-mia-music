@@ -1,8 +1,12 @@
 // import components
 import Heading from "../ui/heading";
-import CalendarEvent from "../ui/calendar-event";
+import CalendarEventDisplay from "../ui/calendar-event-display";
+// import data
+import { getCalendarEvents } from "../../actions/actions";
 
-export default function Calendar() {
+export default async function Calendar() {
+  const events = await getCalendarEvents();
+
   return (
     <div className="flex flex-col flex-grow items-center justify-center space-y-6">
       <Heading
@@ -10,17 +14,35 @@ export default function Calendar() {
         headingLevel={2}
         className="text-4xl font-semibold text-shadow-black-background-black"
       />
-      <CalendarEvent
-        title="po mia plays blacklist christmas"
-        startDate="Sunday, December 28"
-        startTime="7:00 PM"
-        locationName="Moshmellow"
-        locationStreetAddress="3359 S. Jefferson Ave"
-        locationCity="St. Louis"
-        locationState="MO"
-        locationZip="63118"
-        description="This is a sample event description."
-      />
+      <div className="grid grid-cols-4 gap-8 w-full max-w-6xl">
+        {events.map((event) => (
+          <CalendarEventDisplay
+            key={event.id}
+            title={event.title}
+            startDate={
+              typeof event.start_date === "string"
+                ? event.start_date
+                : event.start_date?.toISOString().slice(0, 10)
+            }
+            endDate={
+              event.end_date
+                ? typeof event.end_date === "string"
+                  ? event.end_date
+                  : event.end_date?.toISOString().slice(0, 10)
+                : undefined
+            }
+            startTime={event.start_time}
+            endTime={event.end_time}
+            locationName={event.location_name}
+            locationStreetAddress={event.location_street_address}
+            locationCity={event.location_city}
+            locationState={event.location_state}
+            locationZip={event.location_zip}
+            description={event.description}
+            imageUrl={event.image}
+          />
+        ))}
+      </div>
     </div>
   );
 }

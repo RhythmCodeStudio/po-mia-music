@@ -28,7 +28,6 @@ export async function removeFromMailingList(email: string) {
 
 // create calendar event
 export async function createCalendarEvent(event: {
-  id: string,
   title: string,
   startDate: Date | string,
   endDate?: Date | string,
@@ -45,7 +44,6 @@ export async function createCalendarEvent(event: {
 }) {
   await sql`
     INSERT INTO calendar_events (
-      id,
       title,
       start_date,
       end_date,
@@ -60,7 +58,6 @@ export async function createCalendarEvent(event: {
       description,
       image
     ) VALUES (
-      ${event.id},
       ${event.title},
       ${event.startDate},
       ${event.endDate ?? null},

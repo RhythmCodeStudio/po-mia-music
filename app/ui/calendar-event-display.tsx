@@ -18,7 +18,7 @@ interface CalendarEventProps {
   description?: string;
 }
 
-export default function CalendarEvent(
+export default function CalendarEventDisplay(
   {
     title,
     startDate,

@@ -119,8 +119,6 @@
 // // - Added a minHeight to the content area to prevent layout shift.
 // // - Render all views absolutely stacked, only the active one is visible, so the container size doesn't change.
 
-
-
 "use client";
 import { useState } from "react";
 import MailingList from "./mailing-list";
@@ -130,15 +128,19 @@ import Messages from "./messages";
 import Button from "../button";
 import Heading from "../heading";
 import clsx from "clsx";
+// import definitions
+import { CalendarEvent } from "@/lib/definitions";
 
 interface AdminContainerProps {
   mailingListRows: any[];
   numberOfNotificationSubscriptions?: number;
+  calendarEventRows: any[];
 }
 
 export default function AdminContainer({
   mailingListRows,
   numberOfNotificationSubscriptions,
+  calendarEventRows,
 }: AdminContainerProps) {
   const [view, setView] = useState<
     "calendar" | "mailingList" | "notifications" | "messages"
@@ -198,7 +200,9 @@ export default function AdminContainer({
       </div>
       {/* Conditional rendering: only the active panel is mounted */}
       <div className={`w-full ${contentMinHeight} h-auto`}>
-        {view === "calendar" && <AdminCalendar />}
+        {view === "calendar" && <AdminCalendar 
+          calendarEventRows={calendarEventRows}
+        />}
         {view === "mailingList" && <MailingList rows={mailingListRows} />}
         {view === "notifications" && (
           <AdminNotificationPanel

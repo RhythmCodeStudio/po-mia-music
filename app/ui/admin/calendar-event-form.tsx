@@ -7,7 +7,6 @@ import { createCalendarEvent } from "../../../actions/actions";
 import ContactFormInput from "../contact-form-input";
 import Button from "../button";
 import Heading from "../heading";
-import { start } from "repl";
 
 export default function CalendarEventForm() {
   const [id, setId] = useState(1);
@@ -34,7 +33,7 @@ export default function CalendarEventForm() {
     e.preventDefault();
     try {
       await createCalendarEvent({
-        id: id.toString(),
+        // id: id.toString(),
         title: eventTitle,
         startDate: new Date(date),
         endDate: undefined, // or add an end date field
