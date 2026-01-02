@@ -12,7 +12,10 @@ export default function CalendarEventForm() {
   const [id, setId] = useState(1);
   const [eventTitle, setEventTitle] = useState("");
   const [date, setDate] = useState("");
+  const [endDate, setEndDate] = useState("");
   const [time, setTime] = useState("");
+  const [endTime, setEndTime] = useState("");
+  const [allDay, setAllDay] = useState(false);
   const [locationName, setLocationName] = useState("");
   const [locationStreetAddress, setLocationStreetAddress] = useState("");
   const [locationCity, setLocationCity] = useState("");
@@ -36,10 +39,11 @@ export default function CalendarEventForm() {
         // id: id.toString(),
         title: eventTitle,
         startDate: new Date(date),
-        endDate: undefined, // or add an end date field
+        // endDate: undefined, // or add an end date field
+        endDate: endDate ? new Date(endDate) : undefined,
         startTime: time,
-        endTime: undefined, // or add an end time field
-        allDay: false, // or add an allDay field
+        endTime: endTime ? endTime : undefined,
+        allDay: allDay,
         locationName,
         locationStreetAddress,
         locationCity,
@@ -52,7 +56,10 @@ export default function CalendarEventForm() {
       setId(id + 1);
       setEventTitle("");
       setDate("");
+      setEndDate("");
       setTime("");
+      setEndTime("");
+      setAllDay(false);
       setLocationName("");
       setLocationStreetAddress("");
       setLocationCity("");
@@ -104,6 +111,19 @@ export default function CalendarEventForm() {
           setStateVariable={setDate}
         />
         <ContactFormInput
+          label="End Date"
+          name="endDate"
+          inputType="input"
+          type="text"
+          placeholder=""
+          value={endDate}
+          required={false}
+          autoComplete="off"
+          errorMessage=""
+          handleChange={(e) => handleChange(e, setEndDate)}
+          setStateVariable={setEndDate}
+        />
+        <ContactFormInput
           label="Time"
           name="time"
           inputType="input"
@@ -116,6 +136,28 @@ export default function CalendarEventForm() {
           handleChange={(e) => handleChange(e, setTime)}
           setStateVariable={setTime}
         />
+        <ContactFormInput
+          label="End Time"
+          name="endTime"
+          inputType="input"
+          type="text"
+          placeholder=""
+          value={endTime}
+          required={false}
+          autoComplete="off"
+          errorMessage=""
+          handleChange={(e) => handleChange(e, setEndTime)}
+          setStateVariable={setEndTime}
+        />
+        <input
+          type="checkbox"
+          checked={allDay}
+          onChange={() => setAllDay(!allDay)}
+          className="ml-2 mt-4 mb-6"
+        />
+        <label htmlFor="allDay" className="ml-4">
+          All Day Event
+        </label>
         <ContactFormInput
           label="Location Name"
           name="locationName"

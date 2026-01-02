@@ -6,6 +6,14 @@ import { getCalendarEvents } from "../../actions/actions";
 
 export default async function Calendar() {
   const events = await getCalendarEvents();
+  console.log("events:", events);
+  // upComingEvents should listed the events in the order of soonest to latest
+  const upComingEvents = events.sort((a, b) => {
+    const dateA = new Date(a.start_date);
+    const dateB = new Date(b.start_date);
+    return dateA.getTime() - dateB.getTime();
+  });
+  console.log("upComingEvents:", upComingEvents);
 
   return (
     <div className="flex flex-col flex-grow items-center justify-center space-y-6">
@@ -15,7 +23,7 @@ export default async function Calendar() {
         className="text-4xl font-semibold text-shadow-black-background-black"
       />
       <div className="grid grid-cols-4 gap-8 w-full max-w-6xl">
-        {events.map((event) => (
+        {upComingEvents.map((event) => (
           <CalendarEventDisplay
             key={event.id}
             title={event.title}
