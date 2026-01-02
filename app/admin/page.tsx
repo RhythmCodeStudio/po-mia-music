@@ -20,7 +20,7 @@ export default async function AdminPage() {
   const calendarEvents = await getCalendarEvents();
 
   return (
-    <div>
+    <div className="w-full">
       {!user && (
         <div className="flex justify-center">
           <SignIn automaticRedirect={true} firstTab="password" />
@@ -34,7 +34,7 @@ export default async function AdminPage() {
             headingLevel={2}
             className="font-bold text-4xl text-shadow-black-background-black mt-6"
           />
-          <div className="mb-4 bg-black/50 mt-6 p-6 rounded-4xl shadow-lg shadow-white mx-6 border-2 border-[rgba(255,255,255,0.3)] w-ful min-w-6xl flex justify-center items-center z-50">
+          <div className="w-full flex justify-center px-8 pb-8">
             <AdminContainer
               mailingListRows={await getMailingList()}
               numberOfNotificationSubscriptions={numberOfSubscriptions}

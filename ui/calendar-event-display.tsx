@@ -44,7 +44,7 @@ export default function CalendarEventDisplay(
   console.log("formattedEndDate:", formattedEndDate);
 
   return (
-    <section className="bg-black/50 border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-lg rounded-4xl p-6 z-50 w-full text-center">
+    <section className="bg-black/50 border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-lg rounded-4xl p-6 z-50 max-w-full md:max-w-md w-full text-center">
        <p className="text-shadow-black-background-black">
        {formattedStartDate} {formattedEndDate ? `- ${formattedEndDate}` : ''}
       </p>
