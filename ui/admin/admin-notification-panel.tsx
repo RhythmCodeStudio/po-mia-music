@@ -1,8 +1,12 @@
 "use client";
 import { useState } from "react";
-import { sendNotification } from "../../actions/actions";
+import { sendNotification } from "../../app/actions/actions";
 
-export default function AdminNotificationPanel( {numberOfSubscriptions}: {numberOfSubscriptions?: number} ) {
+export default function AdminNotificationPanel({
+  numberOfSubscriptions,
+}: {
+  numberOfSubscriptions?: number;
+}) {
   console.log("numberOfSubscriptions in client:", numberOfSubscriptions);
   const [message, setMessage] = useState("");
   const [url, setUrl] = useState("");
@@ -10,7 +14,9 @@ export default function AdminNotificationPanel( {numberOfSubscriptions}: {number
 
   async function handleSend() {
     const result = await sendNotification(message, url);
-    setStatus(result && result.success ? "Notification sent!" : "Failed to send.");
+    setStatus(
+      result && result.success ? "Notification sent!" : "Failed to send."
+    );
     setMessage("");
     setUrl("");
   }
@@ -20,8 +26,10 @@ export default function AdminNotificationPanel( {numberOfSubscriptions}: {number
       <p className="text-center font-bold mb-2">Notification Admin Panel</p>
       <p>
         {numberOfSubscriptions === 1
-              ? `There is currently ${numberOfSubscriptions} person subscribed to notifications.`
-          : `There are currently ${numberOfSubscriptions ?? "Loading..."} people subscribed to notifications.`}
+          ? `There is currently ${numberOfSubscriptions} person subscribed to notifications.`
+          : `There are currently ${
+              numberOfSubscriptions ?? "Loading..."
+            } people subscribed to notifications.`}
       </p>
       <br />
       <p>Send a new notification:</p>
@@ -41,7 +49,9 @@ export default function AdminNotificationPanel( {numberOfSubscriptions}: {number
         className="border p-1 rounded-md my-2 w-full max-w-md"
       />
       <br />
-      <button onClick={handleSend} className="mt-2 px-4 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-600 border-1">
+      <button
+        onClick={handleSend}
+        className="mt-2 px-4 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-600 border-1">
         Send Notification
       </button>
       {status && <p>{status}</p>}

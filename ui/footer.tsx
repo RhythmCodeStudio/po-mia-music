@@ -7,10 +7,10 @@ import { useState, useEffect } from "react";
 import PushNotificationSubscriptionManager from "./push-notification-subscription-manager";
 import IconLinkGroup from "./icon-link-group";
 // import link data
-import { contactLinkData } from "../../lib/contact-link-data";
+import { contactLinkData } from "../lib/contact-link-data";
 import { musicLinkData } from "@/lib/music-link-data";
 // import context
-import { usePushNotification } from "../../context/push-notification-context-provider";
+import { usePushNotification } from "../context/push-notification-context-provider";
 
 export default function Footer() {
   const { isSubscribed, refreshSubscription } = usePushNotification();

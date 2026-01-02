@@ -1,6 +1,6 @@
 // import components
-import Heading from "../ui/heading";
-import CalendarEventDisplay from "../ui/calendar-event-display";
+import Heading from "../../ui/heading";
+import CalendarEventDisplay from "../../ui/calendar-event-display";
 // import data
 import { getCalendarEvents } from "../../actions/actions";
 
@@ -27,13 +27,13 @@ export default async function Calendar() {
   });
 
   return (
-    <div className="flex flex-col flex-grow items-center justify-center space-y-6">
+    <div className="flex flex-col flex-grow items-center justify-center">
       <Heading
         text="Calendar"
         headingLevel={2}
         className="text-4xl font-semibold text-shadow-black-background-black"
       />
-      <div className="grid grid-cols-4 gap-8 w-full max-w-6xl">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 w-full max-w-6xl my-6">
         {upComingEvents.map((event) => (
           <CalendarEventDisplay
             key={event.id}

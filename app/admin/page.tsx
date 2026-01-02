@@ -8,8 +8,8 @@ import { getMailingList, getCalendarEvents } from "../../actions/actions";
 import { SignIn } from "@stackframe/stack";
 // import { AccountSettings } from "@stackframe/stack";
 // import components
-import Heading from "@/app/ui/heading";
-import AdminContainer from "@/app/ui/admin/admin-container";
+import Heading from "@/ui/heading";
+import AdminContainer from "@/ui/admin/admin-container";
 // import AdminNotificationPanel from "@/app/ui/admin/admin-notification-panel";
 
 export default async function AdminPage() {

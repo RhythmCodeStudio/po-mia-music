@@ -6,7 +6,7 @@ import { ToastContainer, toast, Slide } from "react-toastify";
 //  import components
 import PushNotificationSubscriptionManager from "./push-notification-subscription-manager";
 // import context
-import { usePushNotification } from "../../context/push-notification-context-provider";
+import { usePushNotification } from "../context/push-notification-context-provider";
 
 // Dummy function: replace with your real check
 // async function isUserSubscribed(): Promise<boolean> {
@@ -18,9 +18,7 @@ const toastMessage = () => {
   toast(
     <div className="flex flex-col items-center text-center text-shadow-black-background-black rounded-[1rem]">
       Subscribe to notifications to stay up to date with the latest from po mia!
-      <div className="flex justify-center mx-auto">
-        🎵✨🎵✨
-      </div>
+      <div className="flex justify-center mx-auto">🎵✨🎵✨</div>
       <div className="my-2">
         <PushNotificationSubscriptionManager renderedAs="button" />
       </div>

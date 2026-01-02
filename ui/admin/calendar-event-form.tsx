@@ -2,7 +2,7 @@
 // import from react
 import { useState } from "react";
 // import actions
-import { createCalendarEvent } from "../../../actions/actions";
+import { createCalendarEvent } from "../../actions/actions";
 // import components
 import ContactFormInput from "../contact-form-input";
 import Button from "../button";

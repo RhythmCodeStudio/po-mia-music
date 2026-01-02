@@ -1,8 +1,8 @@
 // import components
-import ContactFormContainer from "../ui/contact-form-container";
-import MailingListSignUpForm from "../ui/mailing-list-sign-up-form";
-import Heading from "../ui/heading";
-import IconLinkGroup from "../ui/icon-link-group";
+import ContactFormContainer from "../../ui/contact-form-container";
+import MailingListSignUpForm from "../../ui/mailing-list-sign-up-form";
+import Heading from "../../ui/heading";
+import IconLinkGroup from "../../ui/icon-link-group";
 // import link data
 import { contactLinkData } from "@/lib/contact-link-data";
 

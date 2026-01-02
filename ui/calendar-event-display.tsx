@@ -2,6 +2,8 @@
 import Image from "next/image";
 // import components
 import Heading from "./heading";
+// import from utils
+import { formatDate } from "../utils/utils";
 
 interface CalendarEventProps {
   title: string;
@@ -34,6 +36,12 @@ export default function CalendarEventDisplay(
     imageUrl,
   }: CalendarEventProps
 ) {
+
+  const formattedStartDate = formatDate(startDate);
+  console.log("formattedStartDate:", formattedStartDate);
+  const formattedEndDate = endDate ? formatDate(endDate) : undefined;
+  console.log("formattedEndDate:", formattedEndDate);
+
   return (
     <section className="bg-black/50 border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-lg rounded-4xl p-6 z-50 w-full">
       <Heading
@@ -43,7 +51,7 @@ export default function CalendarEventDisplay(
       />
       <div className="text-center">
       <p className="mb-1 text-shadow-black-background-black">
-       {startDate} {endDate ? `- ${endDate}` : ''}
+       {formattedStartDate} {formattedEndDate ? `- ${formattedEndDate}` : ''}
       </p>
       <p className="mb-1 text-shadow-black-background-black">
        {startTime} {endTime ? `- ${endTime}` : ''}

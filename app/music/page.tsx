@@ -2,9 +2,9 @@
 // import { releases } from "@/lib/po-data";
 // import components
 // import ReleaseDisplay from "../ui/release-display";
-import ReleaseDisplayContainer from "../ui/release-display-container";
-import Heading from "../ui/heading";
-import IconLinkGroup from "../ui/icon-link-group";
+import ReleaseDisplayContainer from "../../ui/release-display-container";
+import Heading from "../../ui/heading";
+import IconLinkGroup from "../../ui/icon-link-group";
 // import link data
 import { musicLinkData } from "@/lib/music-link-data";
 

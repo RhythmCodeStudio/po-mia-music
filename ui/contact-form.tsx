@@ -17,7 +17,7 @@ import {
   validateName,
   validatePhone,
   validateMessage,
-} from "../../utils/utils";
+} from "../utils/utils";
 // import actions
 import { signUpForMailingList } from "@/actions/actions";
 // import from emailjs

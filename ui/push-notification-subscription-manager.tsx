@@ -5,7 +5,7 @@ import { IoIosNotifications, IoIosNotificationsOff } from "react-icons/io";
 // import from headlessui
 // import { Description, Dialog, DialogPanel, DialogTitle } from '@headlessui/react'
 // import from context
-import { usePushNotification } from "../../context/push-notification-context-provider";
+import { usePushNotification } from "../context/push-notification-context-provider";
 
 async function subscribeUser(sub: any) {
   await fetch("/api/subscribe", {
@@ -39,10 +39,14 @@ interface PushNotificationSubscriptionManagerProps {
   renderedAs: "icon" | "button";
 }
 // Manage the browser's push subscription
-export default function PushNotificationSubscriptionManager({ renderedAs }: PushNotificationSubscriptionManagerProps) {
+export default function PushNotificationSubscriptionManager({
+  renderedAs,
+}: PushNotificationSubscriptionManagerProps) {
   const { setIsSubscribed } = usePushNotification();
   const [isSupported, setIsSupported] = useState(false);
-  const [subscription, setSubscription] = useState<PushSubscription | null>(null);
+  const [subscription, setSubscription] = useState<PushSubscription | null>(
+    null
+  );
   // const [message, setMessage] = useState("");
   // const [url, setUrl] = useState("");
 
@@ -121,16 +125,18 @@ export default function PushNotificationSubscriptionManager({ renderedAs }: Push
             onClick={subscribeToPush}
           />
         )
+      ) : subscription ? (
+        <button
+          onClick={unsubscribeFromPush}
+          className="cursor-pointer border-2 p-1 rounded-full px-4 text-sm">
+          Unsubscribe from Push Notifications
+        </button>
       ) : (
-        subscription ? (
-          <button onClick={unsubscribeFromPush} className="cursor-pointer border-2 p-1 rounded-full px-4 text-sm">
-            Unsubscribe from Push Notifications
-          </button>
-        ) : (
-          <button onClick={subscribeToPush} className="cursor-pointer border-2 border-[rgba(255,255,255,0.3)] p-1 px-4 rounded-full text-sm rainbow-gradient text-shadow-black-background-black">
-            Subscribe to Push Notifications
-          </button>
-        )
+        <button
+          onClick={subscribeToPush}
+          className="cursor-pointer border-2 border-[rgba(255,255,255,0.3)] p-1 px-4 rounded-full text-sm rainbow-gradient text-shadow-black-background-black">
+          Subscribe to Push Notifications
+        </button>
       )}
     </div>
 

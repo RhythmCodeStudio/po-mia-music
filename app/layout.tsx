@@ -7,10 +7,10 @@ import type { Metadata } from "next";
 import Image from "next/image";
 // import { Geist, Geist_Mono } from "next/font/google";
 // import components
-import Header from "./ui/header";
-import Footer from "./ui/footer";
-import StarrySky from "./ui/starry-sky";
-import ScrollToTopButton from "./ui/scroll-to-top-button";
+import Header from "../ui/header";
+import Footer from "../ui/footer";
+import StarrySky from "../ui/starry-sky";
+import ScrollToTopButton from "../ui/scroll-to-top-button";
 // import styles
 import "./globals.css";
 // import context providers

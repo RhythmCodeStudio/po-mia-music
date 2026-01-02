@@ -3,7 +3,7 @@ import { pics } from "@/lib/pics";
 // import from next
 import Image from "next/image";
 // import components
-import Heading from "../ui/heading";
+import Heading from "../../ui/heading";
 
 type Pic = {
   id: number;

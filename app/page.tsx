@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Toaster from "./ui/toaster";
-import InstallPrompt from "./ui/install-prompt";
+import Toaster from "../ui/toaster";
+import InstallPrompt from "../ui/install-prompt";
 // import data
 import { poBio } from "../lib/po-data";
 
