@@ -36,6 +36,7 @@ export default async function Calendar() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 w-full max-w-6xl my-12 px-6">
         {upComingEvents.map((event) => (
           <CalendarEventDisplay
+            id={event.id}
             key={event.id}
             title={event.title}
             startDate={
@@ -52,6 +53,8 @@ export default async function Calendar() {
             }
             startTime={event.start_time}
             endTime={event.end_time}
+            allDay={event.all_day}
+            cost={event.cost}
             locationName={event.location_name}
             locationStreetAddress={event.location_street_address}
             locationCity={event.location_city}
@@ -59,6 +62,8 @@ export default async function Calendar() {
             locationZip={event.location_zip}
             description={event.description}
             imageUrl={event.image}
+            ticketLink={event.ticket_link}
+            infoLink={event.info_link}
           />
         ))}
       </div>
