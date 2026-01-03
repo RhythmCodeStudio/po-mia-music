@@ -34,6 +34,7 @@ export async function createCalendarEvent(event: {
   startTime: string,
   endTime?: string,
   allDay?: boolean,
+  cost?: string,
   locationName: string,
   locationStreetAddress: string,
   locationCity: string,
@@ -41,6 +42,8 @@ export async function createCalendarEvent(event: {
   locationZip: string,
   description?: string,
   image?: string
+  ticketLink?: string,
+  infoLink?: string
 }) {
   await sql`
     INSERT INTO calendar_events (
@@ -50,6 +53,7 @@ export async function createCalendarEvent(event: {
       start_time,
       end_time,
       all_day,
+      cost
       location_name,
       location_street_address,
       location_city,
@@ -57,6 +61,8 @@ export async function createCalendarEvent(event: {
       location_zip,
       description,
       image
+      ticket_link,
+      info_link
     ) VALUES (
       ${event.title},
       ${event.startDate},
@@ -64,13 +70,16 @@ export async function createCalendarEvent(event: {
       ${event.startTime},
       ${event.endTime ?? null},
       ${event.allDay ?? false},
+      ${event.cost ?? null},
       ${event.locationName},
       ${event.locationStreetAddress},
       ${event.locationCity},
       ${event.locationState},
       ${event.locationZip},
       ${event.description ?? null},
-      ${event.image ?? null}
+      ${event.image ?? null},
+      ${event.ticketLink ?? null},
+      ${event.infoLink ?? null}
     )
   `;
 }
@@ -101,13 +110,16 @@ export async function updateCalendarEvent(event: {
   startTime: string,
   endTime?: string,
   allDay?: boolean,
+  cost?: string,
   locationName: string,
   locationStreetAddress: string,
   locationCity: string,
   locationState: string,
   locationZip: string,
   description?: string,
-  image?: string
+  image?: string,
+  ticketLink?: string,
+  infoLink?: string
 }) {
   await sql`
     UPDATE calendar_events
@@ -118,13 +130,16 @@ export async function updateCalendarEvent(event: {
       start_time = ${event.startTime},
       end_time = ${event.endTime ?? null},
       all_day = ${event.allDay ?? false},
+      cost = ${event.cost ?? null},
       location_name = ${event.locationName},
       location_street_address = ${event.locationStreetAddress},
       location_city = ${event.locationCity},
       location_state = ${event.locationState},
       location_zip = ${event.locationZip},
       description = ${event.description ?? null},
-      image = ${event.image ?? null}
+      image = ${event.image ?? null},
+      ticket_link = ${event.ticketLink ?? null},
+      info_link = ${event.infoLink ?? null}
     WHERE id = ${event.id}
   `;
 }

@@ -17,7 +17,7 @@ export default async function AdminPage() {
   const user = await app.getUser();
   const subsctiptions = await getSubscriptionsFromDB();
   const numberOfSubscriptions = subsctiptions.length;
-  const calendarEvents = await getCalendarEvents();
+  // const calendarEvents = await getCalendarEvents();
 
   return (
     <div className="w-full">

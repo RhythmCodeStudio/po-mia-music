@@ -35,7 +35,9 @@ export function validateForm(
 }
 
 export const formatDate = (dateStr: string) => {
-  const date = new Date(dateStr);
+  // Split the string and create a local date
+  const [year, month, day] = dateStr.split("-").map(Number);
+  const date = new Date(year, month - 1, day); // month is 0-indexed
   return date.toLocaleDateString(undefined, {
     year: "numeric",
     month: "long",

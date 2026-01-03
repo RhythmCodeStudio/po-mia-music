@@ -1,30 +1,115 @@
 "use client";
 // import from react
-import { useState } from "react";
+import { useState, useEffect } from "react";
 // import actions
-import { createCalendarEvent } from "../../actions/actions";
+import { createCalendarEvent, updateCalendarEvent } from "../../actions/actions";
 // import components
 import ContactFormInput from "../contact-form-input";
 import Button from "../button";
 import Heading from "../heading";
 
-export default function CalendarEventForm() {
+interface CalendarEventFormProps {
+  mode: "create" | "edit";
+  eventId: string;
+  initialTitle: string;
+  initialStartDate: string;
+  initialEndDate?: string;
+  initialStartTime: string;
+  initialEndTime?: string;
+  initialAllDay: boolean;
+  initialCost: string;
+  initialLocationName: string;
+  initialLocationStreetAddress: string;
+  initialLocationCity: string;
+  initialLocationState: string;
+  initialLocationZip: string;
+  initialDescription?: string;
+  initialImageUrl?: string;
+  initialTicketLink?: string;
+  initialInfoLink?: string;
+  onClose: () => void;
+}
+
+export default function CalendarEventForm({
+  mode,
+  eventId,
+  initialTitle,
+  initialStartDate,
+  initialEndDate,
+  initialStartTime,
+  initialEndTime,
+  initialAllDay,
+  initialCost,
+  initialLocationName,
+  initialLocationStreetAddress,
+  initialLocationCity,
+  initialLocationState,
+  initialLocationZip,
+  initialDescription,
+  initialImageUrl,
+  initialTicketLink,
+  initialInfoLink,
+  onClose,
+}: CalendarEventFormProps) {
   const [id, setId] = useState(1);
-  const [eventTitle, setEventTitle] = useState("");
-  const [date, setDate] = useState("");
-  const [endDate, setEndDate] = useState("");
-  const [time, setTime] = useState("");
-  const [endTime, setEndTime] = useState("");
-  const [allDay, setAllDay] = useState(false);
-  const [locationName, setLocationName] = useState("");
-  const [locationStreetAddress, setLocationStreetAddress] = useState("");
-  const [locationCity, setLocationCity] = useState("");
-  const [locationState, setLocationState] = useState("");
-  const [locationZip, setLocationZip] = useState("");
-  const [description, setDescription] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
+
+  // initialize state with initial props for editing, or empty/default for create ---
+  const [eventTitle, setEventTitle] = useState(initialTitle || "");
+  const [date, setDate] = useState(initialStartDate || "");
+  const [endDate, setEndDate] = useState(initialEndDate || "");
+  const [time, setTime] = useState(initialStartTime || "");
+  const [endTime, setEndTime] = useState(initialEndTime || "");
+  const [allDay, setAllDay] = useState(initialAllDay || false);
+  const [cost, setCost] = useState(initialCost || "");
+  const [locationName, setLocationName] = useState(initialLocationName || "");
+  const [locationStreetAddress, setLocationStreetAddress] = useState(initialLocationStreetAddress || "");
+  const [locationCity, setLocationCity] = useState(initialLocationCity || "");
+  const [locationState, setLocationState] = useState(initialLocationState || "");
+  const [locationZip, setLocationZip] = useState(initialLocationZip || "");
+  const [description, setDescription] = useState(initialDescription || "");
+  const [imageUrl, setImageUrl] = useState(initialImageUrl || "");
+  const [ticketLink, setTicketLink] = useState(initialTicketLink || "");
+  const [infoLink, setInfoLink] = useState(initialInfoLink || "");
   const [dateTouched, setDateTouched] = useState(false);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
+
+  // --- CHANGED: update state if initial props change (for editing different events) ---
+  useEffect(() => {
+    setEventTitle(initialTitle || "");
+    setDate(initialStartDate || "");
+    setEndDate(initialEndDate || "");
+    setTime(initialStartTime || "");
+    setEndTime(initialEndTime || "");
+    setAllDay(initialAllDay || false);
+    setCost(initialCost || "");
+    setLocationName(initialLocationName || "");
+    setLocationStreetAddress(initialLocationStreetAddress || "");
+    setLocationCity(initialLocationCity || "");
+    setLocationState(initialLocationState || "");
+    setLocationZip(initialLocationZip || "");
+    setDescription(initialDescription || "");
+    setImageUrl(initialImageUrl || "");
+    setTicketLink(initialTicketLink || "");
+    setInfoLink(initialInfoLink || "");
+  }, [
+    initialTitle,
+    initialStartDate,
+    initialEndDate,
+    initialStartTime,
+    initialEndTime,
+    initialAllDay,
+    initialCost,
+    initialLocationName,
+    initialLocationStreetAddress,
+    initialLocationCity,
+    initialLocationState,
+    initialLocationZip,
+    initialDescription,
+    initialImageUrl,
+    initialTicketLink,
+    initialInfoLink,
+  ]);
+  // --- END CHANGES ---
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -39,6 +124,7 @@ export default function CalendarEventForm() {
     if (!eventTitle) newErrors.eventTitle = "Event title is required";
     if (!date) newErrors.date = "Date is required";
     if (!time) newErrors.time = "Time is required";
+    // if (!cost) newErrors.cost = "Cost is required";
     if (!locationName) newErrors.locationName = "Location name is required";
     if (!locationStreetAddress)
       newErrors.locationStreetAddress = "Street address is required";
@@ -60,43 +146,71 @@ export default function CalendarEventForm() {
     }
 
     try {
-      await createCalendarEvent({
-        title: eventTitle,
-        startDate: new Date(date),
-        endDate: endDate ? new Date(endDate) : undefined,
-        startTime: time,
-        endTime: endTime ? endTime : undefined,
-        allDay: allDay,
-        locationName,
-        locationStreetAddress,
-        locationCity,
-        locationState,
-        locationZip,
-        description,
-        image: imageUrl,
-      });
-      // Clear form fields after successful submission
-      setId(id + 1);
-      setEventTitle("");
-      setDate("");
-      setEndDate("");
-      setTime("");
-      setEndTime("");
-      setAllDay(false);
-      setLocationName("");
-      setLocationStreetAddress("");
-      setLocationCity("");
-      setLocationState("");
-      setLocationZip("");
-      setDescription("");
-      setImageUrl("");
-      setErrors({});
-      setDateTouched(false);
-      alert("Event created successfully!");
+      if (mode === "edit") {
+        await updateCalendarEvent({
+          id: eventId,
+          title: eventTitle,
+          startDate: new Date(date),
+          endDate: endDate ? new Date(endDate) : undefined,
+          startTime: time,
+          endTime: endTime ? endTime : undefined,
+          allDay: allDay,
+          cost: cost,
+          locationName,
+          locationStreetAddress,
+          locationCity,
+          locationState,
+          locationZip,
+          description,
+          ticketLink,
+          infoLink,
+          image: imageUrl,
+        });
+        alert("Event updated successfully!");
+        onClose();
+      } else {
+        await createCalendarEvent({
+          title: eventTitle,
+          startDate: new Date(date),
+          endDate: endDate ? new Date(endDate) : undefined,
+          startTime: time,
+          endTime: endTime ? endTime : undefined,
+          allDay: allDay,
+          cost: cost,
+          locationName,
+          locationStreetAddress,
+          locationCity,
+          locationState,
+          locationZip,
+          description,
+          ticketLink,
+          infoLink,
+          image: imageUrl,
+        });
+        setEventTitle("");
+        setDate("");
+        setEndDate("");
+        setTime("");
+        setEndTime("");
+        setAllDay(false);
+        setCost("");
+        setLocationName("");
+        setLocationStreetAddress("");
+        setLocationCity("");
+        setLocationState("");
+        setLocationZip("");
+        setDescription("");
+        setImageUrl("");
+        setTicketLink("");
+        setInfoLink("");
+        setErrors({});
+        setDateTouched(false);
+        alert("Event created successfully!");
+      }
     } catch (err) {
-      console.error("Error creating calendar event:", err);
+      console.error("Error saving calendar event:", err);
       alert(
-        "An error occurred while creating the event. Please try again later."
+        "An error occurred while saving the event. Please try again later."
       );
     }
   };
@@ -106,7 +220,7 @@ export default function CalendarEventForm() {
       <Heading
         headingLevel={2}
         className="text-center text-2xl font-bold"
-        text="Add a New Event"
+       text={mode === "edit" ? "Edit Event" : "Add a New Event"}
       />
       <form onSubmit={handleFormSubmit}>
         <ContactFormInput
@@ -209,6 +323,19 @@ export default function CalendarEventForm() {
           All Day Event
         </label>
         <ContactFormInput
+          label="cost"
+          name="cost"
+          inputType="input"
+          type="text"
+          placeholder=""
+          value={cost}
+          required={true}
+          autoComplete="off"
+          errorMessage={errors.cost || ""}
+          handleChange={(e) => handleChange(e, setCost)}
+          setStateVariable={setCost}
+        />
+        <ContactFormInput
           label="Location Name"
           name="locationName"
           inputType="input"
@@ -299,12 +426,45 @@ export default function CalendarEventForm() {
           handleChange={(e) => handleChange(e, setImageUrl)}
           setStateVariable={setImageUrl}
         />
+        <ContactFormInput
+          label="Ticket Link"
+          name="ticketLink"
+          inputType="input"
+          type="text"
+          placeholder=""
+          value={ticketLink}
+          required={false}
+          autoComplete="off"
+          errorMessage=""
+          handleChange={(e) => handleChange(e, setTicketLink)}
+          setStateVariable={setTicketLink}
+        />
+        <ContactFormInput
+          label="Info Link"
+          name="infoLink"
+          inputType="input"
+          type="text"
+          placeholder=""
+          value={infoLink}
+          required={false}
+          autoComplete="off"
+          errorMessage=""
+          handleChange={(e) => handleChange(e, setInfoLink)}
+          setStateVariable={setInfoLink}
+        />
         <div className="flex justify-center mt-4">
           <Button
-            label="Create Event"
+            label={mode === "edit" ? "Edit Event" : "Create Event"}
             onClick={handleFormSubmit}
-            ariaLabel="Create Event"
+            ariaLabel={mode === "edit" ? "Edit Event" : "Create Event"}
             className="bg-blue-600 text-white px-4 py-2 rounded"
+          />
+          <Button
+            label="Cancel"
+            onClick={onClose}
+            ariaLabel="Cancel"
+            className="ml-2 bg-gray-400 text-white px-4 py-2 rounded"
+            type="button"
           />
         </div>
       </form>

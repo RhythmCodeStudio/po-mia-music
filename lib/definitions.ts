@@ -6,6 +6,7 @@ export type CalendarEvent = {
   startTime: string;
   endTime?: string;
   allDay?: boolean;
+  cost?: string;
   locationName: string;
   locationStreetAddress: string;
   locationCity: string;
@@ -13,4 +14,6 @@ export type CalendarEvent = {
   locationZip: string;
   description?: string;
   image?: string;
+  ticketLink?: string;
+  infoLink?: string;
 };

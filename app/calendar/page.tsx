@@ -27,13 +27,13 @@ export default async function Calendar() {
   });
 
   return (
-    <div className="flex flex-col flex-grow items-center justify-center">
+    <div className="flex flex-col flex-grow items-center justify-center w-full">
       <Heading
         text="Calendar"
         headingLevel={2}
-        className="text-4xl font-semibold text-shadow-black-background-black"
+        className="font-bold text-4xl text-shadow-black-background-black mt-6"
       />
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 w-full max-w-6xl my-6 px-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 w-full max-w-6xl my-12 px-6">
         {upComingEvents.map((event) => (
           <CalendarEventDisplay
             key={event.id}

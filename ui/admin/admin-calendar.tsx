@@ -34,10 +34,11 @@ export default function AdminCalendar({
             className="bg-gray-200 text-gray-800"
           />
         </div>
-        <div className="max-w-md">  
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 w-full justify-items-center px-6">  
           {calendarEventRows.map((event: any) => (
             <CalendarEventDisplay
               key={event.id}
+              id={event.id}
               title={event.title}
               startDate={
                 typeof event.start_date === "string"
@@ -53,6 +54,8 @@ export default function AdminCalendar({
               }
               startTime={event.start_time}
               endTime={event.end_time}
+              allDay={event.all_day}
+              cost={event.cost}
               locationName={event.location_name}
               locationStreetAddress={event.location_street_address}
               locationCity={event.location_city}
@@ -60,6 +63,8 @@ export default function AdminCalendar({
               locationZip={event.location_zip}
               description={event.description}
               imageUrl={event.image}
+              ticketLink={event.ticket_link}
+              infoLink={event.info_link}
             />
           ))}
         </div>
@@ -82,7 +87,27 @@ export default function AdminCalendar({
             className="bg-blue-600 text-white pointer-events-none"
           />
         </div>
-        <CalendarEventForm />
+        <CalendarEventForm 
+          mode="create"
+          eventId=""
+          initialTitle=""
+          initialStartDate=""
+          initialEndDate=""
+          initialStartTime=""
+          initialEndTime=""
+          initialAllDay={false}
+          initialCost=""
+          initialLocationName=""
+          initialLocationStreetAddress=""
+          initialLocationCity=""
+          initialLocationState=""
+          initialLocationZip=""
+          initialDescription=""
+          initialImageUrl=""
+          initialTicketLink=""
+          initialInfoLink=""
+          onClose={() => setView("events")}
+        />
       </div>
     );
   } else {
