@@ -10,9 +10,9 @@ export default function Videos() {
       <Heading
         text="Videos"
         headingLevel={2}
-        className="font-bold text-4xl text-shadow-black-background-black mt-6"
+        className="font-bold text-4xl text-shadow-black-background-black"
       />
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-12 max-w-6xl w-full px-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl w-full p-8">
         {youTubeVideos.map((video, index) => (
           <YouTubeVideo
             key={index}

@@ -49,7 +49,7 @@ export default function RootLayout({
                 <h1 className="sr-only text-4xl lg:text-6xl font-bold text-shadow-black-background-black ">
                   po mia
                 </h1>
-                <div className="w-64 px-6 my-4 lg:w-72 lg:px-0">
+                <div className="w-64 p-4 lg:w-72 lg:px-0">
                   <Image
                     // src="/logos/pomia-horizontal-logo-black.png"
                     src="/logos/pomia-horizontal-logo-colorful.png"
