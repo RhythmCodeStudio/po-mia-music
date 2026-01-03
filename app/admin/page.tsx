@@ -22,8 +22,8 @@ export default async function AdminPage() {
   return (
     <div className="w-full">
       {!user && (
-        <div className="flex justify-center">
-          <SignIn automaticRedirect={true} firstTab="password" />
+        <div className="flex justify-center my-12">
+          <SignIn automaticRedirect={false} firstTab="password" />
         </div>
       )}
 
