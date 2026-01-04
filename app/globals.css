@@ -134,6 +134,10 @@ body {
   /* animation: sparkle 3s linear infinite; */
 }
 
+.sparkle {
+  animation: sparkle 3s linear infinite;
+}
+
 
 /* .rainbow-gradient::after {
   content: "";

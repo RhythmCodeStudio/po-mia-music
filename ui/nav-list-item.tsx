@@ -26,17 +26,16 @@ export default function NavListItem({
   // const textShadow = themeObj.textShadow;
 
   return (
-    <li>
+    <li className={clsx("flex-1 rounded-full border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-lg px-4 py-1", isActive ? "rainbow-gradient" : "bg-black/50")}>
       <Link
         href={href}
         className={clsx(
-          "font-bold ",
-          isActive ? "text-blue-600 underline pointer-events-none opacity-50" : "black"
+          "font-semibold text-white text-shadow-black-background-black",
+          isActive ? "pointer-events-none" : ""
         )}
         tabIndex={isActive ? -1 : 0}
         aria-disabled={isActive ? "true" : undefined}
-        onClick={onClick}
-      >
+        onClick={onClick}>
         {label}
       </Link>
     </li>

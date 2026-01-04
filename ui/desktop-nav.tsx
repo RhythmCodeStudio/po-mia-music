@@ -1,3 +1,9 @@
+"use client";
+// import from next
+import { usePathname } from "next/navigation";
+// import from next
+import Image from "next/image";
+import Link from "next/link";
 // import components
 import NavListItem from "./nav-list-item";
 
@@ -11,18 +17,45 @@ export default function DesktopNav({
     category?: string;
   }[];
 }) {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
   return (
-    <nav>
-      <ul className="w-full flex gap-12 lg:gap-16 justify-between text-lg 3xl:text-2xl">
-        {navListItems.map((item) => (
-          <NavListItem 
-            key={item.label}
-            label={item.label}
-            href={item.href}
-            htmlElement={item.htmlElement}
+    <div className="flex flex-col items-center gap-2 mx-auto">
+      <nav className="w-full">
+        <ul className="w-full flex text-lg justify-center items-center gap-12 xl:gap-20 2xl:gap-28">
+          {navListItems.map((item) => (
+            <NavListItem
+              key={item.label}
+              label={item.label}
+              href={item.href}
+              htmlElement={item.htmlElement}
+            />
+          ))}
+        </ul>
+      </nav>
+      <div className="w-72 p-4">
+        {isHome ? (
+          <Image
+            src="/logos/pomia-horizontal-logo-colorful.png"
+            alt="Po Mia Music Logo"
+            width={2213}
+            height={725}
+            priority
+            className="w-full h-auto"
           />
-        ))}
-      </ul>
-    </nav>
+        ) : (
+          <Link href="/" aria-label="Go to home">
+            <Image
+              src="/logos/pomia-horizontal-logo-colorful.png"
+              alt="Po Mia Music Logo"
+              width={2213}
+              height={725}
+              priority
+              className="w-full h-auto"
+            />
+          </Link>
+        )}
+      </div>
+    </div>
   );
 }

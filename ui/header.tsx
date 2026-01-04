@@ -23,9 +23,9 @@ export default function Header() {
   // const logoInvert = themeObj.logoInvert;
 
   return (
-    <header className={`w-full p-6`}>
+    <header className={`w-full p-6 pb-0`}>
       <div className="flex justify-between items-center">
-        <div className="h-auto w-34">
+        <div className="h-auto w-34 lg:hidden">
             {isHome ? (
               <Image
                 className="w-full h-auto"
@@ -50,7 +50,7 @@ export default function Header() {
         </div>
         <div className="hidden lg:flex items-center w-full justify-end gap-12">
           <DesktopNav navListItems={navListItemData} />
-          <PushNotificationSubscriptionManager renderedAs="icon" />
+          {/* <PushNotificationSubscriptionManager renderedAs="icon" /> */}
         </div>
         <div className="flex lg:hidden items-center">
           <MobileNav navListItems={navListItemData} />

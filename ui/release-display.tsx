@@ -32,7 +32,7 @@ interface ReleaseDisplayProps {
 
 export default function ReleaseDisplay({ release }: ReleaseDisplayProps) {
   return (
-    <section className="flex flex-col bg-black/50 border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-lg rounded-4xl p-6 z-50 max-w-2xl mx-8 lg:mx-auto text-sm">
+    <section className="flex flex-col bg-black/50 border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-lg rounded-4xl p-6 z-50 max-w-2xl lg:mx-auto text-sm">
       <Heading
         headingLevel={2}
         className="text-center mb-6 text-shadow-black-background-black text-xl"

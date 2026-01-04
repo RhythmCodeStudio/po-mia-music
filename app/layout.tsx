@@ -40,26 +40,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`flex flex-col min-h-screen antialiased`}>
+      <body className={`flex flex-col min-h-screen antialiased rainbow-gradient`}>
         <StackProvider app={stackClientApp}>
           <StackTheme>
             <PushNotificationContextProvider>
               <Header />
-              <main className="flex-1 flex flex-col justify-center items-center rainbow-gradient w-full overflow-x-hidden relative">
+              <main className="flex-1 flex flex-col justify-center items-center w-full overflow-x-hidden relative">
                 <h1 className="sr-only text-4xl lg:text-6xl font-bold text-shadow-black-background-black ">
                   po mia
                 </h1>
-                <div className="w-64 p-4 lg:w-72 lg:px-0">
-                  <Image
-                    // src="/logos/pomia-horizontal-logo-black.png"
-                    src="/logos/pomia-horizontal-logo-colorful.png"
-                    alt="Po Mia Music Logo"
-                    width={2213}
-                    height={725}
-                    priority
-                    className="w-full h-auto"
-                  />
-                </div>
+                
                 <StarrySky />
                 {children}
                 <ScrollToTopButton />

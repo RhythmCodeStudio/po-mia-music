@@ -49,7 +49,7 @@ export default function MobileNav({ navListItems }: MobileMenuProps) {
       {/* Menu Button */}
       <button
         onClick={toggleMenu}
-        className={``}
+        className={`text-black`}
         value={isMenuOpen ? "Close menu" : "Open menu"}
         aria-label={isMenuOpen ? "Close menu" : "Open menu"}>
         <FiMenu size={28} />
