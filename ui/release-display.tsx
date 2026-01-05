@@ -32,13 +32,13 @@ interface ReleaseDisplayProps {
 
 export default function ReleaseDisplay({ release }: ReleaseDisplayProps) {
   return (
-    <section className="flex flex-col bg-black/50 border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-lg rounded-4xl p-6 z-50 lg:mx-auto text-sm lg:text-base w-full">
+    <section className="flex flex-col bg-black/50 border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-lg rounded-4xl p-6 z-50 max-w-2xl lg:mx-auto text-sm lg:text-base ">
       <Heading
         headingLevel={2}
         className="text-center mb-6 text-shadow-black-background-black text-xl lg:text-2xl font-semibold"
         text={release.title}
       />
-      <div className="flex flex-col gap-6 justify-center items-center w-full">
+      <div className="flex flex-col gap-6 items-center w-full">
         <Image
           src={release.coverImgSrc}
           alt={`${release.title} cover art`}
@@ -47,21 +47,27 @@ export default function ReleaseDisplay({ release }: ReleaseDisplayProps) {
           className="rounded-2xl shadow-white shadow-lg border-2 border-[rgba(255,255,255,0.3)]"
           // style={{ border: "2px solid rgba(255, 255, 255, 0.3)" }}
         />
+        <div className="w-full flex justify-center min-w-md">
+          <ol className="list-decimal list-inside md:min-h-26 xl:min-h-30  max-w-md">
+            {release.tracks &&
+              release.tracks.map((track, index) => (
+                <li key={index} className="text-shadow-black-background-black">
+                  <a
+                    href={track.bandcampUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline hover:text-blue-400">
+                    {track.title} - {track.length}
+                  </a>
+                </li>
+              ))}
+          </ol>
+        </div>
         {/* <div className="max-w-xl"></div> */}
-        <p className="text-shadow-black-background-black w-full max-w-md md:min-h-30 xl:min-h-20">{release.description}</p>
-        <ol className="list-decimal list-inside md:min-h-26 xl:min-h-16 min-w-md w-full">
-          {release.tracks && release.tracks.map((track, index) => (
-            <li key={index} className="text-shadow-black-background-black">
-              <a 
-                href={track.bandcampUrl} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="underline hover:text-blue-400">
-              {track.title} - {track.length}
-              </a>
-            </li>
-          ))}
-        </ol>
+        <p className="text-shadow-black-background-black w-full max-w-md md:min-h-30 xl:min-h-24">
+          {release.description}
+        </p>
+        
         <p className="text-shadow-black-background-black">
           Released {release.releaseDate}
         </p>
@@ -70,12 +76,14 @@ export default function ReleaseDisplay({ release }: ReleaseDisplayProps) {
             <IconLinkGroup
               key={link.name}
               orientation="horizontal"
-              linkData={[{
-                name: link.name,
-                label: link.label,
-                href: link.url,
-                icon: link.icon 
-              }]}
+              linkData={[
+                {
+                  name: link.name,
+                  label: link.label,
+                  href: link.url,
+                  icon: link.icon,
+                },
+              ]}
             />
           ))}
         </div>
