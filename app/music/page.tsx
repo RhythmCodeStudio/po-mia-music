@@ -5,6 +5,7 @@
 import ReleaseDisplayContainer from "../../ui/release-display-container";
 import Heading from "../../ui/heading";
 import IconLinkGroup from "../../ui/icon-link-group";
+import IconLinkGroupClientContainer from "@/ui/icon-link-group-client-container";
 // import link data
 import { musicLinkData } from "@/lib/music-link-data";
 
@@ -16,8 +17,8 @@ export default function Music() {
         headingLevel={2}
         className="text-4xl font-semibold text-shadow-black-background-black"
       /> */}
-      <div className="p-2 invert">
-        <IconLinkGroup
+      <div className="pt-8 lg:pt-0 invert">
+        <IconLinkGroupClientContainer
           orientation="horizontal"
           linkData={musicLinkData}
           size={28}

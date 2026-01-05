@@ -27,7 +27,7 @@ export default function IconLink({
     >
       {/* Screen reader only text for accessibility */}
       <span className="sr-only">{label}</span>
-      <Icon className={`icon-link rainbow-gradient-icon`} size={size} />
+      <Icon size={size} />
     </a>
   );
 }

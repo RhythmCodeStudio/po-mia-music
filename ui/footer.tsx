@@ -25,8 +25,6 @@ export default function Footer() {
   }, []);
   // const pathname = usePathname();
   return (
-    // Don't render footer on the home page
-    // pathname === "/" ? null : (
     <footer className="p-2 flex flex-col items-center">
       <div className="p-2">
         <IconLinkGroup
