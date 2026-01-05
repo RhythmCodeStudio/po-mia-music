@@ -13,6 +13,7 @@ import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 // import components
 import NavListItem from "./nav-list-item";
 import IconLinkGroup from "./icon-link-group";
+import StarrySky from "./starry-sky";
 // import Heading from "./heading";
 import PushNotificationSubscriptionManager from "./push-notification-subscription-manager";
 // import contact link data
@@ -117,9 +118,9 @@ export default function MobileNav({ navListItems, user }: MobileMenuProps) {
             )}
 
             {/* Navigation */}
-            <nav className="mt-12">
+            <nav className="mt-12 z-50">
               <ul
-                className={`flex flex-col gap-12 font-semibold items-center text-lg`}>
+                className={`flex flex-col gap-10 font-semibold items-center text-lg`}>
                 {navListItems
                   .filter((item) => item.label !== "Admin" || user)
                   .map((item) => (
@@ -133,22 +134,24 @@ export default function MobileNav({ navListItems, user }: MobileMenuProps) {
                 ))}
               </ul>
             </nav>
-            <div className="flex justify-center items-center w-full p-6">
+            <div className="flex justify-center items-center w-full p-6 mt-4">
               <PushNotificationSubscriptionManager renderedAs="button"/>
             </div>
 
-            <div className="flex justify-center w-full p-6">
+            <div className="flex justify-center w-full mt-6">
               <IconLinkGroup
                 orientation="horizontal"
                 linkData={contactLinkData}
+                size={28}
               />
             </div>
-            <div className="flex justify-center w-full p-6">
+            {/* <div className="flex justify-center w-full p-6">
               <IconLinkGroup
                 orientation="horizontal"
                 linkData={musicLinkData}
               />
-            </div>
+            </div> */}
+            <StarrySky />
           </DialogPanel>
         </div>
       </Dialog>
