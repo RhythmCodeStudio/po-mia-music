@@ -1,5 +1,10 @@
 export const navListItemData = [
   {
+    label: "Admin",
+    href: "/admin",
+    htmlElement: "internalLink",
+  },
+  {
     label: "About",
     href: "/about",
     htmlElement: "internalLink",
