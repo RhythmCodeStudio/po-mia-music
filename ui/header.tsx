@@ -70,7 +70,7 @@ export default function Header() {
           {/* <PushNotificationSubscriptionManager renderedAs="icon" /> */}
         </div>
         <div className="flex lg:hidden items-center">
-          <MobileNav navListItems={navListItemData} />
+          <MobileNav navListItems={navListItemData} user={user}/>
         </div>
       </div>
     </header>

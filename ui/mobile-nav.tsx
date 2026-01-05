@@ -1,9 +1,6 @@
 "use client";
 // import from react
 import { useState } from "react";
-// import themes and context
-// import { useTheme } from "../context/theme-context";
-// import { themes } from "../lib/themes";
 // import from next
 import Link from "next/link";
 import Image from "next/image";
@@ -23,6 +20,7 @@ import { contactLinkData } from "@/lib/contact-link-data";
 import { musicLinkData } from "@/lib/music-link-data";
 
 interface MobileMenuProps {
+  user: any;
   navListItems: {
     label: string;
     href: string;
@@ -31,7 +29,7 @@ interface MobileMenuProps {
   }[];
 }
 
-export default function MobileNav({ navListItems }: MobileMenuProps) {
+export default function MobileNav({ navListItems, user }: MobileMenuProps) {
   const pathname = usePathname();
   const isHome = pathname === "/";
   // const { theme } = useTheme();
@@ -122,7 +120,9 @@ export default function MobileNav({ navListItems }: MobileMenuProps) {
             <nav className="mt-12">
               <ul
                 className={`flex flex-col gap-12 font-semibold items-center text-lg`}>
-                {navListItems.map((item) => (
+                {navListItems
+                  .filter((item) => item.label !== "Admin" || user)
+                  .map((item) => (
                   <NavListItem
                     key={item.label}
                     label={item.label}
@@ -134,7 +134,7 @@ export default function MobileNav({ navListItems }: MobileMenuProps) {
               </ul>
             </nav>
             <div className="flex justify-center items-center w-full p-6">
-              <PushNotificationSubscriptionManager renderedAs="button" />
+              <PushNotificationSubscriptionManager renderedAs="button"/>
             </div>
 
             <div className="flex justify-center w-full p-6">
