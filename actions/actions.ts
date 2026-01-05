@@ -53,14 +53,14 @@ export async function createCalendarEvent(event: {
       start_time,
       end_time,
       all_day,
-      cost
+      cost,
       location_name,
       location_street_address,
       location_city,
       location_state,
       location_zip,
       description,
-      image
+      image,
       ticket_link,
       info_link
     ) VALUES (
