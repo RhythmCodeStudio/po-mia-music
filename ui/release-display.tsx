@@ -32,13 +32,13 @@ interface ReleaseDisplayProps {
 
 export default function ReleaseDisplay({ release }: ReleaseDisplayProps) {
   return (
-    <section className="flex flex-col bg-black/50 border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-lg rounded-4xl p-6 z-50 max-w-2xl lg:mx-auto text-sm">
+    <section className="flex flex-col bg-black/50 border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-lg rounded-4xl p-6 z-50 lg:mx-auto text-sm lg:text-base w-full">
       <Heading
         headingLevel={2}
-        className="text-center mb-6 text-shadow-black-background-black text-xl"
+        className="text-center mb-6 text-shadow-black-background-black text-xl lg:text-2xl font-semibold"
         text={release.title}
       />
-      <div className="flex flex-col gap-6 justify-center items-center">
+      <div className="flex flex-col gap-6 justify-center items-center w-full">
         <Image
           src={release.coverImgSrc}
           alt={`${release.title} cover art`}
@@ -49,7 +49,7 @@ export default function ReleaseDisplay({ release }: ReleaseDisplayProps) {
         />
         {/* <div className="max-w-xl"></div> */}
         <p className="text-shadow-black-background-black w-full max-w-md md:min-h-30 xl:min-h-20">{release.description}</p>
-        <ol className="list-decimal list-inside md:min-h-26 xl:min-h-16">
+        <ol className="list-decimal list-inside md:min-h-26 xl:min-h-16 min-w-md w-full">
           {release.tracks && release.tracks.map((track, index) => (
             <li key={index} className="text-shadow-black-background-black">
               <a 

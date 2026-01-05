@@ -24,7 +24,9 @@ export default function Music() {
           size={28}
         />
       </div>
-      <ReleaseDisplayContainer />
+      <div className="w-full max-w-6xl">
+        <ReleaseDisplayContainer />
+      </div>
     </div>
   );
 }
