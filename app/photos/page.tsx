@@ -15,13 +15,13 @@ type Pic = {
 
 export default function Photos() {
   return (
-    <div className="flex flex-col justify-center items-center w-full">
+    <div className="flex flex-col justify-center items-center">
       <Heading
         text="Photos"
         headingLevel={2}
-        className="font-bold text-4xl text-shadow-black-background-black mt-6"
+        className="font-bold text-4xl text-shadow-black-background-black mt-8"
       />
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 my-12 px-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-8 max-w-6xl">
         {pics.map((pic: Pic) => (
           <div key={pic.id} className="flex flex-col items-center">
             <Image

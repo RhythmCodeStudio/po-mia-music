@@ -37,7 +37,7 @@ export default function DesktopNav({
           ))}
         </ul>
       </nav>
-      <div className="w-72 p-4">
+      <div className="w-72 p-4 pb-0">
         {isHome ? (
           <Image
             src="/logos/pomia-horizontal-logo-colorful.png"

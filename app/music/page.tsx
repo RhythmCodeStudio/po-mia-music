@@ -12,12 +12,12 @@ import { musicLinkData } from "@/lib/music-link-data";
 export default function Music() {
   return (
     <div className="flex flex-col justify-center items-center">
-      {/* <Heading
+      <Heading
         text="Music"
         headingLevel={2}
-        className="text-4xl font-semibold text-shadow-black-background-black"
-      /> */}
-      <div className="pt-8 lg:pt-0 invert">
+        className="text-4xl font-semibold text-shadow-black-background-black mt-8"
+      />
+      <div className="invert mt-2">
         <IconLinkGroupClientContainer
           orientation="horizontal"
           linkData={musicLinkData}

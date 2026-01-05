@@ -12,9 +12,9 @@ export default function Contact() {
       <Heading
         text="Contact"
         headingLevel={2}
-        className="text-4xl font-semibold text-shadow-black-background-black"
+        className="text-4xl font-semibold text-shadow-black-background-black mt-8"
       />
-      <div className="p-2 invert">
+      <div className="mt-2 invert">
         <IconLinkGroup
           orientation="horizontal"
           linkData={contactLinkData}

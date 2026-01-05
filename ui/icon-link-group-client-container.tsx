@@ -22,7 +22,7 @@ export default function IconLinkGroupClientContainer({
   const [iconSize, setIconSize] = useState(size);
   useEffect(() => {
     function handleResize() {
-      setIconSize(window.innerWidth >= 768 ? iconSize : 24); // 24 for md+ screens, 20 for small
+      setIconSize(window.innerWidth >= 768 ? iconSize : 20); // 24 for md+ screens, 20 for small
     }
     handleResize();
     window.addEventListener("resize", handleResize);

@@ -1,8 +1,14 @@
+// import component
+import Heading from "../../ui/heading";
+
 export default function About() {
   return (
-    <div>
-      <h1>About Page</h1>
-      <p>This is the about page of the application.</p>
-    </div>
+    <div className="flex flex-col justify-center items-center w-full">
+      <Heading
+        text="About"
+        headingLevel={2}
+        className="font-bold text-4xl text-shadow-black-background-black mt-8"
+      />
+      </div>
   );
 }
