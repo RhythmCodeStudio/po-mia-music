@@ -22,9 +22,10 @@ export default function Contact() {
         />
       </div>
       <div className="w-full p-8 flex flex-col justify-center items-center">
-        <div className="bg-black/50 border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-lg rounded-4xl p-8">
+        {/* <div className="bg-black/50 border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-lg rounded-4xl p-8"> */}
+        {/* <div> */}
           <MailingListSignUpForm />
-        </div>
+        {/* </div> */}
         <ContactFormContainer />
       </div>
     </section>

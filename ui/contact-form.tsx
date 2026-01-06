@@ -312,7 +312,7 @@ export default function ContactForm({
                     !isFormValid || buttonSubmitted,
                 }
               )}>
-              {buttonSubmitted ? "Message Sent!" : "Send"}
+                <span className="z-50 font-semibold text-white tracking-wideest">{buttonSubmitted ? "Message Sent!" : "Send"}</span>
             </button>
           </span>
         </div>

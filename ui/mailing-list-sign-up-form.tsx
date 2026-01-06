@@ -65,13 +65,13 @@ export default function MailingListSignUpForm() {
   };
 
   return (
-    <div>
+    <div className="flex flex-col items-stretch w-full max-w-2xl p-4 lg:p-8 bg-black/50 border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-lg rounded-4xl">
       <Heading
         text="Mailing List Sign-Up"
         headingLevel={3}
-        className="text-2xl font-semibold text-shadow-black-background-black mb-4"
+        className="text-2xl font-semibold text-shadow-black-background-black mb-4 text-center"
       />
-      <form onSubmit={handleFormSubmit} className="flex flex-col gap-4">
+      <form onSubmit={handleFormSubmit} className="flex flex-col text-shadow-black-background-black">
         <ContactFormInput
           inputType="input"
           label="Email Address"
@@ -93,11 +93,11 @@ export default function MailingListSignUpForm() {
             "z-50 border-2 border-[rgba(255,255,255,0.3)] p-1 px-4 rounded-full text-sm rainbow-gradient text-shadow-black-background-black transition-colors transition-shadow transition-opacity transition-transform duration-700 ease-in-out tracking-widest will-change-transform",
             {
               "cursor-not-allowed opacity-40": !isFormValid || submitted,
-              "cursor-pointer opacity-100 hover:scale-105 active:scale-95 shadow-lg shadow-green-500/50":
+              "border-green-500 hover:border-[rgba(255,255,255,0.3)] cursor-pointer opacity-100 hover:scale-105 active:scale-95 shadow-lg shadow-green-500/50":
                 isFormValid && !submitted,
             }
           )}>
-          {submitted ? "Thank you for signing up!" : "Sign Up"}
+         <span className="z-50 font-semibold text-white tracking-wideest">{submitted ? "Thank you for signing up!" : "Sign Up"}</span>
         </button>
       </form>
       <ToastContainer />
