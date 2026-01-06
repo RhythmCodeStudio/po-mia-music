@@ -17,12 +17,12 @@ export const contactLinkData = [
     icon: "IoLogoTiktok",
     label: "Follow po mia on TikTok"
   },
-  // {
-  //   name: "Email",
-  //   href: "mailto:pomiamusic@gmail.com",
-  //   icon: "HiEnvelope",
-  //   label: "Email pomiamusic@gmail.com"
-  // },
+  {
+    name: "Email",
+    href: "mailto:pomiamusic@gmail.com",
+    icon: "HiEnvelope",
+    label: "Email pomiamusic@gmail.com"
+  },
   // {
   //   href: "tel:+",
   //   icon: IoMdPhonePortrait,

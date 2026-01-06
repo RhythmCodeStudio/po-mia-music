@@ -21,12 +21,13 @@ export default function Contact() {
           size={28}
         />
       </div>
-      <div className="w-full p-8 flex flex-col justify-center items-center">
-        {/* <div className="bg-black/50 border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-lg rounded-4xl p-8"> */}
-        {/* <div> */}
+      <div className="w-full p-8 flex flex-col justify-center items-center gap-8">
+        <div className="w-full flex items-center justify-center ">
           <MailingListSignUpForm />
-        {/* </div> */}
-        <ContactFormContainer />
+        </div>
+        <div className="w-full flex items-center justify-center ">
+          <ContactFormContainer />
+        </div>
       </div>
     </section>
   );

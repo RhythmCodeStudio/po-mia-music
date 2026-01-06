@@ -31,8 +31,8 @@ export default function Footer() {
   }, []);
   // const pathname = usePathname();
   return (
-    <footer className="p-2 flex flex-col items-center">
-      <div className="h-auto w-48 md:w-64 lg:w-64 p-2 mb-6 flex items-center justify-center">
+    <footer className="p-2 flex flex-col items-center space-y-4">
+      <div className="h-auto w-48 md:w-64 lg:w-64 p-2 flex items-center justify-center">
         <Image
           className="w-full h-auto"
           src="/logos/pomia-horizontal-logo-colorful.png"
@@ -42,7 +42,7 @@ export default function Footer() {
           priority
         />
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 w-full justify-items-center mb-4 text-shadow-black-background-black">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 w-full justify-items-center text-shadow-black-background-black">
         <div className="p-2 flex flex-col items-center order-0">
           <p className="mb-1">Support:</p>
           <IconLinkGroup
@@ -53,7 +53,7 @@ export default function Footer() {
           />
         </div>
         <div className="p-2 flex flex-col items-center order-1 lg:order-2">
-          <p className="mb-1">Follow:</p>
+          <p className="mb-1">Connect:</p>
           <IconLinkGroup
             orientation="horizontal"
             linkData={contactLinkData}
@@ -77,8 +77,8 @@ export default function Footer() {
         </div>
       )} */}
 
-      <div className="p-2 flex flex-col items-center space-y-2">
-        <p className="mb-1 text-shadow-black-background-black">Connect:</p>
+      <div className="p-2 flex flex-col items-center ">
+        {/* <p className="mb-1 text-shadow-black-background-black">Connect:</p>
         <IconLink
           href="mailto:pomiamusic@gmail.com"
           icon={HiEnvelope}
@@ -87,7 +87,7 @@ export default function Footer() {
           showLabel={true}
           className="icon-shadow"
           labelClassName="text-shadow-black-background-black"
-        />
+        /> */}
         <MailingListSignupModal />
       </div>
       {isSubscribed === false && (

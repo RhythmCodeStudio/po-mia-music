@@ -11,7 +11,7 @@ import Heading from "./heading";
 export default function ContactFormContainer() {
   const [formSubmitted, setFormSubmitted] = useState(false);
   return (
-    <div className="flex flex-col items-stretch sm:text-lg xl:text-xl 2xl:text-2xl w-full max-w-2xl p-4 lg:p-8  my-8 bg-black/50 border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-lg rounded-4xl">
+    <div className="flex flex-col items-stretch sm:text-lg xl:text-xl 2xl:text-2xl w-full max-w-2xl p-4 lg:p-8 bg-black/50 border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-lg rounded-4xl">
       {formSubmitted ? (
         <div className="items-center justify-center ">
           <h2 className="text-4xl text-center">Thank you!</h2>
