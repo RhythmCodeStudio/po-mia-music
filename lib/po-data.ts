@@ -17,13 +17,13 @@ engage a crowd through their lyricism and captivating performances. Coming from 
 export const paymentLinks = [
   {
     name: "Cashapp",
-    label: "Cashapp",
+    label: "Support po with Cashapp",
     href: "https://cash.app/$skatingsongbird",
     icon: "SiCashapp",
   },
   {
     name: "Venmo",
-    label: "Venmo",
+    label: "Support po with Venmo",
     href: "https://account.venmo.com/u/skatingsongbird",
     icon: "BiLogoVenmo",
   },
