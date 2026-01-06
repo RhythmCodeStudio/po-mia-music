@@ -28,8 +28,8 @@ export default function Footer() {
   // const pathname = usePathname();
   return (
     <footer className="p-2 flex flex-col items-center">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full justify-items-center mb-4 text-shadow-black-background-black">
-        <div className="p-2 flex flex-col items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 w-full justify-items-center mb-4 text-shadow-black-background-black">
+        <div className="p-2 flex flex-col items-center order-0">
           <p className="mb-1">Support:</p>
           <IconLinkGroup
             orientation="horizontal"
@@ -38,7 +38,7 @@ export default function Footer() {
             className="icon-shadow"
           />
         </div>
-        <div className="p-2 flex flex-col items-center">
+        <div className="p-2 flex flex-col items-center order-1 lg:order-2">
           <p className="mb-1">Connect:</p>
           <IconLinkGroup
             orientation="horizontal"
@@ -47,7 +47,7 @@ export default function Footer() {
             className="icon-shadow"
           />
         </div>
-        <div className="p-2 flex flex-col items-center">
+        <div className="p-2 flex flex-col items-center order-2 lg:order-1">
           <p className="mb-1">Listen:</p>
           <IconLinkGroup
             orientation="horizontal"
@@ -67,7 +67,7 @@ export default function Footer() {
       <div className="p-2">
         <MailingListSignupModal />
       </div>
-      <div className="text-sm text-white p-2 text-center">
+      <div className="text-sm text-white p-2 text-center text-shadow-black-background-black">
         <p className="">©2025</p>
         <p className="">
           Website by{" "}

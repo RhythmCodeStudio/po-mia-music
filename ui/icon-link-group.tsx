@@ -82,7 +82,7 @@ export default function IconLinkGroup({
 
   return (
     <div
-      className={`icon-shadow-white flex items-center space-x-8 ${className ?? ""} ${
+      className={`flex items-center space-x-8 ${className ?? ""} ${
         orientation === "vertical" ? "flex-col" : "flex-row"
       }`}>
      {filteredLinks.map(({ href, icon, label, name }) => {
