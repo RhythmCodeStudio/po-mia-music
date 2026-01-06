@@ -40,7 +40,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`flex flex-col min-h-screen antialiased rainbow-gradient`}>
+      <body
+        className={`flex flex-col min-h-screen antialiased rainbow-gradient relative`}>
+        <StarrySky />
         <StackProvider app={stackClientApp}>
           <StackTheme>
             <PushNotificationContextProvider>
@@ -49,8 +51,7 @@ export default function RootLayout({
                 <h1 className="sr-only text-4xl lg:text-6xl font-bold text-shadow-black-background-black ">
                   po mia
                 </h1>
-                
-                <StarrySky />
+
                 {children}
                 <ScrollToTopButton />
               </main>

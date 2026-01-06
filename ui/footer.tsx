@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 // import { usePathname } from "next/navigation";
 // import components
 import PushNotificationSubscriptionManager from "./push-notification-subscription-manager";
+import IconLink from "./icon-link";
 import IconLinkGroup from "./icon-link-group";
 import MailingListSignupModal from "./mailinglist-signup-modal";
 // import link data
@@ -13,6 +14,8 @@ import { musicLinkData } from "@/lib/music-link-data";
 import { paymentLinks } from "@/lib/po-data";
 // import context
 import { usePushNotification } from "../context/push-notification-context-provider";
+// import icons
+import { HiEnvelope } from "react-icons/hi2";
 
 export default function Footer() {
   const { isSubscribed, refreshSubscription } = usePushNotification();
@@ -39,7 +42,7 @@ export default function Footer() {
           />
         </div>
         <div className="p-2 flex flex-col items-center order-1 lg:order-2">
-          <p className="mb-1">Connect:</p>
+          <p className="mb-1">Follow:</p>
           <IconLinkGroup
             orientation="horizontal"
             linkData={contactLinkData}
@@ -58,15 +61,30 @@ export default function Footer() {
         </div>
         
       </div>
+      {/* {isSubscribed === false && (
+        <div className="p-2">
+          <PushNotificationSubscriptionManager renderedAs="button" />
+        </div>
+      )} */}
+
+      <div className="p-2 flex flex-col items-center space-y-2">
+        <p className="mb-1 text-shadow-black-background-black">Connect:</p>
+        <IconLink
+          href="mailto:pomiamusic@gmail.com"
+          icon={HiEnvelope}
+          size={iconSize}
+          label="pomiamusic@gmail.com"
+          showLabel={true}
+          className="icon-shadow"
+          labelClassName="text-shadow-black-background-black"
+        />
+        <MailingListSignupModal />
+      </div>
       {isSubscribed === false && (
         <div className="p-2">
           <PushNotificationSubscriptionManager renderedAs="button" />
         </div>
       )}
-
-      <div className="p-2">
-        <MailingListSignupModal />
-      </div>
       <div className="text-sm text-white p-2 text-center text-shadow-black-background-black">
         <p className="">©2025</p>
         <p className="">

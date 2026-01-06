@@ -19,7 +19,6 @@ export default function StarrySky() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const stars = useRef<Star[]>([]);
 
-  // Resize canvas to fill parent using ResizeObserver
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -35,7 +34,7 @@ export default function StarrySky() {
 
     resize();
 
-    // Use ResizeObserver for more reliable resizing
+    // Use ResizeObserver for parent size changes
     const observer = new window.ResizeObserver(resize);
     if (canvas.parentElement) {
       observer.observe(canvas.parentElement);
@@ -49,14 +48,12 @@ export default function StarrySky() {
     };
   }, []);
 
-  // Generate stars and animate
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    // Generate stars if not already
     if (stars.current.length === 0) {
       for (let i = 0; i < STAR_COUNT; i++) {
         stars.current.push({
@@ -78,7 +75,6 @@ export default function StarrySky() {
       ctx.clearRect(0, 0, w, h);
 
       for (const star of stars.current) {
-        // Flicker
         star.alpha += star.twinkleSpeed;
         if (star.alpha > 1) {
           star.alpha = 1;

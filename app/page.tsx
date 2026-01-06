@@ -6,7 +6,7 @@ import { poBio } from "../lib/po-data";
 
 export default function Home() {
   return (
-    <div className="relative flex flex-col flex-grow items-center justify-center space-y-2 md:space-y-4">
+    <div className="relative flex flex-col flex-grow items-center justify-center p-8">
       {/* <h1 className="sr-only text-4xl lg:text-6xl font-bold text-shadow-black-background-black ">
         po mia
       </h1>

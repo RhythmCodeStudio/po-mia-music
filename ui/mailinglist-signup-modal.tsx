@@ -14,7 +14,8 @@ export default function MailingListSignupModal() {
   return (
     <>
       <Button
-        label="Sign Up for Mailing List"
+        label="Sign Up for po's Mailing List"
+        title="Sign up for po's mailing list"
         onClick={() => setIsOpen(true)}
         className="cursor-pointer border-2 border-[rgba(255,255,255,0.3)] p-1 px-4 rounded-full text-sm rainbow-gradient text-shadow-black-background-black"
       />
