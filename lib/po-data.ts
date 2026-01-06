@@ -18,14 +18,14 @@ export const paymentLinks = [
   {
     name: "Cashapp",
     label: "Cashapp",
-    url: "https://cash.app/$skatingsongbird",
+    href: "https://cash.app/$skatingsongbird",
     icon: "SiCashapp",
   },
   {
     name: "Venmo",
     label: "Venmo",
-    url: "https://account.venmo.com/u/skatingsongbird",
-    icon: "SiVenmo",
+    href: "https://account.venmo.com/u/skatingsongbird",
+    icon: "BiLogoVenmo",
   },
 ];
 

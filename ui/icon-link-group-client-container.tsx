@@ -12,12 +12,14 @@ interface IconLinkGroupClientContainerProps {
     icon: string;
   }[];
   size: number;
+  className?: string;
 }
 
 export default function IconLinkGroupClientContainer({
   orientation,
   linkData,
   size,
+  className,
 }: IconLinkGroupClientContainerProps) {
   const [iconSize, setIconSize] = useState(size);
   useEffect(() => {
@@ -28,5 +30,5 @@ export default function IconLinkGroupClientContainer({
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-  return <IconLinkGroup orientation={orientation} linkData={linkData} size={iconSize} />;
+  return <IconLinkGroup orientation={orientation} linkData={linkData} size={iconSize} className={className} />;
 }

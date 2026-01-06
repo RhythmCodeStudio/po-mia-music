@@ -62,6 +62,14 @@ body {
   /* -moz-background-clip: text; */
 }
 
+.icon-shadow {
+  filter: drop-shadow(2px 2px 0 #000);
+}
+
+.icon-shadow-white {
+  filter: drop-shadow(2px 2px 0 #fff);
+}
+
 .conic-gradient {
   background: conic-gradient(
     from 180deg at 50% 50%,

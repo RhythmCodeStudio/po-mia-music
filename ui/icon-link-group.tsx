@@ -13,7 +13,7 @@ import { FaDeezer } from "react-icons/fa";
 import { IoLogoInstagram, IoLogoFacebook } from "react-icons/io";
 import { IoLogoTiktok } from "react-icons/io5";
 import { HiEnvelope } from "react-icons/hi2";
-import { SiVenmo } from "react-icons/si";
+// import { SiVenmo } from "react-icons/si";
 import { SiCashapp } from "react-icons/si";
 import { BiLogoVenmo } from "react-icons/bi";
 // import from next
@@ -36,6 +36,7 @@ type IconLinkGroupProps = {
   linkData: IconLinkGroupItem[];
   include?: string[]; // array of names to include, e.g. ["Instagram", "Email"]
   size?: number; // optional size for the icons, default can be set in IconLink component
+  className?: string;
 };
 
 const iconMap: { [key: string]: React.ElementType } = {
@@ -51,7 +52,7 @@ const iconMap: { [key: string]: React.ElementType } = {
   IoLogoFacebook,
   IoLogoTiktok,
   HiEnvelope,
-  SiVenmo,
+  // SiVenmo,
   SiCashapp,
   BiLogoVenmo,
 };
@@ -61,6 +62,7 @@ export default function IconLinkGroup({
   linkData,
   include,
   size,
+  className,
 }: IconLinkGroupProps) {
   // const pathname = usePathname();
   // const isHome = pathname === "/";
@@ -80,7 +82,7 @@ export default function IconLinkGroup({
 
   return (
     <div
-      className={`flex items-center space-x-12 sm:space-x-16 md:space-x-20 lg:space-x-24 xl:space-x-28 2xl:space-x-32 ${
+      className={`icon-shadow-white flex items-center space-x-8 ${className ?? ""} ${
         orientation === "vertical" ? "flex-col" : "flex-row"
       }`}>
      {filteredLinks.map(({ href, icon, label, name }) => {

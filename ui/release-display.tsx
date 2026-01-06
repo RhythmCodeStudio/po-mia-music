@@ -71,7 +71,7 @@ export default function ReleaseDisplay({ release }: ReleaseDisplayProps) {
         <p className="text-shadow-black-background-black">
           Released {release.releaseDate}
         </p>
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-wrap gap-4 icon-shadow">
           {release.links.map((link) => (
             <IconLinkGroup
               key={link.name}

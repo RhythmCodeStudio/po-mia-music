@@ -10,6 +10,7 @@ import MailingListSignupModal from "./mailinglist-signup-modal";
 // import link data
 import { contactLinkData } from "../lib/contact-link-data";
 import { musicLinkData } from "@/lib/music-link-data";
+import { paymentLinks } from "@/lib/po-data";
 // import context
 import { usePushNotification } from "../context/push-notification-context-provider";
 
@@ -27,25 +28,42 @@ export default function Footer() {
   // const pathname = usePathname();
   return (
     <footer className="p-2 flex flex-col items-center">
-      <div className="p-2">
-        <IconLinkGroup
-          orientation="horizontal"
-          linkData={musicLinkData}
-          size={iconSize}
-        />
-      </div>
-      <div className="p-2">
-        <IconLinkGroup
-          orientation="horizontal"
-          linkData={contactLinkData}
-          size={iconSize}
-        />
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full justify-items-center mb-4 text-shadow-black-background-black">
+        <div className="p-2 flex flex-col items-center">
+          <p className="mb-1">Support:</p>
+          <IconLinkGroup
+            orientation="horizontal"
+            linkData={paymentLinks}
+            size={iconSize}
+            className="icon-shadow"
+          />
+        </div>
+        <div className="p-2 flex flex-col items-center">
+          <p className="mb-1">Connect:</p>
+          <IconLinkGroup
+            orientation="horizontal"
+            linkData={contactLinkData}
+            size={iconSize}
+            className="icon-shadow"
+          />
+        </div>
+        <div className="p-2 flex flex-col items-center">
+          <p className="mb-1">Listen:</p>
+          <IconLinkGroup
+            orientation="horizontal"
+            linkData={musicLinkData}
+            size={iconSize}
+            className="icon-shadow"
+          />
+        </div>
+        
       </div>
       {isSubscribed === false && (
         <div className="p-2">
           <PushNotificationSubscriptionManager renderedAs="button" />
         </div>
       )}
+
       <div className="p-2">
         <MailingListSignupModal />
       </div>
@@ -63,6 +81,5 @@ export default function Footer() {
         </p>
       </div>
     </footer>
-    // )
   );
 }
