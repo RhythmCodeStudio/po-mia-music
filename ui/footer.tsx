@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 // import components
 import PushNotificationSubscriptionManager from "./push-notification-subscription-manager";
 import IconLinkGroup from "./icon-link-group";
+import MailingListSignupModal from "./mailinglist-signup-modal";
 // import link data
 import { contactLinkData } from "../lib/contact-link-data";
 import { musicLinkData } from "@/lib/music-link-data";
@@ -45,6 +46,9 @@ export default function Footer() {
           <PushNotificationSubscriptionManager renderedAs="button" />
         </div>
       )}
+      <div className="p-2">
+        <MailingListSignupModal />
+      </div>
       <div className="text-sm text-white p-2 text-center">
         <p className="">©2025</p>
         <p className="">
