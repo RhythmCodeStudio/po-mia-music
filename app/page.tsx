@@ -6,7 +6,7 @@ import { poBio } from "../lib/po-data";
 
 export default function Home() {
   return (
-    <div className="relative flex flex-col flex-grow items-center justify-center ptmay-8">
+    <div className="relative flex flex-col flex-grow items-center justify-center pt-8">
       <div className="fixed top-20 left-0 w-full z-50">
         <InstallPrompt />
       </div>
