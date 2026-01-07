@@ -1,6 +1,8 @@
 "use client";
 // import from react
 import { useState } from "react";
+// import from next
+import Image from "next/image";
 // import actions
 import { signUpForMailingList } from "../actions/actions";
 // import from clsx
@@ -69,9 +71,19 @@ export default function MailingListSignUpForm() {
       <Heading
         text="Mailing List Sign-Up"
         headingLevel={3}
-        className="text-2xl font-semibold text-shadow-black-background-black mb-4 text-center"
+        className="text-xl lg:text-2xl font-semibold text-shadow-black-background-black mb-4 text-center"
       />
-      <form onSubmit={handleFormSubmit} className="flex flex-col text-shadow-black-background-black">
+      {/* <div className="w-48 h-auto mx-auto mb-4">
+        <Image
+          src="/logos/cube-butterfly.png"
+          width={680}
+          height={680}
+          alt="Cube Butterfly Logo"
+        />
+      </div> */}
+      <form
+        onSubmit={handleFormSubmit}
+        className="flex flex-col text-shadow-black-background-black">
         <ContactFormInput
           inputType="input"
           label="Email Address"
@@ -97,7 +109,9 @@ export default function MailingListSignUpForm() {
                 isFormValid && !submitted,
             }
           )}>
-         <span className="z-50 font-semibold text-white tracking-wideest">{submitted ? "Thank you for signing up!" : "Sign Up"}</span>
+          <span className="z-50 font-semibold text-white tracking-wideest">
+            {submitted ? "Thank you for signing up!" : "Sign Up"}
+          </span>
         </button>
       </form>
       <ToastContainer />

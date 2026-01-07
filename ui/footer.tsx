@@ -39,7 +39,6 @@ export default function Footer() {
           width={1400}
           height={460}
           alt="Po Mia Logo"
-          priority
         />
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 w-full justify-items-center text-shadow-black-background-black">
