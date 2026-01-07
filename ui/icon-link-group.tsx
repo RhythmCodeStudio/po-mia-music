@@ -2,6 +2,7 @@
 
 import {
   SiApplemusic,
+  SiAmazon,
   SiAmazonmusic,
   SiBandcamp,
   SiSpotify,
@@ -41,6 +42,7 @@ type IconLinkGroupProps = {
 
 const iconMap: { [key: string]: React.ElementType } = {
   SiApplemusic,
+  SiAmazon,
   SiAmazonmusic,
   SiBandcamp,
   SiSpotify,
