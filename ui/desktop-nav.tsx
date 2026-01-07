@@ -24,7 +24,7 @@ export default function DesktopNav({
   return (
     <div className="flex flex-col items-center gap-2 mx-auto">
       <nav className="w-full">
-        <ul className="w-full flex text-lg justify-center items-center gap-12 xl:gap-20 2xl:gap-28">
+        <ul className="w-full flex justify-center items-center gap-12 xl:gap-20 2xl:gap-28">
           {navListItems
             .filter((item) => item.label !== "Admin" || user)
             .map((item) => (
