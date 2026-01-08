@@ -150,7 +150,7 @@ export default function AdminContainer({
   const contentMinHeight = "min-h-[42rem]"; // <-- change as needed
 
   return (
-   <section className="bg-black/50 rounded-4xl shadow-lg shadow-white border-2 border-[rgba(255,255,255,0.3)] w-full max-w-6xl min-w-[16rem] flex flex-col items-center p-6 pt-2 z-50 ">
+   <section className="bg-black/50 rounded-4xl shadow-lg shadow-white border-2 border-[rgba(255,255,255,0.3)] w-full max-w-6xl min-w-[16rem] flex flex-col items-center p-6 pb-12 z-50 ">
       <Heading
         headingLevel={2}
         className="text-center text-xl mb-4"

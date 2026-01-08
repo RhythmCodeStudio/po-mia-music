@@ -31,7 +31,7 @@ export default function Footer() {
   }, []);
   // const pathname = usePathname();
   return (
-    <footer className="p-2 flex flex-col items-center space-y-4">
+    <footer className="p-2 flex flex-col items-center space-y-4 max-w-600 mx-auto w-full">
       <div className="h-auto w-48 md:w-64 lg:w-64 p-2 flex items-center justify-center">
         <Image
           className="w-full h-auto"
