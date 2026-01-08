@@ -4,7 +4,12 @@ import InstallPrompt from "../ui/install-prompt";
 // import data
 import { poBio } from "../lib/po-data";
 
-export default function Home() {
+function delayLoad(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+export default async function Home() {
+  await delayLoad(5000);
   return (
     <div className="relative flex flex-col flex-grow items-center justify-center pt-8">
       <div className="fixed top-20 left-0 w-full z-50">
