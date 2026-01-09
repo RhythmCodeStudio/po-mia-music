@@ -108,7 +108,7 @@ export default function PushNotificationSubscriptionManager({
   }
 
   return (
-    <div>
+    <div className="w-full">
       {renderedAs === "icon" ? (
         subscription ? (
           <IoIosNotificationsOff
@@ -128,14 +128,14 @@ export default function PushNotificationSubscriptionManager({
       ) : subscription ? (
         <button
           onClick={unsubscribeFromPush}
-          className="cursor-pointer border-2 p-1 rounded-full px-4 text-sm">
-          Unsubscribe from Push Notifications
+          className="cursor-pointer border-2 p-1 rounded-full px-4 text-sm w-full text-shadow-black-background-black">
+          Unsubscribe from Notifications
         </button>
       ) : (
         <button
           onClick={subscribeToPush}
-          className="cursor-pointer border-2 border-[rgba(255,255,255,0.3)] p-1 px-4 rounded-full text-sm rainbow-gradient text-shadow-black-background-black">
-          Subscribe to Push Notifications
+          className="cursor-pointer border-2 border-[rgba(255,255,255,0.3)] p-1 px-4 rounded-full text-sm rainbow-gradient text-shadow-black-background-black w-full">
+          Subscribe to Notifications
         </button>
       )}
     </div>

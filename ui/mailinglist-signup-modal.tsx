@@ -15,10 +15,10 @@ export default function MailingListSignupModal() {
   return (
     <>
       <Button
-        label="Sign Up for po's Mailing List"
+        label="Sign Up for Mailing List"
         title="Sign up for po's mailing list"
         onClick={() => setIsOpen(true)}
-        className="cursor-pointer border-2 border-[rgba(255,255,255,0.3)] p-1 px-4 rounded-full text-sm rainbow-gradient text-shadow-black-background-black"
+        className="cursor-pointer border-2 border-[rgba(255,255,255,0.3)] p-1 px-4 rounded-full text-sm rainbow-gradient text-shadow-black-background-black w-full"
       />
       {isOpen && (
         <div className="fixed inset-0 rainbow-gradient flex items-center justify-center z-50">
@@ -26,7 +26,7 @@ export default function MailingListSignupModal() {
             <Button
               title="Close"
               onClick={() => setIsOpen(false)}
-              className="absolute top-9 right-8 text-white hover:text-neutral-200 transition-transform ease-in-out duration-400"
+              className="absolute top-9 right-9 text-white hover:text-neutral-200 transition-transform ease-in-out duration-400"
               icon={<FiXCircle size={26} />}
             />
             <MailingListSignupForm />

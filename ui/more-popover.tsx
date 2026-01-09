@@ -1,11 +1,58 @@
+"use client";
+// import from react
+import { useState, useEffect } from "react";
+// import from next
+import Link from "next/link";
 // import from headless ui
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/react";
 // import clsx
 import { clsx } from "clsx";
 // import components
 import PushNotificationSubscriptionManager from "./push-notification-subscription-manager";
+import MailingListSignupModal from "./mailinglist-signup-modal";
 
 export default function MorePopover() {
+  const [isIOS, setIsIOS] = useState(false);
+  const [isStandalone, setIsStandalone] = useState(false);
+
+  useEffect(() => {
+    setIsIOS(
+      /iPad|iPhone|iPod/.test(navigator.userAgent) &&
+        !(window as Window & { MSStream?: unknown }).MSStream
+    );
+    setIsStandalone(window.matchMedia("(display-mode: standalone)").matches);
+
+    window.addEventListener("appinstalled", () => {
+      setIsStandalone(true);
+    });
+
+    //   function handleBeforeInstallPrompt(e: Event) {
+    //     e.preventDefault();
+    //     setDeferredPrompt(e);
+    //   }
+    //   window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
+
+    //   return () => {
+    //     window.removeEventListener(
+    //       "beforeinstallprompt",
+    //       handleBeforeInstallPrompt
+    //     );
+    //   };
+  }, []);
+
+  if (isStandalone) {
+    return null;
+  }
+
+  async function handleInstallClick() {
+    // if (!deferredPrompt) return;
+    // (deferredPrompt as any).prompt();
+    // const { outcome } = await (deferredPrompt as any).userChoice;
+    // setDeferredPrompt(null);
+    // console.log("User response to the install prompt:", outcome);
+    console.log("Install clicked");
+  }
+
   return (
     <Popover>
       <PopoverButton
@@ -23,7 +70,28 @@ export default function MorePopover() {
         transition
         anchor="bottom end"
         className="divide-y divide-white/5 rounded-xl bg-black/80 text-sm/6 transition duration-200 ease-in-out [--anchor-gap:--spacing(5)] data-closed:-translate-y-1 data-closed:opacity-0 z-50 border-2 border-[rgba(255,255,255,0.3)] shadow-white shadow-lg mt-2 w-64">
-        <div className="p-3">
+        <div className="flex items-center justify-center my-6 px-6">
+          <button
+            onClick={handleInstallClick}
+            className="rainbow-gradient p-1 rounded-full  border-2 border-[rgba(255,255,255,0.3)] text-sm shadow-black/50 shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full max-w-xs hover:scale-105 transform transition-transform duration-600 active:scale-95 text-shadow-black-background-black">
+            Install App
+          </button>
+        </div>
+        <div className="flex items-center justify-center my-6 w-full px-6">
+          <PushNotificationSubscriptionManager renderedAs="button" />
+        </div>
+        <div className="flex items-center justify-center my-6 w-full px-6">
+          <MailingListSignupModal />
+        </div>
+        <div className="flex items-center justify-center my-6 px-6">
+          <Link
+            href="/mailing-list-unsubscribe"
+            // onClick={handleInstallClick}
+            className="rainbow-gradient p-1 rounded-full  border-2 border-[rgba(255,255,255,0.3)] text-sm shadow-black/50 shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full max-w-xs hover:scale-105 transform transition-transform duration-600 active:scale-95 text-shadow-black-background-black text-center">
+            Unsubscribe from Mailing List
+          </Link>
+        </div>
+        {/* <div className="p-3">
           <a
             className="rainbow-gradient-hover block rounded-lg px-3 py-2 transition hover:bg-white/5"
             href="#">
@@ -52,13 +120,7 @@ export default function MorePopover() {
               Start integrating products and tools
             </p>
           </a>
-        </div>
-        
-        <div className="pl-3 py-3">
-         <PushNotificationSubscriptionManager 
-          renderedAs="button"
-        />
-        </div>
+        </div> */}
       </PopoverPanel>
     </Popover>
   );
