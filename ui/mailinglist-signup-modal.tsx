@@ -18,7 +18,7 @@ export default function MailingListSignupModal() {
         label="Sign Up for Mailing List"
         title="Sign up for po's mailing list"
         onClick={() => setIsOpen(true)}
-        className="cursor-pointer border-2 border-[rgba(255,255,255,0.3)] p-1 px-4 rounded-full text-sm rainbow-gradient text-shadow-black-background-black w-full"
+        className="cursor-pointer border-2 border-[rgba(255,255,255,0.3)] p-1 px-4 rounded-full rainbow-gradient text-shadow-black-background-black w-full font-semibold shadow-md shadow-white hover:shadow-lg transform transition-transform transition-shadow duration-200 active:scale-95"
       />
       {isOpen && (
         <div className="fixed inset-0 rainbow-gradient flex items-center justify-center z-50">

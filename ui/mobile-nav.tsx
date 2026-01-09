@@ -83,7 +83,7 @@ export default function MobileNav({ navListItems, user }: MobileMenuProps) {
             {/* Dialog Title */}
             <DialogTitle
               as="h1"
-              className={`sr-only flex items-center justify-center text-center font-blenny text-xl`}>
+              className={`sr-only flex items-center justify-center text-center`}>
               Po Mia
             </DialogTitle>
             {isHome ? (
@@ -117,9 +117,9 @@ export default function MobileNav({ navListItems, user }: MobileMenuProps) {
             )}
 
             {/* Navigation */}
-            <nav className="mt-12 z-50">
+            <nav className="mt-10 z-50">
               <ul
-                className={`flex flex-col gap-10 font-semibold items-center text-lg`}>
+                className={`flex flex-col gap-10 font-semibold items-center`}>
                 {navListItems
                   .filter((item) => item.label !== "Admin" || user)
                   .map((item) => (

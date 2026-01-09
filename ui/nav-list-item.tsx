@@ -65,19 +65,14 @@ export default function NavListItem({
   const isActive = pathname === href;
 
   return (
-    <li
-      className={clsx(
-        "flex-1 rounded-full border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-lg px-4 py-1 active:scale-95 transition duration-200 ease-in-out rainbow-gradient-hover",
-        isActive ? "rainbow-gradient" : "bg-black/50"
-      )}
-    >
+    <li>
       {htmlElement === "button" ? (
         <Button
           label={label}
           onClick={onClick}
           className={clsx(
             "font-semibold text-white text-shadow-black-background-black w-full",
-            isActive ? "pointer-events-none" : ""
+            isActive ? "pointer-events-none" : "bg-black/50 hover:shadow-lg"
           )}
           disabled={isActive}
           ariaLabel={label}
@@ -86,14 +81,16 @@ export default function NavListItem({
         <Link
           href={href}
           className={clsx(
-            "font-semibold text-white text-shadow-black-background-black",
-            isActive ? "pointer-events-none" : ""
+            "font-semibold text-white rounded-full border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-md px-4 py-2 active:scale-95 transition transition-transform transition-shadow duration-200 ease-in-out rainbow-gradient-hover",
+            isActive ? "rainbow-gradient pointer-events-none" : "bg-black/50 hover:shadow-lg"
           )}
           tabIndex={isActive ? -1 : 0}
           aria-disabled={isActive ? "true" : undefined}
           onClick={onClick}
         >
+          <span className="text-shadow-black-background-black">
           {label}
+          </span>
         </Link>
       )}
     </li>

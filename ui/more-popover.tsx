@@ -57,8 +57,7 @@ export default function MorePopover() {
     <Popover>
       <PopoverButton
         className={clsx(
-          "cursor-pointer flex-1 rounded-full border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-lg px-4 py-1 font-semibold text-white bg-black/50 transition focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 active:scale-95 rainbow-gradient-hover",
-          ""
+          "inline-flex items-center justify-center appearance-none min-h-0 leading-none rounded-full border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-md hover:shadow-lg px-4 py-2 font-semibold text-white bg-black/50 transition transition-transform transition-shadow duration-200 ease-in-out active:scale-95 rainbow-gradient-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 cursor-pointer"
         )}>
         <span
           aria-label="More options"
@@ -69,25 +68,25 @@ export default function MorePopover() {
       <PopoverPanel
         transition
         anchor="bottom end"
-        className="divide-y divide-white/5 rounded-xl bg-black/80 text-sm/6 transition duration-200 ease-in-out [--anchor-gap:--spacing(5)] data-closed:-translate-y-1 data-closed:opacity-0 z-50 border-2 border-[rgba(255,255,255,0.3)] shadow-white shadow-lg mt-2 w-64">
-        <div className="flex items-center justify-center my-6 px-6">
+        className="divide-y divide-white/5 rounded-4xl bg-black/80 text-sm/6 transition duration-200 ease-in-out [--anchor-gap:--spacing(5)] data-closed:-translate-y-1 data-closed:opacity-0 z-50 border-2 border-[rgba(255,255,255,0.3)] shadow-white shadow-lg mt-2 w-64">
+        <div className="flex items-center justify-center my-6 px-4">
           <button
             onClick={handleInstallClick}
-            className="rainbow-gradient p-1 rounded-full  border-2 border-[rgba(255,255,255,0.3)] text-sm shadow-black/50 shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full max-w-xs hover:scale-105 transform transition-transform duration-600 active:scale-95 text-shadow-black-background-black">
+            className="rainbow-gradient p-1 rounded-full border-2 border-[rgba(255,255,255,0.3)] shadow-white shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full max-w-xs transform transition-transform transition-shadow duration-200 active:scale-95 text-shadow-black-background-black font-semibold">
             Install App
           </button>
         </div>
-        <div className="flex items-center justify-center my-6 w-full px-6">
+        <div className="flex items-center justify-center my-6 w-full px-4">
           <PushNotificationSubscriptionManager renderedAs="button" />
         </div>
-        <div className="flex items-center justify-center my-6 w-full px-6">
+        <div className="flex items-center justify-center my-6 w-full px-4">
           <MailingListSignupModal />
         </div>
-        <div className="flex items-center justify-center my-6 px-6">
+        <div className="flex items-center justify-center my-6 px-4">
           <Link
             href="/mailing-list-unsubscribe"
             // onClick={handleInstallClick}
-            className="rainbow-gradient p-1 rounded-full  border-2 border-[rgba(255,255,255,0.3)] text-sm shadow-black/50 shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full max-w-xs hover:scale-105 transform transition-transform duration-600 active:scale-95 text-shadow-black-background-black text-center">
+            className="rainbow-gradient p-1 rounded-full  border-2 border-[rgba(255,255,255,0.3)] shadow-white shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full max-w-xs transform transition-transform transition-shadow duration-200 active:scale-95 text-shadow-black-background-black text-center font-semibold">
             Unsubscribe from Mailing List
           </Link>
         </div>
