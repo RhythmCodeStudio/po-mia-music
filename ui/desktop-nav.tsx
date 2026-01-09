@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 // import components
 import NavListItem from "./nav-list-item";
+import MorePopover from "./more-popover";
 
 export default function DesktopNav({
   navListItems,
@@ -16,6 +17,7 @@ export default function DesktopNav({
     href: string;
     htmlElement: string;
     category?: string;
+    onClick?: () => void;
   }[];
   user: any;
 }) {
@@ -24,7 +26,7 @@ export default function DesktopNav({
   return (
     <div className="flex flex-col items-center gap-2 mx-auto">
       <nav className="w-full">
-        <ul className="w-full flex justify-center items-center gap-12 xl:gap-20 2xl:gap-28">
+        <ul className="w-full flex justify-center items-center gap-12 xl:gap-20 2xl:gap-24">
           {navListItems
             .filter((item) => item.label !== "Admin" || user)
             .map((item) => (
@@ -33,8 +35,10 @@ export default function DesktopNav({
               label={item.label}
               href={item.href}
               htmlElement={item.htmlElement}
+              onClick={item.onClick}
             />
           ))}
+          <MorePopover />
         </ul>
       </nav>
       <div className="w-72 p-4 pb-0">

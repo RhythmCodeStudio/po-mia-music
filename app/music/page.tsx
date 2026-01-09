@@ -26,7 +26,7 @@ export default async function Music() {
         <IconLinkGroupClientContainer
           orientation="horizontal"
           linkData={musicLinkData}
-          size={36}
+          size={30}
           className="icon-shadow"
         />
       </div>

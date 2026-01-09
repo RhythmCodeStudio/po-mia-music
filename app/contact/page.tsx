@@ -24,7 +24,7 @@ export default async function Contact() {
         <IconLinkGroupClientContainer
           orientation="horizontal"
           linkData={contactLinkData}
-          size={36}
+          size={30}
           className="icon-shadow"
         />
       </div>

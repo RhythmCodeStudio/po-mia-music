@@ -4,12 +4,12 @@ import YouTubeVideo from "../../ui/youtube-video";
 // import data
 import { youTubeVideos } from "@/lib/video-data";
 
-function delayLoad(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
+// function delayLoad(ms: number) {
+//   return new Promise((resolve) => setTimeout(resolve, ms));
+// }
 
 export default async function Videos() {
-  await delayLoad(5000);
+  // await delayLoad(5000);
   return (
     <div className="flex flex-col justify-center items-center w-full">
       <Heading

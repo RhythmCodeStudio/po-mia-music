@@ -18,7 +18,7 @@ import StarrySky from "./starry-sky";
 import PushNotificationSubscriptionManager from "./push-notification-subscription-manager";
 // import contact link data
 import { contactLinkData } from "@/lib/contact-link-data";
-import { musicLinkData } from "@/lib/music-link-data";
+// import { musicLinkData } from "@/lib/music-link-data";
 
 interface MobileMenuProps {
   user: any;
@@ -27,6 +27,7 @@ interface MobileMenuProps {
     href: string;
     htmlElement: string;
     category?: string;
+    onClick?: () => void;
   }[];
 }
 
@@ -66,7 +67,7 @@ export default function MobileNav({ navListItems, user }: MobileMenuProps) {
         {/* Dialog Content */}
         <div className="fixed inset-0 flex flex-col items-center justify-center">
           <DialogPanel
-            className="h-[100vh] w-[100vw] relative border-2 border-black bg-black flex flex-col justify-center p-4"
+            className="h-[100vh] w-[100vw] relative border-2 border-black bg-black flex flex-col justify-center p-8"
             style={{
               // backgroundImage: `url(${themeObj.avif}), url(${themeObj.webp})`,
               backgroundSize: "cover",
@@ -86,7 +87,6 @@ export default function MobileNav({ navListItems, user }: MobileMenuProps) {
               Po Mia
             </DialogTitle>
             {isHome ? (
-              <div>
                 <div
                   className="flex justify-center items-center mx-auto w-1/2 h-full"
                   onClick={toggleMenu}>
@@ -99,7 +99,6 @@ export default function MobileNav({ navListItems, user }: MobileMenuProps) {
                     // className={`${logoInvert}`}
                   />
                 </div>
-              </div>
             ) : (
               <Link href="/">
                 <div
@@ -124,13 +123,13 @@ export default function MobileNav({ navListItems, user }: MobileMenuProps) {
                 {navListItems
                   .filter((item) => item.label !== "Admin" || user)
                   .map((item) => (
-                  <NavListItem
-                    key={item.label}
-                    label={item.label}
-                    href={item.href}
-                    htmlElement={item.htmlElement}
-                    onClick={toggleMenu}
-                  />
+                    <NavListItem
+                      key={item.label}
+                      label={item.label}
+                      href={item.href}
+                      htmlElement={item.htmlElement}
+                      onClick={item.onClick ? item.onClick : toggleMenu}
+                    />
                 ))}
               </ul>
             </nav>

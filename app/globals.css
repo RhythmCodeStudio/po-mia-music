@@ -155,3 +155,24 @@ body {
   backdrop-filter: blur(0.5px);
 } */
 
+/* Apply rainbow-gradient on hover */
+/* .button:hover,
+.link:hover, */
+.rainbow-gradient-hover:hover {
+  background: linear-gradient(
+    135deg,
+    #ff0000,
+    #ff7f00,
+    #ffff00,
+    #00ff00,
+    #0000ff,
+    #4b0082,
+    #8b00ff,
+    #ff0000
+  );
+  /* Uncomment these for text gradient effect */
+  /* -webkit-background-clip: text; */
+  /* background-clip: text; */
+  /* -webkit-text-fill-color: transparent; */
+  /* animation: sparkle 3s linear infinite; */
+}
