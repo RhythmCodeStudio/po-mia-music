@@ -2,9 +2,9 @@
 // import from react
 import { useState } from "react";
 // import from next
-import Image from "next/image";
+// import Image from "next/image";
 // import actions
-import { signUpForMailingList } from "../actions/actions";
+import { signUpForMailingList, removeFromMailingList } from "../actions/actions";
 // import from clsx
 import { clsx } from "clsx";
 // import from toastify
@@ -15,7 +15,11 @@ import Heading from "./heading";
 // import from utils
 import { validateEmail } from "../utils/utils";
 
-export default function MailingListSignUpForm() {
+export default function MailingListSignUpForm({
+  mode = "sign-up"
+}: {
+  mode?: "sign-up" | "remove"
+}) {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
   // const [error, setError] = useState("");
@@ -54,8 +58,13 @@ export default function MailingListSignUpForm() {
       setEmailErrorMessage("Please enter a valid email address.");
       return;
     }
+    
     try {
-      await signUpForMailingList(trimmedEmail);
+      if (mode === "sign-up") {
+        await signUpForMailingList(trimmedEmail);
+      } else if (mode === "remove") {
+        await removeFromMailingList(trimmedEmail);
+      }
       setSubmitted(true);
       setEmail("");
     } catch (err) {
@@ -69,7 +78,7 @@ export default function MailingListSignUpForm() {
   return (
     <div className="flex flex-col items-stretch w-full max-w-2xl p-4 lg:p-8 bg-black/50 border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-lg rounded-4xl">
       <Heading
-        text="Mailing List Sign-Up"
+        text={mode === "sign-up" ? "Mailing List Sign-Up" : "Unsubscribe from Mailing List"}
         headingLevel={3}
         className="text-xl lg:text-2xl font-semibold text-shadow-black-background-black mb-4 text-center"
       />
@@ -110,7 +119,9 @@ export default function MailingListSignUpForm() {
             }
           )}>
           <span className="z-50 font-semibold text-white tracking-wideest">
-            {submitted ? "Thank you for signing up!" : "Sign Up"}
+            {submitted 
+              ? (mode === "sign-up" ? "Thank you for signing up!" : "Thank you! Sign up again at any time!") 
+              : (mode === "sign-up" ? "Sign Up" : "Unsubscribe")}
           </span>
         </button>
       </form>
