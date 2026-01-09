@@ -163,6 +163,7 @@ export default function AdminContainer({
           onClick={() => setView("calendar")}
           ariaLabel="View Calendar"
           className={clsx(
+             "rounded-full font-semibold px-4 py-2 transition duration-200", // always applied
             view === "calendar"
               ? "bg-blue-600 text-white pointer-events-none"
               : "bg-gray-200 text-gray-800"
@@ -173,6 +174,7 @@ export default function AdminContainer({
           onClick={() => setView("notifications")}
           ariaLabel="Send Notifications"
           className={clsx(
+             "rounded-full font-semibold px-4 py-2 transition duration-200", // always applied
             view === "notifications"
               ? "bg-blue-600 text-white pointer-events-none"
               : "bg-gray-200 text-gray-800"
@@ -183,6 +185,7 @@ export default function AdminContainer({
           onClick={() => setView("mailingList")}
           ariaLabel="View Mailing List"
           className={clsx(
+             "rounded-full font-semibold px-4 py-2 transition duration-200", // always applied
             view === "mailingList"
               ? "bg-blue-600 text-white pointer-events-none"
               : "bg-gray-200 text-gray-800"
@@ -193,6 +196,7 @@ export default function AdminContainer({
           onClick={() => setView("messages")}
           ariaLabel="View Messages"
           className={clsx(
+             "rounded-full font-semibold px-4 py-2 transition duration-200", // always applied
             view === "messages"
               ? "bg-blue-600 text-white pointer-events-none"
               : "bg-gray-200 text-gray-800"

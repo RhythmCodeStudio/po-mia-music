@@ -457,13 +457,13 @@ export default function CalendarEventForm({
             label={mode === "edit" ? "Edit Event" : "Create Event"}
             onClick={handleFormSubmit}
             ariaLabel={mode === "edit" ? "Edit Event" : "Create Event"}
-            className="bg-blue-600 text-white px-4 py-2 rounded"
+            className="bg-blue-600 text-white rounded-full font-semibold px-4 py-2 transition duration-200"
           />
           <Button
             label="Cancel"
             onClick={onClose}
             ariaLabel="Cancel"
-            className="ml-2 bg-gray-400 text-white px-4 py-2 rounded"
+            className="ml-2 bg-gray-400 text-white rounded-full font-semibold px-4 py-2 transition duration-200"
             type="button"
           />
         </div>
