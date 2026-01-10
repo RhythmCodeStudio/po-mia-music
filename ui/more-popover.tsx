@@ -15,7 +15,27 @@ import StarrySky from "./starry-sky";
 // import from react icons
 import { FiXCircle } from "react-icons/fi";
 
-export default function MorePopover() {
+interface MorePopoverProps {
+  anchor?:
+    | "top"
+    | "right"
+    | "bottom"
+    | "left"
+    | "top start"
+    | "top end"
+    | "bottom start"
+    | "bottom end"
+    | "right start"
+    | "right end"
+    | "left start"
+    | "left end";
+  onAnyAction?: () => void;
+}
+
+export default function MorePopover({
+  anchor = "bottom end",
+  onAnyAction,
+}: MorePopoverProps) {
   const [isIOS, setIsIOS] = useState(false);
   const [isStandalone, setIsStandalone] = useState(false);
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
@@ -46,9 +66,9 @@ export default function MorePopover() {
     };
   }, []);
 
-  if (isStandalone) {
-    return null;
-  }
+  // if (isStandalone) {
+  //   return null;
+  // }
 
   async function handleInstallClick() {
     if (isIOS) {
@@ -77,44 +97,49 @@ export default function MorePopover() {
         </PopoverButton>
         <PopoverPanel
           transition
-          anchor="bottom end"
+          anchor={anchor}
           className="divide-y divide-white/5 rounded-4xl bg-black/80 text-sm/6 transition duration-200 ease-in-out [--anchor-gap:--spacing(5)] data-closed:-translate-y-1 data-closed:opacity-0 z-50 border-2 border-[rgba(255,255,255,0.3)] shadow-white shadow-lg mt-2 w-64">
-            {({ close }) => (
+          {({ close }) => (
             <>
-          <div className="flex items-center justify-center my-6 px-4">
-            <button
-              onClick={() => {
-                handleInstallClick();
-                close();
-              }}
-              className="rainbow-gradient p-1 rounded-full border-2 border-[rgba(255,255,255,0.3)] shadow-white shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full max-w-xs transform transition-transform transition-shadow duration-200 active:scale-95 text-shadow-black-background-black font-semibold">
-              Install App
-            </button>
-          </div>
-          <div className="flex items-center justify-center my-6 w-full px-4">
-            <PushNotificationSubscriptionManager renderedAs="button" />
-          </div>
-          <div className="flex items-center justify-center my-6 w-full px-4">
-            <MailingListSignupModal />
-          </div>
-          <div className="flex items-center justify-center my-6 px-4">
-            <Link
-              href="/mailing-list-unsubscribe"
-              onClick={() => close()} 
-              className="rainbow-gradient p-1 rounded-full  border-2 border-[rgba(255,255,255,0.3)] shadow-white shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full max-w-xs transform transition-transform transition-shadow duration-200 active:scale-95 text-shadow-black-background-black text-center font-semibold">
-              Unsubscribe from Mailing List
-            </Link>
-          </div>
-          </>
+                {!isStandalone && (
+                <div className="flex items-center justify-center my-6 px-4 hidden lg:flex">
+                  <button
+                  onClick={async () => {
+                    await handleInstallClick();
+                    // close();
+                    // if (onAnyAction) onAnyAction();
+                  }}
+                  className="rainbow-gradient p-1 rounded-full border-2 border-[rgba(255,255,255,0.3)] shadow-white shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full max-w-xs transform transition-transform transition-shadow duration-200 active:scale-95 text-shadow-black-background-black font-semibold">
+                  Install App
+                  </button>
+                </div>
+                )}
+              <div className="flex items-center justify-center my-6 w-full px-4">
+                <PushNotificationSubscriptionManager renderedAs="button" />
+              </div>
+              <div className="flex items-center justify-center my-6 w-full px-4">
+                <MailingListSignupModal  />
+              </div>
+              <div className="flex items-center justify-center my-6 px-4">
+                <Link
+                  href="/mailing-list-unsubscribe"
+                  onClick={() => {
+                    close();
+                    if (onAnyAction) onAnyAction(); // <-- close mobile menu if provided
+                  }}
+                  className="rainbow-gradient p-1 rounded-full  border-2 border-[rgba(255,255,255,0.3)] shadow-white shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full max-w-xs transform transition-transform transition-shadow duration-200 active:scale-95 text-shadow-black-background-black text-center font-semibold">
+                  Unsubscribe from Mailing List
+                </Link>
+              </div>
+            </>
           )}
         </PopoverPanel>
       </Popover>
       {isIosModalOpen && (
-        <div 
+        <div
           className="fixed inset-0 rainbow-gradient flex items-center justify-center z-50"
           role="dialog"
-          aria-modal="true"
-        >
+          aria-modal="true">
           <div className="p-6 w-11/12 max-w-md relative z-50">
             <Button
               title="Close"

@@ -15,12 +15,25 @@ import { musicLinkData } from "@/lib/music-link-data";
 import { paymentLinks } from "@/lib/po-data";
 // import context
 import { usePushNotification } from "../context/push-notification-context-provider";
-// import icons
-import { HiEnvelope } from "react-icons/hi2";
+// import clsx
+import { clsx } from "clsx";
 
 export default function Footer() {
   const { isSubscribed, refreshSubscription } = usePushNotification();
   const [iconSize, setIconSize] = useState(20);
+  const [isIOS, setIsIOS] = useState(false);
+  const [isStandalone, setIsStandalone] = useState(false);
+  const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
+  const [isIosModalOpen, setIsIosModalOpen] = useState(false);
+  // Calculate number of grid items
+  const gridItems = [
+    !isStandalone, // Install App
+    true, // MailingListSignupModal (always rendered)
+    isSubscribed === false, // PushNotificationSubscriptionManager
+  ].filter(Boolean).length;
+
+  // Build grid-cols class
+  const gridColsClass = `grid-cols-${gridItems}`;
   useEffect(() => {
     function handleResize() {
       setIconSize(window.innerWidth >= 768 ? 24 : 20); // 24 for md+ screens, 20 for small
@@ -29,7 +42,48 @@ export default function Footer() {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-  // const pathname = usePathname();
+
+  useEffect(() => {
+    setIsIOS(
+      /iPad|iPhone|iPod/.test(navigator.userAgent) &&
+        !(window as Window & { MSStream?: unknown }).MSStream
+    );
+    setIsStandalone(window.matchMedia("(display-mode: standalone)").matches);
+
+    window.addEventListener("appinstalled", () => {
+      setIsStandalone(true);
+    });
+
+    function handleBeforeInstallPrompt(e: Event) {
+      e.preventDefault();
+      setDeferredPrompt(e);
+    }
+    window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
+
+    return () => {
+      window.removeEventListener(
+        "beforeinstallprompt",
+        handleBeforeInstallPrompt
+      );
+    };
+  }, []);
+
+  // if (isStandalone) {
+  //   return null;
+  // }
+
+  async function handleInstallClick() {
+    if (isIOS) {
+      setIsIosModalOpen(true);
+      return;
+    }
+    if (!deferredPrompt) return;
+    (deferredPrompt as any).prompt();
+    const { outcome } = await (deferredPrompt as any).userChoice;
+    setDeferredPrompt(null);
+    console.log("User response to the install prompt:", outcome);
+  }
+
   return (
     <footer className="p-2 flex flex-col items-center space-y-4 max-w-600 mx-auto w-full">
       <div className="h-auto w-48 md:w-64 lg:w-64 p-2 flex items-center justify-center">
@@ -70,30 +124,34 @@ export default function Footer() {
           />
         </div>
       </div>
-      {/* {isSubscribed === false && (
-        <div className="p-2">
-          <PushNotificationSubscriptionManager renderedAs="button" />
-        </div>
-      )} */}
 
-      <div className="p-2 flex flex-col items-center ">
-        {/* <p className="mb-1 text-shadow-black-background-black">Connect:</p>
-        <IconLink
-          href="mailto:pomiamusic@gmail.com"
-          icon={HiEnvelope}
-          size={iconSize}
-          label="pomiamusic@gmail.com"
-          showLabel={true}
-          className="icon-shadow"
-          labelClassName="text-shadow-black-background-black"
-        /> */}
-        <MailingListSignupModal />
-      </div>
-      {isSubscribed === false && (
-        <div className="p-2">
-          <PushNotificationSubscriptionManager renderedAs="button" />
+     <div className={clsx(
+  "grid grid-cols-1 w-full gap-4 justify-items-center",
+  `lg:${gridColsClass}`
+)}>
+        {!isStandalone && (
+          <div className="p-2 w-full max-w-64">
+            <button
+              onClick={async () => {
+                await handleInstallClick();
+                // close();
+                // if (onAnyAction) onAnyAction();
+              }}
+              className="rainbow-gradient p-1 px-16 rounded-full border-2 border-[rgba(255,255,255,0.3)] shadow-white shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full transform transition-transform transition-shadow duration-200 active:scale-95 text-shadow-black-background-black font-semibold">
+              Install App
+            </button>
+          </div>
+        )}
+        <div className="p-2 w-full max-w-64">
+          <MailingListSignupModal />
         </div>
-      )}
+        {isSubscribed === false && (
+          <div className="p-2 w-full max-w-64">
+            <PushNotificationSubscriptionManager renderedAs="button" />
+          </div>
+        )}
+      </div>
+
       <div className="text-sm text-white p-2 text-center text-shadow-black-background-black">
         <p className="">©2025</p>
         <p className="">

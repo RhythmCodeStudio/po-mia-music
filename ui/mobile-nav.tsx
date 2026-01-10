@@ -16,9 +16,11 @@ import IconLinkGroup from "./icon-link-group";
 import StarrySky from "./starry-sky";
 // import Heading from "./heading";
 import PushNotificationSubscriptionManager from "./push-notification-subscription-manager";
+import MorePopover from "./more-popover";
 // import contact link data
 import { contactLinkData } from "@/lib/contact-link-data";
-// import { musicLinkData } from "@/lib/music-link-data";
+import { musicLinkData } from "@/lib/music-link-data";
+import { paymentLinks } from "@/lib/po-data";
 
 interface MobileMenuProps {
   user: any;
@@ -66,13 +68,7 @@ export default function MobileNav({ navListItems, user }: MobileMenuProps) {
 
         {/* Dialog Content */}
         <div className="fixed inset-0 flex flex-col items-center justify-center">
-          <DialogPanel
-            className="h-[100vh] w-[100vw] relative border-2 border-black bg-black flex flex-col justify-center p-8"
-            style={{
-              // backgroundImage: `url(${themeObj.avif}), url(${themeObj.webp})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}>
+          <DialogPanel className="h-[100vh] w-[100vw] relative border-2 border-black bg-black flex flex-col justify-center p-8">
             {/* Close Button */}
             <button
               onClick={toggleMenu}
@@ -87,22 +83,21 @@ export default function MobileNav({ navListItems, user }: MobileMenuProps) {
               Po Mia
             </DialogTitle>
             {isHome ? (
-                <div
-                  className="flex justify-center items-center mx-auto w-1/2 h-full"
-                  onClick={toggleMenu}>
-                  <Image
-                    src="/logos/pomia-horizontal-logo-colorful.png"
-                    width={1400}
-                    height={460}
-                    alt="Po Mia Music Logo"
-                    priority
-                    // className={`${logoInvert}`}
-                  />
-                </div>
+              <div
+                className="flex justify-center items-center mx-auto w-52 h-auto"
+                onClick={toggleMenu}>
+                <Image
+                  src="/logos/pomia-horizontal-logo-colorful.png"
+                  width={1400}
+                  height={460}
+                  alt="Po Mia Music Logo"
+                  priority
+                />
+              </div>
             ) : (
               <Link href="/">
                 <div
-                  className="flex justify-center items-center mx-auto w-1/2 h-full"
+                  className="flex justify-center items-center mx-auto w-60 h-auto"
                   onClick={toggleMenu}>
                   <Image
                     src="/logos/pomia-horizontal-logo-colorful.png"
@@ -110,7 +105,6 @@ export default function MobileNav({ navListItems, user }: MobileMenuProps) {
                     height={460}
                     alt="Po Mia Music Logo"
                     priority
-                    // className={`${logoInvert}`}
                   />
                 </div>
               </Link>
@@ -118,8 +112,7 @@ export default function MobileNav({ navListItems, user }: MobileMenuProps) {
 
             {/* Navigation */}
             <nav className="mt-10 z-50">
-              <ul
-                className={`flex flex-col gap-10 font-semibold items-center`}>
+              <ul className={`flex flex-col gap-10 font-semibold items-center`}>
                 {navListItems
                   .filter((item) => item.label !== "Admin" || user)
                   .map((item) => (
@@ -130,24 +123,32 @@ export default function MobileNav({ navListItems, user }: MobileMenuProps) {
                       htmlElement={item.htmlElement}
                       onClick={item.onClick ? item.onClick : toggleMenu}
                     />
-                ))}
+                  ))}
+                <MorePopover anchor="top" onAnyAction={toggleMenu} />
               </ul>
             </nav>
-            <div className="flex justify-center items-center w-full p-6 mt-4">
+            {/* <div className="flex justify-center items-center w-full p-6 mt-4">
               <PushNotificationSubscriptionManager renderedAs="button"/>
-            </div>
-
-            <div className="flex justify-center w-full mt-6">
+            </div> */}
+            {/* <div className="flex justify-center w-full mt-10">
+              <IconLinkGroup
+                orientation="horizontal"
+                linkData={paymentLinks}
+                size={24}
+              />
+            </div> */}
+            <div className="flex justify-center w-full mt-10">
               <IconLinkGroup
                 orientation="horizontal"
                 linkData={contactLinkData}
-                size={28}
+                size={32}
               />
             </div>
-            {/* <div className="flex justify-center w-full p-6">
+            {/* <div className="flex justify-center w-full mt-10">
               <IconLinkGroup
                 orientation="horizontal"
                 linkData={musicLinkData}
+                size={24}
               />
             </div> */}
             <StarrySky />
