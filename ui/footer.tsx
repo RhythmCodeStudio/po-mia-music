@@ -97,7 +97,7 @@ export default function Footer() {
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 w-full justify-items-center text-shadow-black-background-black">
         <div className="p-2 flex flex-col items-center order-0">
-          <p className="mb-1">Support:</p>
+          <p className="mb-1 text-sm">Support:</p>
           <IconLinkGroup
             orientation="horizontal"
             linkData={paymentLinks}
@@ -106,7 +106,7 @@ export default function Footer() {
           />
         </div>
         <div className="p-2 flex flex-col items-center order-1 lg:order-2">
-          <p className="mb-1">Connect:</p>
+          <p className="mb-1 text-sm">Connect:</p>
           <IconLinkGroup
             orientation="horizontal"
             linkData={contactLinkData}
@@ -115,7 +115,7 @@ export default function Footer() {
           />
         </div>
         <div className="p-2 flex flex-col items-center order-2 lg:order-1">
-          <p className="mb-1">Listen:</p>
+          <p className="mb-1 text-sm">Listen:</p>
           <IconLinkGroup
             orientation="horizontal"
             linkData={musicLinkData}
@@ -127,7 +127,7 @@ export default function Footer() {
 
       <div
         className={clsx(
-          "grid grid-cols-1 w-full gap-4 justify-items-center",
+          "grid grid-cols-1 w-full gap-4 justify-items-center text-sm",
           `lg:${gridColsClass}`
         )}>
         {!isStandalone && (

@@ -10,7 +10,7 @@ import MorePopover from "./more-popover";
 
 export default function DesktopNav({
   navListItems,
-  user
+  user,
 }: {
   navListItems: {
     label: string;
@@ -30,40 +30,50 @@ export default function DesktopNav({
           {navListItems
             .filter((item) => item.label !== "Admin" || user)
             .map((item) => (
-            <NavListItem
-              key={item.label}
-              label={item.label}
-              href={item.href}
-              htmlElement={item.htmlElement}
-              onClick={item.onClick}
-            />
-          ))}
+              <NavListItem
+                key={item.label}
+                label={item.label}
+                href={item.href}
+                htmlElement={item.htmlElement}
+                onClick={item.onClick}
+              />
+            ))}
           <MorePopover />
         </ul>
       </nav>
-      <div className="w-72 p-4 pb-0">
-        {isHome ? (
-          <Image
-            src="/logos/pomia-horizontal-logo-colorful.png"
-            alt="Po Mia Music Logo"
-            width={2213}
-            height={725}
-            priority
-            className="w-full h-auto"
-          />
-        ) : (
-          <Link href="/" aria-label="Go to home">
-            <Image
-              src="/logos/pomia-horizontal-logo-colorful.png"
-              alt="Po Mia Music Logo"
-              width={2213}
-              height={725}
-              priority
-              className="w-full h-auto"
-            />
-          </Link>
-        )}
-      </div>
-    </div>
+      <div className="relative w-72 mx-auto mt-24">
+  {/* Logo */}
+  {isHome ? (
+    <Image
+      src="/logos/pomia-horizontal-logo-colorful.png"
+      alt="Po Mia Music Logo"
+      width={2213}
+      height={725}
+      priority
+      className="w-full h-auto"
+    />
+  ) : (
+    <Link href="/" aria-label="Go to home">
+      <Image
+        src="/logos/pomia-horizontal-logo-colorful.png"
+        alt="Po Mia Music Logo"
+        width={2213}
+        height={725}
+        priority
+        className="w-full h-auto"
+      />
+    </Link>
+  )}
+  {/* Guitar image */}
+  <div className="w-36 h-auto absolute -top-20 -right-24">
+    <Image
+      src="/images/po-tiny-guitar-no-bg-png.png"
+      width={1184}
+      height={1776}
+      alt=""
+    />
+  </div>
+</div>
+</div>
   );
 }
