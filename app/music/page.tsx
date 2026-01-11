@@ -22,7 +22,7 @@ export default async function Music() {
         headingLevel={2}
         className="text-4xl font-semibold text-shadow-black-background-black mt-8"
       />
-      <div className=" mt-2">
+      <div className="mt-2">
         <IconLinkGroupClientContainer
           orientation="horizontal"
           linkData={musicLinkData}
