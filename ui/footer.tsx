@@ -125,10 +125,11 @@ export default function Footer() {
         </div>
       </div>
 
-     <div className={clsx(
-  "grid grid-cols-1 w-full gap-4 justify-items-center",
-  `lg:${gridColsClass}`
-)}>
+      <div
+        className={clsx(
+          "grid grid-cols-1 w-full gap-4 justify-items-center",
+          `lg:${gridColsClass}`
+        )}>
         {!isStandalone && (
           <div className="p-2 w-full max-w-64">
             <button
