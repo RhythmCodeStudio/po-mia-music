@@ -1,5 +1,5 @@
-// import data
-// import { releases } from "@/lib/po-data";
+// import from next
+import Image from "next/image";
 // import components
 // import ReleaseDisplay from "../ui/release-display";
 import ReleaseDisplayContainer from "../../ui/release-display-container";
@@ -14,7 +14,7 @@ import { musicLinkData } from "@/lib/music-link-data";
 // }
 
 export default async function Music() {
-//  await delayLoad(5000);
+  //  await delayLoad(5000);
   return (
     <div className="flex flex-col justify-center items-center">
       <Heading
@@ -32,6 +32,15 @@ export default async function Music() {
       </div>
       <div className="w-full max-w-6xl">
         <ReleaseDisplayContainer />
+      </div>
+      <div className="p-8 md:w-6/8 lg:w-5/8 h-auto">
+        <Image 
+          src="/images/po-venice-cafe.webp" 
+          width={1217} 
+          height={956} 
+          alt="po playing at Venice Cafe in St. Louis, MO" 
+          className="rounded-4xl shadow-lg shadow-white"
+        />
       </div>
     </div>
   );
