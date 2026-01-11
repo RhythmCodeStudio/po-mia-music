@@ -9,12 +9,12 @@ import IconLinkGroupClientContainer from "@/ui/icon-link-group-client-container"
 // import link data
 import { musicLinkData } from "@/lib/music-link-data";
 
-function delayLoad(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
+// function delayLoad(ms: number) {
+//   return new Promise((resolve) => setTimeout(resolve, ms));
+// }
 
 export default async function Music() {
-   await delayLoad(5000);
+  //  await delayLoad(5000);
   return (
     <div className="flex flex-col justify-center items-center">
       <Heading
