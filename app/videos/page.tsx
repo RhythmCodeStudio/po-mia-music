@@ -14,16 +14,11 @@ export default async function Videos() {
   // await delayLoad(5000);
   return (
     <div className="flex flex-col justify-center items-center w-full">
-      {/* <div className="w-36 h-auto">
-        <Image src="/images/po-tiny-guitar-no-bg-png.png" width={1184} height={1776} alt="" />
-      </div> */}
-      
       <Heading
         text="Videos"
         headingLevel={2}
         className="font-bold text-4xl icon-shadow rainbow-gradient-text"
       />
-      
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl w-full p-8">
         {youTubeVideos.map((video, index) => (
           <YouTubeVideo
@@ -33,6 +28,15 @@ export default async function Videos() {
             description={video.description}
           />
         ))}
+      </div>
+      <div className="p-8 pt-0 w-full max-w-md h-auto flex justify-center">
+        <Image
+          src="/images/po-on-frog.webp"
+          width={768}
+          height={1024}
+          alt="po sitting on a frog sculpture looking through a viewfinder outside Venice Cafe in St. Louis, MO"
+          className="rounded-4xl shadow-lg shadow-white"
+        />
       </div>
     </div>
   );

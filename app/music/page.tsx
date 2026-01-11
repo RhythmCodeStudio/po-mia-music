@@ -9,12 +9,12 @@ import IconLinkGroupClientContainer from "@/ui/icon-link-group-client-container"
 // import link data
 import { musicLinkData } from "@/lib/music-link-data";
 
-// function delayLoad(ms: number) {
-//   return new Promise((resolve) => setTimeout(resolve, ms));
-// }
+function delayLoad(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
 
 export default async function Music() {
-  //  await delayLoad(5000);
+   await delayLoad(5000);
   return (
     <div className="flex flex-col justify-center items-center">
       <Heading
@@ -33,7 +33,7 @@ export default async function Music() {
       <div className="w-full max-w-6xl">
         <ReleaseDisplayContainer />
       </div>
-      <div className="p-8 md:w-6/8 lg:w-5/8 h-auto">
+      <div className="p-8 pt-0 md:w-6/8 lg:w-5/8 h-auto">
         <Image 
           src="/images/po-venice-cafe.webp" 
           width={1217} 
