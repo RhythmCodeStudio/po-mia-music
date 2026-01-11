@@ -12,15 +12,15 @@ export default function MailingListPage() {
     <>
       {mode === "remove" || mode === "sign-up" ? (
         <div className="flex flex-col justify-center items-center w-full p-8">
-           <div className="w-72 h-auto p-8">
-                <Image
-                  alt="po mia rubik's cube logo with butterflies"
-                  src="/icons/butterfly-logo.png"
-                  width={700}
-                  height={700}
-                  // className="rounded-4xl shadow-lg shadow-white"
-                />
-              </div>
+          <div className="w-72 h-auto p-8 lg:hidden">
+            <Image
+              alt="po mia rubik's cube logo with butterflies"
+              src="/icons/butterfly-logo.png"
+              width={700}
+              height={700}
+              // className="rounded-4xl shadow-lg shadow-white"
+            />
+          </div>
           {mode === "remove" ? (
             <MailingListSignUpForm mode="remove" />
           ) : (

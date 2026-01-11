@@ -86,7 +86,7 @@ export default function Footer() {
 
   return (
     <footer className="p-2 flex flex-col items-center space-y-4 max-w-600 mx-auto w-full">
-      <div className="h-auto w-48 md:w-64 lg:w-64 p-2 flex items-center justify-center">
+      <div className="h-auto w-48 p-2 flex items-center justify-center">
         <Image
           className="w-full h-auto"
           src="/logos/pomia-horizontal-logo-colorful.png"
@@ -95,6 +95,14 @@ export default function Footer() {
           alt="Po Mia Logo"
         />
       </div>
+      {/* <div className="w-50 h-auto ">
+        <Image
+          alt="po mia rubik's cube logo with butterflies"
+          src="/icons/butterfly-logo.png"
+          width={700}
+          height={700}
+        />
+      </div> */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 w-full justify-items-center text-shadow-black-background-black">
         <div className="p-2 flex flex-col items-center order-0">
           <p className="mb-1 text-sm">Support:</p>
