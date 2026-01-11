@@ -12,7 +12,7 @@ export default function MailingListPage() {
     <>
       {mode === "remove" || mode === "sign-up" ? (
         <div className="flex flex-col justify-center items-center w-full p-8">
-          <div className="w-72 h-auto p-8 lg:hidden">
+          <div className="w-50 h-auto p-8 lg:hidden">
             <Image
               alt="po mia rubik's cube logo with butterflies"
               src="/icons/butterfly-logo.png"

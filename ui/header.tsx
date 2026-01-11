@@ -21,7 +21,7 @@ import PushNotificationSubscriptionManager from "./push-notification-subscriptio
 
 export default function Header() {
   const app = stackClientApp;
-   const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState<any>(null);
   console.log("Header user:", user);
   const pathname = usePathname();
   const isHome = pathname === "/";
@@ -30,19 +30,21 @@ export default function Header() {
   // const logoInvert = themeObj.logoInvert;
 
   useEffect(() => {
-  let isMounted = true;
-  async function fetchUser() {
-    const u = await app.getUser();
-    if (isMounted) setUser(u);
-  }
-  fetchUser();
-  return () => { isMounted = false; };
-}, []);
+    let isMounted = true;
+    async function fetchUser() {
+      const u = await app.getUser();
+      if (isMounted) setUser(u);
+    }
+    fetchUser();
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   return (
-    <header className={`w-full p-6 pb-0`}>
+    <header className={`w-full p-8 pb-0`}>
       <div className="flex justify-between items-center">
-        <div className="h-auto w-34 lg:hidden">
+        {/* <div className="h-auto w-34 lg:hidden">
           {isHome ? (
             <Image
               className="w-full h-auto"
@@ -64,13 +66,46 @@ export default function Header() {
               />
             </Link>
           )}
-        </div>
-        <div className="hidden lg:flex items-center w-full justify-end gap-12">
+        </div> */}
+        <div className="hidden lg:flex items-center w-full justify-end">
           <DesktopNav navListItems={navListItemData} user={user} />
           {/* <PushNotificationSubscriptionManager renderedAs="icon" /> */}
         </div>
-        <div className="flex lg:hidden items-center">
-          <MobileNav navListItems={navListItemData} user={user}/>
+        <div className="flex lg:hidden w-full">
+          <MobileNav navListItems={navListItemData} user={user} />
+        </div>
+      </div>
+      <div className="relative w-64 lg:w-72 mx-auto mt-8 lg:mt-24 mb-8">
+        {/* Logo */}
+        {isHome ? (
+          <Image
+            src="/logos/pomia-horizontal-logo-colorful.png"
+            alt="Po Mia Music Logo"
+            width={2213}
+            height={725}
+            priority
+            className="w-full h-auto pr-6"
+          />
+        ) : (
+          <Link href="/" aria-label="Go to home">
+            <Image
+              src="/logos/pomia-horizontal-logo-colorful.png"
+              alt="Po Mia Music Logo"
+              width={2213}
+              height={725}
+              priority
+              className="w-full h-auto"
+            />
+          </Link>
+        )}
+        {/* Guitar image */}
+        <div className="w-30 lg:w-36 h-auto absolute -top-16 lg:-top-20 -right-14 lg:-right-18">
+          <Image
+            src="/images/po-tiny-guitar-no-bg-png.png"
+            width={1184}
+            height={1776}
+            alt=""
+          />
         </div>
       </div>
     </header>

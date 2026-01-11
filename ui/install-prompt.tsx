@@ -49,7 +49,7 @@ export default function InstallPrompt() {
   }
 
   return (
-    <div className="m-6 p-4 border-2 border-[rgba(255,255,255,0.3)] rounded-2xl text-center max-w-sm mx-auto text-black relative shadow-xl bg-black/80 text-white z-50">
+    <div className="m-6 p-4 border-2 border-[rgba(255,255,255,0.3)] rounded-4xl text-center max-w-[88vw] md:max-w-sm mx-auto text-black relative shadow-md shadow-white bg-black/80 text-white z-50">
       <button
         onClick={handleDismiss}
         className="absolute top-2 right-2 hover:text-gray-700 text-2xl font-bold px-2 cursor-pointer text-shadow-black-background-black"

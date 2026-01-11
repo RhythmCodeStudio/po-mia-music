@@ -24,7 +24,7 @@ export default function DesktopNav({
   const pathname = usePathname();
   const isHome = pathname === "/";
   return (
-    <div className="flex flex-col items-center gap-2 mx-auto">
+    <div className="flex flex-col items-center mx-auto">
       <nav className="w-full">
         <ul className="w-full flex justify-center items-center gap-12 xl:gap-20 2xl:gap-24">
           {navListItems
@@ -41,39 +41,39 @@ export default function DesktopNav({
           <MorePopover />
         </ul>
       </nav>
-      <div className="relative w-72 mx-auto mt-24">
-  {/* Logo */}
-  {isHome ? (
-    <Image
-      src="/logos/pomia-horizontal-logo-colorful.png"
-      alt="Po Mia Music Logo"
-      width={2213}
-      height={725}
-      priority
-      className="w-full h-auto"
-    />
-  ) : (
-    <Link href="/" aria-label="Go to home">
-      <Image
-        src="/logos/pomia-horizontal-logo-colorful.png"
-        alt="Po Mia Music Logo"
-        width={2213}
-        height={725}
-        priority
-        className="w-full h-auto"
-      />
-    </Link>
-  )}
-  {/* Guitar image */}
-  <div className="w-36 h-auto absolute -top-20 -right-24">
-    <Image
-      src="/images/po-tiny-guitar-no-bg-png.png"
-      width={1184}
-      height={1776}
-      alt=""
-    />
-  </div>
-</div>
-</div>
+      {/* <div className="relative w-72 mx-auto mt-24">
+        
+        {isHome ? (
+          <Image
+            src="/logos/pomia-horizontal-logo-colorful.png"
+            alt="Po Mia Music Logo"
+            width={2213}
+            height={725}
+            priority
+            className="w-full h-auto"
+          />
+        ) : (
+          <Link href="/" aria-label="Go to home">
+            <Image
+              src="/logos/pomia-horizontal-logo-colorful.png"
+              alt="Po Mia Music Logo"
+              width={2213}
+              height={725}
+              priority
+              className="w-full h-auto"
+            />
+          </Link>
+        )}
+        
+        <div className="w-36 h-auto absolute -top-20 -right-24">
+          <Image
+            src="/images/po-tiny-guitar-no-bg-png.png"
+            width={1184}
+            height={1776}
+            alt=""
+          />
+        </div>
+      </div> */}
+    </div>
   );
 }
