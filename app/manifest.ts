@@ -7,8 +7,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: "The official web application for Po Mia",
     start_url: "/",
     display: "standalone",
-    theme_color: "#ffff66",
-    background_color: "#00ff00",
+    theme_color: "#000000",
+    background_color: "#000000",
     icons: [
       {
         src: "/icons/web-app-manifest-192x192.png",
