@@ -9,7 +9,7 @@ import { Popover, PopoverButton, PopoverPanel } from "@headlessui/react";
 import { clsx } from "clsx";
 // import components
 import PushNotificationSubscriptionManager from "./push-notification-subscription-manager";
-import MailingListSignupModal from "./mailinglist-signup-modal";
+// import MailingListSignupModal from "./mailinglist-signup-modal";
 import Button from "./button";
 import StarrySky from "./starry-sky";
 // import from react icons
@@ -102,7 +102,7 @@ export default function MorePopover({
           {({ close }) => (
             <>
                 {!isStandalone && (
-                <div className="flex items-center justify-center my-6 px-4 hidden lg:flex">
+                <div className="flex items-center justify-center my-6 px-4">
                   <button
                   onClick={async () => {
                     await handleInstallClick();
