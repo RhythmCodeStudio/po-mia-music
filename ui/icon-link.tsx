@@ -29,8 +29,8 @@ export default function IconLink({
       onClick={() => {
         track("contact icon link clicked", { name: `${label}` });
       }}>
+      <Icon size={size} className={`${className} md:hover:scale-110 md:active:scale-95 transition transform transition-transform duration-200 ease-in-out`} />
       {/* Screen reader only text for accessibility */}
-      <Icon size={size} className={className} />
       <span className={`${showLabel ? "ml-2" : "sr-only"} ${labelClassName ?? ""}`}>{label}</span>
     </a>
   );
