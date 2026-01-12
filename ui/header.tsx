@@ -75,7 +75,7 @@ export default function Header() {
           <MobileNav navListItems={navListItemData} user={user} />
         </div>
       </div>
-      <div className="relative w-64 lg:w-72 mx-auto mt-8 lg:mt-24 mb-8">
+      <div className="relative w-64 lg:w-80 mx-auto mt-8 lg:mt-24 mb-8">
         {/* Logo */}
         {isHome ? (
           <Image
@@ -94,12 +94,12 @@ export default function Header() {
               width={2213}
               height={725}
               priority
-              className="w-full h-auto pr-6"
+              className="w-full h-auto pr-12 lg:pr-16"
             />
           </Link>
         )}
         {/* Guitar image */}
-        <div className="w-30 lg:w-36 h-auto absolute -top-16 lg:-top-20 -right-14 lg:-right-18">
+        <div className="w-30 lg:w-36 h-auto absolute -top-18 lg:-top-20 -right-8 lg:-right-8">
           <Image
             src="/images/po-tiny-guitar-no-bg-png.png"
             width={1184}
