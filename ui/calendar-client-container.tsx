@@ -85,6 +85,7 @@ export default function CalendarClientContainer({
             ))
           ) : (
             // no upcoming events
+            <div className="col-span-full text-center text-shadow-black-background-black">
             <p>
               No events currently scheduled. Please{" "}
               <Link href="/contact">
@@ -92,6 +93,7 @@ export default function CalendarClientContainer({
               </Link>{" "}
               for booking.
             </p>
+          </div>
           )
         ) : null}
         {view === "past"
