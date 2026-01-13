@@ -84,6 +84,7 @@ export default function CalendarClientContainer({
               />
             ))
           ) : (
+            // no upcoming events
             <p>
               No events currently scheduled. Please{" "}
               <Link href="/contact">
