@@ -1,3 +1,5 @@
+// import from next
+import Image from "next/image";
 // import components
 import Heading from "../../ui/heading";
 import CalendarClientContainer from "../../ui/calendar-client-container";
@@ -34,10 +36,22 @@ export default async function Calendar() {
         headingLevel={2}
         className="font-bold text-4xl text-shadow-black-background-black"
       />
-      <CalendarClientContainer
+      <div className="px-8">
+         <CalendarClientContainer
         upComingEvents={upComingEvents}
         pastEvents={pastEvents}
       />
+      </div>
+      <div className="w-2/5 h-auto">
+        <Image
+          src="/images/free-4-all.webp"
+          width={2102}
+          height={1401}
+          alt="Po playing a keytar outdoors in a grassy area with trees in the background"
+          className="rounded-4xl shadow-lg shadow-white mb-8"
+        />
+      </div>
+     
     </div>
   );
 }

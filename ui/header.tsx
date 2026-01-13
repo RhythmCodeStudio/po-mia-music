@@ -84,7 +84,8 @@ export default function Header() {
             width={2213}
             height={725}
             priority
-            className="w-full h-auto pr-6"
+            // className="w-full h-auto pr-6"
+            className="w-full h-auto pr-12 lg:pr-16"
           />
         ) : (
           <Link href="/" aria-label="Go to home">
