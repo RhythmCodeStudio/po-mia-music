@@ -1,6 +1,6 @@
 type GoogleMapsLinkProps = {
   addressLineOne: string;
-  addressLineTwo: string;
+  addressLineTwo?: string;
   city: string;
   state: string;
   zipCode: number;
@@ -24,7 +24,7 @@ export default function GoogleMapsLink({
       <a
         href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
           addressLineOne
-        )},${encodeURIComponent(addressLineTwo)},${encodeURIComponent(
+        )}${addressLineTwo ? `,${encodeURIComponent(addressLineTwo)}` : ''},${encodeURIComponent(
           city
         )},${encodeURIComponent(state)},${zipCode}`}
         target="_blank"

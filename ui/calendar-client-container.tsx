@@ -21,7 +21,7 @@ export default function CalendarClientContainer({
   const [view, setView] = useState<"future" | "past">("future");
 
   return (
-    <section className="bg-black/50 rounded-4xl shadow-lg shadow-white border-2 border-[rgba(255,255,255,0.3)] w-full max-w-6xl lg:min-w-xl flex flex-col items-center p-8 my-8">
+    <section className="bg-black/50 rounded-4xl shadow-lg shadow-white border-2 border-[rgba(255,255,255,0.3)] w-full flex flex-col items-center p-8 pt-4 my-8">
       <div className="flex flex-row gap-4 mb-4">
         <Button
           label="Past"
@@ -80,7 +80,9 @@ export default function CalendarClientContainer({
                 description={event.description}
                 imageUrl={event.image}
                 ticketLink={event.ticket_link}
-                infoLink={event.info_link}
+                moreInfoLink={event.more_info_link}
+                venueLink={event.venue_link}
+                eventLink={event.event_link}
               />
             ))
           ) : (
@@ -126,7 +128,9 @@ export default function CalendarClientContainer({
                 description={event.description}
                 imageUrl={event.image}
                 ticketLink={event.ticket_link}
-                infoLink={event.info_link}
+                moreInfoLink={event.more_info_link}
+                venueLink={event.venue_link}
+                eventLink={event.event_link}
               />
             ))
           : null}

@@ -34,7 +34,7 @@ export default function AdminCalendar({
             className="bg-gray-200 text-gray-800 rounded-full font-semibold px-4 py-2 transition duration-200"
           />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 w-full justify-items-center px-6">  
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full justify-items-center px-4">  
           {calendarEventRows.map((event: any) => (
             <CalendarEventDisplay
               key={event.id}
@@ -64,7 +64,7 @@ export default function AdminCalendar({
               description={event.description}
               imageUrl={event.image}
               ticketLink={event.ticket_link}
-              infoLink={event.info_link}
+              moreInfoLink={event.more_info_link}
             />
           ))}
         </div>
@@ -105,7 +105,7 @@ export default function AdminCalendar({
           initialDescription=""
           initialImageUrl=""
           initialTicketLink=""
-          initialInfoLink=""
+          initialMoreInfoLink=""
           onClose={() => setView("events")}
         />
       </div>

@@ -37,10 +37,10 @@ export default async function Calendar() {
         className="font-bold text-4xl text-shadow-black-background-black"
       />
       <div className="px-8">
-         <CalendarClientContainer
-        upComingEvents={upComingEvents}
-        pastEvents={pastEvents}
-      />
+        <CalendarClientContainer
+          upComingEvents={upComingEvents}
+          pastEvents={pastEvents}
+        />
       </div>
       <div className="px-8 w-full max-w-2xl h-auto">
         <Image
@@ -51,7 +51,6 @@ export default async function Calendar() {
           className="rounded-4xl shadow-lg shadow-white mb-8"
         />
       </div>
-     
     </div>
   );
 }

@@ -45,7 +45,9 @@ export async function createCalendarEvent(event: {
   description?: string,
   image?: string
   ticketLink?: string,
-  infoLink?: string
+  eventLink?: string,
+  venueLink?: string,
+  moreInfoLink?: string
 }) {
   await sql`
     INSERT INTO calendar_events (
@@ -64,7 +66,9 @@ export async function createCalendarEvent(event: {
       description,
       image,
       ticket_link,
-      info_link
+      event_link,
+      venue_link,
+      more_info_link
     ) VALUES (
       ${event.title},
       ${event.startDate},
@@ -81,7 +85,9 @@ export async function createCalendarEvent(event: {
       ${event.description ?? null},
       ${event.image ?? null},
       ${event.ticketLink ?? null},
-      ${event.infoLink ?? null}
+      ${event.eventLink ?? null},
+      ${event.venueLink ?? null},
+      ${event.moreInfoLink ?? null}
     )
   `;
 }
@@ -121,7 +127,9 @@ export async function updateCalendarEvent(event: {
   description?: string,
   image?: string,
   ticketLink?: string,
-  infoLink?: string
+  eventLink?: string,
+  venueLink?: string,
+  moreInfoLink?: string
 }) {
   await sql`
     UPDATE calendar_events
@@ -141,7 +149,9 @@ export async function updateCalendarEvent(event: {
       description = ${event.description ?? null},
       image = ${event.image ?? null},
       ticket_link = ${event.ticketLink ?? null},
-      info_link = ${event.infoLink ?? null}
+      event_link = ${event.eventLink ?? null},
+      venue_link = ${event.venueLink ?? null},
+      more_info_link = ${event.moreInfoLink ?? null}
     WHERE id = ${event.id}
   `;
 }

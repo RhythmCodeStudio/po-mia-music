@@ -15,5 +15,7 @@ export type CalendarEvent = {
   description?: string;
   image?: string;
   ticketLink?: string;
-  infoLink?: string;
+  eventLink?: string;
+  venueLink?: string;
+  moreInfoLink?: string;
 };

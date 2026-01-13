@@ -26,7 +26,9 @@ interface CalendarEventFormProps {
   initialDescription?: string;
   initialImageUrl?: string;
   initialTicketLink?: string;
-  initialInfoLink?: string;
+  initialEventLink?: string;
+  initialVenueLink?: string;
+  initialMoreInfoLink?: string;
   onClose: () => void;
 }
 
@@ -48,7 +50,9 @@ export default function CalendarEventForm({
   initialDescription,
   initialImageUrl,
   initialTicketLink,
-  initialInfoLink,
+  initialEventLink,
+  initialVenueLink,
+  initialMoreInfoLink,
   onClose,
 }: CalendarEventFormProps) {
   const [id, setId] = useState(1);
@@ -69,7 +73,9 @@ export default function CalendarEventForm({
   const [description, setDescription] = useState(initialDescription || "");
   const [imageUrl, setImageUrl] = useState(initialImageUrl || "");
   const [ticketLink, setTicketLink] = useState(initialTicketLink || "");
-  const [infoLink, setInfoLink] = useState(initialInfoLink || "");
+  const [eventLink, setEventLink] = useState(initialEventLink || "");
+  const [venueLink, setVenueLink] = useState(initialVenueLink || "");
+  const [moreInfoLink, setMoreInfoLink] = useState(initialMoreInfoLink || "");
   const [dateTouched, setDateTouched] = useState(false);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
@@ -90,7 +96,9 @@ export default function CalendarEventForm({
     setDescription(initialDescription || "");
     setImageUrl(initialImageUrl || "");
     setTicketLink(initialTicketLink || "");
-    setInfoLink(initialInfoLink || "");
+    setEventLink(initialEventLink || "");
+    setVenueLink(initialVenueLink || "");
+    setMoreInfoLink(initialMoreInfoLink || "");
   }, [
     initialTitle,
     initialStartDate,
@@ -107,7 +115,9 @@ export default function CalendarEventForm({
     initialDescription,
     initialImageUrl,
     initialTicketLink,
-    initialInfoLink,
+    initialEventLink,
+    initialVenueLink,
+    initialMoreInfoLink,
   ]);
   // --- END CHANGES ---
 
@@ -163,7 +173,9 @@ export default function CalendarEventForm({
           locationZip,
           description,
           ticketLink,
-          infoLink,
+          eventLink,
+          venueLink,
+          moreInfoLink,
           image: imageUrl,
         });
         alert("Event updated successfully!");
@@ -184,7 +196,9 @@ export default function CalendarEventForm({
           locationZip,
           description,
           ticketLink,
-          infoLink,
+          eventLink,
+          venueLink,
+          moreInfoLink,
           image: imageUrl,
         });
         setEventTitle("");
@@ -202,7 +216,9 @@ export default function CalendarEventForm({
         setDescription("");
         setImageUrl("");
         setTicketLink("");
-        setInfoLink("");
+        setEventLink("");
+        setVenueLink("");
+        setMoreInfoLink("");
         setErrors({});
         setDateTouched(false);
         alert("Event created successfully!");
@@ -440,17 +456,43 @@ export default function CalendarEventForm({
           setStateVariable={setTicketLink}
         />
         <ContactFormInput
-          label="Info Link"
-          name="infoLink"
+          label="More Info Link"
+          name="moreInfoLink"
           inputType="input"
           type="text"
           placeholder=""
-          value={infoLink}
+          value={moreInfoLink}
           required={false}
           autoComplete="off"
           errorMessage=""
-          handleChange={(e) => handleChange(e, setInfoLink)}
-          setStateVariable={setInfoLink}
+          handleChange={(e) => handleChange(e, setMoreInfoLink)}
+          setStateVariable={setMoreInfoLink}
+        />
+        <ContactFormInput
+          label="Event Link"
+          name="eventLink"
+          inputType="input"
+          type="text"
+          placeholder=""
+          value={eventLink}
+          required={false}
+          autoComplete="off"
+          errorMessage=""
+          handleChange={(e) => handleChange(e, setEventLink)}
+          setStateVariable={setEventLink}
+        />
+        <ContactFormInput
+          label="Venue Link"
+          name="venueLink"
+          inputType="input"
+          type="text"
+          placeholder=""
+          value={venueLink}
+          required={false}
+          autoComplete="off"
+          errorMessage=""
+          handleChange={(e) => handleChange(e, setVenueLink)}
+          setStateVariable={setVenueLink}
         />
         <div className="flex justify-center mt-4">
           <Button
