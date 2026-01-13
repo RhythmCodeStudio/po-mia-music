@@ -21,7 +21,7 @@ export default function CalendarClientContainer({
   const [view, setView] = useState<"future" | "past">("future");
 
   return (
-    <section className="bg-black/50 rounded-4xl shadow-lg shadow-white border-2 border-[rgba(255,255,255,0.3)] w-full max-w-6xl min-w-xl flex flex-col items-center p-8 my-8">
+    <section className="bg-black/50 rounded-4xl shadow-lg shadow-white border-2 border-[rgba(255,255,255,0.3)] w-full max-w-6xl lg:min-w-xl flex flex-col items-center p-8 my-8">
       <div className="flex flex-row gap-4 mb-4">
         <Button
           label="Past"
