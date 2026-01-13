@@ -42,7 +42,7 @@ export default async function Calendar() {
         pastEvents={pastEvents}
       />
       </div>
-      <div className="w-2/5 h-auto">
+      <div className="px-8 w-full max-w-2xl h-auto">
         <Image
           src="/images/free-4-all.webp"
           width={2102}
