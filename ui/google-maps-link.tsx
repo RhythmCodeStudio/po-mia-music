@@ -6,6 +6,7 @@ type GoogleMapsLinkProps = {
   zipCode: number;
   text?: string;
   className?: string;
+  title?: string
 };
 
 export default function GoogleMapsLink({
@@ -16,6 +17,7 @@ export default function GoogleMapsLink({
   zipCode,
   text,
   className,
+  title
 }: GoogleMapsLinkProps) {
   return (
     <div>
@@ -28,6 +30,7 @@ export default function GoogleMapsLink({
         target="_blank"
         rel="noopener noreferrer"
         className={className || "text-blue-600 underline"}
+        title={`Get directions to ${addressLineOne}`}
       >
         {text ? (
           <span>{text}</span>

@@ -4,6 +4,7 @@ interface ButtonProps {
   title?: string;
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   className?: string;
+  labelClassName?: string;
   autoFocus?: boolean;
   disabled?: boolean;
   form?: string;
@@ -20,13 +21,14 @@ export default function Button({
   title,
   onClick,
   className = "",
+  labelClassName = "",
   autoFocus = false,
   disabled = false,
   form,
   name,
   value,
   type = "button",
-  ariaLabel
+  ariaLabel = ""
 }: ButtonProps) {
   return (
     <button
@@ -42,7 +44,7 @@ export default function Button({
       aria-label={ariaLabel}
     >
       {icon}
-      <span>{label}</span>
+      <span className={labelClassName}>{label}</span>
     </button>
   );
 }

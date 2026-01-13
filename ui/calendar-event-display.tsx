@@ -77,31 +77,33 @@ export default function CalendarEventDisplay({
 
   return (
     <>
-      <section className="bg-black/50 border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-lg rounded-4xl p-6 z-50 max-w-full md:max-w-md w-full text-center">
-        <p className="text-shadow-black-background-black">
-          {formattedStartDate} {formattedEndDate ? `- ${formattedEndDate}` : ""}
-        </p>
-        <Heading
-          text={title}
-          headingLevel={3}
-          className="text-lg font-bold mb-2 text-shadow-black-background-black"
-        />
-        <div className="w-full">
-          <p className="mb-1 text-shadow-black-background-black">
-            {startTime} {endTime ? `- ${endTime}` : ""}
+      <section className="rainbow-gradient border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-lg rounded-4xl p-6 z-50 max-w-full md:max-w-md w-full text-center">
+        <div className="w-full bg-black/50 rounded-4xl p-2 shadow-md shadow-white">
+          <p className="text-shadow-black-background-black">
+            {formattedStartDate}{" "}
+            {formattedEndDate ? `- ${formattedEndDate}` : ""}
           </p>
-          <GoogleMapsLink
-            addressLineOne={locationStreetAddress}
-            addressLineTwo={locationName}
-            city={locationCity}
-            state={locationState}
-            zipCode={Number(locationZip)}
-            className="mb-1 text-shadow-black-background-black underline"
+          <Heading
+            text={title}
+            headingLevel={3}
+            className="text-lg font-bold mb-2 text-shadow-black-background-black"
           />
-          {/* {description && (
+          <div className="w-full">
+            <p className="mb-1 text-shadow-black-background-black">
+              {startTime} {endTime ? `- ${endTime}` : ""}
+            </p>
+            <GoogleMapsLink
+              addressLineOne={locationName}
+              addressLineTwo={locationStreetAddress}
+              city={locationCity}
+              state={locationState}
+              zipCode={Number(locationZip)}
+              className="mb-1 text-shadow-black-background-black underline"
+            />
+            {/* {description && (
         <p className="mt-2 text-shadow-black-background-black">{description}</p>
       )} */}
-          {/* {imageUrl && (
+            {/* {imageUrl && (
         <div className="mt-4 w-full h-48 relative">
           <Image
             src={imageUrl}
@@ -113,21 +115,22 @@ export default function CalendarEventDisplay({
         </div>
       )} */}
 
-          {/* if pathname includes "admin", show edit button and delete button */}
-          {pathname.includes("admin") && (
-            <div className="mt-4 flex justify-center gap-4">
-              <Button
-                label="Edit"
-                onClick={handleModalToggle}
-                icon={<MdEdit size={20} />}
-              />
-              <Button
-                label="Delete"
-                onClick={handleDelete}
-                icon={<MdDelete size={20} />}
-              />
-            </div>
-          )}
+            {/* if pathname includes "admin", show edit button and delete button */}
+            {pathname.includes("admin") && (
+              <div className="mt-4 flex justify-center gap-4">
+                <Button
+                  label="Edit"
+                  onClick={handleModalToggle}
+                  icon={<MdEdit size={20} />}
+                />
+                <Button
+                  label="Delete"
+                  onClick={handleDelete}
+                  icon={<MdDelete size={20} />}
+                />
+              </div>
+            )}
+          </div>
         </div>
       </section>
       {editModalOpen && (
