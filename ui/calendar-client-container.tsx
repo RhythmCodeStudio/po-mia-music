@@ -21,7 +21,7 @@ export default function CalendarClientContainer({
   const [view, setView] = useState<"future" | "past">("future");
 
   return (
-    <section className="bg-black/50 rounded-4xl shadow-lg shadow-white border-2 border-[rgba(255,255,255,0.3)] w-full max-w-6xl min-w-2xl flex flex-col items-center p-8 my-8">
+    <section className="bg-black/50 rounded-4xl shadow-lg shadow-white border-2 border-[rgba(255,255,255,0.3)] w-full max-w-6xl min-w-xl flex flex-col items-center p-8 my-8">
       <div className="flex flex-row gap-4 mb-4">
         <Button
           label="Past"
@@ -50,47 +50,49 @@ export default function CalendarClientContainer({
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-8 w-full">
         {view === "future" ? (
-          upComingEvents.map((event) => (
-            <CalendarEventDisplay
-              id={event.id}
-              key={event.id}
-              title={event.title}
-              startDate={
-                typeof event.start_date === "string"
-                  ? event.start_date
-                  : event.start_date?.toISOString().slice(0, 10)
-              }
-              endDate={
-                event.end_date
-                  ? typeof event.end_date === "string"
-                    ? event.end_date
-                    : event.end_date?.toISOString().slice(0, 10)
-                  : undefined
-              }
-              startTime={event.start_time}
-              endTime={event.end_time}
-              allDay={event.all_day}
-              cost={event.cost}
-              locationName={event.location_name}
-              locationStreetAddress={event.location_street_address}
-              locationCity={event.location_city}
-              locationState={event.location_state}
-              locationZip={event.location_zip}
-              description={event.description}
-              imageUrl={event.image}
-              ticketLink={event.ticket_link}
-              infoLink={event.info_link}
-            />
-          ))
-        ) : (
-          <p>
-            No events currently scheduled. Please{" "}
-            <Link href="/contact">
-              <span className="underline">contact</span>
-            </Link>{" "}
-            for booking.
-          </p>
-        )}
+          upComingEvents.length > 0 ? (
+            upComingEvents.map((event) => (
+              <CalendarEventDisplay
+                id={event.id}
+                key={event.id}
+                title={event.title}
+                startDate={
+                  typeof event.start_date === "string"
+                    ? event.start_date
+                    : event.start_date?.toISOString().slice(0, 10)
+                }
+                endDate={
+                  event.end_date
+                    ? typeof event.end_date === "string"
+                      ? event.end_date
+                      : event.end_date?.toISOString().slice(0, 10)
+                    : undefined
+                }
+                startTime={event.start_time}
+                endTime={event.end_time}
+                allDay={event.all_day}
+                cost={event.cost}
+                locationName={event.location_name}
+                locationStreetAddress={event.location_street_address}
+                locationCity={event.location_city}
+                locationState={event.location_state}
+                locationZip={event.location_zip}
+                description={event.description}
+                imageUrl={event.image}
+                ticketLink={event.ticket_link}
+                infoLink={event.info_link}
+              />
+            ))
+          ) : (
+            <p>
+              No events currently scheduled. Please{" "}
+              <Link href="/contact">
+                <span className="underline">contact</span>
+              </Link>{" "}
+              for booking.
+            </p>
+          )
+        ) : null}
         {view === "past"
           ? pastEvents.map((event) => (
               <CalendarEventDisplay
