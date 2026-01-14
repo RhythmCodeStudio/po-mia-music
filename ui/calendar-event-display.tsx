@@ -16,6 +16,7 @@ import { formatDate } from "../utils/utils";
 // import from react icons
 import { MdEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
+import { MdOutlineContentCopy } from "react-icons/md";
 
 interface CalendarEventProps {
   id: string;
@@ -61,6 +62,7 @@ export default function CalendarEventDisplay({
   moreInfoLink,
 }: CalendarEventProps) {
   const [editModalOpen, setEditModalOpen] = useState(false);
+  const [duplicateModalOpen, setDuplicateModalOpen] = useState(false);
   const formattedStartDate = formatDate(startDate);
   const formattedEndDate = endDate ? formatDate(endDate) : undefined;
 
@@ -78,6 +80,10 @@ export default function CalendarEventDisplay({
   const handleModalToggle = () => {
     setEditModalOpen(!editModalOpen);
   };
+
+  const handleDuplicateModalToggle = () => {
+    setDuplicateModalOpen(!duplicateModalOpen);
+  }
 
   return (
     <>
@@ -180,6 +186,11 @@ export default function CalendarEventDisplay({
                   icon={<MdEdit size={20} />}
                 />
                 <Button
+                  label="Duplicate"
+                  onClick={handleDuplicateModalToggle}
+                  icon={<MdOutlineContentCopy size={20} />}
+                />
+                <Button
                   label="Delete"
                   onClick={handleDelete}
                   icon={<MdDelete size={20} />}
@@ -221,6 +232,42 @@ export default function CalendarEventDisplay({
               initialVenueLink={venueLink}
               initialMoreInfoLink={moreInfoLink}
               onClose={handleModalToggle}
+            />
+          </div>
+        </div>
+      )}
+      {duplicateModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60 z-100">
+          <div className="rainbow-gradient rounded-2xl shadow-2xl p-6 max-w-lg w-full relative max-h-[90vh] overflow-y-auto">
+            <button
+              onClick={() => setDuplicateModalOpen(false)}
+              className="absolute top-2 right-2 text-black hover:text-black text-4xl"
+              aria-label="Close"
+              type="button">
+              &times;
+            </button>
+            <CalendarEventForm
+              mode="create"
+              eventId=""
+              initialTitle={title}
+              initialStartDate={startDate}
+              initialEndDate={endDate}
+              initialStartTime={startTime}
+              initialEndTime={endTime}
+              initialAllDay={allDay}
+              initialCost={cost}
+              initialLocationName={locationName}
+              initialLocationStreetAddress={locationStreetAddress}
+              initialLocationCity={locationCity}
+              initialLocationState={locationState}
+              initialLocationZip={locationZip}
+              initialDescription={description}
+              initialImageUrl={imageUrl}
+              initialTicketLink={ticketLink}
+              initialEventLink={eventLink}
+              initialVenueLink={venueLink}
+              initialMoreInfoLink={moreInfoLink}
+              onClose={() => setDuplicateModalOpen(false)}
             />
           </div>
         </div>

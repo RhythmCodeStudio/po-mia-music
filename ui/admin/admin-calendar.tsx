@@ -2,7 +2,7 @@
 // import from react
 import { useState } from "react";
 // import icons
-import { IoIosCopy } from "react-icons/io";
+// import { IoIosCopy } from "react-icons/io";
 // import components
 import Button from "../button";
 import CalendarEventDisplay from "../calendar-event-display";

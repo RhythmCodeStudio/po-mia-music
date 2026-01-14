@@ -28,7 +28,7 @@ export default function CalendarClientContainer({
           title="Past Events"
           onClick={() => setView("past")}
           className={clsx(
-            "font-semibold text-white rounded-full border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-md px-4 py-1 active:scale-95 transition transition-transform transition-shadow duration-200 ease-in-out rainbow-gradient-hover",
+            "w-22 font-semibold text-white rounded-full border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-md px-4 py-1 active:scale-95 transition transition-transform transition-shadow duration-200 ease-in-out rainbow-gradient-hover",
             view === "past"
               ? "rainbow-gradient pointer-events-none"
               : "bg-black/50 hover:shadow-lg"
@@ -40,7 +40,7 @@ export default function CalendarClientContainer({
           title="Future Events"
           onClick={() => setView("future")}
           className={clsx(
-            "font-semibold text-white rounded-full border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-md px-4 py-1 active:scale-95 transition transition-transform transition-shadow duration-200 ease-in-out rainbow-gradient-hover",
+            "w-22 font-semibold text-white rounded-full border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-md px-4 py-1 active:scale-95 transition transition-transform transition-shadow duration-200 ease-in-out rainbow-gradient-hover",
             view === "future"
               ? "rainbow-gradient pointer-events-none"
               : "bg-black/50 hover:shadow-lg"
@@ -48,7 +48,7 @@ export default function CalendarClientContainer({
           labelClassName="text-shadow-black-background-black"
         />
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-8 w-full">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-8 w-full z-50">
         {view === "future" ? (
           upComingEvents.length > 0 ? (
             upComingEvents.map((event) => (
