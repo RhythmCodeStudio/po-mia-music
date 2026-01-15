@@ -203,7 +203,7 @@ export default function CalendarEventDisplay({
         </div>
       </section>
       {editModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60 z-100">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60 z-100 px-8 md:px-0">
           <div className="rainbow-gradient rounded-2xl shadow-2xl p-6 max-w-lg w-full relative max-h-[90vh] overflow-y-auto">
             <button
               onClick={handleModalToggle}
@@ -239,7 +239,7 @@ export default function CalendarEventDisplay({
         </div>
       )}
       {duplicateModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60 z-100">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60 z-100 px-8 md:px-0">
           <div className="rainbow-gradient rounded-2xl shadow-2xl p-6 max-w-lg w-full relative max-h-[90vh] overflow-y-auto">
             <button
               onClick={() => setDuplicateModalOpen(false)}
