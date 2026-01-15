@@ -132,6 +132,11 @@ export default function CalendarEventDisplay({
                 locationName
               )}
             </p>
+            <p>
+              {cost && cost.toLowerCase() !== "free"
+                ? `${cost}`
+                : "Free Event"}
+            </p>
             <GoogleMapsLink
               addressLineOne={locationStreetAddress}
               addressLineTwo={""}
