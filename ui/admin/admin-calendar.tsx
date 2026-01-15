@@ -7,6 +7,7 @@ import { useState } from "react";
 import Button from "../button";
 import CalendarEventDisplay from "../calendar-event-display";
 import CalendarEventForm from "./calendar-event-form";
+import CalendarClientContainer from "../calendar-client-container";
 
 interface AdminCalendarProps {
   calendarEventRows: any[];
@@ -16,7 +17,16 @@ export default function AdminCalendar({
   calendarEventRows,
 }: AdminCalendarProps) {
   const [view, setView] = useState<"events" | "addEvent">("events");
-
+  const upComingEvents = calendarEventRows.filter((event) => {
+    const eventDate = new Date(event.start_date);
+    const currentDate = new Date();
+    return eventDate >= currentDate;
+  });
+  const pastEvents = calendarEventRows.filter((event) => {
+    const eventDate = new Date(event.start_date);
+    const currentDate = new Date();
+    return eventDate < currentDate;
+  });
   if (view === "events") {
     return (
       <div className="w-full flex flex-col space-y-6 items-center">
@@ -34,7 +44,13 @@ export default function AdminCalendar({
             className="bg-gray-200 text-gray-800 rounded-full font-semibold px-4 py-2 transition duration-200"
           />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full justify-items-center px-4">  
+        <div className="px-8">
+          <CalendarClientContainer
+            upComingEvents={upComingEvents}
+            pastEvents={pastEvents}
+          />
+        </div>
+        {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full justify-items-center px-4">  
           {calendarEventRows.map((event: any) => (
             <CalendarEventDisplay
               key={event.id}
@@ -67,7 +83,7 @@ export default function AdminCalendar({
               moreInfoLink={event.more_info_link}
             />
           ))}
-        </div>
+        </div> */}
       </div>
     );
   } else if (view === "addEvent") {
@@ -87,7 +103,7 @@ export default function AdminCalendar({
             className="bg-blue-600 text-white pointer-events-none rounded-full font-semibold px-4 py-2 transition duration-200"
           />
         </div>
-        <CalendarEventForm 
+        <CalendarEventForm
           mode="create"
           eventId=""
           initialTitle=""

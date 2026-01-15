@@ -2,6 +2,7 @@
 // import from react
 import { useState } from "react";
 // import from next
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 // import components
 import CalendarEventDisplay from "./calendar-event-display";
@@ -19,9 +20,17 @@ export default function CalendarClientContainer({
   pastEvents,
 }: CalendarClientContainerProps) {
   const [view, setView] = useState<"future" | "past">("future");
+  const pathname = usePathname();
+  const isAdminPath = pathname.startsWith("/admin");
 
   return (
-    <section className="bg-black/50 rounded-4xl shadow-lg shadow-white border-2 border-[rgba(255,255,255,0.3)] w-full flex flex-col items-center p-8 pt-4 my-8">
+    <section
+      className={
+      isAdminPath
+        ? "w-full flex flex-col items-center"
+        : "bg-black/50 rounded-4xl shadow-lg shadow-white border-2 border-[rgba(255,255,255,0.3)] w-full flex flex-col items-center p-8 pt-4 my-8"
+      }
+    >
       <div className="flex flex-row gap-4 mb-4">
         <Button
           label="Past"
