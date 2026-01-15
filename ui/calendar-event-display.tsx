@@ -116,9 +116,6 @@ export default function CalendarEventDisplay({
             />
             )}
           <div className="w-full">
-            {/* <p className="mb-1 text-shadow-black-background-black">
-              {startTime} {endTime ? `- ${endTime}` : ""}
-            </p> */}
             <p className="mb-1 text-shadow-black-background-black">
               {venueLink ? (
                 <a

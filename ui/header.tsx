@@ -16,13 +16,13 @@ import { navListItemData } from "@/lib/nav-list-item-data";
 // import components
 import MobileNav from "./mobile-nav";
 import DesktopNav from "./desktop-nav";
-import PushNotificationSubscriptionManager from "./push-notification-subscription-manager";
+// import PushNotificationSubscriptionManager from "./push-notification-subscription-manager";
 // import Heading from "./heading";
 
 export default function Header() {
   const app = stackClientApp;
   const [user, setUser] = useState<any>(null);
-  console.log("Header user:", user);
+  // console.log("Header user:", user);
   const pathname = usePathname();
   const isHome = pathname === "/";
   // const { theme } = useTheme();
