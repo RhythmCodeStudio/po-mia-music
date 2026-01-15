@@ -65,14 +65,14 @@ export default function NavListItem({
   const isActive = pathname === href;
 
   return (
-    <li>
+    <li className="z-30">
       {htmlElement === "button" ? (
         <Button
           label={label}
           onClick={onClick}
           className={clsx(
-            "font-semibold text-white text-shadow-black-background-black w-full",
-            isActive ? "pointer-events-none" : "bg-black/50 hover:shadow-lg"
+            "font-semibold text-white rounded-full border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-md px-4 py-2 active:scale-95 transition transition-transform transition-shadow duration-200 ease-in-out rainbow-gradient-hover",
+            isActive ? "rainbow-gradient pointer-events-none" : "bg-black/50 hover:shadow-lg"
           )}
           disabled={isActive}
           ariaLabel={label}

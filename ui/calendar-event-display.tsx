@@ -3,6 +3,7 @@
 import { useState } from "react";
 // import from next
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 // import Image from "next/image";
 // import actions
 import { deleteCalendarEvent } from "@/actions/actions";
@@ -83,40 +84,32 @@ export default function CalendarEventDisplay({
 
   const handleDuplicateModalToggle = () => {
     setDuplicateModalOpen(!duplicateModalOpen);
-  }
+  };
 
   return (
     <>
-      <section className="rainbow-gradient border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-lg rounded-4xl p-0 max-w-full md:max-w-md w-full md:min-w-[20rem] text-center">
-        <div className="w-full bg-black/50 rounded-4xl p-4 shadow-md shadow-white min-h-full flex flex-col items-center">
+      <section className="rainbow-gradient border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-lg rounded-4xl p-0 max-w-full md:max-w-md w-full md:min-w-[20rem] text-center font-semibold">
+        <div className="w-full bg-black/50 rounded-4xl p-4 shadow-md shadow-white min-h-full flex flex-col items-center gap-1">
+        <div className="w-full">
           <p className="text-shadow-black-background-black">
             {formattedStartDate}{" "}
             {formattedEndDate ? `- ${formattedEndDate}` : ""}
           </p>
-          <p className="mb-1 text-shadow-black-background-black">
-              {startTime} {endTime ? `- ${endTime}` : ""}
-            </p>
-            {eventLink ? (
-            <a
-              href={eventLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline decoration-[#ff0000]">
-              <Heading
-              text={title}
-              headingLevel={3}
-              className="text-lg font-bold mb-2 text-shadow-black-background-black"
-              />
-            </a>
-            ) : (
+          <p className="text-shadow-black-background-black">
+            {startTime} {endTime ? `- ${endTime}` : ""}
+          </p>
+        </div>
+          <Link
+            href={`/calendar/events/${id}`}
+            title={`View details for ${title}`}>
             <Heading
               text={title}
               headingLevel={3}
-              className="text-lg font-bold mb-2 text-shadow-black-background-black"
+              className="text-lg md:text-xl font-bold text-shadow-black-background-black underline decoration-[#ff0000]"
             />
-            )}
-          <div className="w-full">
-            <p className="mb-1 text-shadow-black-background-black">
+          </Link>
+          {/* <div className="w-full"> */}
+            <p className="text-shadow-black-background-black md:text-lg">
               {venueLink ? (
                 <a
                   href={venueLink}
@@ -129,10 +122,8 @@ export default function CalendarEventDisplay({
                 locationName
               )}
             </p>
-            <p>
-              {cost && cost.toLowerCase() !== "free"
-                ? `${cost}`
-                : "Free Event"}
+            <p className="text-shadow-black-background-black">
+              {cost && cost.toLowerCase() !== "free" ? `${cost}` : "Free"}
             </p>
             <GoogleMapsLink
               addressLineOne={locationStreetAddress}
@@ -140,35 +131,21 @@ export default function CalendarEventDisplay({
               city={locationCity}
               state={locationState}
               zipCode={Number(locationZip)}
-              className="mb-1 text-shadow-black-background-black underline decoration-[#ffff00]"
+              className="text-shadow-black-background-black underline decoration-[#ffff00]"
             />
-            {/* {description && (
-        <p className="mt-2 text-shadow-black-background-black">{description}</p>
-      )} */}
-            {/* {imageUrl && (
-        <div className="mt-4 w-full h-48 relative">
-          <Image
-            src={imageUrl}
-            alt={`Image for ${title}`}
-            layout="fill"
-            objectFit="cover"
-            className="rounded-2xl"
-          />
-        </div>
-      )} */}
             {ticketLink && (
-              <div className="mt-2">
+            
                 <a
                   href={ticketLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-shadow-black-background-black underline decoration-[#00ff00]">
-                  Buy Tickets
+                  Tickets
                 </a>
-              </div>
+              
             )}
             {moreInfoLink && (
-              <div className="mt-2">
+              
                 <a
                   href={moreInfoLink}
                   target="_blank"
@@ -176,7 +153,7 @@ export default function CalendarEventDisplay({
                   className="text-shadow-black-background-black underline decoration-[#8b00ff]">
                   More Info
                 </a>
-              </div>
+              
             )}
 
             {/* if pathname includes "admin", show edit button and delete button */}
@@ -199,7 +176,7 @@ export default function CalendarEventDisplay({
                 />
               </div>
             )}
-          </div>
+          {/* </div> */}
         </div>
       </section>
       {editModalOpen && (
