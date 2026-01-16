@@ -25,7 +25,7 @@ export function proxy(request: NextRequest) {
     https://va.vercel-scripts.com/v1/script.debug.js
     https://1.1.1.1;
     img-src 'self' data: blob:;
-    frame-src https://www.youtube.com/;
+    frame-src https://www.youtube.com/ https://www.google.com/ https://maps.google.com/;
   `;
   const previewCspHeader = `
     default-src 'self';
