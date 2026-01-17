@@ -3,9 +3,19 @@ import Image from "next/image";
 // import components
 import Heading from "../../ui/heading";
 import CalendarClientContainer from "../../ui/calendar-client-container";
-import CalendarEventDisplay from "../../ui/calendar-event-display";
+// import CalendarEventDisplay from "../../ui/calendar-event-display";
 // import data
 import { getCalendarEvents } from "../../actions/actions";
+
+// export metadata for calendar page
+export const metadata = {
+  title: "Calendar | Po Mia | St. Louis, Missouri",
+  description:
+    "Stay updated with Po Mia's latest events and performances. Check out the calendar for upcoming shows, appearances, and more.",
+    alternates: {
+      canonical: "/calendar",
+    },
+};
 
 export default async function Calendar() {
   const events = await getCalendarEvents();
