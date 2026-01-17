@@ -4,7 +4,6 @@ import { stackClientApp } from "../stack/client";
 import { Analytics } from "@vercel/analytics/next";
 // import from next
 import type { Metadata } from "next";
-import Image from "next/image";
 // import { Geist, Geist_Mono } from "next/font/google";
 // import components
 import Header from "../ui/header";
@@ -28,9 +27,36 @@ import { StackProvider, StackTheme } from "@stackframe/stack";
 // });
 
 export const metadata: Metadata = {
-  title: "Po Mia Music",
+   title: {
+    template: "%s | Po Mia | St. Louis, Missouri",
+    default: "Po Mia | St. Louis, Missouri",
+  },
   description:
-    "The official web application for Po Mia Music. Discover music, shows, media, and more.",
+    "The official web application for Po Mia. Discover music, shows, media, and more.",
+  metadataBase: new URL("https://www.pomiamusic.com/"),
+  alternates: {
+    canonical: "/",
+    languages: {
+      "en-US": "/en-US",
+      "de-DE": "/de-DE",
+    },
+  },
+  openGraph: {
+    title: "Po Mia",
+    description:
+      "Official website for po mia. po mia is an eclectic, up-and-coming singer/songwriter based in St. Louis, MO. They are best known for their versatility of musical styles, colourful stylistic expression, as well as their ability to engage a crowd through their lyricism and captivating performances. Coming from a music therapy educational background, po mia's musical works often tackle themes of identity, love, fear, and navigating real life experiences",
+    url: "https://www.pomiamusic.com/",
+    siteName: "Po Mia",
+    type: "website",
+    locale: "en_US",
+    // images: [
+    //   {
+    //     url: "https://www.pomiamusic.com/opengraph-image.png",
+    //     width: 960,
+    //     height: 691,
+    //   },
+    // ],
+  },
 };
 
 export default function RootLayout({
