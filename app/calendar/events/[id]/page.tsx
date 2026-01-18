@@ -11,6 +11,66 @@ import GoogleMapsLink from "@/ui/google-maps-link";
 // import from utils
 import { formatDate } from "../../../../utils/utils";
 
+const calendarEventOgImgUrl =
+  "https://www.pomiamusic.com/images/open-graph/calendar-event-og.png";
+const calendarEventTwitterImgUrl =
+  "https://www.pomiamusic.com/images/twitter/calendar-event-twitter.png";
+
+export const metadata = {
+  title: "",
+  description:
+    "",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://www.pomiamusic.com/calendar/events/[id]",
+    siteName: "Po Mia: St. Louis Musician",
+    title: "Calendar Event",
+    description:
+      "Details and information about a specific calendar event for Po Mia, a musician based in St. Louis, Missouri.",
+    images: [
+      {
+        url: calendarEventOgImgUrl,
+        width: 1200,
+        height: 630,
+        alt: "Calendar Event for Po Mia",
+      },
+      // {
+      //   url: ,
+      //   width: 1920,
+      //   height: 1080,
+      //   alt: "Calendar Event for Po Mia",
+      // },
+      // {
+      //   url: ,
+      //   width: 1080,
+      //   height: 1080,
+      // },
+      // {
+      //   url: ,
+      //   width: 600,
+      //   height: 314,
+      // }
+    ],
+  },
+  twitter: {
+    cardType: "summary_large_image",
+    title: "Calendar Event",
+    description:
+      "Details and information about a specific calendar event for Po Mia, a musician based in St. Louis, Missouri.",
+    images: [
+      {
+        url: calendarEventTwitterImgUrl,
+        width: 800,
+        height: 418,
+      },
+    ],
+  },
+};
+
 export default async function CalendarEventPage({
   params,
 }: {
