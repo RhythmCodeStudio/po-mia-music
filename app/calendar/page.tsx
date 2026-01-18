@@ -7,14 +7,49 @@ import CalendarClientContainer from "../../ui/calendar-client-container";
 // import data
 import { getCalendarEvents } from "../../actions/actions";
 
-// export metadata for calendar page
+const calendarPageOgImgUrl =
+  "https://www.pomiamusic.com/images/open-graph/calendar-og.png";
+
 export const metadata = {
   title: "Calendar | Po Mia | St. Louis, Missouri",
   description:
     "Stay updated with Po Mia's latest events and performances. Check out the calendar for upcoming shows, appearances, and more.",
-    alternates: {
-      canonical: "/calendar",
-    },
+  alternates: {
+    canonical: "/calendar",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://www.pomiamusic.com/calendar",
+    siteName: "Po Mia: St. Louis Musician",
+    title: "Calendar | Po Mia | St. Louis, Missouri",
+    description:
+      "Stay updated with Po Mia's latest events and performances. Check out the calendar for upcoming shows, appearances, and more.",
+    // images: [
+    //   {
+    //     url: calendarPageOgImgUrl,
+    //     width: 1200,
+    //     height: 630,
+    //     alt: "Calendar | Po Mia | St. Louis, Missouri",
+    //   },
+      // {
+      //   url: ,
+      //   width: 1920,
+      //   height: 1080,
+      //   alt: "Calendar | Po Mia | St. Louis, Missouri",
+      // },
+      // {
+      //   url: ,
+      //   width: 1080,
+      //   height: 1080,
+      // },
+      // {
+      //   url: ,
+      //   width: 600,
+      //   height: 314,
+      // }
+    // ],
+  },
 };
 
 export default async function Calendar() {

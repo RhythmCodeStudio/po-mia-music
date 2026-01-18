@@ -27,7 +27,7 @@ import { StackProvider, StackTheme } from "@stackframe/stack";
 // });
 
 export const metadata: Metadata = {
-   title: {
+  title: {
     template: "%s | Po Mia | St. Louis, Missouri",
     default: "Po Mia | St. Louis, Missouri",
   },
@@ -77,7 +77,6 @@ export default function RootLayout({
                 <h1 className="sr-only text-4xl lg:text-6xl font-bold text-shadow-black-background-black ">
                   po mia
                 </h1>
-
                 {children}
                 <ScrollToTopButton />
               </main>
