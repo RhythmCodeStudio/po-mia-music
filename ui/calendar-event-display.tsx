@@ -88,94 +88,90 @@ export default function CalendarEventDisplay({
 
   return (
     <>
-      <section className="rainbow-gradient border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-lg rounded-4xl p-0 max-w-full md:max-w-md w-full md:min-w-[20rem] text-center font-semibold">
+      <section className="rainbow-gradient border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-lg rounded-4xl p-0 w-full md:min-w-[20rem] text-center font-semibold">
         <div className="w-full bg-black/50 rounded-4xl p-4 shadow-md shadow-white min-h-full flex flex-col items-center gap-1">
-        <div className="w-full">
-          <p className="text-shadow-black-background-black">
-            {formattedStartDate}{" "}
-            {formattedEndDate ? `- ${formattedEndDate}` : ""}
-          </p>
-          <p className="text-shadow-black-background-black">
-            {startTime} {endTime ? `- ${endTime}` : ""}
-          </p>
-        </div>
+          <div className="w-full">
+            <p className="text-shadow-black-background-black">
+              {formattedStartDate}{" "}
+              {formattedEndDate ? `- ${formattedEndDate}` : ""}
+            </p>
+            <p className="text-shadow-black-background-black">
+              {startTime} {endTime ? `- ${endTime}` : ""}
+            </p>
+          </div>
           <Link
             href={`/calendar/events/${id}`}
             title={`View details for ${title}`}>
             <Heading
               text={title}
               headingLevel={3}
-              className="text-lg md:text-xl font-bold text-shadow-black-background-black underline decoration-[#ff0000]"
+              className="text-lg md:text-xl font-bold text-shadow-black-background-black underline decoration-[#ff0000] break-words whitespace-normal min-w-[16rem] max-w-[16rem]"
             />
           </Link>
           {/* <div className="w-full"> */}
-            <p className="text-shadow-black-background-black md:text-lg">
-              {venueLink ? (
-                <a
-                  href={venueLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline decoration-[#ff7f00]">
-                  {locationName}
-                </a>
-              ) : (
-                locationName
-              )}
-            </p>
-            <p className="text-shadow-black-background-black">
-              {cost && cost.toLowerCase() !== "free" ? `${cost}` : "Free"}
-            </p>
-            <GoogleMapsLink
-              addressLineOne={locationStreetAddress}
-              addressLineTwo={""}
-              city={locationCity}
-              state={locationState}
-              zipCode={Number(locationZip)}
-              className="text-shadow-black-background-black underline decoration-[#ffff00]"
-            />
-            {ticketLink && (
-            
-                <a
-                  href={ticketLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-shadow-black-background-black underline decoration-[#00ff00]">
-                  Tickets
-                </a>
-              
+          <p className="text-shadow-black-background-black md:text-lg">
+            {venueLink ? (
+              <a
+                href={venueLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline decoration-[#ff7f00]">
+                {locationName}
+              </a>
+            ) : (
+              locationName
             )}
-            {moreInfoLink && (
-              
-                <a
-                  href={moreInfoLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-shadow-black-background-black underline decoration-[#8b00ff]">
-                  More Info
-                </a>
-              
-            )}
+          </p>
+          <p className="text-shadow-black-background-black">
+            {cost && cost.toLowerCase() !== "free" ? `${cost}` : "Free"}
+          </p>
+          <GoogleMapsLink
+            addressLineOne={locationStreetAddress}
+            addressLineTwo={""}
+            city={locationCity}
+            state={locationState}
+            zipCode={Number(locationZip)}
+            className="text-shadow-black-background-black underline decoration-[#ffff00]"
+          />
+          {ticketLink && (
+            <a
+              href={ticketLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-shadow-black-background-black underline decoration-[#00ff00]">
+              Tickets
+            </a>
+          )}
+          {moreInfoLink && (
+            <a
+              href={moreInfoLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-shadow-black-background-black underline decoration-[#8b00ff]">
+              More Info
+            </a>
+          )}
 
-            {/* if pathname includes "admin", show edit button and delete button */}
-            {pathname.includes("admin") && (
-              <div className="mt-4 flex justify-center gap-4">
-                <Button
-                  label="Edit"
-                  onClick={handleModalToggle}
-                  icon={<MdEdit size={20} />}
-                />
-                <Button
-                  label="Duplicate"
-                  onClick={handleDuplicateModalToggle}
-                  icon={<MdOutlineContentCopy size={20} />}
-                />
-                <Button
-                  label="Delete"
-                  onClick={handleDelete}
-                  icon={<MdDelete size={20} />}
-                />
-              </div>
-            )}
+          {/* if pathname includes "admin", show edit button and delete button */}
+          {pathname.includes("admin") && (
+            <div className="mt-4 flex justify-center gap-4">
+              <Button
+                label="Edit"
+                onClick={handleModalToggle}
+                icon={<MdEdit size={20} />}
+              />
+              <Button
+                label="Duplicate"
+                onClick={handleDuplicateModalToggle}
+                icon={<MdOutlineContentCopy size={20} />}
+              />
+              <Button
+                label="Delete"
+                onClick={handleDelete}
+                icon={<MdDelete size={20} />}
+              />
+            </div>
+          )}
           {/* </div> */}
         </div>
       </section>
