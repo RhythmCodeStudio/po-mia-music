@@ -11,6 +11,24 @@ import { contactLinkData } from "@/lib/contact-link-data";
 //   return new Promise((resolve) => setTimeout(resolve, ms));
 // }
 
+export const metadata = {
+  title: "Contact | Po Mia | St. Louis, Missouri",
+  description:
+    "Get in touch with Po Mia for booking inquiries, collaborations, or just to say hello. Use the contact form, send an email, sign up for the mailing list, or connect via social media.",
+  alternates: {
+    canonical: "/contact",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://www.pomiamusic.com/contact",
+    siteName: "Po Mia: St. Louis Musician",
+    title: "Contact | Po Mia | St. Louis, Missouri",
+    description:
+      "Get in touch with Po Mia for booking inquiries, collaborations, or just to say hello. Use the contact form, send an email, sign up for the mailing list, or connect via social media.",
+  },
+};
+
 export default async function Contact() {
   // await delayLoad(5000);
   return (

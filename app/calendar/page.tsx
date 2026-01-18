@@ -7,8 +7,7 @@ import CalendarClientContainer from "../../ui/calendar-client-container";
 // import data
 import { getCalendarEvents } from "../../actions/actions";
 
-const calendarPageOgImgUrl =
-  "https://www.pomiamusic.com/images/open-graph/calendar-og.png";
+// const calendarPageOgImgUrl = "https://www.pomiamusic.com/images/open-graph/calendar-og.png";
 
 export const metadata = {
   title: "Calendar | Po Mia | St. Louis, Missouri",
