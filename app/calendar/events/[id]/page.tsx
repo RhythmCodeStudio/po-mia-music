@@ -23,10 +23,10 @@ export async function generateMetadata({
   if (!event) {
     return {};
   }
-  
+
   const calendarEventOgImgUrl =
     "https://www.pomiamusic.com/images/open-graph/calendar-event-og.png";
- 
+
   return {
     title: `${event.title} | Po Mia | St. Louis, Missouri`,
     description: event.description,
@@ -100,11 +100,8 @@ export default async function CalendarEventPage({
               {event.start_time}
               {event.end_time ? ` - ${event.end_time}` : ""}
             </p>
-             <p className="text-shadow-black-background-black text-lg">
-            {event.cost ? `Cost: ${event.cost}` : "Free"}
-          </p>
           </div>
-         
+        
           <div className="w-full flex flex-col justify-center items-center">
             <p className="text-shadow-black-background-black text-3xl font-semibold mb-1">
               {event.location_name}
@@ -117,10 +114,16 @@ export default async function CalendarEventPage({
               className="text-shadow-black-background-black underline decoration-blue-600 hover:decoration-blue-800 text-lg"
             />
           </div>
-
-          <p className="text-shadow-black-background-black text-lg">
-            {event.description}
-          </p>
+            <div className="w-full flex flex-col justify-center items-center">
+            <p className="text-shadow-black-background-black text-xl font-semibold">
+              {event.cost ? `Cost: ${event.cost}` : "Free Event"}
+            </p>
+          </div>
+          <div className="w-full flex flex-col justify-center items-center">
+            <p className="text-shadow-black-background-black text-lg">
+              {event.description}
+            </p>
+          </div>
         </div>
       </div>
     </div>
