@@ -13,6 +13,24 @@ import { musicLinkData } from "@/lib/music-link-data";
 //   return new Promise((resolve) => setTimeout(resolve, ms));
 // }
 
+export const metadata = {
+  title: "Music | Po Mia | St. Louis, Missouri",
+  description:
+    "Explore Po Mia's music releases. Listen to their latest tracks and discover their unique sound as a St. Louis-based musician.",
+  alternates: {
+    canonical: "/music",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://www.pomiamusic.com/music",
+    siteName: "Po Mia: St. Louis Musician",
+    title: "Music | Po Mia | St. Louis, Missouri",
+    description:
+      "Explore Po Mia's music releases. Listen to their latest tracks and discover their unique sound as a St. Louis-based musician.",
+  },
+};
+
 export default async function Music() {
   //  await delayLoad(5000);
   return (
