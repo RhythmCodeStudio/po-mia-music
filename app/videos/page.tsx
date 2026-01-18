@@ -10,6 +10,24 @@ import { youTubeVideos } from "@/lib/video-data";
 //   return new Promise((resolve) => setTimeout(resolve, ms));
 // }
 
+export const metadata = {
+  title: "Videos | Po Mia | St. Louis, Missouri",
+  description:
+    "Watch Po Mia's latest music videos and live performances. Explore a collection of videos showcasing their talent as a St. Louis-based musician.",
+  alternates: {
+    canonical: "/videos",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://www.pomiamusic.com/videos",
+    siteName: "Po Mia: St. Louis Musician",
+    title: "Videos | Po Mia | St. Louis, Missouri",
+    description:
+      "Watch Po Mia's latest music videos and live performances. Explore a collection of videos showcasing their talent as a St. Louis-based musician.",
+  },
+};
+
 export default async function Videos() {
   // await delayLoad(5000);
   return (
