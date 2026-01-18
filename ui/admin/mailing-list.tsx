@@ -61,7 +61,6 @@ import { IoIosCopy } from "react-icons/io";
 // import components
 import Button from "../button";
 import Heading from "../heading";
-import Head from "next/head";
 
 type MailingListProps = {
   rows: { email: string }[];
@@ -86,15 +85,30 @@ export default function MailingList({ rows }: MailingListProps) {
   const [subject, setSubject] = useState("");
   const [body, setBody] = useState("");
 
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   const mailto = `mailto:pomiamusic@gmail.com?bcc=${encodeURIComponent(
+  //     formattedMailingList
+  //   )}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  //   window.location.href = mailto;
+  //   setSubject("");
+  //   setBody("");
+  // };
+
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const mailto = `mailto:pomiamusic@gmail.com?bcc=${encodeURIComponent(
-      formattedMailingList
-    )}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailto;
-    setSubject("");
-    setBody("");
-  };
+  e.preventDefault();
+  // const unsubscribeText = `\n\nTo unsubscribe, reply to this email with "unsubscribe" or visit: https://www.pomiamusic.com/mailing-list?mode=remove`;
+  // const mailto = `mailto:pomiamusic@gmail.com?bcc=${encodeURIComponent(
+  //   formattedMailingList
+  // )}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body + unsubscribeText)}`;
+  const unsubscribeText = `\n\nTo unsubscribe, reply to this email with "unsubscribe" or visit:\nhttps://www.pomiamusic.com/mailing-list?mode=remove`;
+const mailto = `mailto:pomiamusic@gmail.com?bcc=${encodeURIComponent(
+  formattedMailingList
+)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body + unsubscribeText)}`;
+  window.location.href = mailto;
+  setSubject("");
+  setBody("");
+};
 
   return (
     <div className="w-full flex flex-col justify-center">
