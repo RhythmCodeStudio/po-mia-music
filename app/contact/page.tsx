@@ -1,3 +1,5 @@
+// import from next
+import Image from "next/image";
 // import components
 import ContactFormContainer from "../../ui/contact-form-container";
 import MailingListSignUpForm from "../../ui/mailing-list-sign-up-form";
@@ -49,6 +51,15 @@ export default async function Contact() {
       <div className="w-full p-8 flex flex-col justify-center items-center gap-8">
         <div className="w-full flex items-center justify-center ">
           <MailingListSignUpForm />
+        </div>
+        <div className="w-42 md:w-50 lg:w-60 h-auto">
+          <Image
+            src="/icons/butterfly-logo.png"
+            alt="Contact Illustration"
+            width={700}
+            height={700}
+            className="mx-auto"
+          />
         </div>
         <div className="w-full flex items-center justify-center ">
           <ContactFormContainer />
