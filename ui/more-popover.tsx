@@ -44,7 +44,7 @@ export default function MorePopover({
   useEffect(() => {
     setIsIOS(
       /iPad|iPhone|iPod/.test(navigator.userAgent) &&
-        !(window as Window & { MSStream?: unknown }).MSStream
+        !(window as Window & { MSStream?: unknown }).MSStream,
     );
     setIsStandalone(window.matchMedia("(display-mode: standalone)").matches);
 
@@ -61,7 +61,7 @@ export default function MorePopover({
     return () => {
       window.removeEventListener(
         "beforeinstallprompt",
-        handleBeforeInstallPrompt
+        handleBeforeInstallPrompt,
       );
     };
   }, []);
@@ -87,7 +87,7 @@ export default function MorePopover({
       <Popover>
         <PopoverButton
           className={clsx(
-            "inline-flex items-center justify-center appearance-none min-h-0 leading-none rounded-full border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-md hover:shadow-lg px-4 py-2 font-semibold text-white bg-black/50 transition transition-transform transition-shadow duration-200 ease-in-out active:scale-95 rainbow-gradient-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 cursor-pointer"
+            "inline-flex items-center justify-center appearance-none min-h-0 leading-none rounded-full border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-md hover:shadow-lg px-4 py-2 font-semibold text-white bg-black/50 transition transition-transform transition-shadow duration-200 ease-in-out active:scale-95 rainbow-gradient-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 cursor-pointer",
           )}>
           <span
             aria-label="More options"
@@ -101,19 +101,19 @@ export default function MorePopover({
           className="divide-y divide-white/5 rounded-4xl bg-black/80 text-sm/6 transition duration-200 ease-in-out [--anchor-gap:--spacing(5)] data-closed:-translate-y-1 data-closed:opacity-0 z-50 border-2 border-[rgba(255,255,255,0.3)] shadow-white shadow-lg mt-2 w-64">
           {({ close }) => (
             <>
-                {!isStandalone && (
+              {!isStandalone && (
                 <div className="flex items-center justify-center my-6 px-4">
                   <button
-                  onClick={async () => {
-                    await handleInstallClick();
-                    // close();
-                    // if (onAnyAction) onAnyAction();
-                  }}
-                  className="rainbow-gradient p-1 rounded-full border-2 border-[rgba(255,255,255,0.3)] shadow-white shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full max-w-xs transform transition-transform transition-shadow duration-200 active:scale-95 text-shadow-black-background-black font-semibold">
-                  Install App
+                    onClick={async () => {
+                      await handleInstallClick();
+                      // close();
+                      // if (onAnyAction) onAnyAction();
+                    }}
+                    className="rainbow-gradient p-1 rounded-full border-2 border-[rgba(255,255,255,0.3)] shadow-white shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full max-w-xs transform transition-transform transition-shadow duration-200 active:scale-95 text-shadow-black-background-black font-semibold">
+                    Install App
                   </button>
                 </div>
-                )}
+              )}
               <div className="flex items-center justify-center my-6 w-full px-4">
                 <PushNotificationSubscriptionManager renderedAs="button" />
               </div>
@@ -128,7 +128,7 @@ export default function MorePopover({
                   Sign Up for Mailing List
                 </Link>
               </div>
-              <div className="flex items-center justify-center my-6 px-4">
+              {/* <div className="flex items-center justify-center my-6 px-4">
                 <Link
                   href="/mailing-list?mode=remove"
                   onClick={() => {
@@ -138,7 +138,7 @@ export default function MorePopover({
                   className="rainbow-gradient p-1 rounded-full  border-2 border-[rgba(255,255,255,0.3)] shadow-white shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full max-w-xs transform transition-transform transition-shadow duration-200 active:scale-95 text-shadow-black-background-black text-center font-semibold">
                   Unsubscribe from Mailing List
                 </Link>
-              </div>
+              </div> */}
             </>
           )}
         </PopoverPanel>
