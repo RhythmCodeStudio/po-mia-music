@@ -101,7 +101,7 @@ export default function MailingList({ rows }: MailingListProps) {
   // const mailto = `mailto:pomiamusic@gmail.com?bcc=${encodeURIComponent(
   //   formattedMailingList
   // )}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body + unsubscribeText)}`;
-  const unsubscribeText = `\n\nTo unsubscribe, reply to this email with "unsubscribe" or visit:\nhttps://www.pomiamusic.com/mailing-list?mode=remove`;
+  const unsubscribeText = `\n\nTo unsubscribe, please visit:\nhttps://www.pomiamusic.com/mailing-list/unsubscribe`;
 const mailto = `mailto:pomiamusic@gmail.com?bcc=${encodeURIComponent(
   formattedMailingList
 )}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body + unsubscribeText)}`;
