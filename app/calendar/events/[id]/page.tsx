@@ -101,11 +101,21 @@ export default async function CalendarEventPage({
               {event.end_time ? ` - ${event.end_time}` : ""}
             </p>
           </div>
-        
+
           <div className="w-full flex flex-col justify-center items-center">
-            <p className="text-shadow-black-background-black text-3xl font-semibold mb-1">
-              {event.location_name}
-            </p>
+            {event.venue_link ? (
+              <a
+                href={event.venue_link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-shadow-black-background-black text-3xl font-semibold mb-1 underline decoration-[#ff7f00] hover:decoration-blue-800">
+                {event.location_name}
+              </a>
+            ) : (
+              <p className="text-shadow-black-background-black text-3xl font-semibold mb-1">
+                {event.location_name}
+              </p>
+            )}
             <GoogleMapsLink
               addressLineOne={event.location_street_address}
               city={event.location_city}
@@ -114,7 +124,7 @@ export default async function CalendarEventPage({
               className="text-shadow-black-background-black underline decoration-blue-600 hover:decoration-blue-800 text-lg"
             />
           </div>
-            <div className="w-full flex flex-col justify-center items-center">
+          <div className="w-full flex flex-col justify-center items-center">
             <p className="text-shadow-black-background-black text-xl font-semibold">
               {event.cost ? `Cost: ${event.cost}` : "Free Event"}
             </p>
