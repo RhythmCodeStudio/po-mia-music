@@ -12,7 +12,7 @@ export default function CalendarPageLoadingSkeleton() {
 
       {/* Calendar event grid skeleton */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8 w-full max-w-6xl p-2 sm:p-8">
-        {[...Array(3)].map((_, i) => (
+        {[...Array(9)].map((_, i) => (
           <section
             key={i}
             className="bg-black/30 border-2 border-gray-300/30 shadow-lg rounded-3xl sm:rounded-4xl p-4 sm:p-6 max-w-full md:max-w-md w-full text-center flex flex-col items-center"
