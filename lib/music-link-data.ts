@@ -17,23 +17,23 @@ export const musicLinkData = [
     icon: "SiBandcamp",
     label: "Listen to po mia on Bandcamp"
   },
-  // {
-  //   name: "Deezer",
-  //   href: "https://www.deezer.com/us/artist/161196202",
-  //   icon: "FaDeezer",
-  //   label: "Listen to po mia on Deezer"
-  // },
+  {
+    name: "Deezer",
+    href: "https://www.deezer.com/us/artist/161196202",
+    icon: "FaDeezer",
+    label: "Listen to po mia on Deezer"
+  },
   {
     name: "Spotify",
     href: "https://open.spotify.com/artist/3yuxfMgcUuEhfyw6fNtOpm",
     icon: "SiSpotify",
     label: "Listen to po mia on Spotify"
   },
-//  {   name: "Tidal",
-//     href: "https://tidal.com/artist/48849713",
-//     icon: "SiTidal",
-//     label: "Listen to po mia on Tidal"
-//   },
+ {   name: "Tidal",
+    href: "https://tidal.com/artist/48849713",
+    icon: "SiTidal",
+    label: "Listen to po mia on Tidal"
+  },
   {
     name: "YouTube",
     href: "https://www.youtube.com/channel/UClAvWVdMece174czGL0Xmnw",
