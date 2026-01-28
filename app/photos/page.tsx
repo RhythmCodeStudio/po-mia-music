@@ -19,7 +19,7 @@ export default function Photos() {
       <Heading
         text="Photos"
         headingLevel={2}
-        className="font-bold text-4xl text-shadow-black-background-black"
+        className="font-bold text-4xl text-shadow-black-background-black font-acme"
       />
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-8 max-w-6xl">
         {pics.map((pic: Pic) => (

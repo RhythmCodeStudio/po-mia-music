@@ -7,7 +7,7 @@ export default function About() {
       <Heading
         text="About"
         headingLevel={2}
-        className="font-bold text-4xl text-shadow-black-background-black"
+        className="font-bold text-4xl text-shadow-black-background-black font-acme"
       />
       </div>
   );

@@ -26,6 +26,18 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.font-indie-flower {
+  font-family: var(--font-indie-flower), cursive;
+}
+
+.font-acme {
+  font-family: var(--font-acme), sans-serif;
+}
+
+.font-agbalumo {
+  font-family: var(--font-agbalumo), serif;
+}
+
 .Toastify__toast {
   background: var(--background);
   color: white;

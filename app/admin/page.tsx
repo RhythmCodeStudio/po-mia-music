@@ -32,7 +32,7 @@ export default async function AdminPage() {
           <Heading
             text="Welcome back po"
             headingLevel={2}
-            className="font-bold text-4xl text-shadow-black-background-black"
+            className="font-bold text-4xl text-shadow-black-background-black font-acme"
           />
           <div className="w-full flex justify-center p-8">
             <AdminContainer

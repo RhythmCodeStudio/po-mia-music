@@ -67,7 +67,7 @@ export default function Header() {
             </Link>
           )}
         </div> */}
-        <div className="hidden lg:flex items-center w-full justify-end">
+        <div className="hidden lg:flex items-center w-full justify-end font-acme tracking-widest">
           <DesktopNav navListItems={navListItemData} user={user} />
           {/* <PushNotificationSubscriptionManager renderedAs="icon" /> */}
         </div>

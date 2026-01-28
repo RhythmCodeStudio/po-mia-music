@@ -78,7 +78,7 @@ export default async function Calendar() {
       <Heading
         text="Calendar"
         headingLevel={2}
-        className="font-bold text-4xl text-shadow-black-background-black"
+        className="font-bold text-4xl text-shadow-black-background-black font-acme"
       />
       <div className="px-8">
         <CalendarClientContainer

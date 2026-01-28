@@ -4,7 +4,8 @@ import { stackClientApp } from "../stack/client";
 import { Analytics } from "@vercel/analytics/next";
 // import from next
 import type { Metadata } from "next";
-// import { Geist, Geist_Mono } from "next/font/google";
+// import fonts
+import { indieFlower, acme, agbalumo } from "@/fonts";
 // import components
 import Header from "../ui/header";
 import Footer from "../ui/footer";
@@ -67,7 +68,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`flex flex-col min-h-screen antialiased rainbow-gradient relative`}>
+        className={`flex flex-col min-h-screen antialiased rainbow-gradient relative ${indieFlower.variable} ${acme.variable} ${agbalumo.variable}`}>
         <StarrySky />
         <StackProvider app={stackClientApp}>
           <StackTheme>
