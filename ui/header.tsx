@@ -78,36 +78,58 @@ export default function Header() {
       <div className="relative w-64 lg:w-80 mx-auto mt-8 lg:mt-24 mb-8">
         {/* Logo */}
         {isHome ? (
-          <Image
-            src="/logos/pomia-horizontal-logo-colorful.png"
-            alt="Po Mia Music Logo"
-            width={2213}
-            height={725}
-            priority
-            // className="w-full h-auto pr-6"
-            className="w-full h-auto pr-12 lg:pr-16"
-          />
-        ) : (
-          <Link href="/" aria-label="Go to home">
+          <>
             <Image
               src="/logos/pomia-horizontal-logo-colorful.png"
               alt="Po Mia Music Logo"
               width={2213}
               height={725}
               priority
+              // className="w-full h-auto pr-6"
               className="w-full h-auto pr-12 lg:pr-16"
             />
+            <div className="w-30 lg:w-36 h-auto absolute -top-18 lg:-top-20 -right-8 lg:-right-8">
+              <Image
+                src="/images/po-tiny-guitar-no-bg-png.png"
+                width={1184}
+                height={1776}
+                alt=""
+              />
+            </div>
+          </>
+        ) : (
+          <Link href="/" aria-label="Go to home">
+            <div className="w-full active:scale-95 hover:scale-105 hover:-rotate-3 transition-transform duration-300 ease-in-out">
+            
+              <Image
+                src="/logos/pomia-horizontal-logo-colorful.png"
+                alt="Po Mia Music Logo"
+                width={2213}
+                height={725}
+                priority
+                className="w-full h-auto pr-12 lg:pr-16"
+              />
+            
+            <div className="w-30 lg:w-36 h-auto absolute -top-18 lg:-top-20 -right-8 lg:-right-8">
+              <Image
+                src="/images/po-tiny-guitar-no-bg-png.png"
+                width={1184}
+                height={1776}
+                alt=""
+              />
+            </div>
+          </div>
           </Link>
         )}
         {/* Guitar image */}
-        <div className="w-30 lg:w-36 h-auto absolute -top-18 lg:-top-20 -right-8 lg:-right-8">
+        {/* <div className="w-30 lg:w-36 h-auto absolute -top-18 lg:-top-20 -right-8 lg:-right-8">
           <Image
             src="/images/po-tiny-guitar-no-bg-png.png"
             width={1184}
             height={1776}
             alt=""
           />
-        </div>
+        </div> */}
       </div>
     </header>
   );
