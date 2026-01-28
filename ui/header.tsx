@@ -71,7 +71,7 @@ export default function Header() {
           <DesktopNav navListItems={navListItemData} user={user} />
           {/* <PushNotificationSubscriptionManager renderedAs="icon" /> */}
         </div>
-        <div className="flex lg:hidden w-full">
+        <div className="flex lg:hidden w-full font-acme tracking-widest">
           <MobileNav navListItems={navListItemData} user={user} />
         </div>
       </div>
