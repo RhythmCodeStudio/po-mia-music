@@ -36,7 +36,7 @@ export default function DesktopNav({
                 href={item.href}
                 htmlElement={item.htmlElement}
                 onClick={item.onClick}
-                className="hover:scale-105 active:scale-95 transition-transform duration-400 ease-in-out"
+                className="active:scale-95 transition-transform duration-400 ease-in-out"
               />
             ))}
           <MorePopover />
