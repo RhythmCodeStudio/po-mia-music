@@ -1,8 +1,6 @@
 "use client";
 // import from react
 import { useState } from "react";
-// import from next
-// import Image from "next/image";
 // import actions
 import { signUpForMailingList, removeFromMailingList } from "../actions/actions";
 // import from clsx
@@ -82,14 +80,6 @@ export default function MailingListSignUpForm({
         headingLevel={3}
         className="text-xl lg:text-2xl font-semibold text-shadow-black-background-black mb-4 text-center"
       />
-      {/* <div className="w-48 h-auto mx-auto mb-4">
-        <Image
-          src="/logos/cube-butterfly.png"
-          width={680}
-          height={680}
-          alt="Cube Butterfly Logo"
-        />
-      </div> */}
       <form
         onSubmit={handleFormSubmit}
         className="flex flex-col text-shadow-black-background-black">

@@ -85,7 +85,7 @@ export default function YouTubeVideo({ videoId, title, description }: YouTubeVid
       <Heading
         text={title}
         headingLevel={3}
-        className="px-2 pb-2 text-center text-shadow-black-background-black"
+        className="px-2 pb-2 text-center lg:text-lg text-shadow-black-background-black font-indie-flower tracking-widest font-semibold"
       />
       <div
         className="relative aspect-video rounded-4xl shadow-lg shadow-white cursor-pointer"

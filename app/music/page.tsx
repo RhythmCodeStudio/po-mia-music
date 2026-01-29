@@ -38,7 +38,7 @@ export default async function Music() {
       <Heading
         text="Music"
         headingLevel={2}
-        className="text-4xl font-semibold text-shadow-black-background-black font-acme tracking-widest"
+        className="text-5xl font-bold text-shadow-black-background-black font-indie-flower tracking-widest"
       />
       <div className="mt-2">
         <IconLinkGroupClientContainer

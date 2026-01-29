@@ -27,7 +27,7 @@ export default async function Home() {
         />
       </div>
       <div className="bg-black/50 m-6 lg:mx-auto py-4 rounded-4xl shadow-lg shadow-black/20 max-w-4xl border-2 border-[rgba(255,255,255,0.3)]">
-        <p className="px-6 text-shadow-black-background-black w-full max-w-2xl mx-auto font-indie-flower text-xl">
+        <p className="px-6 text-shadow-black-background-black w-full max-w-2xl mx-auto font-acme tracking-widest md:text-lg">
           {poBio}
         </p>
       </div>

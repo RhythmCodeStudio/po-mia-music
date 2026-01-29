@@ -38,6 +38,10 @@ body {
   font-family: var(--font-agbalumo), serif;
 }
 
+.font-rubik {
+  font-family: var(--font-rubik), sans-serif;
+}
+
 .Toastify__toast {
   background: var(--background);
   color: white;
