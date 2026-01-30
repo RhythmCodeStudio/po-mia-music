@@ -85,16 +85,17 @@ export default function Header() {
               width={2213}
               height={725}
               priority
-              className="w-full h-auto pr-12 lg:pr-16"
+              // className="w-full h-auto pr-12 lg:pr-16"
+              className="w-full h-auto"
             />
-            <div className="w-30 lg:w-36 h-auto absolute -top-18 lg:-top-20 -right-8 lg:-right-8">
+            {/* <div className="w-30 lg:w-36 h-auto absolute -top-18 lg:-top-20 -right-8 lg:-right-8">
               <Image
                 src="/images/po-tiny-guitar-no-bg-png.png"
                 width={1184}
                 height={1776}
                 alt="Po sitting playing an acoustic guitar"
               />
-            </div>
+            </div> */}
           </>
         ) : (
           <Link href="/" aria-label="Go to home">
