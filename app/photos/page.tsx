@@ -1,38 +1,29 @@
-// import pic data
-import { pics } from "@/lib/pics";
 // import from next
 import Image from "next/image";
 // import components
 import Heading from "../../ui/heading";
+import PhotoGallery from "@/ui/photo-gallery";
+// import pic data
+import { pics } from "@/lib/pics";
 
-type Pic = {
-  id: number;
-  src: string;
-  alt: string;
-  width: number;
-  height: number;
-};
+// type Pic = {
+//   id: number;
+//   src: string;
+//   alt: string;
+//   width: number;
+//   height: number;
+// };
 
 export default function Photos() {
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center w-full">
       <Heading
-        text="Photos"
+        text="Photo Gallery"
         headingLevel={2}
-        className="font-bold text-4xl text-shadow-black-background-black font-acme tracking-widest"
+        className="font-bold text-5xl text-shadow-black-background-black font-indie-flower tracking-widest"
       />
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-8 max-w-6xl">
-        {pics.map((pic: Pic) => (
-          <div key={pic.id} className="flex flex-col items-center">
-            <Image
-              src={pic.src}
-              alt={pic.alt}
-              width={300}
-              height={300}
-              className="rounded-lg shadow-md"
-            />
-          </div>
-        ))}
+      <div className="w-full p-8">
+        <PhotoGallery picSet={pics.map((pic) => pic.id)} />
       </div>
     </div>
   );

@@ -7,10 +7,11 @@ import Toaster from "../ui/toaster";
 // import data
 import { poBio } from "../lib/po-data";
 // import components
-import Heading from "../ui/heading";
-import PhotoGallery from "@/ui/photoGallery";
+import SitePreviewCoverFlow from "../ui/site-preview-cover-flow";
+// import Heading from "../ui/heading";
+// import PhotoGallery from "@/ui/photoGallery";
 // import images
-import { pics } from "@/lib/pics";
+// import { pics } from "@/lib/pics";
 // function delayLoad(ms: number) {
 //   return new Promise((resolve) => setTimeout(resolve, ms));
 // }
@@ -47,8 +48,11 @@ export default async function Home() {
           />
         </Link>
       </div> */}
-      <div>
+      {/* <div>
         <PhotoGallery picSet={pics.map((pic) => pic.id)} />
+      </div> */}
+      <div>
+        <SitePreviewCoverFlow />
       </div>
 
       <Toaster />

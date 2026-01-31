@@ -17,24 +17,23 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 // import image data
 import { pics } from "@/lib/pics";
+import { bandPics } from "@/lib/band-pics";
+// import components
+import Heading from "./heading";
+import Button from "./button";
 // import icons
 // import { SlSizeFullscreen } from "react-icons/sl";
-import Heading from "./heading";
+
 
 interface PhotoGalleryProps {
   picSet: number[];
 }
 
 export default function PhotoGallery({ picSet }: PhotoGalleryProps) {
+  const [currentPicSet, setCurrentPicSet] = useState<typeof pics | typeof bandPics>(pics);
   const [fullScreenImage, setFullScreenImage] = useState<typeof pics[number] | null>(null);
   const swiperRef = useRef<SwiperType | null>(null);
-  // const clientPhotoData = photographyWorkSampleData.filter(
-  //   (data) => data.client === client,
-  // );
-  // console.log("Client Photo Data:", clientPhotoData);
-  // const clientImages = clientPhotoData[0].images;
-  // console.log("Client Images:", clientImages);
-  // const isPrasino = client === "Prasino";
+
 
   // Disable scroll and pause autoplay when fullscreen
   useEffect(() => {
@@ -61,15 +60,30 @@ export default function PhotoGallery({ picSet }: PhotoGalleryProps) {
   }, [fullScreenImage]);
 
   return (
-    <section className="text-center mx-auto w-full flex flex-col justify-center items-center font-bold max-w-4xl px-4 lg:px-0">
-      {/* <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xlfont-semibold mb-6">
-        
-      </h1> */}
-      <Heading
+    <section className="text-center mx-auto w-full flex flex-col justify-center items-center font-bold max-w-4xl p-8 lg:px-0">
+      <div className="flex flex-row justify-center mb-4">
+        <Button
+          label="View Band Photos"
+          onClick={() => {
+            setCurrentPicSet(bandPics);
+            track("gallery_switch", { gallery: "band_photos" });
+          }}
+          className="m-2 text-shadow-black-background-black "
+        />
+        <Button
+          label="View Pics"
+          onClick={() => {
+            setCurrentPicSet(pics);
+            track("gallery_switch", { gallery: "solo_photos" });
+          }}
+          className="m-2 text-shadow-black-background-black"
+        />
+      </div>
+      {/* <Heading
         text="Photo Gallery"
         headingLevel={2}
         className="font-bold text-4xl sm:text-5xl md:text-6xl text-shadow-black-background-black font-indie-flower tracking-widest mb-6"
-      />
+      /> */}
       <Swiper
         autoHeight={true}
         className="photo-swiper"
@@ -89,7 +103,7 @@ export default function PhotoGallery({ picSet }: PhotoGalleryProps) {
         modules={[Autoplay, Navigation, Pagination]}
         onSwiper={(swiper) => (swiperRef.current = swiper)}>
         
-        {pics.map((pic, index) => {
+        {currentPicSet.map((pic, index) => {
           const isPortrait = pic.orientation === "portrait";
           const imageWidth = isPortrait ? 1280 : 1920;
           const imageHeight = isPortrait ? 1920 : 1280;
