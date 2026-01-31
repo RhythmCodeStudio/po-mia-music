@@ -18,7 +18,7 @@ import "swiper/css/navigation";
 // import image data
 import { pics } from "@/lib/pics";
 // import icons
-import { SlSizeFullscreen } from "react-icons/sl";
+// import { SlSizeFullscreen } from "react-icons/sl";
 import Heading from "./heading";
 
 interface PhotoGalleryProps {
