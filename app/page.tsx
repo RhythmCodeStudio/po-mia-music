@@ -8,7 +8,9 @@ import Toaster from "../ui/toaster";
 import { poBio } from "../lib/po-data";
 // import components
 import Heading from "../ui/heading";
-
+import PhotoGallery from "@/ui/photoGallery";
+// import images
+import { pics } from "@/lib/pics";
 // function delayLoad(ms: number) {
 //   return new Promise((resolve) => setTimeout(resolve, ms));
 // }
@@ -36,7 +38,7 @@ export default async function Home() {
           {poBio}
         </p>
       </div>
-      <div>
+      {/* <div>
         <Link href="/music" className="">
           <Heading
             text="Music"
@@ -44,6 +46,9 @@ export default async function Home() {
             className="font-bold text-5xl text-shadow-black-background-black font-indie-flower tracking-widest"
           />
         </Link>
+      </div> */}
+      <div>
+        <PhotoGallery picSet={pics.map((pic) => pic.id)} />
       </div>
 
       <Toaster />

@@ -5,6 +5,7 @@ export const pics = [
     alt: "po performing at Free 4 All",
     width: 2102,
     height: 1401,
+    orientation: "landscape",
   },
   {
     id: 2,
@@ -12,6 +13,7 @@ export const pics = [
     alt: "po in a rainbow skirt",
     width: 710,
     height: 1065,
+    orientation: "portrait",
   },
   {
     id: 3,
@@ -19,6 +21,7 @@ export const pics = [
     alt: "Photo 3",
     width: 1184,
     height: 1776,
+    orientation: "portrait",
   },
   {
     id: 4,
@@ -26,6 +29,7 @@ export const pics = [
     alt: "po mia",
     width: 1200,
     height: 1800,
+    orientation: "portrait",
   },
   {
     id: 5,
@@ -33,6 +37,7 @@ export const pics = [
     alt: "Photo 3",
     width: 725,
     height: 1152,
+    orientation: "portrait",
   },
   {
     id: 6,
@@ -40,6 +45,7 @@ export const pics = [
     alt: "po surrounded by hearts",
     width: 2664,
     height: 1902,
+    orientation: "landscape",
   },
   {
     id: 7,
@@ -47,6 +53,7 @@ export const pics = [
     alt: "po in a chair playing guitar outside",
     width: 942,
     height: 1244,
+    orientation: "portrait",
   },
   {
     id: 8,
@@ -54,6 +61,7 @@ export const pics = [
     alt: "po playing at city hall with band",
     width: 1920,
     height: 1280,
+    orientation: "landscape",
   },
   {
     id: 9,
@@ -61,6 +69,7 @@ export const pics = [
     alt: "po with no background",
     width: 1184,
     height: 1776,
+    orientation: "portrait",
   },
   {
     id: 10,
@@ -68,6 +77,7 @@ export const pics = [
     alt: "po sitting on a frog sculputure outside of the Venice Cafe in St. Louis, MO",
     width: 768,
     height: 1024,
+  orientation: "portrait",
   },
   {
     id: 11,
@@ -75,6 +85,7 @@ export const pics = [
     alt: "po standing on a fancy staircase",
     width: 947,
     height: 1421,
+    orientation: "portrait",
   },
   {
     id: 12,
@@ -82,6 +93,7 @@ export const pics = [
     alt: "po seated playing a small guitar",
     width: 814,
     height: 1148,
+    orientation: "portrait",
   },
   {
     id: 13,
@@ -89,6 +101,7 @@ export const pics = [
     alt: "po playing at the Venice Cafe in St. Louis, Missouri",
     width: 1217,
     height: 956,
+    orientation: "landscape",
   },
   {
     id: 14,
@@ -96,5 +109,6 @@ export const pics = [
     alt: "po playing with the band at Twangfest",
     width: 1980,
     height: 1584,
+    orientation: "landscape",
   },
 ];

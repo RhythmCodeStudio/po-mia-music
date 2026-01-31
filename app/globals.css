@@ -70,8 +70,14 @@ body {
 }
 
 .text-shadow-black {
-  text-shadow: 1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white,
-    -1px 1px 0 white, 0px 1px 0 white, 0px -1px 0 white, -1px 0px 0 white,
+  text-shadow:
+    1px 1px 0 white,
+    -1px -1px 0 white,
+    1px -1px 0 white,
+    -1px 1px 0 white,
+    0px 1px 0 white,
+    0px -1px 0 white,
+    -1px 0px 0 white,
     1px 0px 0 white;
   /* background-color: rgba(0, 0, 0, 1); */
   /* background-clip: text; */
@@ -114,13 +120,12 @@ body {
     #00ff00,
     #0000ff,
     #4b0082,
-    #8b00ff
-    /* #ff0000 */
+    #8b00ff /* #ff0000 */
   );
-   /* -webkit-background-clip: text; */
-   /* background-clip: text; */
-   /* -webkit-text-fill-color: transparent; */
-   /* animation: sparkle 3s linear infinite; */
+  /* -webkit-background-clip: text; */
+  /* background-clip: text; */
+  /* -webkit-text-fill-color: transparent; */
+  /* animation: sparkle 3s linear infinite; */
 }
 
 .rainbow-gradient-reverse {
@@ -163,7 +168,6 @@ body {
   animation: sparkle 3s linear infinite;
 }
 
-
 /* .rainbow-gradient::after {
   content: "";
   position: absolute;
@@ -192,4 +196,49 @@ body {
   /* background-clip: text; */
   /* -webkit-text-fill-color: transparent; */
   /* animation: sparkle 3s linear infinite; */
+}
+
+/* swiper slide */
+.swiper {
+  width: 100%;
+  /* padding-top: 50px;
+  padding-bottom: 50px; */
+  height: auto;
+  padding-bottom: 1rem;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  /* width: 300px; */
+  /* height: 300px; */
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  cursor: pointer;
+}
+
+.swiper-button-next {
+  filter: drop-shadow(1px 2px 0 #000);
+}
+
+.swiper-button-prev {
+  filter: drop-shadow(-1px 2px 0 #000);
+}
+
+.photo-swiper {
+  --swiper-navigation-color: #ffffff;
+  --swiper-pagination-color: #ffffff;
+  /* --swiper-pagination-bullet-size: 10px; */
+  --swiper-pagination-bullet-inactive-color: #d3d3d3;
+}
+
+.swiper-pagination-bullet {
+ filter: drop-shadow(1px 2px 0 #000);
 }
