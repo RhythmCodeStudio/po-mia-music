@@ -27,7 +27,7 @@ export default function NavListItem({
           label={label}
           onClick={onClick}
           className={clsx(
-            "font-semibold text-white rounded-full border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-md px-4 py-2 active:scale-95 transition transition-transform transition-shadow duration-200 ease-in-out rainbow-gradient-hover",
+            "flex items-center justify-center font-semibold text-white rounded-full border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-md px-4 py-2 active:scale-95 transition transition-transform transition-shadow duration-200 ease-in-out rainbow-gradient-hover",
             isActive
               ? "rainbow-gradient pointer-events-none"
               : "bg-black/50 hover:shadow-lg",
@@ -39,7 +39,7 @@ export default function NavListItem({
         <Link
           href={href}
           className={clsx(
-            "font-semibold text-white rounded-full border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-md px-4 py-2 active:scale-95 transition transition-transform transition-shadow duration-200 ease-in-out rainbow-gradient-hover",
+            "flex items-center justify-center font-semibold text-white rounded-full border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-md px-4 py-2 active:scale-95 transition transition-transform transition-shadow duration-200 ease-in-out rainbow-gradient-hover",
             isActive
               ? "rainbow-gradient pointer-events-none"
               : "bg-black/50 hover:shadow-lg",
@@ -47,7 +47,7 @@ export default function NavListItem({
           tabIndex={isActive ? -1 : 0}
           aria-disabled={isActive ? "true" : undefined}
           onClick={onClick}>
-          <span className="text-shadow-black-background-black">{label}</span>
+          <span className="text-shadow-black-background-black -mb-1">{label}</span>
         </Link>
       )}
     </li>

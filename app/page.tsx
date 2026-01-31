@@ -1,8 +1,13 @@
+// import from next
 import Image from "next/image";
+import Link from "next/link";
+// import components
 import Toaster from "../ui/toaster";
-import InstallPrompt from "../ui/install-prompt";
+// import InstallPrompt from "../ui/install-prompt";
 // import data
 import { poBio } from "../lib/po-data";
+// import components
+import Heading from "../ui/heading";
 
 // function delayLoad(ms: number) {
 //   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -12,9 +17,9 @@ export default async function Home() {
   // await delayLoad(5000);
   return (
     <div className="relative flex flex-col flex-grow items-center justify-center pt-8">
-      <div className="fixed top-20 left-0 w-full z-50">
+      {/* <div className="fixed top-20 left-0 w-full z-50">
         <InstallPrompt />
-      </div>
+      </div> */}
       <div className="flex flex-col items-center w-full max-w-2xl mx-auto px-6 lg:px-0">
         <Image
           fetchPriority="high"
@@ -31,6 +36,16 @@ export default async function Home() {
           {poBio}
         </p>
       </div>
+      <div>
+        <Link href="/music" className="">
+          <Heading
+            text="Music"
+            headingLevel={2}
+            className="font-bold text-5xl text-shadow-black-background-black font-indie-flower tracking-widest"
+          />
+        </Link>
+      </div>
+
       <Toaster />
     </div>
   );
