@@ -200,18 +200,20 @@ body {
 
 /* swiper slide */
 .swiper {
-  /* width: 100%; */
-  padding-top: 50px;
-  padding-bottom: 50px;
-  /* height: auto; */
+  width: 100%;
+  /* padding-top: 50px;
+  padding-bottom: 50px; */
+  height: auto;
   /* padding-bottom: 1rem; */
+  /* overflow: visible !important; */
 }
 
 .swiper-slide {
   background-position: center;
   background-size: cover;
-  width: 300px;
-  height: 300px;
+  /* width: 300px; */
+  /* height: 300px; */
+  
 }
 
 .swiper-slide img {
@@ -232,7 +234,7 @@ body {
   filter: drop-shadow(-1px 2px 0 #000);
 }
 
-.photo-swiper {
+.swiper {
   --swiper-navigation-color: #ffffff;
   --swiper-pagination-color: #ffffff;
   /* --swiper-pagination-bullet-size: 10px; */
@@ -241,4 +243,10 @@ body {
 
 .swiper-pagination-bullet {
  filter: drop-shadow(1px 2px 0 #000);
+}
+
+/* Only affect the coverflow swiper */
+
+.coverflow-swiper .swiper-wrapper {
+  overflow: visible !important;
 }

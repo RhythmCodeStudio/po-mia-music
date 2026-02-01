@@ -8,6 +8,8 @@ import Toaster from "../ui/toaster";
 import { poBio } from "../lib/po-data";
 // import components
 import SitePreviewCoverFlow from "../ui/site-preview-cover-flow";
+import ReleaseDisplayCondensed from "@/ui/release-display-condensed";
+import SitePreviewCube from "@/ui/site-preview-cube";
 // import Heading from "../ui/heading";
 // import PhotoGallery from "@/ui/photoGallery";
 // import images
@@ -51,10 +53,19 @@ export default async function Home() {
       {/* <div>
         <PhotoGallery picSet={pics.map((pic) => pic.id)} />
       </div> */}
-      <div>
+      {/* <div className="w-full h-full max-w-4xl mx-auto">
         <SitePreviewCoverFlow />
+      </div> */}
+      <div className="w-full h-full max-w-4xl mx-auto my-12">
+        <SitePreviewCube />
       </div>
-
+{/* <ReleaseDisplayCondensed
+  release={{
+    id: "sample-release",
+    title: "Sample Release",
+    coverImgSrc: "/images/sample-cover.jpg",
+  }}
+/> */}
       <Toaster />
     </div>
   );
