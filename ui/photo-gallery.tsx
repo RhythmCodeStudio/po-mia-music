@@ -16,24 +16,29 @@ import "swiper/css/effect-fade";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 // import image data
-import { pics } from "@/lib/pics";
+// import { pics } from "@/lib/pics";
 import { bandPics } from "@/lib/band-pics";
+import { soloPics } from "@/lib/solo-pics";
+import { promoPics } from "@/lib/promo-pics";
+import { headshots } from "@/lib/headshots";
 // import components
 import Heading from "./heading";
 import Button from "./button";
 // import icons
 // import { SlSizeFullscreen } from "react-icons/sl";
 
-
 interface PhotoGalleryProps {
   picSet: number[];
 }
 
 export default function PhotoGallery({ picSet }: PhotoGalleryProps) {
-  const [currentPicSet, setCurrentPicSet] = useState<typeof pics | typeof bandPics>(pics);
-  const [fullScreenImage, setFullScreenImage] = useState<typeof pics[number] | null>(null);
+  const [currentPicSet, setCurrentPicSet] = useState<
+    typeof promoPics | typeof bandPics | typeof soloPics | typeof headshots
+  >(bandPics);
+  const [fullScreenImage, setFullScreenImage] = useState<
+    (typeof promoPics)[number] | (typeof bandPics)[number] | (typeof soloPics)[number] | (typeof headshots)[number] | null
+  >(null);
   const swiperRef = useRef<SwiperType | null>(null);
-
 
   // Disable scroll and pause autoplay when fullscreen
   useEffect(() => {
@@ -61,20 +66,44 @@ export default function PhotoGallery({ picSet }: PhotoGalleryProps) {
 
   return (
     <section className="text-center mx-auto w-full flex flex-col justify-center items-center font-bold max-w-4xl p-8 lg:px-0">
-      <div className="flex flex-row justify-center mb-4">
+      <Heading
+        text="Select Gallery"
+        headingLevel={2}
+        className="font-bold text-2xl text-shadow-black-background-black font-indie-flower tracking-widest mb-6"
+      />
+      <div className="flex flex-row justify-center items-center mb-4">
         <Button
-          label="View Band Photos"
+          label="Band"
           onClick={() => {
             setCurrentPicSet(bandPics);
             track("gallery_switch", { gallery: "band_photos" });
           }}
           className="m-2 text-shadow-black-background-black "
         />
+          <span className="text-shadow-black-background-black">|</span>
         <Button
-          label="View Pics"
+          label="Solo"
           onClick={() => {
-            setCurrentPicSet(pics);
+            setCurrentPicSet(soloPics);
             track("gallery_switch", { gallery: "solo_photos" });
+          }}
+          className="m-2 text-shadow-black-background-black"
+        />
+        <span className="text-shadow-black-background-black">|</span>
+        <Button
+          label="Headshots"
+          onClick={() => {
+            setCurrentPicSet(headshots);
+            track("gallery_switch", { gallery: "headshots" });
+          }}
+          className="m-2 text-shadow-black-background-black"
+        />
+        <span className="text-shadow-black-background-black">|</span>
+        <Button
+          label="Promo Pics"
+          onClick={() => {
+            setCurrentPicSet(promoPics);
+            track("gallery_switch", { gallery: "promo_pics" });
           }}
           className="m-2 text-shadow-black-background-black"
         />
@@ -102,21 +131,33 @@ export default function PhotoGallery({ picSet }: PhotoGalleryProps) {
         }}
         modules={[Autoplay, Navigation, Pagination]}
         onSwiper={(swiper) => (swiperRef.current = swiper)}>
-        
         {currentPicSet.map((pic, index) => {
           const isPortrait = pic.orientation === "portrait";
-          const imageWidth = isPortrait ? 1280 : 1920;
-          const imageHeight = isPortrait ? 1920 : 1280;
+          const isLandscape = pic.orientation === "landscape";
+          const isSquare = pic.orientation === "square";
+          if (!isPortrait && !isLandscape && !isSquare) {
+            return null; // Skip images with unknown orientation
+          }
+          let imageWidth = 1920;
+          let imageHeight = 1280;
+          if (isSquare) {
+            imageWidth = 1000;
+            imageHeight = 1000;
+          } else if (isPortrait) {
+            imageWidth = 1280;
+            imageHeight = 1920;
+          } else if (isLandscape) {
+            imageWidth = 1920;
+            imageHeight = 1280;
+          }
           return (
             <SwiperSlide key={index}>
               <div
                 className="w-full max-w-3xl mx-auto flex flex-col items-center justify-center bg-transparent mb-12 aspect-[3/2]"
-                
                 onClick={() => {
                   setFullScreenImage(pic);
                   track("image_view", { image: pic.alt });
-                }}
-              >
+                }}>
                 <Image
                   src={pic.src}
                   alt={pic.alt || "Gallery image"}
@@ -125,9 +166,9 @@ export default function PhotoGallery({ picSet }: PhotoGalleryProps) {
                   priority
                   className="object-contain w-full h-full"
                 />
-                {/* <caption className="text-sm neutral-600 my-6">
-                Click or tap image to view fullscreen
-              </caption> */}
+                <span className="text-sm my-6 text-shadow-black-background-black">
+                  Click or tap image to view fullscreen
+                </span>
                 {/* <button
                   aria-label="View Fullscreen"
                   title="Enlarge Image"

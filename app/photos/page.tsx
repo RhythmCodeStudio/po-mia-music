@@ -18,11 +18,11 @@ export default function Photos() {
   return (
     <div className="flex flex-col justify-center items-center w-full">
       <Heading
-        text="Photo Gallery"
+        text="Photos"
         headingLevel={2}
         className="font-bold text-5xl text-shadow-black-background-black font-indie-flower tracking-widest"
       />
-      <div className="w-full p-8">
+      <div className="w-full ">
         <PhotoGallery picSet={pics.map((pic) => pic.id)} />
       </div>
     </div>

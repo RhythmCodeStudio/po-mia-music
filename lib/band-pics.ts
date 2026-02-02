@@ -61,7 +61,7 @@ export const bandPics = [
     alt: "",
     width: 2070,  
     height: 2070,
-    orientation: "landscape",
+    orientation: "square",
   },
   {
     id: 8,
