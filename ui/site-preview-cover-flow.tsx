@@ -14,7 +14,7 @@ import { releases } from "@/lib/po-data";
 
 export default function sitePreviewCoverFlow() {
   return (
-    <div className="w-full h-[660px] relative overflow-visible p-6">
+    <div className="w-full h-auto relative overflow-visible p-6">
       <Swiper
         effect={"coverflow"}
         grabCursor={true}

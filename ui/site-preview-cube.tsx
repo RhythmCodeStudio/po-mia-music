@@ -37,7 +37,7 @@ export default function SitePreviewCube() {
       {rubikColors.map((colors, idx) => (
         <SwiperSlide key={idx}>
           <div
-            className="flex flex-col items-center justify-center"
+            className="flex flex-col items-center justify-center mx-auto"
             style={{
               width: "400px",
               height: "400px",
@@ -68,7 +68,7 @@ export default function SitePreviewCube() {
                     width: "100%",
                     height: "100%",
                   }}
-                />
+                ></div>
               ))}
             </div>
           </div>
