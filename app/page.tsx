@@ -11,7 +11,7 @@ import SitePreviewCoverFlow from "../ui/site-preview-cover-flow";
 import ReleaseDisplayCondensed from "@/ui/release-display-condensed";
 import SitePreviewCube from "@/ui/site-preview-cube";
 import ThreejsRubiksCube from "@/ui/rubiks-cube";
-
+import CubeClientContainer from "@/ui/cube-client-container";
 // import Heading from "../ui/heading";
 // import PhotoGallery from "@/ui/photoGallery";
 // import images
@@ -23,7 +23,7 @@ import ThreejsRubiksCube from "@/ui/rubiks-cube";
 export default async function Home() {
   // await delayLoad(5000);
   return (
-    <div className="relative flex flex-col flex-grow items-center justify-center pt-8">
+    <div className="relative flex flex-col flex-grow items-center justify-center pt-2">
       {/* <div className="fixed top-20 left-0 w-full z-50">
         <InstallPrompt />
       </div> */}
@@ -55,15 +55,15 @@ export default async function Home() {
       {/* <div>
         <PhotoGallery picSet={pics.map((pic) => pic.id)} />
       </div> */}
-      <div className="w-full h-full max-w-4xl mx-auto">
+      {/* <div className="w-full h-full max-w-4xl mx-auto mt-12">
         <SitePreviewCoverFlow />
-      </div>
-      <div className="flex justify-center items-center w-full max-w-4xl mx-auto my-12">
+      </div> */}
+      {/* <div className="flex justify-center items-center w-full max-w-4xl mx-auto my-12">
         <SitePreviewCube />
+      </div> */}
+      <div className="w-full h-full">
+        <CubeClientContainer />
       </div>
-  <div className="">
-    <ThreejsRubiksCube />
-  </div>
 
       <Toaster />
     </div>

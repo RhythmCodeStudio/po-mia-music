@@ -11,7 +11,7 @@ export default function IconLink({
   labelClassName,
 }: {
   href: string;
-  icon: React.ElementType;
+   icon: React.ComponentType<{ size?: number; className?: string }>;
   label: string;
   size: number;
   showLabel?: boolean;
@@ -29,9 +29,15 @@ export default function IconLink({
       onClick={() => {
         track("contact icon link clicked", { name: `${label}` });
       }}>
-      <Icon size={size} className={`${className} md:hover:scale-110 md:active:scale-95 transition transform transition-transform duration-200 ease-in-out`} />
+      <Icon
+        size={size}
+        className={`${className} md:hover:scale-110 md:active:scale-95 transition transform transition-transform duration-200 ease-in-out`}
+      />
       {/* Screen reader only text for accessibility */}
-      <span className={`${showLabel ? "ml-2" : "sr-only"} ${labelClassName ?? ""}`}>{label}</span>
+      <span
+        className={`${showLabel ? "ml-2" : "sr-only"} ${labelClassName ?? ""}`}>
+        {label}
+      </span>
     </a>
   );
 }

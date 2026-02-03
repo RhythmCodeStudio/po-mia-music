@@ -42,7 +42,7 @@ export default function Header() {
   }, []);
 
   return (
-    <header className={`w-full p-8 pb-0`}>
+    <header className={`w-full p-6 pb-0`}>
       <div className="flex justify-between items-center">
         {/* <div className="h-auto w-34 lg:hidden">
           {isHome ? (
