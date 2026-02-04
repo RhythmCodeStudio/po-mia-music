@@ -19,10 +19,10 @@ const Heading: FC<HeadingProps> = ({ text, headingLevel, className }) => {
 
   const HeadingTag = `h${headingLevel}` as keyof JSX.IntrinsicElements;
 
-  return (
-    <HeadingTag className={`${className}`}>
-      {text}
-    </HeadingTag>
+  return React.createElement(
+    HeadingTag,
+    { className: className },
+    text
   );
 };
 
