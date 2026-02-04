@@ -26,8 +26,7 @@ import IconLink from "./icon-link";
 
 type IconLinkGroupItem = {
   href: string;
-  // icon: React.ElementType;
-  icon: string;
+  icon: keyof typeof iconMap;
   name: string;
   label: string; // descriptive label for accessibility
 };
@@ -40,7 +39,7 @@ type IconLinkGroupProps = {
   className?: string;
 };
 
-const iconMap: { [key: string]: React.ElementType } = {
+const iconMap: { [key: string]: React.ComponentType<{ size?: number; className?: string }> } = {
   SiApplemusic,
   SiAmazon,
   SiAmazonmusic,
