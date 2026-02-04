@@ -9,6 +9,7 @@ import PushNotificationSubscriptionManager from "./push-notification-subscriptio
 import IconLink from "./icon-link";
 import IconLinkGroup from "./icon-link-group";
 import MailingListSignupModal from "./mailinglist-signup-modal";
+import CubeClientContainer from "./cube-client-container";
 // import link data
 import { contactLinkData } from "../lib/contact-link-data";
 import { musicLinkData } from "@/lib/music-link-data";
@@ -86,7 +87,10 @@ export default function Footer() {
 
   return (
     <footer className="p-2 flex flex-col items-center space-y-4 max-w-600 mx-auto w-full">
-      <div className="h-auto w-48 p-2 flex items-center justify-center">
+      <div className="my-12 w-full h-full">
+        <CubeClientContainer />
+      </div>
+      {/* <div className="h-auto w-48 p-2 flex items-center justify-center">
         <Image
           className="w-full h-auto"
           src="/logos/pomia-horizontal-logo-colorful.png"
@@ -94,7 +98,7 @@ export default function Footer() {
           height={460}
           alt="Po Mia Logo"
         />
-      </div>
+      </div> */}
       {/* <div className="w-50 h-auto ">
         <Image
           alt="po mia rubik's cube logo with butterflies"

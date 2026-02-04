@@ -61,9 +61,9 @@ export default async function Home() {
       {/* <div className="flex justify-center items-center w-full max-w-4xl mx-auto my-12">
         <SitePreviewCube />
       </div> */}
-      <div className="w-full h-full">
+      {/* <div className="w-full h-full">
         <CubeClientContainer />
-      </div>
+      </div> */}
 
       <Toaster />
     </div>
