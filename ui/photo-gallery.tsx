@@ -71,7 +71,7 @@ export default function PhotoGallery({ picSet }: PhotoGalleryProps) {
         headingLevel={2}
         className="font-bold text-2xl text-shadow-black-background-black font-acme tracking-widest mb-6"
       /> */}
-      <div className="flex flex-row justify-center items-center mb-4 rounded-4xl shadow-white shadow-lg border-2 border-[rgba(255,255,255,0.3)] px-2 bg-black/50">
+      <div className="flex flex-row justify-center items-center mb-4 rounded-4xl shadow-white shadow-lg border-2 border-[rgba(255,255,255,0.3)] px-2 bg-black/50 mb-12">
         <Button
           label="Band"
           onClick={() => {
