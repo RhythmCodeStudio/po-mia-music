@@ -69,6 +69,14 @@ body {
   -moz-background-clip: text;
 }
 
+.text-shadow-black-thin-background-black {
+  text-shadow: 1px 1px 0 black;
+  background-color: rgba(0, 0, 0, 1);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+}
+
 .text-shadow-black {
   text-shadow:
     1px 1px 0 white,

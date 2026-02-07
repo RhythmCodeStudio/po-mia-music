@@ -66,19 +66,19 @@ export default function PhotoGallery({ picSet }: PhotoGalleryProps) {
 
   return (
     <section className="text-center mx-auto w-full flex flex-col justify-center items-center font-bold max-w-4xl p-8 lg:px-0">
-      <Heading
+      {/* <Heading
         text="Select Gallery"
         headingLevel={2}
-        className="font-bold text-2xl text-shadow-black-background-black font-indie-flower tracking-widest mb-6"
-      />
-      <div className="flex flex-row justify-center items-center mb-4">
+        className="font-bold text-2xl text-shadow-black-background-black font-acme tracking-widest mb-6"
+      /> */}
+      <div className="flex flex-row justify-center items-center mb-4 rounded-4xl shadow-white shadow-lg border-2 border-[rgba(255,255,255,0.3)] px-2 bg-black/50">
         <Button
           label="Band"
           onClick={() => {
             setCurrentPicSet(bandPics);
             track("gallery_switch", { gallery: "band_photos" });
           }}
-          className="m-2 text-shadow-black-background-black "
+          className="m-2 px-2 rounded-4xl text-shadow-black-background-black rainbow-gradient-hover"
         />
           <span className="text-shadow-black-background-black">|</span>
         <Button
@@ -87,7 +87,7 @@ export default function PhotoGallery({ picSet }: PhotoGalleryProps) {
             setCurrentPicSet(soloPics);
             track("gallery_switch", { gallery: "solo_photos" });
           }}
-          className="m-2 text-shadow-black-background-black"
+          className="m-2 px-2 rounded-4xl text-shadow-black-background-black rainbow-gradient-hover"
         />
         <span className="text-shadow-black-background-black">|</span>
         <Button
@@ -96,7 +96,7 @@ export default function PhotoGallery({ picSet }: PhotoGalleryProps) {
             setCurrentPicSet(headshots);
             track("gallery_switch", { gallery: "headshots" });
           }}
-          className="m-2 text-shadow-black-background-black"
+           className="m-2 px-2 rounded-4xl text-shadow-black-background-black rainbow-gradient-hover"
         />
         <span className="text-shadow-black-background-black">|</span>
         <Button
@@ -105,7 +105,7 @@ export default function PhotoGallery({ picSet }: PhotoGalleryProps) {
             setCurrentPicSet(promoPics);
             track("gallery_switch", { gallery: "promo_pics" });
           }}
-          className="m-2 text-shadow-black-background-black"
+           className="m-2 px-2 rounded-4xl text-shadow-black-background-black rainbow-gradient-hover"
         />
       </div>
       {/* <Heading
@@ -153,7 +153,7 @@ export default function PhotoGallery({ picSet }: PhotoGalleryProps) {
           return (
             <SwiperSlide key={index}>
               <div
-                className="w-full max-w-3xl mx-auto flex flex-col items-center justify-center bg-transparent mb-12 aspect-[3/2]"
+                className="w-full max-w-3xl mx-auto flex flex-col items-center justify-center bg-transparent mb-12 aspect-[3/2] "
                 onClick={() => {
                   setFullScreenImage(pic);
                   track("image_view", { image: pic.alt });

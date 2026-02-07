@@ -35,7 +35,7 @@ export default async function Home() {
           width={2664}
           height={1902}
           priority
-          className="rounded-4xl shadow-white shadow-lg z-10 border-2 border-[rgba(255,255,255,0.3)]"
+          className="rounded-4xl shadow-white shadow-lg border-2 border-[rgba(255,255,255,0.3)]"
         />
       </div>
       <div className="bg-black/50 m-6 lg:mx-auto py-4 rounded-4xl shadow-lg shadow-black/20 max-w-4xl border-2 border-[rgba(255,255,255,0.3)]">

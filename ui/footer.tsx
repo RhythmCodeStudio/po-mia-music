@@ -87,7 +87,7 @@ export default function Footer() {
 
   return (
     <footer className="p-2 flex flex-col items-center space-y-4 max-w-600 mx-auto w-full">
-      <div className="my-12 w-full h-full">
+      <div className="p-2 mb-6 w-full h-full">
         <CubeClientContainer />
       </div>
       {/* <div className="h-auto w-48 p-2 flex items-center justify-center">
