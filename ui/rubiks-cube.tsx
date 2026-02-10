@@ -348,8 +348,8 @@ export default function ThreejsRubiksCube() {
   const logoTexture = useLoader(THREE.TextureLoader, poMiaLogoBlack.src);
 
   return (
-    <div className="w-full flex justify-center items-center py-6 cursor-grab">
-      <div className="w-[300px] lg:w-[400px] 2xl:w-[500px] h-[300px] lg:h-[400px] 2xl:h-[500px] bg-transparent ">
+    <div className="w-full flex justify-center items-center cursor-grab">
+      <div className="w-[200px] lg:w-[200px] 2xl:w-[200px] h-[200px] lg:h-[200px] 2xl:h-[200px] bg-transparent ">
         <Canvas camera={{ position: [4, 4, 4], fov: 50 }}>
           <ambientLight intensity={1.2} />
           <directionalLight position={[5, 5, 5]} intensity={0.7} />

@@ -47,7 +47,7 @@ export default function Footer() {
   useEffect(() => {
     setIsIOS(
       /iPad|iPhone|iPod/.test(navigator.userAgent) &&
-        !(window as Window & { MSStream?: unknown }).MSStream
+        !(window as Window & { MSStream?: unknown }).MSStream,
     );
     setIsStandalone(window.matchMedia("(display-mode: standalone)").matches);
 
@@ -64,7 +64,7 @@ export default function Footer() {
     return () => {
       window.removeEventListener(
         "beforeinstallprompt",
-        handleBeforeInstallPrompt
+        handleBeforeInstallPrompt,
       );
     };
   }, []);
@@ -87,9 +87,9 @@ export default function Footer() {
 
   return (
     <footer className="p-2 flex flex-col items-center space-y-4 max-w-600 mx-auto w-full">
-      <div className="p-2 mb-6 w-full h-full">
+      {/* <div className="p-2 mb-6 w-full h-full">
         <CubeClientContainer />
-      </div>
+      </div> */}
       {/* <div className="h-auto w-48 p-2 flex items-center justify-center">
         <Image
           className="w-full h-auto"
@@ -140,7 +140,7 @@ export default function Footer() {
       <div
         className={clsx(
           "grid grid-cols-1 w-full gap-4 justify-items-center text-sm",
-          `lg:${gridColsClass}`
+          `lg:${gridColsClass}`,
         )}>
         {!isStandalone && (
           <div className="p-2 w-full max-w-64">
@@ -166,7 +166,7 @@ export default function Footer() {
       </div>
 
       <div className="text-sm text-white p-2 text-center text-shadow-black-background-black">
-        <p className="">©2025</p>
+        <p className="">©2025 pomiamusic.com</p>
         <p className="">
           Website by{" "}
           <a
