@@ -29,6 +29,7 @@ export type Song = {
   year: number;
   genre: string[];
   track_number: number;
+  length: string;
   src: string;
   bandcamp_url: string;
   lyrics: string[];
@@ -39,9 +40,18 @@ export type Release = {
   title: string;
   artist: string;
   year: number;
-  genre: string;
+  release_date: Date;
+  genre: string[];
   cover_image: string;
   type: string;
-  songs: Song[];
-  bandcamp_url: string;
+  description: string;
+  links: StreamingLink[];
+  tracks: Song[];
+};
+
+export type StreamingLink = {
+  name: string;
+  label: string;
+  url: string;
+  icon: string;
 };

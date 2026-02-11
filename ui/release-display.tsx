@@ -9,7 +9,7 @@ type Track = {
   by: string;
   length: string;
   number: number;
-  bandcampUrl: string;
+  bandcamp_url: string;
 };
 
 interface ReleaseDisplayProps {
@@ -17,7 +17,7 @@ interface ReleaseDisplayProps {
     id: string;
     title: string;
     type: string;
-    coverImgSrc: string;
+    cover_image: string;
     releaseDate: string;
     description: string;
     links: {
@@ -40,7 +40,7 @@ export default function ReleaseDisplay({ release }: ReleaseDisplayProps) {
       />
       <div className="flex flex-col gap-6 items-center w-full">
         <Image
-          src={release.coverImgSrc}
+          src={release.cover_image}
           alt={`${release.title} cover art`}
           width={300}
           height={300}
@@ -53,7 +53,7 @@ export default function ReleaseDisplay({ release }: ReleaseDisplayProps) {
               release.tracks.map((track, index) => (
                 <li key={index} className="text-shadow-black-background-black">
                   <a
-                    href={track.bandcampUrl}
+                    href={track.bandcamp_url}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="underline hover:text-blue-400">

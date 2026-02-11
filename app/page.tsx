@@ -5,8 +5,9 @@ import Link from "next/link";
 import Toaster from "../ui/toaster";
 // import InstallPrompt from "../ui/install-prompt";
 // import data
-import { poBio } from "../lib/po-data";
+import { poBio, releases } from "../lib/po-data";
 // import components
+import MusicPlayerContainer from "@/ui/music-player-container";
 import SitePreviewCoverFlow from "../ui/site-preview-cover-flow";
 import ReleaseDisplayCondensed from "@/ui/release-display-condensed";
 import SitePreviewCube from "@/ui/site-preview-cube";
@@ -42,6 +43,9 @@ export default async function Home() {
         <p className="px-6 text-shadow-black-background-black w-full max-w-2xl mx-auto font-acme tracking-widest md:text-lg">
           {poBio}
         </p>
+      </div>
+      <div className="w-full h-full mx-auto mt-12">
+        <MusicPlayerContainer release={releases[0]} />
       </div>
       {/* <div>
         <Link href="/music" className="">
