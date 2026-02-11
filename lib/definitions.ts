@@ -19,3 +19,29 @@ export type CalendarEvent = {
   venueLink?: string;
   moreInfoLink?: string;
 };
+
+
+export type Song = {
+  id: string;
+  title: string;
+  artist: string;
+  album: string;
+  year: number;
+  genre: string[];
+  track_number: number;
+  src: string;
+  bandcamp_url: string;
+  lyrics: string[];
+};
+
+export type Release = {
+  id: string;
+  title: string;
+  artist: string;
+  year: number;
+  genre: string;
+  cover_image: string;
+  type: string;
+  songs: Song[];
+  bandcamp_url: string;
+};
