@@ -5,11 +5,17 @@ import Heading from "./heading";
 import IconLinkGroup from "./icon-link-group";
 
 type Track = {
+  id: string;
   title: string;
-  by: string;
+  artist: string;
+  album: string;
+  year: number;
+  genre: string[];
   length: string;
-  number: number;
+  track_number: number;
+  src: string;
   bandcamp_url: string;
+  lyrics: never[];
 };
 
 interface ReleaseDisplayProps {
@@ -18,7 +24,7 @@ interface ReleaseDisplayProps {
     title: string;
     type: string;
     cover_image: string;
-    releaseDate: string;
+    release_date: Date;
     description: string;
     links: {
       name: string;
@@ -45,13 +51,12 @@ export default function ReleaseDisplay({ release }: ReleaseDisplayProps) {
           width={300}
           height={300}
           className="rounded-2xl shadow-white shadow-lg border-2 border-[rgba(255,255,255,0.3)]"
-          // style={{ border: "2px solid rgba(255, 255, 255, 0.3)" }}
         />
         <div className="w-full flex justify-center min-w-md">
           <ol className="list-decimal list-inside md:min-h-26 xl:min-h-30 max-w-md">
             {release.tracks &&
-              release.tracks.map((track, index) => (
-                <li key={index} className="text-shadow-black-background-black">
+              release.tracks.map((track) => (
+                <li key={track.id} className="text-shadow-black-background-black">
                   <a
                     href={track.bandcamp_url}
                     target="_blank"
@@ -63,13 +68,12 @@ export default function ReleaseDisplay({ release }: ReleaseDisplayProps) {
               ))}
           </ol>
         </div>
-        {/* <div className="max-w-xl"></div> */}
         <p className="text-shadow-black-background-black w-full max-w-md md:min-h-30 xl:min-h-24">
           {release.description}
         </p>
         
         <p className="text-shadow-black-background-black">
-          Released {release.releaseDate}
+          Released {release.release_date.toDateString()}
         </p>
         <div className="flex flex-wrap gap-4 icon-shadow">
           {release.links.map((link) => (
