@@ -7,7 +7,7 @@ import Toaster from "../ui/toaster";
 // import data
 import { poBio, releases } from "../lib/po-data";
 // import components
-import MusicPlayerContainer from "@/ui/music-player-container";
+import  AudioPlayer from "@/ui/audio-player";
 import SitePreviewCoverFlow from "../ui/site-preview-cover-flow";
 import ReleaseDisplayCondensed from "@/ui/release-display-condensed";
 import SitePreviewCube from "@/ui/site-preview-cube";
@@ -22,6 +22,8 @@ import CubeClientContainer from "@/ui/cube-client-container";
 // }
 
 export default async function Home() {
+  const poLogue = releases.find((release) => release.title === "po logue");
+  const cyberchondria = poLogue?.tracks.find((track) => track.title === "cyberchondria");
   // await delayLoad(5000);
   return (
     <div className="relative flex flex-col flex-grow items-center justify-center pt-2">
@@ -44,9 +46,12 @@ export default async function Home() {
           {poBio}
         </p>
       </div>
-      <div className="w-full h-full mx-auto mt-12">
-        <MusicPlayerContainer release={releases[0]} />
-      </div>
+      
+      {cyberchondria && (
+        <div className="w-full h-full mx-auto mt-12">
+          <AudioPlayer song={cyberchondria} />
+        </div>
+      )}
       {/* <div>
         <Link href="/music" className="">
           <Heading
