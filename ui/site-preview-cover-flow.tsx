@@ -39,8 +39,8 @@ export default function sitePreviewCoverFlow() {
               className="font-bold text-4xl text-shadow-black-background-black font-indie-flower tracking-widest"
             />
             <div className="grid grid-cols-2 gap-4">
-              {releases.map((release) => (
-                <ReleaseDisplayCondensed key={release.id} release={release} />
+              {/* {releases.map((release) => (
+                // <ReleaseDisplayCondensed key={release.id} release={release} />
               ))}
             </div>
           </div>
@@ -53,9 +53,9 @@ export default function sitePreviewCoverFlow() {
               className="font-bold text-4xl text-shadow-black-background-black font-indie-flower tracking-widest"
             />
             <div className="grid grid-cols-2 gap-4">
-              {releases.map((release) => (
+              {/* {releases.map((release) => (
                 <ReleaseDisplayCondensed key={release.id} release={release} />
-              ))}
+              ))} */}
             </div>
           </div>
         </SwiperSlide>
@@ -66,11 +66,25 @@ export default function sitePreviewCoverFlow() {
               headingLevel={2}
               className="font-bold text-4xl text-shadow-black-background-black font-indie-flower tracking-widest"
             />
-            <div className="grid grid-cols-2 gap-4">
+            {/* <div className="grid grid-cols-2 gap-4">
               {releases.map((release) => (
                 <ReleaseDisplayCondensed key={release.id} release={release} />
               ))}
-            </div>
+            </div> */}
+          </div>
+        </SwiperSlide>
+        <SwiperSlide className="w-full h-full">
+          <div className="w-full h-full border-2 border-red-500 flex flex-col items-center justify-center p-6">
+            <Heading
+              text="Music"
+              headingLevel={2}
+              className="font-bold text-4xl text-shadow-black-background-black font-indie-flower tracking-widest"
+            />
+            {/* <div className="grid grid-cols-2 gap-4">
+              {releases.map((release) => (
+                <ReleaseDisplayCondensed key={release.id} release={release} />
+              ))}
+            </div> */}
           </div>
         </SwiperSlide>
         <SwiperSlide className="w-full h-full">
@@ -81,9 +95,9 @@ export default function sitePreviewCoverFlow() {
               className="font-bold text-4xl text-shadow-black-background-black font-indie-flower tracking-widest"
             />
             <div className="grid grid-cols-2 gap-4">
-              {releases.map((release) => (
+              {/* {releases.map((release) => (
                 <ReleaseDisplayCondensed key={release.id} release={release} />
-              ))}
+              ))} */}
             </div>
           </div>
         </SwiperSlide>
@@ -94,25 +108,11 @@ export default function sitePreviewCoverFlow() {
               headingLevel={2}
               className="font-bold text-4xl text-shadow-black-background-black font-indie-flower tracking-widest"
             />
-            <div className="grid grid-cols-2 gap-4">
+            {/* <div className="grid grid-cols-2 gap-4">
               {releases.map((release) => (
                 <ReleaseDisplayCondensed key={release.id} release={release} />
               ))}
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide className="w-full h-full">
-          <div className="w-full h-full border-2 border-red-500 flex flex-col items-center justify-center p-6">
-            <Heading
-              text="Music"
-              headingLevel={2}
-              className="font-bold text-4xl text-shadow-black-background-black font-indie-flower tracking-widest"
-            />
-            <div className="grid grid-cols-2 gap-4">
-              {releases.map((release) => (
-                <ReleaseDisplayCondensed key={release.id} release={release} />
-              ))}
-            </div>
+            </div> */}
           </div>
         </SwiperSlide>
       </Swiper>
