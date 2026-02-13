@@ -1,15 +1,3 @@
-// import { randomUUID } from "node:crypto"
-// import { IconBase } from "react-icons";
-// import { SiApplemusic } from "react-icons/si";
-// import { SiSpotify } from "react-icons/si";
-// import { SiYoutube } from "react-icons/si";
-// import { SiYoutubemusic } from "react-icons/si";
-// import { SiAmazonmusic } from "react-icons/si";
-// import { SiBandcamp } from "react-icons/si";
-// import { SiCashapp } from "react-icons/si";
-// import { SiVenmo } from "react-icons/si";
-// import { BiLogoVenmo } from "react-icons/bi";
-
 export const poBio = `“po mia” is an eclectic, up-and-coming singer/songwriter based in St. Louis, MO. They are best known for their versatility of musical styles, colourful stylistic expression, as well as their ability to 
 engage a crowd through their lyricism and captivating performances. Coming from a music therapy educational background, po mia's musical works often tackle themes of identity, love, fear, and navigating real life experiences.
 `;
@@ -30,188 +18,225 @@ export const paymentLinks = [
 ];
 
 export const releases = [
-  // {
-  //   id: "hope-is-plenty",
-  //   title: "hope is plenty",
-  //   type: "single",
-  //   coverImgSrc: "/images/release-cover-images/hope-is-plenty-cover.webp",
-  //   releaseDate: "July 31, 2024",
-  //   description:
-  //     "uplifting single in collaboration with producer e-GoS and rapper AVOID",
-  //   links: [
-  //     {
-  //       name: "Amazon Music",
-  //       label: "Listen to 'hope is plenty' on Amazon Music",
-  //       url: "https://www.amazon.com/music/player/albums/B0D8NH2B7B",
-  //       icon: "SiAmazonmusic",
-  //     },
-  //     {
-  //       name: "Apple Music",
-  //       label: "Listen to 'hope is plenty' on Apple Music",
-  //       url: "https://music.apple.com/us/album/hope-is-plenty-single/1758370619",
-  //       icon: "SiApplemusic",
-  //     },
-  //     {
-  //       name: "Bandcamp",
-  //       label: "Listen to 'hope is plenty' on Bandcamp",
-  //       url: "https://pomia.bandcamp.com/track/hope-is-plenty",
-  //       icon: "SiBandcamp",
-  //     },
-  //     {
-  //       name: "Spotify",
-  //       label: "Listen to 'hope is plenty' on Spotify",
-  //       url: "https://open.spotify.com/album/1lpZTVvvQ5RgL7Vn7ixcL8",
-  //       icon: "SiSpotify",
-  //     },
-  //     {
-  //       name: "YouTube",
-  //       label: "Listen to 'hope is plenty' on YouTube",
-  //       url: "https://youtu.be/B1yublwYhzc?si=i-yFH3iOKKFvU0Eg",
-  //       icon: "SiYoutube",
-  //     },
-  //     {
-  //       name: "YouTube Music",
-  //       label: "Listen to 'hope is plenty' on YouTube Music",
-  //       url: "https://music.youtube.com/watch?v=B1yublwYhzc&si=IheLG159H1mfg49l",
-  //       icon: "SiYoutubemusic",
-  //     },
-  //   ],
-  //   tracks: [
-  //     {
-  //       title: "hope is plenty",
-  //       artist: "po mia, e-GoS, AVOID",
-  //       length: "3:01",
-  //       number: 1,
-  //       bandcampUrl: "https://pomia.bandcamp.com/track/hope-is-plenty",
-  //     },
-  //   ],
-  // },
-  // {
-  //   id: "rebirth",
-  //   title: "REBIRTH",
-  //   coverImgSrc: "/images/release-cover-images/rebirth-cover.webp",
-  //   releaseDate: "June 9, 2023",
-  //   type: "ep",
-  //   description:
-  //     "this EP contains regenerative themes surrounding moving forward, cherishing loved ones, and learning to find enjoyment in the little things.",
-  //   links: [
-  //     {
-  //       name: "Amazon Music",
-  //       label: "Listen to 'REBIRTH' on Amazon Music",
-  //       url: "https://www.amazon.com/music/player/albums/B0C5G76FT2",
-  //       icon: "SiAmazonmusic",
-  //     },
-  //     {
-  //       name: "Apple Music",
-  //       label: "Listen to 'REBIRTH' on Apple Music",
-  //       url: "https://music.apple.com/us/album/rebirth-single/1688287207",
-  //       icon: "SiApplemusic",
-  //     },
-  //     {
-  //       name: "Bandcamp",
-  //       label: "Listen to 'REBIRTH' on Bandcamp",
-  //       url: "https://pomia.bandcamp.com/album/rebirth",
-  //       icon: "SiBandcamp",
-  //     },
-  //     {
-  //       name: "Spotify",
-  //       label: "Listen to 'REBIRTH' on Spotify",
-  //       url: "https://open.spotify.com/album/3QeQh5IfEDY70c3BgEMQyK",
-  //       icon: "SiSpotify",
-  //     },
-  //     {
-  //       name: "YouTube",
-  //       label: "Listen to 'REBIRTH' on YouTube",
-  //       url: "https://www.youtube.com/watch?v=QY4K0pTxoeA&list=OLAK5uy_lz6foRD4JNHLYvBExrIGz0DWE52KPsPwc",
-  //       icon: "SiYoutube",
-  //     },
-  //     {
-  //       name: "YouTube Music",
-  //       label: "Listen to 'REBIRTH' on YouTube Music",
-  //       url: "https://music.youtube.com/playlist?list=OLAK5uy_ncwLdHR6Sa3yBIwUbdAnT4EZLPk886RDs",
-  //       icon: "SiYoutubemusic",
-  //     },
-  //   ],
-  //   tracks: [
-  //     {
-  //       title: "exposé",
-  //       artist: "po mia",
-  //       length: "3:42",
-  //       number: 1,
-  //       bandcampUrl: "https://pomia.bandcamp.com/track/expos",
-  //     },
-  //     {
-  //       title: "no longer neighbors",
-  //       artist: "po mia",
-  //       length: "3:21",
-  //       number: 2,
-  //       bandcampUrl: "https://pomia.bandcamp.com/track/no-longer-neighbors",
-  //     },
-  //     {
-  //       title: "season the day",
-  //       artist: "po mia",
-  //       length: "4:36",
-  //       number: 3,
-  //       bandcampUrl: "https://pomia.bandcamp.com/track/season-the-day",
-  //     },
-  //   ],
-  // },
-  // {
-  //   id: "golden-tongue",
-  //   title: "golden tongue",
-  //   coverImgSrc: "/images/release-cover-images/golden-tongue-cover.webp",
-  //   releaseDate: "November 12, 2022",
-  //   type: "single",
-  //   description:
-  //     "a remotely satirical, statement piece that explores and implores ideas of self determination, empowerment, as well as encouraging validation to stand up, speak out, and be heard.",
-  //   links: [
-  //     {
-  //       name: "Amazon Music",
-  //       label: "Listen to 'golden tongue' on Amazon Music",
-  //       url: "https://www.amazon.com/music/player/albums/B0BJJL17MW",
-  //       icon: "SiAmazonmusic",
-  //     },
-  //     {
-  //       name: "Apple Music",
-  //       label: "Listen to 'golden tongue' on Apple Music",
-  //       url: "https://music.apple.com/us/album/golden-tongue-single/1650322813",
-  //       icon: "SiApplemusic",
-  //     },
-  //     {
-  //       name: "Bandcamp",
-  //       label: "Listen to 'golden tongue' on Bandcamp",
-  //       url: "https://pomia.bandcamp.com/track/golden-tongue",
-  //       icon: "SiBandcamp",
-  //     },
-  //     {
-  //       name: "Spotify",
-  //       label: "Listen to 'golden tongue' on Spotify",
-  //       url: "https://open.spotify.com/album/3hnlpq3Rc5cCTZHoDeri2X",
-  //       icon: "SiSpotify",
-  //     },
-  //     {
-  //       name: "YouTube",
-  //       label: "Listen to 'golden tongue' on YouTube",
-  //       url: "https://www.youtube.com/watch?v=SRPic8-Si94&list=OLAK5uy_no2j_eaD2WQq_5o8rM-TJfvIWZae7164k",
-  //       icon: "SiYoutube",
-  //     },
-  //     {
-  //       name: "YouTube Music",
-  //       label: "Listen to 'golden tongue' on YouTube Music",
-  //       url: "https://music.youtube.com/playlist?list=OLAK5uy_nx8OqTWX_plCYNDpUqDP0HwaBo6S9ZzUg",
-  //       icon: "SiYoutubemusic",
-  //     },
-  //   ],
-  //   tracks: [
-  //     {
-  //       title: "golden tongue",
-  //       artist: "po mia",
-  //       length: "3:46",
-  //       number: 1,
-  //       bandcampUrl: "https://pomia.bandcamp.com/track/golden-tongue",
-  //     },
-  //   ],
-  // },
+  {
+    id: "hope-is-plenty",
+    title: "hope is plenty",
+    artist: "po mia, e-GoS, AVOID",
+    type: "single",
+    cover_image: "/images/release-cover-images/hope-is-plenty-cover.webp",
+    release_date: new Date("2024-07-31"),
+    year: 2024,
+    genre: ["hip-hop", "rap", "alternative"],
+    description:
+      "uplifting single in collaboration with producer e-GoS and rapper AVOID",
+    links: [
+      {
+        name: "Amazon Music",
+        label: "Listen to 'hope is plenty' on Amazon Music",
+        url: "https://www.amazon.com/music/player/albums/B0D8NH2B7B",
+        icon: "SiAmazonmusic",
+      },
+      {
+        name: "Apple Music",
+        label: "Listen to 'hope is plenty' on Apple Music",
+        url: "https://music.apple.com/us/album/hope-is-plenty-single/1758370619",
+        icon: "SiApplemusic",
+      },
+      {
+        name: "Bandcamp",
+        label: "Listen to 'hope is plenty' on Bandcamp",
+        url: "https://pomia.bandcamp.com/track/hope-is-plenty",
+        icon: "SiBandcamp",
+      },
+      {
+        name: "Spotify",
+        label: "Listen to 'hope is plenty' on Spotify",
+        url: "https://open.spotify.com/album/1lpZTVvvQ5RgL7Vn7ixcL8",
+        icon: "SiSpotify",
+      },
+      {
+        name: "YouTube",
+        label: "Listen to 'hope is plenty' on YouTube",
+        url: "https://youtu.be/B1yublwYhzc?si=i-yFH3iOKKFvU0Eg",
+        icon: "SiYoutube",
+      },
+      {
+        name: "YouTube Music",
+        label: "Listen to 'hope is plenty' on YouTube Music",
+        url: "https://music.youtube.com/watch?v=B1yublwYhzc&si=IheLG159H1mfg49l",
+        icon: "SiYoutubemusic",
+      },
+    ],
+    tracks: [
+      {
+        id: "hope-is-plenty",
+        title: "hope is plenty",
+        artist: "po mia, e-GoS, AVOID",
+        album: "hope is plenty",
+        year: 2024,
+        genre: ["hip-hop", "rap", "alternative"],
+        length: "3:01",
+        track_number: 1,
+        src: "",
+        bandcamp_url: "https://pomia.bandcamp.com/track/hope-is-plenty",
+        lyrics: [],
+      },
+    ],
+  },
+  {
+    id: "rebirth",
+    title: "REBIRTH",
+    cover_image: "/images/release-cover-images/rebirth-cover.webp",
+    release_date: new Date("2023-06-09"),
+    year: 2023,
+    genre: ["indie", "alternative", "experimental"],
+    type: "ep",
+    description:
+      "this EP contains regenerative themes surrounding moving forward, cherishing loved ones, and learning to find enjoyment in the little things.",
+    links: [
+      {
+        name: "Amazon Music",
+        label: "Listen to 'REBIRTH' on Amazon Music",
+        url: "https://www.amazon.com/music/player/albums/B0C5G76FT2",
+        icon: "SiAmazonmusic",
+      },
+      {
+        name: "Apple Music",
+        label: "Listen to 'REBIRTH' on Apple Music",
+        url: "https://music.apple.com/us/album/rebirth-single/1688287207",
+        icon: "SiApplemusic",
+      },
+      {
+        name: "Bandcamp",
+        label: "Listen to 'REBIRTH' on Bandcamp",
+        url: "https://pomia.bandcamp.com/album/rebirth",
+        icon: "SiBandcamp",
+      },
+      {
+        name: "Spotify",
+        label: "Listen to 'REBIRTH' on Spotify",
+        url: "https://open.spotify.com/album/3QeQh5IfEDY70c3BgEMQyK",
+        icon: "SiSpotify",
+      },
+      {
+        name: "YouTube",
+        label: "Listen to 'REBIRTH' on YouTube",
+        url: "https://www.youtube.com/watch?v=QY4K0pTxoeA&list=OLAK5uy_lz6foRD4JNHLYvBExrIGz0DWE52KPsPwc",
+        icon: "SiYoutube",
+      },
+      {
+        name: "YouTube Music",
+        label: "Listen to 'REBIRTH' on YouTube Music",
+        url: "https://music.youtube.com/playlist?list=OLAK5uy_ncwLdHR6Sa3yBIwUbdAnT4EZLPk886RDs",
+        icon: "SiYoutubemusic",
+      },
+    ],
+    tracks: [
+      {
+        id: "expose",
+        title: "exposé",
+        artist: "po mia",
+        album: "REBIRTH",
+        year: 2023,
+        genre: ["indie", "alternative", "experimental"],
+        length: "3:42",
+        track_number: 1,
+        bandcamp_url: "https://pomia.bandcamp.com/track/expos",
+        src: "",
+        lyrics: [],
+      },
+      {
+        id: "no-longer-neighbors",
+        title: "no longer neighbors",
+        artist: "po mia",
+        album: "REBIRTH",
+        year: 2023,
+        genre: ["indie", "alternative", "experimental"],
+        length: "3:21",
+        track_number: 2,
+        src: "",
+        bandcamp_url: "https://pomia.bandcamp.com/track/no-longer-neighbors",
+        lyrics: [],
+      },
+      {
+        id: "season-the-day",
+        title: "season the day",
+        artist: "po mia",
+        album: "REBIRTH",
+        year: 2023,
+        genre: ["indie", "alternative", "experimental"],
+        length: "4:36",
+        track_number: 3,
+        src: "",
+        bandcamp_url: "https://pomia.bandcamp.com/track/season-the-day",
+        lyrics: [],
+      },
+    ],
+  },
+  {
+    id: "golden-tongue",
+    title: "golden tongue",
+    cover_image: "/images/release-cover-images/golden-tongue-cover.webp",
+    release_date: new Date("2022-11-12"),
+    year: 2022,
+    genre: ["indie", "alternative", "experimental"],
+    type: "single",
+    description:
+      "a remotely satirical, statement piece that explores and implores ideas of self determination, empowerment, as well as encouraging validation to stand up, speak out, and be heard.",
+    links: [
+      {
+        name: "Amazon Music",
+        label: "Listen to 'golden tongue' on Amazon Music",
+        url: "https://www.amazon.com/music/player/albums/B0BJJL17MW",
+        icon: "SiAmazonmusic",
+      },
+      {
+        name: "Apple Music",
+        label: "Listen to 'golden tongue' on Apple Music",
+        url: "https://music.apple.com/us/album/golden-tongue-single/1650322813",
+        icon: "SiApplemusic",
+      },
+      {
+        name: "Bandcamp",
+        label: "Listen to 'golden tongue' on Bandcamp",
+        url: "https://pomia.bandcamp.com/track/golden-tongue",
+        icon: "SiBandcamp",
+      },
+      {
+        name: "Spotify",
+        label: "Listen to 'golden tongue' on Spotify",
+        url: "https://open.spotify.com/album/3hnlpq3Rc5cCTZHoDeri2X",
+        icon: "SiSpotify",
+      },
+      {
+        name: "YouTube",
+        label: "Listen to 'golden tongue' on YouTube",
+        url: "https://www.youtube.com/watch?v=SRPic8-Si94&list=OLAK5uy_no2j_eaD2WQq_5o8rM-TJfvIWZae7164k",
+        icon: "SiYoutube",
+      },
+      {
+        name: "YouTube Music",
+        label: "Listen to 'golden tongue' on YouTube Music",
+        url: "https://music.youtube.com/playlist?list=OLAK5uy_nx8OqTWX_plCYNDpUqDP0HwaBo6S9ZzUg",
+        icon: "SiYoutubemusic",
+      },
+    ],
+    tracks: [
+      {
+        id: "golden-tongue",
+        title: "golden tongue",
+        artist: "po mia",
+        album: "golden tongue",
+        year: 2022,
+        genre: ["indie", "alternative", "experimental"],
+        length: "3:46",
+        track_number: 1,
+        src: "",
+        bandcamp_url: "https://pomia.bandcamp.com/track/golden-tongue",
+        lyrics: [],
+      },
+    ],
+  },
   {
     id: "po-logue",
     title: "po logue",

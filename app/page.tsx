@@ -1,18 +1,18 @@
 // import from next
 import Image from "next/image";
-import Link from "next/link";
+// import Link from "next/link";
 // import components
 import Toaster from "../ui/toaster";
 // import InstallPrompt from "../ui/install-prompt";
 // import data
 import { poBio, releases } from "../lib/po-data";
 // import components
-import  AudioPlayer from "@/ui/audio-player";
-import SitePreviewCoverFlow from "../ui/site-preview-cover-flow";
-import ReleaseDisplayCondensed from "@/ui/release-display-condensed";
-import SitePreviewCube from "@/ui/site-preview-cube";
-import ThreejsRubiksCube from "@/ui/rubiks-cube";
-import CubeClientContainer from "@/ui/cube-client-container";
+import AudioPlayer from "@/ui/audio-player";
+// import SitePreviewCoverFlow from "../ui/site-preview-cover-flow";
+// import ReleaseDisplayCondensed from "@/ui/release-display-condensed";
+// import SitePreviewCube from "@/ui/site-preview-cube";
+// import ThreejsRubiksCube from "@/ui/rubiks-cube";
+// import CubeClientContainer from "@/ui/cube-client-container";
 // import Heading from "../ui/heading";
 // import PhotoGallery from "@/ui/photoGallery";
 // import images
@@ -23,7 +23,9 @@ import CubeClientContainer from "@/ui/cube-client-container";
 
 export default async function Home() {
   const poLogue = releases.find((release) => release.title === "po logue");
-  const cyberchondria = poLogue?.tracks.find((track) => track.title === "cyberchondria");
+  const cyberchondria = poLogue?.tracks.find(
+    (track) => track.title === "cyberchondria",
+  );
   // await delayLoad(5000);
   return (
     <div className="relative flex flex-col flex-grow items-center justify-center space-y-12">
@@ -46,9 +48,9 @@ export default async function Home() {
           {poBio}
         </p>
       </div>
-      
-      {cyberchondria && (
-         <div className="px-6 lg:px-0 mx-auto max-w-2xl w-full">
+
+     {cyberchondria && (
+        <div className="px-6 lg:px-0 mx-auto max-w-2xl w-full">
           <AudioPlayer song={cyberchondria} />
         </div>
       )}
