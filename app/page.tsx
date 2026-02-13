@@ -26,7 +26,7 @@ export default async function Home() {
   const cyberchondria = poLogue?.tracks.find((track) => track.title === "cyberchondria");
   // await delayLoad(5000);
   return (
-    <div className="relative flex flex-col flex-grow items-center justify-center pt-2">
+    <div className="relative flex flex-col flex-grow items-center justify-center space-y-12">
       {/* <div className="fixed top-20 left-0 w-full z-50">
         <InstallPrompt />
       </div> */}
@@ -41,14 +41,14 @@ export default async function Home() {
           className="rounded-4xl shadow-white shadow-lg border-2 border-[rgba(255,255,255,0.3)]"
         />
       </div>
-      <div className="bg-black/50 m-6 lg:mx-auto py-4 rounded-4xl shadow-lg shadow-black/20 max-w-4xl border-2 border-[rgba(255,255,255,0.3)]">
-        <p className="px-6 text-shadow-black-background-black w-full max-w-2xl mx-auto font-acme tracking-widest md:text-lg">
+      <div className="bg-black/50 mx-6 lg:mx-auto py-4 rounded-4xl shadow-white shadow-lg max-w-2xl border-2 border-[rgba(255,255,255,0.3)] px-6 lg:px-0">
+        <p className="px-6 text-shadow-black-background-black w-full max-w-xl lg:max-w-2xl mx-auto font-acme tracking-widest md:text-lg">
           {poBio}
         </p>
       </div>
       
       {cyberchondria && (
-        <div className="w-full h-full mx-auto mt-12">
+         <div className="px-6 lg:px-0 mx-auto max-w-2xl w-full">
           <AudioPlayer song={cyberchondria} />
         </div>
       )}
