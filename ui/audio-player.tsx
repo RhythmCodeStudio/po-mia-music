@@ -1,8 +1,11 @@
 "use client";
-
+// import from next
+import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import { RxPlay, RxPause } from "react-icons/rx";
 import { Song } from "@/lib/definitions";
+// import images
+import poLogo from "@/public/logos/pomia-horizontal-logo-black.png";
 
 export default function SimpleAudioPlayer({ song }: { song: Song }) {
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -75,28 +78,33 @@ export default function SimpleAudioPlayer({ song }: { song: Song }) {
   }
 
   return (
-    <div className="px-6 flex flex-col items-center gap-4 w-full max-w-2xl mx-auto p-2 rounded-4xl shadow-lg rainbow-gradient shadow-white border-2 border-[rgba(255,255,255,0.3)]">
-      <audio
-        ref={audioRef}
-        src={`${song.src}`}
-        controls={false}
-      />
-
-      <div className="text-center">
-        <h3 className="text-lg font-semibold text-black">
+    <div className="px-6 flex flex-col items-center gap-4 w-full max-w-2xl mx-auto p-2 rounded-4xl shadow-lg rainbow-gradient shadow-white border-2 border-[rgba(255,255,255,0.3)] relative">
+      <audio ref={audioRef} src={`${song.src}`} controls={false} />
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <Image
+          src={poLogo}
+          alt="po mia logo"
+          width={2213}
+          height={725}
+          className="opacity-20 max-w-xs"
+          sizes="(max-width: 640px) 100vw, 40vw"
+        />
+      </div>
+      <div className="text-center bg-black/50 border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-lg rounded-4xl px-4 mt-1">
+        <h3 className="text-lg font-semibold text-shadow-black-background-black font-indie-flower tracking-widest">
           {song.title || "Untitled"}
         </h3>
       </div>
 
-      <div className="w-full space-y-2">
+      <div className="w-full">
         <input
-          className="w-full h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer"
+          className="w-full h-2 bg-[rgba(255,255,255,0.3)] rounded-lg appearance-none cursor-pointer shadow shadow-black "
           type="range"
           max="100"
           value={progress}
           onChange={handleSeek}
         />
-        <div className="flex justify-between text-sm text-gray-600 px-2">
+        <div className="flex justify-between text-sm text-shadow-black-background-black px-2">
           <span>{formatTime(audioRef.current?.currentTime || 0)}</span>
           <span>{formatTime(duration)}</span>
         </div>
@@ -104,13 +112,9 @@ export default function SimpleAudioPlayer({ song }: { song: Song }) {
 
       <button
         onClick={handlePlayPause}
-        className="flex items-center justify-center w-10 h-10 bg-blue-500 hover:bg-blue-600 text-white rounded-full transition-colors"
+        className="flex items-center justify-center icon-shadow hover:scale-105 active:scale-95 text-white rounded-full transition-colors"
         title={isPlaying ? "Pause" : "Play"}>
-        {isPlaying ? (
-          <RxPause size={32} />
-        ) : (
-          <RxPlay size={32} />
-        )}
+        {isPlaying ? <RxPause size={32} /> : <RxPlay size={32} />}
       </button>
     </div>
   );

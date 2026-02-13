@@ -1,5 +1,6 @@
 // import from next
 import Image from "next/image";
+import Link from "next/link";
 // import Link from "next/link";
 // import components
 import Toaster from "../ui/toaster";
@@ -49,11 +50,20 @@ export default async function Home() {
         </p>
       </div>
 
-     {cyberchondria && (
+      {cyberchondria && (
         <div className="px-6 lg:px-0 mx-auto max-w-2xl w-full">
           <AudioPlayer song={cyberchondria} />
         </div>
       )}
+      <div className="flex justify-center items-center">
+        <Link
+          href="/music"
+          className="flex items-center justify-center font-semibold text-white rounded-full border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-md px-4 py-2 active:scale-95 transition transition-transform transition-shadow duration-200 ease-in-out rainbow-gradient-hover bg-black/50 hover:shadow-lg">
+          <span className="text-shadow-black-background-black -mb-1">
+            Music
+          </span>
+        </Link>
+      </div>
       {/* <div>
         <Link href="/music" className="">
           <Heading
