@@ -20,7 +20,7 @@ import ClientContainer from "@/ui/client-container";
 import Heading from "../ui/heading";
 import PhotoGallery from "@/ui/photo-gallery";
 // import video data
-import { youTubeVideos } from "@/lib/video-data";
+// import { youTubeVideos } from "@/lib/video-data";
 // import images
 // import { pics } from "@/lib/pics";
 // function delayLoad(ms: number) {
@@ -35,7 +35,7 @@ export default async function Home() {
   // console.log("youTubeVideos", youTubeVideos);
   // await delayLoad(5000);
   return (
-    <div className="relative flex flex-col flex-grow items-center justify-center space-y-12">
+    <div className="relative flex flex-col flex-grow items-center justify-center space-y-16">
       {/* <div className="fixed top-20 left-0 w-full z-50">
         <InstallPrompt />
       </div> */}
@@ -57,8 +57,16 @@ export default async function Home() {
       </div>
 
       {cyberchondria && (
-        <div className="px-6 lg:px-0 mx-auto max-w-2xl w-full">
-          <AudioPlayer song={cyberchondria} />
+        // <div className=" mx-auto w-full">
+        <div className="px-6 lg:px-0 flex flex-col justify-center items-center w-full max-w-2xl  mx-auto">
+          <Heading
+            text="music"
+            headingLevel={2}
+            className="font-bold text-4xl lg:text-5xl xl:text-6xl text-shadow-black-background-black font-indie-flower tracking-widest"
+          />
+          <div className="w-full pt-8">
+            <AudioPlayer song={cyberchondria} />
+          </div>
         </div>
       )}
 
@@ -67,18 +75,22 @@ export default async function Home() {
           <MusicSwiperCube />
         </div>
         <div className="mt-12">
-          <div>
-            <Heading
-              text="Listen to all the hits"
-              headingLevel={2}
-              className="font-bold text-xl text-shadow-black-background-black font-indie-flower tracking-widest"
-            />
-          </div>
+          <Heading
+            text="Listen to all the hits"
+            headingLevel={2}
+            className="font-bold text-xl text-shadow-black-background-black font-indie-flower tracking-widest"
+          />
+
           <LinkButton href="/music" label="Music" />
         </div>
       </div>
 
       <div className="flex flex-col justify-center items-center w-full mx-auto">
+        <Heading
+          text="photos"
+          headingLevel={2}
+          className="font-bold text-4xl lg:text-5xl xl:text-6xl text-shadow-black-background-black font-indie-flower tracking-widest"
+        />
         <div className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl">
           <PhotoGallery
             showOptions={false}
@@ -87,19 +99,23 @@ export default async function Home() {
           />
         </div>
         <div className="-mt-4">
-          <div>
-            <Heading
-              text="See all the pics"
-              headingLevel={2}
-              className="font-bold text-xl text-shadow-black-background-black font-indie-flower tracking-widest"
-            />
-          </div>
+          <Heading
+            text="See all the pics"
+            headingLevel={2}
+            className="font-bold text-xl text-shadow-black-background-black font-indie-flower tracking-widest"
+          />
+
           <LinkButton href="/photos" label="Photos" />
         </div>
       </div>
 
       <div className="flex flex-col justify-center items-center w-full mx-auto">
-        <div className="w-full p-6 sm:p-4 md:p-2 lg:p-0">
+        <Heading
+          text="videos"
+          headingLevel={2}
+          className="font-bold text-4xl lg:text-5xl xl:text-6xl text-shadow-black-background-black font-indie-flower tracking-widest"
+        />
+        <div className="w-full p-6 sm:p-4 md:p-2 lg:p-0 mt-2 smmt-4 md:mt-6 lg:mt-8">
           <ClientContainer
             component={
               <YouTubeVideo
@@ -110,13 +126,11 @@ export default async function Home() {
           />
         </div>
         <div className="mt-12">
-          <div>
-            <Heading
-              text="Watch all the vids"
-              headingLevel={2}
-              className="font-bold text-xl text-shadow-black-background-black font-indie-flower tracking-widest"
-            />
-          </div>
+          <Heading
+            text="Watch all the vids"
+            headingLevel={2}
+            className="font-bold text-xl text-shadow-black-background-black font-indie-flower tracking-widest"
+          />
           <LinkButton href="/videos" label="Videos" />
         </div>
       </div>
