@@ -69,6 +69,7 @@ export default async function Home() {
           headingLevel={2}
           className="font-bold text-5xl lg:text-6xl xl:text-7xl text-shadow-black-background-black font-indie-flower tracking-widest"
         />
+{nextEvent && (
         <div className="w-full max-w-sm mt-8 mx-auto flex justify-center items-center p-6">
           <CalendarEventDisplay
             id={nextEvent?.id}
@@ -101,8 +102,9 @@ export default async function Home() {
             venueLink={nextEvent?.venue_link}
             eventLink={nextEvent?.event_link}
           />
-
         </div>
+      )}
+
         <div className="sm:mt-2 md:mt-6 lg:mt-8">
           <Heading
             text="Catch all the shows"

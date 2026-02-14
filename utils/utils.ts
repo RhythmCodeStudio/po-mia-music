@@ -34,7 +34,10 @@ export function validateForm(
   );
 }
 
-export const formatDate = (dateStr: string) => {
+export const formatDate = (dateStr: string | undefined) => {
+  if (!dateStr) {
+    return "";
+  }
   // Split the string and create a local date
   const [year, month, day] = dateStr.split("-").map(Number);
   const date = new Date(year, month - 1, day); // month is 0-indexed
