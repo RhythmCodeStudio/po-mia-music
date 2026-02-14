@@ -33,10 +33,11 @@ interface PhotoGalleryProps {
  // CHANGED: Added showPagination prop
  showPagination?: boolean; // Whether to show pagination dots
  showNavigation?: boolean; // Whether to show navigation arrows
+ showCaption?: boolean; // Whether to show image captions
 }
 
 // CHANGED: Added default value for showPagination prop
-export default function PhotoGallery({ showOptions, showPagination = true, showNavigation = true }: PhotoGalleryProps) {
+export default function PhotoGallery({ showOptions, showPagination = true, showNavigation = true, showCaption = true }: PhotoGalleryProps) {
   const [currentPicSet, setCurrentPicSet] = useState<
     typeof promoPics | typeof bandPics | typeof soloPics | typeof headshots
   >(bandPics);
@@ -170,9 +171,11 @@ export default function PhotoGallery({ showOptions, showPagination = true, showN
                   priority
                   className="object-contain w-full h-full"
                 />
+                {showCaption && (
                 <span className="text-sm my-6 text-shadow-black-background-black">
                   Click or tap image to view fullscreen
                 </span>
+                )}
         
               </div>
             </SwiperSlide>

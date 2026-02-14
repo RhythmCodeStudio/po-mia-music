@@ -1,15 +1,13 @@
 "use client";
 // iport from react
 import { useState, useEffect } from "react";
-// import from next
-import Image from "next/image";
-// import { usePathname } from "next/navigation";
+// import from vercel
+import { track } from "@vercel/analytics/react";
 // import components
 import PushNotificationSubscriptionManager from "./push-notification-subscription-manager";
 import IconLink from "./icon-link";
 import IconLinkGroup from "./icon-link-group";
 import MailingListSignupModal from "./mailinglist-signup-modal";
-import CubeClientContainer from "./cube-client-container";
 // import link data
 import { contactLinkData } from "../lib/contact-link-data";
 import { musicLinkData } from "@/lib/music-link-data";
@@ -166,14 +164,16 @@ export default function Footer() {
       </div>
 
       <div className="text-sm text-white p-2 text-center text-shadow-black-background-black">
-        <p className="">©2025 pomiamusic.com</p>
+        <p className="">©2026 pomiamusic.com</p>
         <p className="">
           Website by{" "}
           <a
             href="https://rhythmcodestudio.tech"
             target="_blank"
             rel="noopener noreferrer"
-            className="underline cursor-pointer">
+            className="underline cursor-pointer"
+            onClick={() => track("Rhythm Code Studio link_click")}
+          >
             Rhythm Code Studio
           </a>
         </p>
