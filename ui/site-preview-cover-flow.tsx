@@ -1,4 +1,6 @@
 "use client";
+// import from next
+import Image from "next/image";
 //import from swiper
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow, Pagination, Navigation } from "swiper/modules";
@@ -14,12 +16,12 @@ import { releases } from "@/lib/po-data";
 
 export default function sitePreviewCoverFlow() {
   return (
-    <div className="w-full h-auto relative overflow-visible p-6">
+    <div className="w-full h-auto relative overflow-visible ">
       <Swiper
         effect={"coverflow"}
         grabCursor={true}
         centeredSlides={true}
-        slidesPerView={3}
+        slidesPerView={"auto"}
         coverflowEffect={{
           rotate: 50,
           stretch: 0,
@@ -28,93 +30,27 @@ export default function sitePreviewCoverFlow() {
           slideShadows: true,
         }}
         pagination={true}
-        navigation={true}
-        modules={[EffectCoverflow, Pagination, Navigation]}
-        className="mySwiper coverflow-swiper w-full h-full overflow-visible">
-        <SwiperSlide className="w-full h-full">
-          <div className="w-full h-full border-2 border-red-500 flex flex-col items-center justify-center p-6">
-            <Heading
-              text="Music"
-              headingLevel={2}
-              className="font-bold text-4xl text-shadow-black-background-black font-indie-flower tracking-widest"
-            />
-            <div className="grid grid-cols-2 gap-4">
-              {/* {releases.map((release) => (
-                // <ReleaseDisplayCondensed key={release.id} release={release} />
-              ))}
+        modules={[EffectCoverflow, Pagination]}
+        className="mySwiper ">
+        {releases.map((release) => (
+          <SwiperSlide
+            key={release.id}
+            title={`${release.title} by ${release.tracks[0]?.artist || "Unknown Artist"}`}
+            className="">
+            <div className="flex flex-col items-center justify-center mx-auto  my-2 relative">
+              <Image
+                src={release.cover_image}
+                alt={`${release.title} cover art`}
+                width={200}
+                height={200}
+                className=" shadow-white shadow-lg border-2 border-[rgba(255,255,255,0.3)]"
+              />
+              {/* <h3 className="mt-2 text-center text-shadow-black-background-black text-lg font-semibold font-indie-flower tracking-widest">
+                {release.title}
+              </h3> */}
             </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide className="w-full h-full">
-          <div className="w-full h-full border-2 border-red-500 flex flex-col items-center justify-center p-6">
-            <Heading
-              text="Music"
-              headingLevel={2}
-              className="font-bold text-4xl text-shadow-black-background-black font-indie-flower tracking-widest"
-            />
-            <div className="grid grid-cols-2 gap-4">
-              {/* {releases.map((release) => (
-                <ReleaseDisplayCondensed key={release.id} release={release} />
-              ))} */}
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide className="w-full h-full">
-          <div className="w-full h-full border-2 border-red-500 flex flex-col items-center justify-center p-6">
-            <Heading
-              text="Music"
-              headingLevel={2}
-              className="font-bold text-4xl text-shadow-black-background-black font-indie-flower tracking-widest"
-            />
-            {/* <div className="grid grid-cols-2 gap-4">
-              {releases.map((release) => (
-                <ReleaseDisplayCondensed key={release.id} release={release} />
-              ))}
-            </div> */}
-          </div>
-        </SwiperSlide>
-        <SwiperSlide className="w-full h-full">
-          <div className="w-full h-full border-2 border-red-500 flex flex-col items-center justify-center p-6">
-            <Heading
-              text="Music"
-              headingLevel={2}
-              className="font-bold text-4xl text-shadow-black-background-black font-indie-flower tracking-widest"
-            />
-            {/* <div className="grid grid-cols-2 gap-4">
-              {releases.map((release) => (
-                <ReleaseDisplayCondensed key={release.id} release={release} />
-              ))}
-            </div> */}
-          </div>
-        </SwiperSlide>
-        <SwiperSlide className="w-full h-full">
-          <div className="w-full h-full border-2 border-red-500 flex flex-col items-center justify-center p-6">
-            <Heading
-              text="Music"
-              headingLevel={2}
-              className="font-bold text-4xl text-shadow-black-background-black font-indie-flower tracking-widest"
-            />
-            <div className="grid grid-cols-2 gap-4">
-              {/* {releases.map((release) => (
-                <ReleaseDisplayCondensed key={release.id} release={release} />
-              ))} */}
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide className="w-full h-full">
-          <div className="w-full h-full border-2 border-red-500 flex flex-col items-center justify-center p-6">
-            <Heading
-              text="Music"
-              headingLevel={2}
-              className="font-bold text-4xl text-shadow-black-background-black font-indie-flower tracking-widest"
-            />
-            {/* <div className="grid grid-cols-2 gap-4">
-              {releases.map((release) => (
-                <ReleaseDisplayCondensed key={release.id} release={release} />
-              ))}
-            </div> */}
-          </div>
-        </SwiperSlide>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );

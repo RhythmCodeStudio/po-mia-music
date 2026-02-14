@@ -6,14 +6,6 @@ import PhotoGallery from "@/ui/photo-gallery";
 // import pic data
 import { pics } from "@/lib/pics";
 
-// type Pic = {
-//   id: number;
-//   src: string;
-//   alt: string;
-//   width: number;
-//   height: number;
-// };
-
 export default function Photos() {
   return (
     <div className="flex flex-col justify-center items-center w-full">

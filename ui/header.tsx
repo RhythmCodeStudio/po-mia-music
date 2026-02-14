@@ -75,7 +75,7 @@ export default function Header() {
           <MobileNav navListItems={navListItemData} user={user} />
         </div>
       </div>
-      <div className="relative w-64 lg:w-80 mx-auto mt-8 lg:mt-24 mb-8">
+      <div className="relative w-64 lg:w-80 mx-auto mt-8 mb-8">
         {/* Logo */}
         {isHome ? (
           <>
@@ -99,14 +99,14 @@ export default function Header() {
           </>
         ) : (
           <Link href="/" aria-label="Go to home">
-            <div className="w-full hover:scale-105 hover:-rotate-3 transition-transform duration-300 ease-in-out">
+            <div className="w-full hover:scale-105 hover:-rotate-3 transition-transform duration-300 ease-in-out mt-8 lg:mt-24">
               <Image
                 src="/logos/pomia-horizontal-logo-colorful.png"
                 alt="Po Mia Music Logo"
                 width={2213}
                 height={725}
                 priority
-                className="w-full h-auto pr-12 lg:pr-16"
+                className="w-full h-auto pr-12 lg:pr-16 "
               />
               <div className="w-30 lg:w-36 h-auto absolute -top-18 lg:-top-20 -right-8 lg:-right-8">
                 <Image

@@ -1,23 +1,24 @@
 // import from next
 import Image from "next/image";
-import Link from "next/link";
 // import Link from "next/link";
 // import components
 import Toaster from "../ui/toaster";
+import LinkButton from "@/ui/link-button";
 // import InstallPrompt from "../ui/install-prompt";
 // import data
 import { poBio, releases } from "../lib/po-data";
 // import components
 import AudioPlayer from "@/ui/audio-player";
+import MusicSwiperCube from "@/ui/music-swiper-cube";
 // import SitePreviewCoverFlow from "../ui/site-preview-cover-flow";
 // import ReleaseDisplayCondensed from "@/ui/release-display-condensed";
 // import SitePreviewCube from "@/ui/site-preview-cube";
 // import ThreejsRubiksCube from "@/ui/rubiks-cube";
 // import CubeClientContainer from "@/ui/cube-client-container";
-// import Heading from "../ui/heading";
-// import PhotoGallery from "@/ui/photoGallery";
+import Heading from "../ui/heading";
+import PhotoGallery from "@/ui/photo-gallery";
 // import images
-// import { pics } from "@/lib/pics";
+import { pics } from "@/lib/pics";
 // function delayLoad(ms: number) {
 //   return new Promise((resolve) => setTimeout(resolve, ms));
 // }
@@ -45,7 +46,7 @@ export default async function Home() {
         />
       </div>
       <div className="bg-black/50 mx-6 lg:mx-auto py-4 rounded-4xl shadow-white shadow-lg max-w-2xl border-2 border-[rgba(255,255,255,0.3)] px-6 lg:px-0">
-        <p className="px-6 text-shadow-black-background-black w-full max-w-xl lg:max-w-2xl mx-auto font-acme tracking-widest md:text-lg">
+        <p className="lg:px-6 text-shadow-black-background-black w-full max-w-xl lg:max-w-2xl mx-auto font-acme tracking-widest md:text-lg">
           {poBio}
         </p>
       </div>
@@ -55,36 +56,31 @@ export default async function Home() {
           <AudioPlayer song={cyberchondria} />
         </div>
       )}
-      <div className="flex justify-center items-center">
-        <Link
-          href="/music"
-          className="flex items-center justify-center font-semibold text-white rounded-full border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-md px-4 py-2 active:scale-95 transition transition-transform transition-shadow duration-200 ease-in-out rainbow-gradient-hover bg-black/50 hover:shadow-lg">
-          <span className="text-shadow-black-background-black -mb-1">
-            Music
-          </span>
-        </Link>
+
+      {/* <div className="flex flex-col justify-center items-center w-full max-w-[90vw] lg:max-w-2xl">
+        <div className="w-full h-full mx-auto ">
+          <SitePreviewCoverFlow />
+        </div>
+        <div className="mt-6">
+          <LinkButton href="/music" label="Music" />
+        </div>
+      </div> */}
+
+      <div className="flex flex-col justify-center items-center w-full max-w-2xl mx-auto">
+        <div>
+          <MusicSwiperCube />
+        </div>
+        <div className="mt-12">
+          <div>
+            <Heading
+              text="Get all the hits"
+              headingLevel={2}
+              className="font-bold text-xl text-shadow-black-background-black font-indie-flower tracking-widest"
+            />
+          </div>
+          <LinkButton href="/music" label="Music" />
+        </div>
       </div>
-      {/* <div>
-        <Link href="/music" className="">
-          <Heading
-            text="Music"
-            headingLevel={2}
-            className="font-bold text-5xl text-shadow-black-background-black font-indie-flower tracking-widest"
-          />
-        </Link>
-      </div> */}
-      {/* <div>
-        <PhotoGallery picSet={pics.map((pic) => pic.id)} />
-      </div> */}
-      {/* <div className="w-full h-full max-w-4xl mx-auto mt-12">
-        <SitePreviewCoverFlow />
-      </div> */}
-      {/* <div className="flex justify-center items-center w-full max-w-4xl mx-auto my-12">
-        <SitePreviewCube />
-      </div> */}
-      {/* <div className="w-full h-full">
-        <CubeClientContainer />
-      </div> */}
 
       <Toaster />
     </div>
