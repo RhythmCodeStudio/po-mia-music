@@ -32,7 +32,9 @@ import { getCalendarEvents } from "../actions/actions";
 
 export default async function Home() {
   const events = await getCalendarEvents();
-  const upComingEvents = events.filter((event) => new Date(event.start_date) >= new Date());
+  const upComingEvents = events.filter(
+    (event) => new Date(event.start_date) >= new Date(),
+  );
   // const pastEvents = events.filter((event) => new Date(event.start_date) < new Date());
   const nextEvent = upComingEvents.length > 0 ? upComingEvents[0] : null;
   const poLogue = releases.find((release) => release.title === "po logue");
@@ -63,47 +65,47 @@ export default async function Home() {
         </p>
       </div>
 
-        <div className="flex flex-col justify-center items-center w-full mx-auto">
+      <div className="flex flex-col justify-center items-center w-full mx-auto">
         <Heading
           text="coming up next"
           headingLevel={2}
           className="font-bold text-5xl lg:text-6xl xl:text-7xl text-shadow-black-background-black font-indie-flower tracking-widest"
         />
-{nextEvent && (
-        <div className="w-full max-w-sm mt-8 mx-auto flex justify-center items-center p-6">
-          <CalendarEventDisplay
-            id={nextEvent?.id}
-            title={nextEvent?.title}
-            startDate={
-              typeof nextEvent?.start_date === "string"
-                ? nextEvent?.start_date
-                : nextEvent?.start_date?.toISOString().slice(0, 10)
-            }
-            endDate={
-              nextEvent?.end_date
-                ? typeof nextEvent?.end_date === "string"
-                  ? nextEvent?.end_date
-                  : nextEvent?.end_date?.toISOString().slice(0, 10)
-                : undefined
-            }
-            startTime={nextEvent?.start_time}
-            endTime={nextEvent?.end_time}
-            allDay={nextEvent?.all_day}
-            cost={nextEvent?.cost}
-            locationName={nextEvent?.location_name}
-            locationStreetAddress={nextEvent?.location_street_address}
-            locationCity={nextEvent?.location_city}
-            locationState={nextEvent?.location_state}
-            locationZip={nextEvent?.location_zip}
-            description={nextEvent?.description}
-            imageUrl={nextEvent?.image}
-            ticketLink={nextEvent?.ticket_link}
-            moreInfoLink={nextEvent?.more_info_link}
-            venueLink={nextEvent?.venue_link}
-            eventLink={nextEvent?.event_link}
-          />
-        </div>
-)}
+        {nextEvent && (
+          <div className="w-full max-w-sm mt-8 mx-auto flex justify-center items-center p-6">
+            <CalendarEventDisplay
+              id={nextEvent?.id}
+              title={nextEvent?.title}
+              startDate={
+                typeof nextEvent?.start_date === "string"
+                  ? nextEvent?.start_date
+                  : nextEvent?.start_date?.toISOString().slice(0, 10)
+              }
+              endDate={
+                nextEvent?.end_date
+                  ? typeof nextEvent?.end_date === "string"
+                    ? nextEvent?.end_date
+                    : nextEvent?.end_date?.toISOString().slice(0, 10)
+                  : undefined
+              }
+              startTime={nextEvent?.start_time}
+              endTime={nextEvent?.end_time}
+              allDay={nextEvent?.all_day}
+              cost={nextEvent?.cost}
+              locationName={nextEvent?.location_name}
+              locationStreetAddress={nextEvent?.location_street_address}
+              locationCity={nextEvent?.location_city}
+              locationState={nextEvent?.location_state}
+              locationZip={nextEvent?.location_zip}
+              description={nextEvent?.description}
+              imageUrl={nextEvent?.image}
+              ticketLink={nextEvent?.ticket_link}
+              moreInfoLink={nextEvent?.more_info_link}
+              venueLink={nextEvent?.venue_link}
+              eventLink={nextEvent?.event_link}
+            />
+          </div>
+        )}
         <div className="sm:mt-2 md:mt-6 lg:mt-8">
           <Heading
             text="Catch all the shows"
@@ -192,8 +194,6 @@ export default async function Home() {
           <LinkButton href="/videos" label="Videos" />
         </div>
       </div>
-
-     
 
       {/* <div className="flex flex-col justify-center items-center w-full mx-auto">
         <Heading
