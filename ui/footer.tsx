@@ -1,6 +1,9 @@
 "use client";
 // iport from react
 import { useState, useEffect } from "react";
+// import from next
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 // import from vercel
 import { track } from "@vercel/analytics/react";
 // import components
@@ -18,6 +21,8 @@ import { usePushNotification } from "../context/push-notification-context-provid
 import { clsx } from "clsx";
 
 export default function Footer() {
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
   const { isSubscribed, refreshSubscription } = usePushNotification();
   const [iconSize, setIconSize] = useState(20);
   const [isIOS, setIsIOS] = useState(false);
@@ -164,7 +169,18 @@ export default function Footer() {
       </div>
 
       <div className="text-sm text-white p-2 text-center text-shadow-black-background-black">
-        <p className="">©2026 pomiamusic.com</p>
+        <p className="">
+          ©2026
+          {isHomePage
+            ? " pomiamusic.com"
+            : (
+                <>
+                   <Link href="/" onClick={() => track("Footer home link click")}>
+                    {" "}pomiamusic.com
+                  </Link>
+                </>
+              )}
+        </p>
         <p className="">
           Website by{" "}
           <a

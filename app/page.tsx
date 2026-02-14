@@ -23,6 +23,7 @@ import Heading from "../ui/heading";
 import PhotoGallery from "@/ui/photo-gallery";
 // import actions
 import { getCalendarEvents } from "../actions/actions";
+import Link from "next/link";
 // import { youTubeVideos } from "@/lib/video-data";
 // import images
 // import { pics } from "@/lib/pics";
@@ -106,7 +107,7 @@ export default async function Home() {
             />
           </div>
         )}
-        <div className="sm:mt-2 md:mt-6 lg:mt-8">
+        <div className="">
           <Heading
             text="Catch all the shows"
             headingLevel={2}
@@ -116,7 +117,7 @@ export default async function Home() {
         </div>
       </div>
 
-      {cyberchondria && (
+      {/* {cyberchondria && (
         // <div className=" mx-auto w-full">
         <div className="px-6 lg:px-0 flex flex-col justify-center items-center w-full max-w-2xl  mx-auto">
           <Heading
@@ -128,19 +129,28 @@ export default async function Home() {
             <AudioPlayer song={cyberchondria} />
           </div>
         </div>
-      )}
+      )} */}
 
       <div className="flex flex-col justify-center items-center w-full max-w-2xl mx-auto">
-        <div>
+        <Heading
+          text="music"
+          headingLevel={2}
+          className="font-bold text-5xl lg:text-6xl xl:text-7xl text-shadow-black-background-black font-indie-flower tracking-widest"
+        />
+        <div className="w-full p-8">
           <MusicSwiperCube />
         </div>
+        {cyberchondria && (
+          <div className="w-full px-6 lg:p-0 mt-2">
+            <AudioPlayer song={cyberchondria} />
+          </div>
+        )}
         <div className="mt-8">
           <Heading
             text="Listen to all the hits"
             headingLevel={2}
             className="font-bold text-xl text-shadow-black-background-black font-indie-flower tracking-widest"
           />
-
           <LinkButton href="/music" label="Music" />
         </div>
       </div>
@@ -195,16 +205,18 @@ export default async function Home() {
         </div>
       </div>
 
-      {/* <div className="flex flex-col justify-center items-center w-full mx-auto">
-        <Heading
-          text="reach out"
-          headingLevel={2}
-          className="font-bold text-5xl lg:text-6xl xl:text-7xl text-shadow-black-background-black font-indie-flower tracking-widest"
-        />
-        <div className="sm:mt-2 md:mt-6 lg:mt-8">
+      <div className="flex flex-col justify-center items-center w-full mx-auto">
+        <Link href="/contact" className="">
+          <Heading
+            text="keep in touch"
+            headingLevel={2}
+            className="font-bold text-5xl lg:text-6xl xl:text-7xl rainbow-gradient-text font-indie-flower tracking-widest icon-shadow hover:scale-105 hover:-rotate-3 transition-transform duration-300 ease-in-out"
+          />
+        </Link>
+        {/* <div className="mt-6 lg:mt-8">
           <LinkButton href="/contact" label="Contact" />
-        </div>
-      </div> */}
+        </div> */}
+      </div>
 
       <Toaster />
     </div>
