@@ -2,7 +2,7 @@
 import Image from "next/image";
 // import Link from "next/link";
 // import components
-import Toaster from "../ui/toaster";
+import Toaster from "@/ui/toaster";
 import LinkButton from "@/ui/link-button";
 // import InstallPrompt from "../ui/install-prompt";
 // import data
@@ -10,6 +10,8 @@ import { poBio, releases } from "../lib/po-data";
 // import components
 import AudioPlayer from "@/ui/audio-player";
 import MusicSwiperCube from "@/ui/music-swiper-cube";
+import YouTubeVideo from "@/ui/youtube-video";
+import ClientContainer from "@/ui/client-container";
 // import SitePreviewCoverFlow from "../ui/site-preview-cover-flow";
 // import ReleaseDisplayCondensed from "@/ui/release-display-condensed";
 // import SitePreviewCube from "@/ui/site-preview-cube";
@@ -17,8 +19,10 @@ import MusicSwiperCube from "@/ui/music-swiper-cube";
 // import CubeClientContainer from "@/ui/cube-client-container";
 import Heading from "../ui/heading";
 import PhotoGallery from "@/ui/photo-gallery";
+// import video data
+import { youTubeVideos } from "@/lib/video-data";
 // import images
-import { pics } from "@/lib/pics";
+// import { pics } from "@/lib/pics";
 // function delayLoad(ms: number) {
 //   return new Promise((resolve) => setTimeout(resolve, ms));
 // }
@@ -28,6 +32,7 @@ export default async function Home() {
   const cyberchondria = poLogue?.tracks.find(
     (track) => track.title === "cyberchondria",
   );
+  // console.log("youTubeVideos", youTubeVideos);
   // await delayLoad(5000);
   return (
     <div className="relative flex flex-col flex-grow items-center justify-center space-y-12">
@@ -57,15 +62,6 @@ export default async function Home() {
         </div>
       )}
 
-      {/* <div className="flex flex-col justify-center items-center w-full max-w-[90vw] lg:max-w-2xl">
-        <div className="w-full h-full mx-auto ">
-          <SitePreviewCoverFlow />
-        </div>
-        <div className="mt-6">
-          <LinkButton href="/music" label="Music" />
-        </div>
-      </div> */}
-
       <div className="flex flex-col justify-center items-center w-full max-w-2xl mx-auto">
         <div>
           <MusicSwiperCube />
@@ -73,7 +69,7 @@ export default async function Home() {
         <div className="mt-12">
           <div>
             <Heading
-              text="Get all the hits"
+              text="Listen to all the hits"
               headingLevel={2}
               className="font-bold text-xl text-shadow-black-background-black font-indie-flower tracking-widest"
             />
@@ -81,11 +77,16 @@ export default async function Home() {
           <LinkButton href="/music" label="Music" />
         </div>
       </div>
-      <div className="flex flex-col justify-center items-center w-full  mx-auto">
-        <div>
-          <PhotoGallery showOptions={false} showPagination={false} />
+
+      <div className="flex flex-col justify-center items-center w-full mx-auto">
+        <div className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl">
+          <PhotoGallery
+            showOptions={false}
+            showPagination={false}
+            showNavigation={false}
+          />
         </div>
-        <div className="-mt-16">
+        <div className="-mt-4">
           <div>
             <Heading
               text="See all the pics"
@@ -96,6 +97,30 @@ export default async function Home() {
           <LinkButton href="/photos" label="Photos" />
         </div>
       </div>
+
+      <div className="flex flex-col justify-center items-center w-full mx-auto">
+        <div className="w-full p-6 sm:p-4 md:p-2 lg:p-0">
+          <ClientContainer
+            component={
+              <YouTubeVideo
+                videoId="ABO_nv26QEc"
+                title="po mia - exposé (My St. Louis Live!)"
+              />
+            }
+          />
+        </div>
+        <div className="mt-12">
+          <div>
+            <Heading
+              text="Watch all the vids"
+              headingLevel={2}
+              className="font-bold text-xl text-shadow-black-background-black font-indie-flower tracking-widest"
+            />
+          </div>
+          <LinkButton href="/videos" label="Videos" />
+        </div>
+      </div>
+
       <Toaster />
     </div>
   );

@@ -32,10 +32,11 @@ interface PhotoGalleryProps {
  showOptions?: boolean; // Whether to show the gallery category buttons
  // CHANGED: Added showPagination prop
  showPagination?: boolean; // Whether to show pagination dots
+ showNavigation?: boolean; // Whether to show navigation arrows
 }
 
 // CHANGED: Added default value for showPagination prop
-export default function PhotoGallery({ showOptions, showPagination = true }: PhotoGalleryProps) {
+export default function PhotoGallery({ showOptions, showPagination = true, showNavigation = true }: PhotoGalleryProps) {
   const [currentPicSet, setCurrentPicSet] = useState<
     typeof promoPics | typeof bandPics | typeof soloPics | typeof headshots
   >(bandPics);
@@ -124,15 +125,15 @@ export default function PhotoGallery({ showOptions, showPagination = true }: Pho
         slidesPerView={"auto"}
         speed={1000}
         // effect={"fade"}
-        navigation={true}
+        navigation={showNavigation}
         // CHANGED: Made pagination conditional based on showPagination prop
         pagination={showPagination}
         autoplay={{
           delay: 4800,
           disableOnInteraction: false,
         }}
-        // CHANGED: Conditionally include Pagination module based on showPagination prop
-        modules={showPagination ? [Autoplay, Navigation, Pagination] : [Autoplay, Navigation]}
+        // CHANGED: Conditionally include Pagination and Navigation modules based on showPagination and showNavigation props
+        modules={showPagination || showNavigation ? [Autoplay, Navigation, Pagination] : [Autoplay]}
         onSwiper={(swiper) => (swiperRef.current = swiper)}>
         {currentPicSet.map((pic, index) => {
           const isPortrait = pic.orientation === "portrait";
@@ -156,7 +157,7 @@ export default function PhotoGallery({ showOptions, showPagination = true }: Pho
           return (
             <SwiperSlide key={index}>
               <div
-                className="w-full max-w-3xl mx-auto flex flex-col items-center justify-center bg-transparent mb-12 aspect-[3/2] "
+                className="w-full max-w-3xl mx-auto flex flex-col items-center justify-center bg-transparent aspect-[3/2] "
                 onClick={() => {
                   setFullScreenImage(pic);
                   track("image_view", { image: pic.alt });
