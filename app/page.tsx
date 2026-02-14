@@ -35,7 +35,6 @@ export default async function Home() {
   const upComingEvents = events.filter((event) => new Date(event.start_date) >= new Date());
   // const pastEvents = events.filter((event) => new Date(event.start_date) < new Date());
   const nextEvent = upComingEvents.length > 0 ? upComingEvents[0] : null;
-  console.log("nextEvent", nextEvent);
   const poLogue = releases.find((release) => release.title === "po logue");
   const cyberchondria = poLogue?.tracks.find(
     (track) => track.title === "cyberchondria",
@@ -70,7 +69,7 @@ export default async function Home() {
           headingLevel={2}
           className="font-bold text-5xl lg:text-6xl xl:text-7xl text-shadow-black-background-black font-indie-flower tracking-widest"
         />
-
+{nextEvent && (
         <div className="w-full max-w-sm mt-8 mx-auto flex justify-center items-center p-6">
           <CalendarEventDisplay
             id={nextEvent?.id}
@@ -104,8 +103,7 @@ export default async function Home() {
             eventLink={nextEvent?.event_link}
           />
         </div>
-     
-
+)}
         <div className="sm:mt-2 md:mt-6 lg:mt-8">
           <Heading
             text="Catch all the shows"
