@@ -28,23 +28,26 @@ export default function ContactForm({
 }: {
   setFormSubmitted: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+  const [name, setName] = useState("");
+  // const [firstName, setFirstName] = useState("");
+  // const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
   const [mailingListSignup, setMailingListSignup] = useState(false);
   const [emailErrorMessage, setEmailErrorMessage] = useState("");
   const [phoneErrorMessage, setPhoneErrorMessage] = useState("");
-  const [firstNameErrorMessage, setFirstNameErrorMessage] = useState("");
-  const [lastNameErrorMessage, setLastNameErrorMessage] = useState("");
+  const [nameErrorMessage, setNameErrorMessage] = useState("");
+  // const [firstNameErrorMessage, setFirstNameErrorMessage] = useState("");
+  // const [lastNameErrorMessage, setLastNameErrorMessage] = useState("");
   const [messageErrorMessage, setMessageErrorMessage] = useState("");
   const [deliveryErrorMessage, setDeliveryErrorMessage] = useState("");
   const [buttonSubmitted, setButtonSubmitted] = useState(false);
 
   const isFormValid =
-    validateName(firstName.trim()) &&
-    validateName(lastName.trim()) &&
+    validateName(name.trim()) &&
+    // validateName(firstName.trim()) &&
+    // validateName(lastName.trim()) &&
     validateEmail(email.trim()) &&
     validatePhone(phone.trim()) &&
     validateMessage(message);
@@ -73,15 +76,22 @@ export default function ContactForm({
           : ""
       );
     }
-    if (name === "first_name") {
-      setFirstNameErrorMessage(
-        value && !validateName(value)
-          ? "Name can only contain letters and spaces."
-          : ""
-      );
-    }
-    if (name === "last_name") {
-      setLastNameErrorMessage(
+    // if (name === "first_name") {
+    //   setFirstNameErrorMessage(
+    //     value && !validateName(value)
+    //       ? "Name can only contain letters and spaces."
+    //       : ""
+    //   );
+    // }
+    // if (name === "last_name") {
+    //   setLastNameErrorMessage(
+    //     value && !validateName(value)
+    //       ? "Name can only contain letters and spaces."
+    //       : ""
+    //   );
+    // }
+    if (name === "name") {
+      setNameErrorMessage(
         value && !validateName(value)
           ? "Name can only contain letters and spaces."
           : ""
@@ -104,29 +114,33 @@ export default function ContactForm({
   const handleFormSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
     // trim form data
-    const trimmedFirstName = firstName.trim();
-    const trimmedLastName = lastName.trim();
+    const trimmedName = name.trim();
+    // const trimmedFirstName = firstName.trim();
+    // const trimmedLastName = lastName.trim();
     const trimmedEmail = email.trim();
     const trimmedPhone = phone.trim();
     // validation  for inputs, handle errors accordingly
     const isEmailValid = validateEmail(trimmedEmail);
     const isPhoneValid = validatePhone(trimmedPhone);
-    const isFirstNameValid = validateName(trimmedFirstName);
-    const isLastNameValid = validateName(trimmedLastName);
+    const isNameValid = validateName(trimmedName);
+    // const isFirstNameValid = validateName(trimmedFirstName);
+    // const isLastNameValid = validateName(trimmedLastName);
     const isMessageValid = validateMessage(message);
 
     const errors = [];
     if (!isEmailValid) errors.push("email");
-    if (!isFirstNameValid) errors.push("first_name");
-    if (!isLastNameValid) errors.push("last_name");
+    if (!isNameValid) errors.push("name");
+    // if (!isFirstNameValid) errors.push("first_name");
+    // if (!isLastNameValid) errors.push("last_name");
     if (!isPhoneValid) errors.push("phone");
     if (!isMessageValid) errors.push("message");
 
     if (errors.length === 0) {
       // All valid
       const emailTemplateParams = {
-        first_name: trimmedFirstName,
-        last_name: trimmedLastName,
+        name: trimmedName,
+        // first_name: trimmedFirstName,
+        // last_name: trimmedLastName,
         email: trimmedEmail,
         phone_number: trimmedPhone,
         message: message,
@@ -147,8 +161,9 @@ export default function ContactForm({
         // .then((result) => {
         track("Contact form submission");
         setButtonSubmitted(true);
-        setFirstName("");
-        setLastName("");
+        setName
+        // setFirstName("");
+        // setLastName("");
         setEmail("");
         setPhone("");
         setMessage("");
@@ -210,7 +225,7 @@ export default function ContactForm({
       <form
         onSubmit={handleFormSubmit}
         className="w-full max-w-6xl mx-auto relative text-shadow-black-background-black">
-        <ContactFormInput
+        {/* <ContactFormInput
           inputType="input"
           label="First Name"
           name="first_name"
@@ -235,6 +250,19 @@ export default function ContactForm({
           errorMessage={lastNameErrorMessage}
           handleChange={handleChange}
           setStateVariable={setLastName}
+        /> */}
+        <ContactFormInput
+          inputType="input"
+          label="Name"
+          name="name"
+          type="text"
+          placeholder=""
+          value={name}
+          required={true}
+          autoComplete="name"
+          errorMessage={nameErrorMessage}
+          handleChange={handleChange}
+          setStateVariable={setName}
         />
         <ContactFormInput
           inputType="input"
@@ -243,7 +271,7 @@ export default function ContactForm({
           type="tel"
           placeholder=""
           value={phone}
-          required={true}
+          required={false}
           autoComplete="tel"
           errorMessage={phoneErrorMessage}
           handleChange={handleChange}
