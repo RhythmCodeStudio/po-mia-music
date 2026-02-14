@@ -247,13 +247,6 @@ button {
   filter: drop-shadow(-1px 2px 0 #000);
 }
 
-.coverflow-swiper .swiper-button-prev {
-  left: -0.5rem !important; /* Move further left */
-}
-
-.coverflow-swiper .swiper-button-next {
-  right: -0.5rem !important; /* Move further right */
-}
 
 .swiper {
   --swiper-navigation-color: #ffffff;

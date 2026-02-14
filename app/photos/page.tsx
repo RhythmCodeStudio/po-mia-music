@@ -1,10 +1,7 @@
-// import from next
-import Image from "next/image";
 // import components
 import Heading from "../../ui/heading";
 import PhotoGallery from "@/ui/photo-gallery";
-// import pic data
-import { pics } from "@/lib/pics";
+
 
 export default function Photos() {
   return (
@@ -15,7 +12,7 @@ export default function Photos() {
         className="font-bold text-5xl text-shadow-black-background-black font-indie-flower tracking-widest"
       />
       <div className="w-full ">
-        <PhotoGallery picSet={pics.map((pic) => pic.id)} />
+        <PhotoGallery showOptions={true} />
       </div>
     </div>
   );

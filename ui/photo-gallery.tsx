@@ -1,3 +1,6 @@
+// 
+
+
 "use client";
 // import from vercel
 import { track } from "@vercel/analytics/react";
@@ -24,14 +27,15 @@ import { headshots } from "@/lib/headshots";
 // import components
 import Heading from "./heading";
 import Button from "./button";
-// import icons
-// import { SlSizeFullscreen } from "react-icons/sl";
 
 interface PhotoGalleryProps {
-  picSet: number[];
+ showOptions?: boolean; // Whether to show the gallery category buttons
+ // CHANGED: Added showPagination prop
+ showPagination?: boolean; // Whether to show pagination dots
 }
 
-export default function PhotoGallery({ picSet }: PhotoGalleryProps) {
+// CHANGED: Added default value for showPagination prop
+export default function PhotoGallery({ showOptions, showPagination = true }: PhotoGalleryProps) {
   const [currentPicSet, setCurrentPicSet] = useState<
     typeof promoPics | typeof bandPics | typeof soloPics | typeof headshots
   >(bandPics);
@@ -65,8 +69,9 @@ export default function PhotoGallery({ picSet }: PhotoGalleryProps) {
   }, [fullScreenImage]);
 
   return (
-    <section className="text-center mx-auto w-full flex flex-col justify-center items-center font-bold max-w-4xl p-8 lg:px-0">
-      <div className="flex flex-row justify-center items-center mb-4 rounded-4xl shadow-white shadow-lg border-2 border-[rgba(255,255,255,0.3)] px-2 bg-black/50 mb-12">
+    <>
+    {showOptions && (
+      <div className="flex flex-row justify-center items-center mt-2 mb-4 rounded-4xl shadow-white shadow-lg border-2 border-[rgba(255,255,255,0.3)] bg-black/50 w-11/12 sm:w-7/12 md:w-6/12 lg:w-5/12 xl:w-3/12 mx-auto">
         <Button
           label="Band"
           onClick={() => {
@@ -103,6 +108,9 @@ export default function PhotoGallery({ picSet }: PhotoGalleryProps) {
            className="m-2 px-2 rounded-4xl text-shadow-black-background-black rainbow-gradient-hover"
         />
       </div>
+      )}
+    <section className="text-center mx-auto w-full flex flex-col justify-center items-center font-bold max-w-4xl p-8 lg:px-0">
+      
       {/* <Heading
         text="Photo Gallery"
         headingLevel={2}
@@ -117,14 +125,14 @@ export default function PhotoGallery({ picSet }: PhotoGalleryProps) {
         speed={1000}
         // effect={"fade"}
         navigation={true}
-        pagination={{
-          clickable: true,
-        }}
+        // CHANGED: Made pagination conditional based on showPagination prop
+        pagination={showPagination}
         autoplay={{
           delay: 4800,
           disableOnInteraction: false,
         }}
-        modules={[Autoplay, Navigation, Pagination]}
+        // CHANGED: Conditionally include Pagination module based on showPagination prop
+        modules={showPagination ? [Autoplay, Navigation, Pagination] : [Autoplay, Navigation]}
         onSwiper={(swiper) => (swiperRef.current = swiper)}>
         {currentPicSet.map((pic, index) => {
           const isPortrait = pic.orientation === "portrait";
@@ -164,17 +172,7 @@ export default function PhotoGallery({ picSet }: PhotoGalleryProps) {
                 <span className="text-sm my-6 text-shadow-black-background-black">
                   Click or tap image to view fullscreen
                 </span>
-                {/* <button
-                  aria-label="View Fullscreen"
-                  title="Enlarge Image"
-                  className="text-white bg-black rounded-full my-4 p-2 hover:bg-opacity-75 cursor-pointer"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setFullScreenImage(pic);
-                    track("image_view", { image: pic.alt });
-                  }}>
-                  <SlSizeFullscreen size={16} />
-                </button> */}
+        
               </div>
             </SwiperSlide>
           );
@@ -197,5 +195,6 @@ export default function PhotoGallery({ picSet }: PhotoGalleryProps) {
         </div>
       )}
     </section>
+    </>
   );
 }

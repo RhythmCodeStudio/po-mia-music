@@ -81,7 +81,21 @@ export default async function Home() {
           <LinkButton href="/music" label="Music" />
         </div>
       </div>
-
+      <div className="flex flex-col justify-center items-center w-full  mx-auto">
+        <div>
+          <PhotoGallery showOptions={false} showPagination={false} />
+        </div>
+        <div className="-mt-16">
+          <div>
+            <Heading
+              text="See all the pics"
+              headingLevel={2}
+              className="font-bold text-xl text-shadow-black-background-black font-indie-flower tracking-widest"
+            />
+          </div>
+          <LinkButton href="/photos" label="Photos" />
+        </div>
+      </div>
       <Toaster />
     </div>
   );
