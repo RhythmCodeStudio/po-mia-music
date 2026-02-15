@@ -171,12 +171,17 @@ import poMiaLogoBlack from "../public/logos/pomia-horizontal-logo-black.png";
 import { musicLinkData } from "@/lib/music-link-data";
 
 const rubikColors = [
-  "#f44336", // Red
-  "#2196f3", // Blue
-  "#4caf50", // Green
-  "#ffeb3b", // Yellow
+  // "#f44336", // Red
+  "#ff0000",
+  // "#2196f3", // Blue
+  "#4169e1",
+  // "#4caf50", // Green
+  "#00ff00",
+  // "#ffeb3b", // Yellow
+  "#ffff00",
   "#fff", // White
-  "#ff9800", // Orange
+  // "#ff9800", // Orange
+  "#ff7f00",
 ];
 
 function createTextTexture(text: string, size = 128) {
@@ -215,7 +220,7 @@ function Facelet({
 }) {
   const textTexture =
     faceIndex === 0 && row === 0 && col === 0
-      ? createTextTexture("Hello")
+      ? createTextTexture("")
       : undefined;
   // Only blue facelets (faceIndex 3) should be clickable
   const handleClick = () => {

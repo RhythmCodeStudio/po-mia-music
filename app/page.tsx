@@ -226,9 +226,9 @@ export default async function Home() {
           </AnimateOnScroll>
         </Link>
       </div>
-      <div>
+      {/* <div>
         <CubeClientContainer />
-      </div>
+      </div> */}
       <Toaster />
     </div>
   );
