@@ -73,7 +73,7 @@ export default function PhotoGallery({ showOptions, showPagination = true, showN
   return (
     <>
     {showOptions && (
-      <div className="flex flex-row justify-center items-center mt-2 mb-4 rounded-4xl shadow-white shadow-lg border-2 border-[rgba(255,255,255,0.3)] bg-black/50 w-11/12 sm:w-7/12 md:w-6/12 lg:w-5/12 xl:w-3/12 mx-auto">
+      <div className="flex flex-row justify-center items-center mt-2 mb-4 rounded-4xl shadow-white shadow-lg border-2 border-[rgba(255,255,255,0.3)] bg-black/50 w-full max-w-[90vw] sm:w-7/12 md:w-6/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12 5xl:w-2/12 xl:max-w-[24rem] mx-auto text-sm md:text-base">
         <Button
           label="Band"
           onClick={() => {
