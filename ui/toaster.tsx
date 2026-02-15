@@ -100,6 +100,7 @@ const toastMessage = () => {
     closeOnClick: false,
     pauseOnHover: true,
     draggable: true,
+    closeButton: false,
     progress: undefined,
     transition: Slide, // smoother transition
     style: {

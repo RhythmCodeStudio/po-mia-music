@@ -225,11 +225,7 @@ export default async function Home() {
             />
           </AnimateOnScroll>
         </Link>
-        {/* <div className="mt-6 lg:mt-8">
-          <LinkButton href="/contact" label="Contact" />
-        </div> */}
       </div>
-
       <Toaster />
     </div>
   );
