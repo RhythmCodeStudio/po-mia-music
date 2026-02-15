@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
 :root {
   --background: #ffffff;
@@ -270,4 +271,21 @@ button {
 
 .coverflow-swiper .swiper-wrapper {
   overflow: visible !important;
+}
+
+@layer utilities {
+  @keyframes slideIn {
+    0% {
+      transform: translateX(-50vw);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-slide-in {
+    animation: slideIn 1s ease-in-out forwards;
+  }
 }

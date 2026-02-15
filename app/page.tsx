@@ -14,8 +14,8 @@ import AudioPlayer from "@/ui/audio-player";
 import MusicSwiperCube from "@/ui/music-swiper-cube";
 import YouTubeVideo from "@/ui/youtube-video";
 import ClientContainer from "@/ui/client-container";
-import CalendarClientContainer from "@/ui/calendar-client-container";
 import CalendarEventDisplay from "@/ui/calendar-event-display";
+import AnimateOnScroll from "@/ui/animate-on-scroll";
 // import SitePreviewCoverFlow from "../ui/site-preview-cover-flow";
 // import ReleaseDisplayCondensed from "@/ui/release-display-condensed";
 // import SitePreviewCube from "@/ui/site-preview-cube";
@@ -69,11 +69,13 @@ export default async function Home() {
       </div>
 
       <div className="flex flex-col justify-center items-center w-full mx-auto">
-        <Heading
-          text="coming up..."
-          headingLevel={2}
-          className="font-bold text-5xl lg:text-6xl xl:text-7xl text-shadow-black-background-black font-indie-flower tracking-widest"
-        />
+        <AnimateOnScroll>
+          <Heading
+            text="coming up..."
+            headingLevel={2}
+            className="font-bold text-5xl lg:text-6xl xl:text-7xl text-shadow-black-background-black font-indie-flower tracking-widest"
+          />
+        </AnimateOnScroll>
         {nextEvent && (
           <div className="w-full max-w-sm mt-8 mx-auto flex justify-center items-center p-6">
             <CalendarEventDisplay
@@ -134,11 +136,13 @@ export default async function Home() {
       )} */}
 
       <div className="flex flex-col justify-center items-center w-full max-w-2xl mx-auto">
-        <Heading
-          text="music"
-          headingLevel={2}
-          className="font-bold text-5xl lg:text-6xl xl:text-7xl text-shadow-black-background-black font-indie-flower tracking-widest"
-        />
+        <AnimateOnScroll>
+          <Heading
+            text="music"
+            headingLevel={2}
+            className="font-bold text-5xl lg:text-6xl xl:text-7xl text-shadow-black-background-black font-indie-flower tracking-widest"
+          />
+        </AnimateOnScroll>
         <div className="w-full p-8">
           <MusicSwiperCube />
         </div>
@@ -158,11 +162,13 @@ export default async function Home() {
       </div>
 
       <div className="flex flex-col justify-center items-center w-full mx-auto">
-        <Heading
-          text="photos"
-          headingLevel={2}
-          className="font-bold text-5xl lg:text-6xl xl:text-7xl text-shadow-black-background-black font-indie-flower tracking-widest"
-        />
+        <AnimateOnScroll>
+          <Heading
+            text="photos"
+            headingLevel={2}
+            className="font-bold text-5xl lg:text-6xl xl:text-7xl text-shadow-black-background-black font-indie-flower tracking-widest"
+          />
+        </AnimateOnScroll>
         <div className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl">
           <PhotoGallery
             showOptions={false}
@@ -182,11 +188,13 @@ export default async function Home() {
       </div>
 
       <div className="flex flex-col justify-center items-center w-full mx-auto">
-        <Heading
-          text="videos"
-          headingLevel={2}
-          className="font-bold text-5xl lg:text-6xl xl:text-7xl text-shadow-black-background-black font-indie-flower tracking-widest"
-        />
+        <AnimateOnScroll>
+          <Heading
+            text="videos"
+            headingLevel={2}
+            className="font-bold text-5xl lg:text-6xl xl:text-7xl text-shadow-black-background-black font-indie-flower tracking-widest"
+          />
+        </AnimateOnScroll>
         <div className="w-full p-6 sm:p-4 md:p-2 lg:p-0 mt-2 sm:mt-4 md:mt-6 lg:mt-8">
           <ClientContainer
             component={
@@ -209,11 +217,13 @@ export default async function Home() {
 
       <div className="flex flex-col justify-center items-center w-full mx-auto">
         <Link href="/contact" className="">
-          <Heading
-            text="keep in touch"
-            headingLevel={2}
-            className="font-bold text-5xl lg:text-6xl xl:text-7xl rainbow-gradient-text font-indie-flower tracking-widest icon-shadow hover:scale-105 hover:-rotate-3 transition-transform duration-300 ease-in-out"
-          />
+          <AnimateOnScroll>
+            <Heading
+              text="keep in touch"
+              headingLevel={2}
+              className="font-bold text-5xl lg:text-6xl xl:text-7xl rainbow-gradient-text font-indie-flower tracking-widest icon-shadow hover:scale-105 hover:-rotate-3 transition-transform duration-300 ease-in-out"
+            />
+          </AnimateOnScroll>
         </Link>
         {/* <div className="mt-6 lg:mt-8">
           <LinkButton href="/contact" label="Contact" />
