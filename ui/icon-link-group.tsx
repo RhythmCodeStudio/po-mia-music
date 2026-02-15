@@ -39,7 +39,9 @@ type IconLinkGroupProps = {
   className?: string;
 };
 
-const iconMap: { [key: string]: React.ComponentType<{ size?: number; className?: string }> } = {
+const iconMap: {
+  [key: string]: React.ComponentType<{ size?: number; className?: string }>;
+} = {
   SiApplemusic,
   SiAmazon,
   SiAmazonmusic,
@@ -81,21 +83,22 @@ export default function IconLinkGroup({
   // Provide a default size if not specified
   const iconSize = size ?? 24;
 
-  return (
+    return (
     <div
-      className={`flex items-center space-x-8 ${className ?? ""} ${
+      className={`flex items-center justify-center flex-wrap gap-8 ${className ?? ""} ${
         orientation === "vertical" ? "flex-col" : "flex-row"
-      }`}>
-     {filteredLinks.map(({ href, icon, label, name }) => {
+      } ${orientation === "horizontal" ? "max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg" : ""}`}
+    >
+      {filteredLinks.map(({ href, icon, label }) => {
         const Icon = iconMap[icon];
-        if (!Icon) return null; // or fallback
+        if (!Icon) return null;
         return (
-          <IconLink
-            key={href}
-            href={href}
-            icon={Icon}
-            size={iconSize}
-            label={label}
+          <IconLink 
+            href={href} 
+            icon={Icon} 
+            size={iconSize} 
+            label={label} 
+            key={label}
           />
         );
       })}

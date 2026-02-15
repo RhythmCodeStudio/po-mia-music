@@ -86,9 +86,7 @@ export default function SimpleAudioPlayer({ song }: { song: Song }) {
           alt="po mia logo"
           width={2213}
           height={725}
-          className="opacity-20 max-w-xs"
-          // try adjusting this
-          sizes="(max-width: 640px) 100vw, 40vw"
+          className="opacity-20 max-w-[80%] max-h-[80%] object-contain"
         />
       </div>
       <div className="text-center bg-black/50 border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-lg rounded-4xl px-4 mt-1">
@@ -104,6 +102,7 @@ export default function SimpleAudioPlayer({ song }: { song: Song }) {
           max="100"
           value={progress}
           onChange={handleSeek}
+          aria-label="Song progress"
         />
         <div className="flex justify-between text-sm text-shadow-black-background-black px-2">
           <span>{formatTime(audioRef.current?.currentTime || 0)}</span>
