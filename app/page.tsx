@@ -1,6 +1,8 @@
 // import from next
 import Image from "next/image";
 // import Link from "next/link";
+// import clsx
+import clsx from "clsx";
 // import components
 import Toaster from "@/ui/toaster";
 import LinkButton from "@/ui/link-button";
@@ -68,7 +70,7 @@ export default async function Home() {
 
       <div className="flex flex-col justify-center items-center w-full mx-auto">
         <Heading
-          text="coming up next"
+          text="coming up..."
           headingLevel={2}
           className="font-bold text-5xl lg:text-6xl xl:text-7xl text-shadow-black-background-black font-indie-flower tracking-widest"
         />
@@ -107,7 +109,7 @@ export default async function Home() {
             />
           </div>
         )}
-        <div className="">
+        <div className={clsx("", !nextEvent && "mt-8")}>
           <Heading
             text="Catch all the shows"
             headingLevel={2}
