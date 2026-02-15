@@ -216,12 +216,12 @@ export default async function Home() {
       </div>
 
       <div className="flex flex-col justify-center items-center w-full mx-auto">
-        <Link href="/contact" className="">
+        <Link href="/contact">
           <AnimateOnScroll>
             <Heading
               text="keep in touch"
               headingLevel={2}
-              className="font-bold text-5xl lg:text-6xl xl:text-7xl rainbow-gradient-text font-indie-flower tracking-widest icon-shadow hover:scale-105 hover:-rotate-3 transition-transform duration-300 ease-in-out"
+              className="font-bold text-4xl xl:text-6xl rainbow-gradient-text font-indie-flower tracking-widest icon-shadow hover:scale-105 hover:-rotate-3 transition-transform duration-300 ease-in-out"
             />
           </AnimateOnScroll>
         </Link>

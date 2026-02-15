@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 // import from next
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 // import from vercel
 import { track } from "@vercel/analytics/react";
@@ -29,6 +30,11 @@ export default function Footer() {
   const [isStandalone, setIsStandalone] = useState(false);
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
   const [isIosModalOpen, setIsIosModalOpen] = useState(false);
+  const iconLinkData = [
+    ...contactLinkData,
+    // ...musicLinkData,
+    ...paymentLinks,
+  ];
   // Calculate number of grid items
   const gridItems = [
     !isStandalone, // Install App
@@ -89,19 +95,7 @@ export default function Footer() {
   }
 
   return (
-    <footer className="p-2 flex flex-col items-center space-y-4 max-w-600 mx-auto w-full">
-      {/* <div className="p-2 mb-6 w-full h-full">
-        <CubeClientContainer />
-      </div> */}
-      {/* <div className="h-auto w-48 p-2 flex items-center justify-center">
-        <Image
-          className="w-full h-auto"
-          src="/logos/pomia-horizontal-logo-colorful.png"
-          width={1400}
-          height={460}
-          alt="Po Mia Logo"
-        />
-      </div> */}
+    <footer className="p-2 flex flex-col items-center space-y-6 max-w-7xl mx-auto w-full">
       {/* <div className="w-50 h-auto ">
         <Image
           alt="po mia rubik's cube logo with butterflies"
@@ -110,7 +104,33 @@ export default function Footer() {
           height={700}
         />
       </div> */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 w-full justify-items-center text-shadow-black-background-black">
+       <div className="h-auto w-48 p-2 flex items-center justify-center">
+        <Image
+          className="w-full h-auto"
+          src="/logos/pomia-horizontal-logo-colorful.png"
+          width={1400}
+          height={460}
+          alt="Po Mia Logo"
+        />
+      </div>
+      <IconLinkGroup
+        orientation="horizontal"
+        linkData={iconLinkData}
+        size={iconSize}
+        className="icon-shadow"
+      />
+      <IconLinkGroup
+        orientation="horizontal"
+        linkData={musicLinkData}
+        size={iconSize}
+        className="icon-shadow"
+      />
+      {/* <div className="p-2 mb-6 w-full h-full">
+        <CubeClientContainer />
+      </div> */}
+     
+
+      {/* <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 w-full justify-items-center text-shadow-black-background-black">
         <div className="p-2 flex flex-col items-center order-0">
           <p className="mb-1 text-sm">Support:</p>
           <IconLinkGroup
@@ -128,8 +148,8 @@ export default function Footer() {
             size={iconSize}
             className="icon-shadow"
           />
-        </div>
-        {/* <div className="p-2 flex flex-col items-center order-2 lg:order-1">
+        </div> */}
+      {/* <div className="p-2 flex flex-col items-center order-2 lg:order-1">
           <p className="mb-1 text-sm">Listen:</p>
           <IconLinkGroup
             orientation="horizontal"
@@ -138,9 +158,9 @@ export default function Footer() {
             className="icon-shadow"
           />
         </div> */}
-      </div>
+      {/* </div> */}
 
-      {/* <div
+      <div
         className={clsx(
           "grid grid-cols-1 w-full gap-4 justify-items-center text-sm",
           `lg:${gridColsClass}`,
@@ -166,20 +186,21 @@ export default function Footer() {
             <PushNotificationSubscriptionManager renderedAs="button" />
           </div>
         )}
-      </div> */}
+      </div>
 
       <div className="text-sm text-white p-2 text-center text-shadow-black-background-black">
         <p className="">
           ©2026
-          {isHomePage
-            ? " pomiamusic.com"
-            : (
-                <>
-                   <Link href="/" onClick={() => track("Footer home link click")}>
-                    {" "}pomiamusic.com
-                  </Link>
-                </>
-              )}
+          {isHomePage ? (
+            " pomiamusic.com"
+          ) : (
+            <>
+              <Link href="/" onClick={() => track("Footer home link click")}>
+                {" "}
+                pomiamusic.com
+              </Link>
+            </>
+          )}
         </p>
         <p className="">
           Website by{" "}
@@ -188,9 +209,8 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             className="underline cursor-pointer"
-            onClick={() => track("Rhythm Code Studio link_click")}
-          >
-            Rhythm Code Studio
+            onClick={() => track("Rhythm Code Studio link_click")}>
+            Rhythm Code Studio LLC
           </a>
         </p>
       </div>

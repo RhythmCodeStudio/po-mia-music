@@ -85,9 +85,9 @@ export default function IconLinkGroup({
 
     return (
     <div
-      className={`flex items-center justify-center flex-wrap gap-8 ${className ?? ""} ${
+      className={`flex items-center justify-center flex-wrap gap-5 md:gap-8 lg:gap-10 xl:gap-12 2xl:gap-14 ${className ?? ""} ${
         orientation === "vertical" ? "flex-col" : "flex-row"
-      } ${orientation === "horizontal" ? "max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg" : ""}`}
+      } ${orientation === "horizontal" ? "max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl" : ""}`}
     >
       {filteredLinks.map(({ href, icon, label }) => {
         const Icon = iconMap[icon];
