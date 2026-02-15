@@ -91,7 +91,7 @@ export default function MorePopover({
           )}>
           <span
             aria-label="More options"
-            className="text-shadow-black-background-black lg:text-xl">
+            className="text-shadow-black-background-black lg:text-xl -mb-1">
             More
           </span>
         </PopoverButton>

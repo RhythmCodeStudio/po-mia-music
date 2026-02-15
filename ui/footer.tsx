@@ -129,7 +129,7 @@ export default function Footer() {
             className="icon-shadow"
           />
         </div>
-        <div className="p-2 flex flex-col items-center order-2 lg:order-1">
+        {/* <div className="p-2 flex flex-col items-center order-2 lg:order-1">
           <p className="mb-1 text-sm">Listen:</p>
           <IconLinkGroup
             orientation="horizontal"
@@ -137,10 +137,10 @@ export default function Footer() {
             size={iconSize}
             className="icon-shadow"
           />
-        </div>
+        </div> */}
       </div>
 
-      <div
+      {/* <div
         className={clsx(
           "grid grid-cols-1 w-full gap-4 justify-items-center text-sm",
           `lg:${gridColsClass}`,
@@ -166,7 +166,7 @@ export default function Footer() {
             <PushNotificationSubscriptionManager renderedAs="button" />
           </div>
         )}
-      </div>
+      </div> */}
 
       <div className="text-sm text-white p-2 text-center text-shadow-black-background-black">
         <p className="">

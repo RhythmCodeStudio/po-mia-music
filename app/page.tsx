@@ -112,12 +112,12 @@ export default async function Home() {
           </div>
         )}
         <div className={clsx("", !nextEvent && "mt-8")}>
-          <Heading
-            text="Catch all the shows"
+          {/* <Heading
+            text="catch all the shows"
             headingLevel={2}
             className="font-bold text-xl text-shadow-black-background-black font-indie-flower tracking-widest"
-          />
-          <LinkButton href="/calendar" label="Calendar" />
+          /> */}
+          <LinkButton href="/calendar" label="catch all the shows" />
         </div>
       </div>
 
@@ -152,12 +152,12 @@ export default async function Home() {
           </div>
         )}
         <div className="mt-8">
-          <Heading
+          {/* <Heading
             text="Listen to all the hits"
             headingLevel={2}
             className="font-bold text-xl text-shadow-black-background-black font-indie-flower tracking-widest"
-          />
-          <LinkButton href="/music" label="Music" />
+          /> */}
+          <LinkButton href="/music" label="Hear all the hits" />
         </div>
       </div>
 
@@ -178,12 +178,12 @@ export default async function Home() {
           />
         </div>
         <div className="">
-          <Heading
+          {/* <Heading
             text="See all the pics"
             headingLevel={2}
             className="font-bold text-xl text-shadow-black-background-black font-indie-flower tracking-widest"
-          />
-          <LinkButton href="/photos" label="Photos" />
+          /> */}
+          <LinkButton href="/photos" label="See all the pics" />
         </div>
       </div>
 
@@ -206,12 +206,12 @@ export default async function Home() {
           />
         </div>
         <div className="sm:mt-2 md:mt-6 lg:mt-8">
-          <Heading
+          {/* <Heading
             text="Watch all the vids"
             headingLevel={2}
             className="font-bold text-xl text-shadow-black-background-black font-indie-flower tracking-widest"
-          />
-          <LinkButton href="/videos" label="Videos" />
+          /> */}
+          <LinkButton href="/videos" label="Watch all the vids" />
         </div>
       </div>
 
