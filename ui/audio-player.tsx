@@ -87,6 +87,7 @@ export default function SimpleAudioPlayer({ song }: { song: Song }) {
           width={2213}
           height={725}
           className="opacity-20 max-w-xs"
+          // try adjusting this
           sizes="(max-width: 640px) 100vw, 40vw"
         />
       </div>

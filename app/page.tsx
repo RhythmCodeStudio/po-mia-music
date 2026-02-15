@@ -20,7 +20,7 @@ import AnimateOnScroll from "@/ui/animate-on-scroll";
 // import ReleaseDisplayCondensed from "@/ui/release-display-condensed";
 // import SitePreviewCube from "@/ui/site-preview-cube";
 // import ThreejsRubiksCube from "@/ui/rubiks-cube";
-// import CubeClientContainer from "@/ui/cube-client-container";
+import CubeClientContainer from "@/ui/cube-client-container";
 import Heading from "../ui/heading";
 import PhotoGallery from "@/ui/photo-gallery";
 // import actions
@@ -225,6 +225,9 @@ export default async function Home() {
             />
           </AnimateOnScroll>
         </Link>
+      </div>
+      <div>
+        <CubeClientContainer />
       </div>
       <Toaster />
     </div>
