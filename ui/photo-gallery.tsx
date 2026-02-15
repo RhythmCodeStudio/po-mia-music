@@ -172,7 +172,7 @@ export default function PhotoGallery({ showOptions, showPagination = true, showN
                   className="object-contain w-full h-full"
                 />
                 {showCaption && (
-                <span className="text-sm my-6 text-shadow-black-background-black">
+                <span className="text-sm mt-1 mb-12 text-shadow-black-background-black">
                   Click or tap image to view fullscreen
                 </span>
                 )}
