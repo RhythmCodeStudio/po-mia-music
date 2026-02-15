@@ -160,7 +160,7 @@ export default function Footer() {
         </div> */}
       {/* </div> */}
 
-      <div
+      {/* <div
         className={clsx(
           "grid grid-cols-1 w-full gap-4 justify-items-center text-sm",
           `lg:${gridColsClass}`,
@@ -186,7 +186,7 @@ export default function Footer() {
             <PushNotificationSubscriptionManager renderedAs="button" />
           </div>
         )}
-      </div>
+      </div> */}
 
       <div className="text-sm text-white p-2 text-center text-shadow-black-background-black">
         <p className="">
