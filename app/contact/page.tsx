@@ -49,7 +49,7 @@ export default async function Contact() {
         />
       </div>
       <div className="w-full p-8 flex flex-col justify-center items-center gap-8">
-        <div className="w-full flex items-center justify-center ">
+        <div className="w-full flex items-center justify-center max-w-lg">
           <MailingListSignUpForm />
         </div>
         <div className="w-42 md:w-50 lg:w-60 h-auto">

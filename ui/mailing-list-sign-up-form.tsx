@@ -74,7 +74,7 @@ export default function MailingListSignUpForm({
   };
 
   return (
-    <div className="flex flex-col items-stretch w-full max-w-2xl p-4 lg:p-8 bg-black/50 border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-lg rounded-4xl">
+    <div className="flex flex-col items-stretch w-full max-w-2xl p-4 lg:p-8 bg-black/50 border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-lg rounded-4xl max-w-lg">
       <Heading
         text={mode === "sign-up" ? "Mailing List Sign-Up" : "Unsubscribe from Mailing List"}
         headingLevel={3}
@@ -101,10 +101,10 @@ export default function MailingListSignUpForm({
           type="submit"
           disabled={!isFormValid || submitted}
           className={clsx(
-            "z-50 border-2 border-[rgba(255,255,255,0.3)] p-1 px-4 rounded-full text-sm rainbow-gradient text-shadow-black-background-black transition-colors transition-shadow transition-opacity transition-transform duration-700 ease-in-out tracking-widest will-change-transform",
+            "z-50 border-2 border-[rgba(255,255,255,0.3)] p-1 px-4 rounded-full text-sm rainbow-gradient text-shadow-black-background-black transition-colors transition-shadow transition-opacity transition-transform duration-700 ease-in-out tracking-widest will-change-transform mx-auto",
             {
               "cursor-not-allowed opacity-40": !isFormValid || submitted,
-              "border-green-500 hover:border-[rgba(255,255,255,0.3)] cursor-pointer opacity-100 hover:scale-105 active:scale-95 shadow-lg shadow-green-500/50":
+              "border-green-500 hover:border-[rgba(255,255,255,0.3)] cursor-pointer opacity-100 hover:scale-105 active:scale-95 shadow-lg shadow-white":
                 isFormValid && !submitted,
             }
           )}>
