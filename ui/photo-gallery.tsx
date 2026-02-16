@@ -44,6 +44,7 @@ export default function PhotoGallery({ showOptions, showPagination = true, showN
   const [fullScreenImage, setFullScreenImage] = useState<
     (typeof promoPics)[number] | (typeof bandPics)[number] | (typeof soloPics)[number] | (typeof headshots)[number] | null
   >(null);
+  const [activeCategory, setActiveCategory] = useState<"band" | "solo" | "headshots" | "promo">("band");
   const swiperRef = useRef<SwiperType | null>(null);
 
   // Disable scroll and pause autoplay when fullscreen
@@ -78,36 +79,40 @@ export default function PhotoGallery({ showOptions, showPagination = true, showN
           label="Band"
           onClick={() => {
             setCurrentPicSet(bandPics);
+            setActiveCategory("band");
             track("gallery_switch", { gallery: "band_photos" });
           }}
-          className="m-2 px-2 rounded-4xl text-shadow-black-background-black rainbow-gradient-hover"
+          className={`m-2 px-2 rounded-4xl text-shadow-black-background-black ${activeCategory === "band" ? "rainbow-gradient" : "rainbow-gradient-hover"}`}
         />
           <span className="text-shadow-black-background-black">|</span>
         <Button
           label="Solo"
           onClick={() => {
             setCurrentPicSet(soloPics);
+            setActiveCategory("solo");
             track("gallery_switch", { gallery: "solo_photos" });
           }}
-          className="m-2 px-2 rounded-4xl text-shadow-black-background-black rainbow-gradient-hover"
+          className={`m-2 px-2 rounded-4xl text-shadow-black-background-black ${activeCategory === "solo" ? "rainbow-gradient" : "rainbow-gradient-hover"}`}
         />
         <span className="text-shadow-black-background-black">|</span>
         <Button
           label="Headshots"
           onClick={() => {
             setCurrentPicSet(headshots);
+            setActiveCategory("headshots");
             track("gallery_switch", { gallery: "headshots" });
           }}
-           className="m-2 px-2 rounded-4xl text-shadow-black-background-black rainbow-gradient-hover"
+          className={`m-2 px-2 rounded-4xl text-shadow-black-background-black ${activeCategory === "headshots" ? "rainbow-gradient" : "rainbow-gradient-hover"}`}
         />
         <span className="text-shadow-black-background-black">|</span>
         <Button
           label="Promo Pics"
           onClick={() => {
             setCurrentPicSet(promoPics);
+            setActiveCategory("promo");
             track("gallery_switch", { gallery: "promo_pics" });
           }}
-           className="m-2 px-2 rounded-4xl text-shadow-black-background-black rainbow-gradient-hover"
+           className={`m-2 px-2 rounded-4xl text-shadow-black-background-black ${activeCategory === "promo" ? "rainbow-gradient" : "rainbow-gradient-hover"}`}
         />
       </div>
       )}
