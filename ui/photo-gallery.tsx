@@ -142,24 +142,24 @@ export default function PhotoGallery({ showOptions, showPagination = true, showN
         modules={showPagination || showNavigation ? [Autoplay, Navigation, Pagination] : [Autoplay]}
         onSwiper={(swiper) => (swiperRef.current = swiper)}>
         {currentPicSet.map((pic, index) => {
-          const isPortrait = pic.orientation === "portrait";
-          const isLandscape = pic.orientation === "landscape";
-          const isSquare = pic.orientation === "square";
-          if (!isPortrait && !isLandscape && !isSquare) {
-            return null; // Skip images with unknown orientation
-          }
-          let imageWidth = 1920;
-          let imageHeight = 1280;
-          if (isSquare) {
-            imageWidth = 1000;
-            imageHeight = 1000;
-          } else if (isPortrait) {
-            imageWidth = 1280;
-            imageHeight = 1920;
-          } else if (isLandscape) {
-            imageWidth = 1920;
-            imageHeight = 1280;
-          }
+          // const isPortrait = pic.orientation === "portrait";
+          // const isLandscape = pic.orientation === "landscape";
+          // const isSquare = pic.orientation === "square";
+          // if (!isPortrait && !isLandscape && !isSquare) {
+          //   return null; // Skip images with unknown orientation
+          // }
+          let imageWidth = pic.width;
+          let imageHeight = pic.height;
+          // if (isSquare) {
+          //   imageWidth = 1000;
+          //   imageHeight = 1000;
+          // } else if (isPortrait) {
+          //   imageWidth = 1280;
+          //   imageHeight = 1920;
+          // } else if (isLandscape) {
+          //   imageWidth = 1920;
+          //   imageHeight = 1280;
+          // }
           return (
             <SwiperSlide key={index}>
               <div
@@ -170,7 +170,7 @@ export default function PhotoGallery({ showOptions, showPagination = true, showN
                 }}>
                 <Image
                   src={pic.src}
-                  alt={pic.alt || "Gallery image"}
+                  alt={pic.alt || " po mia gallery image"}
                   width={imageWidth}
                   height={imageHeight}
                   priority
