@@ -6,7 +6,13 @@ import Button from "./button";
 // import icon
 import { RiCloseCircleFill } from "react-icons/ri";
 
-export default function ToastContent() {
+interface ToastContentProps {
+  // You can add props here if needed in the future
+  message?: string;
+  component?: React.ReactNode;
+}
+
+export default function ToastContent({ message, component }: ToastContentProps) {
   return (
     <div>
       <Button
@@ -18,12 +24,11 @@ export default function ToastContent() {
 
       <div className="mt-6 flex flex-col items-center text-center text-shadow-black-background-black rounded-[1rem]">
         <p>
-          Subscribe to notifications to stay up to date with the latest from po
-          mia!
+          {message || "Subscribe to notifications to stay up to date with the latest from po mia!"}
         </p>
-        <div className="flex justify-center mx-auto">🎵✨🎵✨</div>
+        {/* <div className="flex justify-center mx-auto">🎵✨🎵✨</div> */}
         <div className="my-2">
-          <PushNotificationSubscriptionManager renderedAs="button" />
+          {component || <PushNotificationSubscriptionManager renderedAs="button" />}
         </div>
       </div>
     </div>

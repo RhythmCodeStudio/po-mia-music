@@ -16,6 +16,8 @@ import YouTubeVideo from "@/ui/youtube-video";
 import ClientContainer from "@/ui/client-container";
 import CalendarEventDisplay from "@/ui/calendar-event-display";
 import AnimateOnScroll from "@/ui/animate-on-scroll";
+import MaillistSignUpModal from "@/ui/mailinglist-signup-modal";
+import MorePopover from "@/ui/more-popover";
 // import SitePreviewCoverFlow from "../ui/site-preview-cover-flow";
 // import ReleaseDisplayCondensed from "@/ui/release-display-condensed";
 // import SitePreviewCube from "@/ui/site-preview-cube";

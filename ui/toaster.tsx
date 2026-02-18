@@ -4,13 +4,13 @@ import { useEffect, useRef } from "react";
 // import from react-toastify
 import { ToastContainer, toast, Slide } from "react-toastify";
 //  import components
-import PushNotificationSubscriptionManager from "./push-notification-subscription-manager";
-import Button from "./button";
+// import PushNotificationSubscriptionManager from "./push-notification-subscription-manager";
+// import Button from "./button";
 import ToastContent from "./toast-content";
 // import context
 import { usePushNotification } from "../context/push-notification-context-provider";
 // import icon
-import { RiCloseCircleFill } from "react-icons/ri";
+// import { RiCloseCircleFill } from "react-icons/ri";
 
 // Toast content as a component to accept props from react-toastify
 // function ToastContent() {
@@ -37,8 +37,13 @@ import { RiCloseCircleFill } from "react-icons/ri";
 //   );
 // }
 
-const toastMessage = () => {
-  toast(<ToastContent />, {
+interface ToasterProps {
+  message?: string;
+  component?: React.ReactNode;
+}
+
+const toastMessage = (message?: string, component?: React.ReactNode) => {
+  toast(<ToastContent message={message} component={component} />, {
     position: "bottom-center", // softer position
     autoClose: 7000,
     hideProgressBar: false,
@@ -63,7 +68,7 @@ const toastMessage = () => {
   });
 };
 
-export default function Toaster() {
+export default function Toaster({ message, component }: ToasterProps) {
   const { isSubscribed } = usePushNotification();
   const shownRef = useRef(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -77,14 +82,14 @@ export default function Toaster() {
       timeoutRef.current = setTimeout(() => {
         // Double-check before showing toast
         if (isSubscribed === false) {
-          toastMessage();
+          toastMessage(message, component);
         }
       }, 1500);
     };
 
     window.addEventListener("pointerdown", handler, { once: true });
     return () => window.removeEventListener("pointerdown", handler);
-  }, [isSubscribed]);
+  }, [isSubscribed, message, component]);
 
   // If user subscribes before toast shows, clear the pending timeout
   useEffect(() => {
