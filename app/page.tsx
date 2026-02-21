@@ -1,6 +1,5 @@
 // import from next
 import Image from "next/image";
-// import Link from "next/link";
 // import clsx
 import clsx from "clsx";
 // import components
@@ -28,9 +27,6 @@ import PhotoGallery from "@/ui/photo-gallery";
 // import actions
 import { getCalendarEvents } from "../actions/actions";
 import Link from "next/link";
-// import { youTubeVideos } from "@/lib/video-data";
-// import images
-// import { pics } from "@/lib/pics";
 // function delayLoad(ms: number) {
 //   return new Promise((resolve) => setTimeout(resolve, ms));
 // }
@@ -46,7 +42,6 @@ export default async function Home() {
   const cyberchondria = poLogue?.tracks.find(
     (track) => track.title === "cyberchondria",
   );
-  // console.log("youTubeVideos", youTubeVideos);
   // await delayLoad(5000);
   return (
     <div className="relative flex flex-col flex-grow items-center justify-center space-y-12 lg:space-y-16">
@@ -69,7 +64,6 @@ export default async function Home() {
           {poBio}
         </p>
       </div>
-
       <div className="flex flex-col justify-center items-center w-full mx-auto">
         <AnimateOnScroll>
           <Heading
@@ -114,28 +108,9 @@ export default async function Home() {
           </div>
         )}
         <div className={clsx("", !nextEvent && "mt-8")}>
-          {/* <Heading
-            text="catch all the shows"
-            headingLevel={2}
-            className="font-bold text-xl text-shadow-black-background-black font-indie-flower tracking-widest"
-          /> */}
           <LinkButton href="/calendar" label="catch all the shows" />
         </div>
       </div>
-
-      {/* {cyberchondria && (
-        // <div className=" mx-auto w-full">
-        <div className="px-6 lg:px-0 flex flex-col justify-center items-center w-full max-w-2xl  mx-auto">
-          <Heading
-            text="music"
-            headingLevel={2}
-            className="font-bold text-5xl lg:text-6xl xl:text-7xl text-shadow-black-background-black font-indie-flower tracking-widest"
-          />
-          <div className="w-full pt-8">
-            <AudioPlayer song={cyberchondria} />
-          </div>
-        </div>
-      )} */}
 
       <div className="flex flex-col justify-center items-center w-full max-w-2xl mx-auto">
         <AnimateOnScroll>
@@ -154,11 +129,6 @@ export default async function Home() {
           </div>
         )}
         <div className="mt-8">
-          {/* <Heading
-            text="Listen to all the hits"
-            headingLevel={2}
-            className="font-bold text-xl text-shadow-black-background-black font-indie-flower tracking-widest"
-          /> */}
           <LinkButton href="/music" label="Hear all the hits" />
         </div>
       </div>
@@ -180,11 +150,6 @@ export default async function Home() {
           />
         </div>
         <div className="">
-          {/* <Heading
-            text="See all the pics"
-            headingLevel={2}
-            className="font-bold text-xl text-shadow-black-background-black font-indie-flower tracking-widest"
-          /> */}
           <LinkButton href="/photos" label="See all the pics" />
         </div>
       </div>
@@ -208,11 +173,6 @@ export default async function Home() {
           />
         </div>
         <div className="sm:mt-2 md:mt-6 lg:mt-8">
-          {/* <Heading
-            text="Watch all the vids"
-            headingLevel={2}
-            className="font-bold text-xl text-shadow-black-background-black font-indie-flower tracking-widest"
-          /> */}
           <LinkButton href="/videos" label="Watch all the vids" />
         </div>
       </div>
@@ -231,7 +191,10 @@ export default async function Home() {
       {/* <div>
         <CubeClientContainer />
       </div> */}
-      <Toaster />
+      <Toaster 
+        // message="Join the Mailinglist!"
+        // component={<LinkButton href="/mailing-list?mode=sign-up" label="Sign Up" />}
+      />
     </div>
   );
 }

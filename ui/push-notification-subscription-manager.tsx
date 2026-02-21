@@ -45,7 +45,7 @@ export default function PushNotificationSubscriptionManager({
   const { setIsSubscribed } = usePushNotification();
   const [isSupported, setIsSupported] = useState(false);
   const [subscription, setSubscription] = useState<PushSubscription | null>(
-    null
+    null,
   );
   // const [message, setMessage] = useState("");
   // const [url, setUrl] = useState("");
@@ -72,7 +72,7 @@ export default function PushNotificationSubscriptionManager({
     const sub = await registration.pushManager.subscribe({
       userVisibleOnly: true,
       applicationServerKey: urlBase64ToUint8Array(
-        process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY!
+        process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY!,
       ),
     });
     setSubscription(sub);
@@ -135,7 +135,7 @@ export default function PushNotificationSubscriptionManager({
         <button
           onClick={subscribeToPush}
           className="cursor-pointer border-2 border-[rgba(255,255,255,0.3)] p-1 px-4 rounded-full shadow rainbow-gradient text-shadow-black-background-black w-full shadow-white shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] transform transition-transform transition-shadow duration-200 active:scale-95">
-            <span className="font-semibold z-50">Subscribe to Notifications</span>
+          <span className="font-semibold z-50">Subscribe to Notifications</span>
         </button>
       )}
     </>
