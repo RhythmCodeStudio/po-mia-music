@@ -10,7 +10,7 @@ export default function InstallPrompt() {
   useEffect(() => {
     setIsIOS(
       /iPad|iPhone|iPod/.test(navigator.userAgent) &&
-        !(window as Window & { MSStream?: unknown }).MSStream
+        !(window as Window & { MSStream?: unknown }).MSStream,
     );
     setIsStandalone(window.matchMedia("(display-mode: standalone)").matches);
 
@@ -27,7 +27,7 @@ export default function InstallPrompt() {
     return () => {
       window.removeEventListener(
         "beforeinstallprompt",
-        handleBeforeInstallPrompt
+        handleBeforeInstallPrompt,
       );
     };
   }, []);
@@ -54,15 +54,12 @@ export default function InstallPrompt() {
         onClick={handleDismiss}
         className="absolute top-2 right-2 hover:text-gray-700 text-2xl font-bold px-2 cursor-pointer text-shadow-black-background-black"
         aria-label="Dismiss install prompt"
-        type="button"
-      >
+        type="button">
         ×
       </button>
       <div className="text-shadow-black-background-black">
-      <h2 className="text-xl font-semibold mb-2">Install Po Mia Music</h2>
-      <p className="mb-4">
-        Install on your device for the best experience.
-      </p>
+        <h2 className="text-xl font-semibold mb-2">Install Po Mia Music</h2>
+        <p className="mb-4">Install on your device for the best experience.</p>
       </div>
       {deferredPrompt && (
         <button

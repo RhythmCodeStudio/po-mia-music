@@ -5,25 +5,16 @@ import clsx from "clsx";
 // import components
 import Toaster from "@/ui/toaster";
 import LinkButton from "@/ui/link-button";
-// import InstallPrompt from "../ui/install-prompt";
-// import data
-import { poBio, releases } from "../lib/po-data";
-// import components
 import AudioPlayer from "@/ui/audio-player";
 import MusicSwiperCube from "@/ui/music-swiper-cube";
 import YouTubeVideo from "@/ui/youtube-video";
 import ClientContainer from "@/ui/client-container";
 import CalendarEventDisplay from "@/ui/calendar-event-display";
 import AnimateOnScroll from "@/ui/animate-on-scroll";
-import MaillistSignUpModal from "@/ui/mailinglist-signup-modal";
-import MorePopover from "@/ui/more-popover";
-// import SitePreviewCoverFlow from "../ui/site-preview-cover-flow";
-// import ReleaseDisplayCondensed from "@/ui/release-display-condensed";
-// import SitePreviewCube from "@/ui/site-preview-cube";
-// import ThreejsRubiksCube from "@/ui/rubiks-cube";
-import CubeClientContainer from "@/ui/cube-client-container";
-import Heading from "../ui/heading";
+import Heading from "@/ui/heading";
 import PhotoGallery from "@/ui/photo-gallery";
+// import data
+import { poBio, releases } from "../lib/po-data";
 // import actions
 import { getCalendarEvents } from "../actions/actions";
 import Link from "next/link";
@@ -36,7 +27,6 @@ export default async function Home() {
   const upComingEvents = events.filter(
     (event) => new Date(event.start_date) >= new Date(),
   );
-  // const pastEvents = events.filter((event) => new Date(event.start_date) < new Date());
   const nextEvent = upComingEvents.length > 0 ? upComingEvents[0] : null;
   const poLogue = releases.find((release) => release.title === "po logue");
   const cyberchondria = poLogue?.tracks.find(
@@ -111,7 +101,6 @@ export default async function Home() {
           <LinkButton href="/calendar" label="catch all the shows" />
         </div>
       </div>
-
       <div className="flex flex-col justify-center items-center w-full max-w-2xl mx-auto">
         <AnimateOnScroll>
           <Heading
@@ -132,7 +121,6 @@ export default async function Home() {
           <LinkButton href="/music" label="Hear all the hits" />
         </div>
       </div>
-
       <div className="flex flex-col justify-center items-center w-full mx-auto">
         <AnimateOnScroll>
           <Heading
@@ -153,7 +141,6 @@ export default async function Home() {
           <LinkButton href="/photos" label="See all the pics" />
         </div>
       </div>
-
       <div className="flex flex-col justify-center items-center w-full mx-auto">
         <AnimateOnScroll>
           <Heading
@@ -176,7 +163,6 @@ export default async function Home() {
           <LinkButton href="/videos" label="Watch all the vids" />
         </div>
       </div>
-
       <div className="flex flex-col justify-center items-center w-full mx-auto">
         <Link href="/contact">
           <AnimateOnScroll>
@@ -188,13 +174,7 @@ export default async function Home() {
           </AnimateOnScroll>
         </Link>
       </div>
-      {/* <div>
-        <CubeClientContainer />
-      </div> */}
-      <Toaster 
-        // message="Join the Mailinglist!"
-        // component={<LinkButton href="/mailing-list?mode=sign-up" label="Sign Up" />}
-      />
+      <Toaster />
     </div>
   );
 }

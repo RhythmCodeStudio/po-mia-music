@@ -3,6 +3,8 @@ import Image from "next/image";
 // import components
 import Heading from "../../ui/heading";
 import CalendarClientContainer from "../../ui/calendar-client-container";
+import Toaster from "../../ui/toaster";
+import InstallAppButton from "../../ui/install-app-button";
 // import CalendarEventDisplay from "../../ui/calendar-event-display";
 // import data
 import { getCalendarEvents } from "../../actions/actions";
@@ -31,22 +33,22 @@ export const metadata = {
     //     height: 630,
     //     alt: "Calendar | Po Mia | St. Louis, Missouri",
     //   },
-      // {
-      //   url: ,
-      //   width: 1920,
-      //   height: 1080,
-      //   alt: "Calendar | Po Mia | St. Louis, Missouri",
-      // },
-      // {
-      //   url: ,
-      //   width: 1080,
-      //   height: 1080,
-      // },
-      // {
-      //   url: ,
-      //   width: 600,
-      //   height: 314,
-      // }
+    // {
+    //   url: ,
+    //   width: 1920,
+    //   height: 1080,
+    //   alt: "Calendar | Po Mia | St. Louis, Missouri",
+    // },
+    // {
+    //   url: ,
+    //   width: 1080,
+    //   height: 1080,
+    // },
+    // {
+    //   url: ,
+    //   width: 600,
+    //   height: 314,
+    // }
     // ],
   },
 };
@@ -95,6 +97,12 @@ export default async function Calendar() {
           className="rounded-4xl shadow-lg shadow-white mb-8"
         />
       </div>
+      <Toaster
+        message="Install the app for the best experience!"
+        component={<InstallAppButton />}
+        // message="Join the Mailinglist!"
+        // component={<LinkButton href="/mailing-list?mode=sign-up" label="Sign Up" />}
+      />
     </div>
   );
 }

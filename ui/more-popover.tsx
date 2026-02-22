@@ -11,7 +11,7 @@ import { clsx } from "clsx";
 import PushNotificationSubscriptionManager from "./push-notification-subscription-manager";
 // import MailingListSignupModal from "./mailinglist-signup-modal";
 import Button from "./button";
-import StarrySky from "./starry-sky";
+// import StarrySky from "./starry-sky";
 // import from react icons
 import { FiXCircle } from "react-icons/fi";
 
@@ -170,7 +170,7 @@ export default function MorePopover({
               </p>
             </div>
           </div>
-          <StarrySky />
+          {/* <StarrySky /> */}
         </div>
       )}
     </>
