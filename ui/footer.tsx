@@ -8,10 +8,11 @@ import { usePathname } from "next/navigation";
 // import from vercel
 import { track } from "@vercel/analytics/react";
 // import components
-import PushNotificationSubscriptionManager from "./push-notification-subscription-manager";
-import IconLink from "./icon-link";
+import FadeInOnScroll from "@/ui/fade-in-on-scroll";
+// import PushNotificationSubscriptionManager from "./push-notification-subscription-manager";
+// import IconLink from "./icon-link";
 import IconLinkGroup from "./icon-link-group";
-import MailingListSignupModal from "./mailinglist-signup-modal";
+// import MailingListSignupModal from "./mailinglist-signup-modal";
 // import link data
 import { contactLinkData } from "../lib/contact-link-data";
 import { musicLinkData } from "@/lib/music-link-data";
@@ -19,7 +20,7 @@ import { paymentLinks } from "@/lib/po-data";
 // import context
 import { usePushNotification } from "../context/push-notification-context-provider";
 // import clsx
-import { clsx } from "clsx";
+// import { clsx } from "clsx";
 
 export default function Footer() {
   const pathname = usePathname();
@@ -95,6 +96,7 @@ export default function Footer() {
   }
 
   return (
+    <FadeInOnScroll className="w-full">
     <footer className="p-2 flex flex-col items-center space-y-6 max-w-7xl mx-auto w-full">
       {/* <div className="w-50 h-auto ">
         <Image
@@ -215,5 +217,6 @@ export default function Footer() {
         </p>
       </div>
     </footer>
+    </FadeInOnScroll>
   );
 }
