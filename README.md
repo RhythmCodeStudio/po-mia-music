@@ -11,3 +11,12 @@ The official web application for po mia. po is an eclectic, up-and-coming singer
 - Tailwind CSS
 - TypeScript
 - Vercel for deployment
+
+## Features
+
+- Responsive design for optimal viewing on various devices
+- Dynamic content showcasing po mia's music, videos, and upcoming events
+- Custom content management system for easy updates
+- Installable Progress Web Application
+- Push notifications
+- Mailing list integration for fan engagement
