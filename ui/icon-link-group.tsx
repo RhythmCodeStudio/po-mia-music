@@ -2,19 +2,16 @@
 
 import {
   SiApplemusic,
-  SiAmazon,
-  SiAmazonmusic,
   SiBandcamp,
   SiSpotify,
   SiTidal,
   SiYoutube,
   SiYoutubemusic,
 } from "react-icons/si";
-import { FaDeezer } from "react-icons/fa";
+import { FaAmazon, FaDeezer } from "react-icons/fa";
 import { IoLogoInstagram, IoLogoFacebook } from "react-icons/io";
 import { IoLogoTiktok } from "react-icons/io5";
 import { HiEnvelope } from "react-icons/hi2";
-// import { SiVenmo } from "react-icons/si";
 import { SiCashapp } from "react-icons/si";
 import { BiLogoVenmo } from "react-icons/bi";
 // import from next
@@ -43,8 +40,7 @@ const iconMap: {
   [key: string]: React.ComponentType<{ size?: number; className?: string }>;
 } = {
   SiApplemusic,
-  SiAmazon,
-  SiAmazonmusic,
+  FaAmazon,
   SiBandcamp,
   SiSpotify,
   SiTidal,
