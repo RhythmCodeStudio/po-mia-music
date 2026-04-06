@@ -33,7 +33,7 @@ export default async function Videos() {
   return (
     <div className="flex flex-col justify-center items-center w-full">
       <Heading
-        text="Videos"
+        text="videos"
         headingLevel={2}
         className="font-bold text-5xl text-shadow-black-background-black font-indie-flower tracking-widest"
       />

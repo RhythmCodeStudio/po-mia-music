@@ -1,36 +1,37 @@
 export const navListItemData = [
   {
-    label: "Admin",
+    label: "admin",
     href: "/admin",
     htmlElement: "internalLink",
   },
+   {
+    label: "calendar",
+    href: "/calendar",
+    htmlElement: "internalLink",
+  },
   // {
-  //   label: "About",
+  //   label: "about",
   //   href: "/about",
   //   htmlElement: "internalLink",
   // },
   {
-    label: "Music",
+    label: "music",
     href: "/music",
     htmlElement: "internalLink",
   },
   {
-    label: "Photos",
+    label: "photos",
     href: "/photos",
     htmlElement: "internalLink",
   },
   {
-    label: "Videos",
+    label: "videos",
     href: "/videos",
     htmlElement: "internalLink",
   },
+ 
   {
-    label: "Calendar",
-    href: "/calendar",
-    htmlElement: "internalLink",
-  },
-   {
-    label: "Contact",
+    label: "contact",
     href: "/contact",
     htmlElement: "internalLink",
   },

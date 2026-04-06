@@ -36,9 +36,9 @@ export default async function Contact() {
   return (
     <section className="flex flex-col items-center justify-center w-full">
       <Heading
-        text="Contact"
+        text="contact"
         headingLevel={2}
-        className="text-4xl font-semibold text-shadow-black-background-black font-acme tracking-widest"
+        className="text-4xl font-semibold text-shadow-black-background-black font-indie-flower tracking-widest"
       />
       <div className="mt-2">
         <IconLinkGroupClientContainer
@@ -52,7 +52,7 @@ export default async function Contact() {
         <div className="w-full flex items-center justify-center max-w-lg">
           <MailingListSignUpForm />
         </div>
-        <div className="w-42 md:w-50 lg:w-60 h-auto">
+        <div className="w-42 h-auto">
           <Image
             src="/icons/butterfly-logo.png"
             alt="Contact Illustration"

@@ -1,18 +1,23 @@
+"use client";
 // import components
 import Heading from "../../ui/heading";
 import PhotoGallery from "@/ui/photo-gallery";
+// import useIsMobile
+import { useIsMobile } from "@/utils/useIsMobile";
 
 
 export default function Photos() {
+  const isMobile = useIsMobile();
+
   return (
     <div className="flex flex-col justify-center items-center w-full">
       <Heading
-        text="Photos"
+        text="photos"
         headingLevel={2}
         className="font-bold text-5xl text-shadow-black-background-black font-indie-flower tracking-widest"
       />
-      <div className="w-full ">
-        <PhotoGallery showOptions={true} />
+      <div className="w-full mt-6">
+        <PhotoGallery showOptions={true} showNavigation={!isMobile}/>
       </div>
     </div>
   );

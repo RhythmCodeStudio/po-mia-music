@@ -180,7 +180,7 @@ export default function ContactForm({
         toast.error(
           <div className="p-2">
             <p>
-              There was an error delivering your message. Please send me an
+              there was an error delivering your message. please send me an
               email.
             </p>
             <a
@@ -253,7 +253,7 @@ export default function ContactForm({
         /> */}
         <ContactFormInput
           inputType="input"
-          label="Name"
+          label="name"
           name="name"
           type="text"
           placeholder=""
@@ -266,7 +266,7 @@ export default function ContactForm({
         />
         <ContactFormInput
           inputType="input"
-          label="Phone"
+          label="phone"
           name="phone"
           type="tel"
           placeholder=""
@@ -279,7 +279,7 @@ export default function ContactForm({
         />
         <ContactFormInput
           inputType="input"
-          label="Email"
+          label="email"
           name="email"
           type="text"
           placeholder=""
@@ -292,7 +292,7 @@ export default function ContactForm({
         />
         <ContactFormInput
           inputType="textarea"
-          label="Message"
+          label="message"
           name="message"
           type="text"
           placeholder=""
@@ -314,7 +314,7 @@ export default function ContactForm({
         <label
           htmlFor="mailing-list-signup"
           className="text-sm text-neutral-300 mx-2">
-          Sign me up for the po mia mailing list!
+          sign me up for the po mia mailing list!
         </label>
 
         <div className="flex justify-center items-center p-6 mt-4">

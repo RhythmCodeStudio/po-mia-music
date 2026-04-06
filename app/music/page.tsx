@@ -36,7 +36,7 @@ export default async function Music() {
   return (
     <div className="flex flex-col justify-center items-center">
       <Heading
-        text="Music"
+        text="music"
         headingLevel={2}
         className="text-5xl font-bold text-shadow-black-background-black font-indie-flower tracking-widest"
       />

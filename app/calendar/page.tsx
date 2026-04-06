@@ -78,9 +78,9 @@ export default async function Calendar() {
   return (
     <div className="flex flex-col flex-grow items-center justify-center w-full">
       <Heading
-        text="Calendar"
+        text="calendar"
         headingLevel={2}
-        className="font-bold text-4xl text-shadow-black-background-black font-acme tracking-widest"
+        className="font-bold text-4xl text-shadow-black-background-black font-indie-flower tracking-widest"
       />
       <div className="px-8">
         <CalendarClientContainer
