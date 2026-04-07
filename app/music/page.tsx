@@ -6,6 +6,7 @@ import ReleaseDisplayContainer from "../../ui/release-display-container";
 import Heading from "../../ui/heading";
 import IconLinkGroupClientContainer from "@/ui/icon-link-group-client-container";
 import FadeInOnScroll from "@/ui/fade-in-on-scroll";
+import HashScrollHandler from "@/ui/hash-scroll-handler";
 // import link data
 import { musicLinkData } from "@/lib/music-link-data";
 
@@ -35,6 +36,7 @@ export default async function Music() {
   //  await delayLoad(5000);
   return (
     <div className="flex flex-col justify-center items-center">
+      <HashScrollHandler />
       <Heading
         text="music"
         headingLevel={2}
