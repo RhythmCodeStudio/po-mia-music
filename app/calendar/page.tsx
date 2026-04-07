@@ -5,7 +5,7 @@ import Heading from "../../ui/heading";
 import CalendarClientContainer from "../../ui/calendar-client-container";
 import Toaster from "../../ui/toaster";
 import InstallAppButton from "../../ui/install-app-button";
-// import CalendarEventDisplay from "../../ui/calendar-event-display";
+import FadeInOnScroll from "../../ui/fade-in-on-scroll";
 // import data
 import { getCalendarEvents } from "../../actions/actions";
 
@@ -82,21 +82,25 @@ export default async function Calendar() {
         headingLevel={2}
         className="font-bold text-4xl text-shadow-black-background-black font-indie-flower tracking-widest"
       />
-      <div className="px-8">
-        <CalendarClientContainer
-          upComingEvents={upComingEvents}
-          pastEvents={pastEvents}
-        />
-      </div>
-      <div className="px-8 w-full max-w-2xl h-auto">
-        <Image
-          src="/images/free-4-all.webp"
-          width={2102}
-          height={1401}
-          alt="Po playing a keytar outdoors in a grassy area with trees in the background"
-          className="rounded-4xl shadow-lg shadow-white mb-8"
-        />
-      </div>
+      <FadeInOnScroll>
+        <div className="px-8">
+          <CalendarClientContainer
+            upComingEvents={upComingEvents}
+            pastEvents={pastEvents}
+          />
+        </div>
+      </FadeInOnScroll>
+      <FadeInOnScroll>
+        <div className="px-8 w-full max-w-2xl h-auto">
+          <Image
+            src="/images/free-4-all.webp"
+            width={2102}
+            height={1401}
+            alt="Po playing a keytar outdoors in a grassy area with trees in the background"
+            className="rounded-4xl shadow-lg shadow-white mb-8"
+          />
+        </div>
+      </FadeInOnScroll>
       <Toaster
         message="Install the app for the best experience!"
         component={<InstallAppButton />}

@@ -30,9 +30,9 @@ export default async function AdminPage() {
       {user && (
         <div className="flex flex-col justify-center items-center text-shadow-black-background-black w-full">
           <Heading
-            text="Welcome back po"
+            text="welcome back po"
             headingLevel={2}
-            className="font-bold text-4xl text-shadow-black-background-black font-acme tracking-widest"
+            className="font-bold text-4xl text-shadow-black-background-black tracking-widest"
           />
           <div className="w-full flex justify-center p-8">
             <AdminContainer

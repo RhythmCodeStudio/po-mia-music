@@ -236,11 +236,11 @@ export default function CalendarEventForm({
       <Heading
         headingLevel={2}
         className="text-center text-2xl font-bold"
-       text={mode === "edit" ? "Edit Event" : "Add a New Event"}
+       text={mode === "edit" ? "edit event" : "add a new event"}
       />
       <form onSubmit={handleFormSubmit}>
         <ContactFormInput
-          label="Event Title"
+          label="event title"
           name="eventTitle"
           inputType="input"
           type="text"
@@ -254,7 +254,7 @@ export default function CalendarEventForm({
         />
         <div className="flex flex-col justify-start w-full">
           <label className="m-2 text-left text-base" htmlFor="date">
-            Date*
+            date*
             <span className="text-xs"> (required)</span>
           </label>
           <input
@@ -282,7 +282,7 @@ export default function CalendarEventForm({
         </div>
         <div className="flex flex-col justify-start w-full mb-4">
           <label className="m-2 text-left text-base" htmlFor="endDate">
-            End Date
+            end date
           </label>
           <input
             type="date"
@@ -304,7 +304,7 @@ export default function CalendarEventForm({
           </p> */}
         </div>
         <ContactFormInput
-          label="Time"
+          label="time"
           name="time"
           inputType="input"
           type="text"
@@ -317,7 +317,7 @@ export default function CalendarEventForm({
           setStateVariable={setTime}
         />
         <ContactFormInput
-          label="End Time"
+          label="end time"
           name="endTime"
           inputType="input"
           type="text"
@@ -336,7 +336,7 @@ export default function CalendarEventForm({
           className="ml-2 mt-4 mb-6"
         />
         <label htmlFor="allDay" className="ml-4">
-          All Day Event
+          all day event
         </label>
         <ContactFormInput
           label="cost"
@@ -352,7 +352,7 @@ export default function CalendarEventForm({
           setStateVariable={setCost}
         />
         <ContactFormInput
-          label="Location Name"
+          label="location name"
           name="locationName"
           inputType="input"
           type="text"
@@ -365,7 +365,7 @@ export default function CalendarEventForm({
           setStateVariable={setLocationName}
         />
         <ContactFormInput
-          label="Location Street Address"
+          label="location street address"
           name="locationStreetAddress"
           inputType="input"
           type="text"
@@ -378,7 +378,7 @@ export default function CalendarEventForm({
           setStateVariable={setLocationStreetAddress}
         />
         <ContactFormInput
-          label="City"
+          label="city"
           name="locationCity"
           inputType="input"
           type="text"
@@ -391,7 +391,7 @@ export default function CalendarEventForm({
           setStateVariable={setLocationCity}
         />
         <ContactFormInput
-          label="State"
+          label="state"
           name="locationState"
           inputType="input"
           type="text"
@@ -404,7 +404,7 @@ export default function CalendarEventForm({
           setStateVariable={setLocationState}
         />
         <ContactFormInput
-          label="Zip Code"
+          label="zip code"
           name="locationZip"
           inputType="input"
           type="text"
@@ -417,7 +417,7 @@ export default function CalendarEventForm({
           setStateVariable={setLocationZip}
         />
         <ContactFormInput
-          label="Description"
+          label="description"
           name="description"
           inputType="textarea"
           type="text"
@@ -430,7 +430,7 @@ export default function CalendarEventForm({
           setStateVariable={setDescription}
         />
         <ContactFormInput
-          label="Image URL"
+          label="image url"
           name="imageUrl"
           inputType="input"
           type="text"
@@ -443,7 +443,7 @@ export default function CalendarEventForm({
           setStateVariable={setImageUrl}
         />
         <ContactFormInput
-          label="Ticket Link"
+          label="ticket link"
           name="ticketLink"
           inputType="input"
           type="text"
@@ -456,7 +456,7 @@ export default function CalendarEventForm({
           setStateVariable={setTicketLink}
         />
         <ContactFormInput
-          label="More Info Link"
+          label="more info link"
           name="moreInfoLink"
           inputType="input"
           type="text"
@@ -469,7 +469,7 @@ export default function CalendarEventForm({
           setStateVariable={setMoreInfoLink}
         />
         <ContactFormInput
-          label="Event Link"
+          label="event link"
           name="eventLink"
           inputType="input"
           type="text"
@@ -482,7 +482,7 @@ export default function CalendarEventForm({
           setStateVariable={setEventLink}
         />
         <ContactFormInput
-          label="Venue Link"
+          label="venue link"
           name="venueLink"
           inputType="input"
           type="text"
@@ -496,15 +496,15 @@ export default function CalendarEventForm({
         />
         <div className="flex justify-center mt-4">
           <Button
-            label={mode === "edit" ? "Edit Event" : "Create Event"}
+            label={mode === "edit" ? "edit event" : "create event"}
             onClick={handleFormSubmit}
-            ariaLabel={mode === "edit" ? "Edit Event" : "Create Event"}
+            ariaLabel={mode === "edit" ? "edit event" : "create event"}
             className="bg-blue-600 text-white rounded-full font-semibold px-4 py-2 transition duration-200"
           />
           <Button
-            label="Cancel"
+            label="cancel"
             onClick={onClose}
-            ariaLabel="Cancel"
+            ariaLabel="cancel"
             className="ml-2 bg-gray-400 text-white rounded-full font-semibold px-4 py-2 transition duration-200"
             type="button"
           />

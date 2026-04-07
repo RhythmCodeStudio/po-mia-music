@@ -121,7 +121,7 @@
 
 "use client";
 import { useState } from "react";
-import MailingList from "./mailing-list";
+import AdminMailingList from "./admin-mailing-list";
 import AdminNotificationPanel from "./admin-notification-panel";
 import AdminCalendar from "./admin-calendar";
 import Messages from "./messages";
@@ -154,44 +154,44 @@ export default function AdminContainer({
       <Heading
         headingLevel={2}
         className="text-center text-xl mb-4"
-        text="Admin Panel"
+        text="admin panel"
       />
       <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 mb-6 justify-center w-full px-6">
-  
+
         <Button
-          label="Calendar"
+          label="calendar"
           onClick={() => setView("calendar")}
           ariaLabel="View Calendar"
           className={clsx(
-             "rounded-full font-semibold px-4 py-2 transition duration-200", // always applied
+             "rounded-full px-4 py-2 transition duration-200", // always applied
             view === "calendar"
               ? "bg-blue-600 text-white pointer-events-none"
               : "bg-gray-200 text-gray-800"
           )}
         />
         <Button
-          label="Notifications"
+          label="notifications"
           onClick={() => setView("notifications")}
           ariaLabel="Send Notifications"
           className={clsx(
-             "rounded-full font-semibold px-4 py-2 transition duration-200", // always applied
+             "rounded-full px-4 py-2 transition duration-200", // always applied
             view === "notifications"
               ? "bg-blue-600 text-white pointer-events-none"
               : "bg-gray-200 text-gray-800"
           )}
         />
         <Button
-          label="Mailing List"
+          label="mailing list"
           onClick={() => setView("mailingList")}
           ariaLabel="View Mailing List"
           className={clsx(
-             "rounded-full font-semibold px-4 py-2 transition duration-200", // always applied
+             "rounded-full px-4 py-2 transition duration-200", // always applied
             view === "mailingList"
               ? "bg-blue-600 text-white pointer-events-none"
               : "bg-gray-200 text-gray-800"
           )}
         />
-        <Button
+        {/* <Button
           label="Messages"
           onClick={() => setView("messages")}
           ariaLabel="View Messages"
@@ -201,14 +201,14 @@ export default function AdminContainer({
               ? "bg-blue-600 text-white pointer-events-none"
               : "bg-gray-200 text-gray-800"
           )}
-        />
+        /> */}
       </div>
       {/* Conditional rendering: only the active panel is mounted */}
       <div className={`w-full ${contentMinHeight} h-auto`}>
         {view === "calendar" && <AdminCalendar 
           calendarEventRows={calendarEventRows}
         />}
-        {view === "mailingList" && <MailingList rows={mailingListRows} />}
+        {view === "mailingList" && <AdminMailingList rows={mailingListRows} />}
         {view === "notifications" && (
           <AdminNotificationPanel
             numberOfSubscriptions={numberOfNotificationSubscriptions}

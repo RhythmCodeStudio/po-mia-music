@@ -3,6 +3,7 @@ import Image from "next/image";
 // import component
 import Heading from "../../ui/heading";
 import YouTubeVideo from "../../ui/youtube-video";
+import FadeInOnScroll from "@/ui/fade-in-on-scroll";
 // import data
 import { youTubeVideos } from "@/lib/video-data";
 
@@ -37,6 +38,7 @@ export default async function Videos() {
         headingLevel={2}
         className="font-bold text-5xl text-shadow-black-background-black font-indie-flower tracking-widest"
       />
+      <FadeInOnScroll>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl w-full p-8">
         {youTubeVideos.map((video, index) => (
           <YouTubeVideo
@@ -47,6 +49,8 @@ export default async function Videos() {
           />
         ))}
       </div>
+      </FadeInOnScroll>
+      <FadeInOnScroll>
       <div className="p-8 pt-0 w-full max-w-md h-auto flex justify-center">
         <Image
           src="/images/po-on-frog.webp"
@@ -56,6 +60,7 @@ export default async function Videos() {
           className="rounded-4xl shadow-lg shadow-white"
         />
       </div>
+      </FadeInOnScroll>
     </div>
   );
 }

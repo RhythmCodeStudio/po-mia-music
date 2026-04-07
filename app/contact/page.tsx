@@ -6,6 +6,7 @@ import MailingListSignUpForm from "../../ui/mailing-list-sign-up-form";
 import Heading from "../../ui/heading";
 // import IconLinkGroup from "../../ui/icon-link-group";
 import IconLinkGroupClientContainer from "@/ui/icon-link-group-client-container";
+import FadeInOnScroll from "@/ui/fade-in-on-scroll";
 // import link data
 import { contactLinkData } from "@/lib/contact-link-data";
 
@@ -49,21 +50,27 @@ export default async function Contact() {
         />
       </div>
       <div className="w-full p-8 flex flex-col justify-center items-center gap-8">
-        <div className="w-full flex items-center justify-center max-w-lg">
-          <MailingListSignUpForm />
-        </div>
-        <div className="w-42 h-auto">
-          <Image
-            src="/icons/butterfly-logo.png"
-            alt="Contact Illustration"
-            width={700}
-            height={700}
-            className="mx-auto"
-          />
-        </div>
-        <div className="w-full flex items-center justify-center ">
-          <ContactFormContainer />
-        </div>
+        <FadeInOnScroll>
+          <div className="w-full flex items-center justify-center max-w-lg">
+            <MailingListSignUpForm />
+          </div>
+        </FadeInOnScroll>
+        <FadeInOnScroll>
+          <div className="w-42 h-auto">
+            <Image
+              src="/icons/butterfly-logo.png"
+              alt="Contact Illustration"
+              width={700}
+              height={700}
+              className="mx-auto"
+            />
+          </div>
+        </FadeInOnScroll>
+        <FadeInOnScroll>
+          <div className="w-full flex items-center justify-center ">
+            <ContactFormContainer />
+          </div>
+        </FadeInOnScroll>
       </div>
     </section>
   );

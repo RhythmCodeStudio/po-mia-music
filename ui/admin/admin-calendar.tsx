@@ -32,16 +32,16 @@ export default function AdminCalendar({
       <div className="w-full flex flex-col space-y-6 items-center">
         <div className="flex gap-4">
           <Button
-            label="View Events"
+            label="view events"
             onClick={() => setView("events")}
             ariaLabel="View Events"
-            className="bg-blue-600 text-white pointer-events-none rounded-full font-semibold px-4 py-2 transition duration-200"
+            className="bg-blue-600 text-white pointer-events-none rounded-full px-4 py-2 transition duration-200"
           />
           <Button
-            label="Add Event"
+            label="add event"
             onClick={() => setView("addEvent")}
             ariaLabel="Add Event"
-            className="bg-gray-200 text-gray-800 rounded-full font-semibold px-4 py-2 transition duration-200"
+            className="bg-gray-200 text-gray-800 rounded-full px-4 py-2 transition duration-200"
           />
         </div>
         <div className="px-8">
@@ -91,16 +91,16 @@ export default function AdminCalendar({
       <div className="w-full flex flex-col space-y-6 items-center">
         <div className="flex gap-4">
           <Button
-            label="View Events"
+            label="view events"
             onClick={() => setView("events")}
-            ariaLabel="View Events"
-            className="bg-gray-200 text-gray-800 rounded-full font-semibold px-4 py-2 transition duration-200"
+            ariaLabel="view events"
+            className="bg-gray-200 text-gray-800 rounded-full px-4 py-2 transition duration-200"
           />
           <Button
-            label="Add Event"
+            label="add event"
             onClick={() => setView("addEvent")}
-            ariaLabel="Add Event"
-            className="bg-blue-600 text-white pointer-events-none rounded-full font-semibold px-4 py-2 transition duration-200"
+            ariaLabel="add event"
+            className="bg-blue-600 text-white pointer-events-none rounded-full px-4 py-2 transition duration-200"
           />
         </div>
         <CalendarEventForm

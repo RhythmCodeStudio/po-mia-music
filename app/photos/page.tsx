@@ -2,9 +2,9 @@
 // import components
 import Heading from "../../ui/heading";
 import PhotoGallery from "@/ui/photo-gallery";
+import FadeInOnScroll from "@/ui/fade-in-on-scroll";
 // import useIsMobile
 import { useIsMobile } from "@/utils/useIsMobile";
-
 
 export default function Photos() {
   const isMobile = useIsMobile();
@@ -16,9 +16,11 @@ export default function Photos() {
         headingLevel={2}
         className="font-bold text-5xl text-shadow-black-background-black font-indie-flower tracking-widest"
       />
-      <div className="w-full mt-6">
-        <PhotoGallery showOptions={true} showNavigation={!isMobile}/>
-      </div>
+      <FadeInOnScroll>
+        <div className="w-full mt-6">
+          <PhotoGallery showOptions={true} showNavigation={!isMobile} />
+        </div>
+      </FadeInOnScroll>
     </div>
   );
 }

@@ -66,7 +66,7 @@ type MailingListProps = {
   rows: { email: string }[];
 };
 
-export default function MailingList({ rows }: MailingListProps) {
+export default function AdminMailingList({ rows }: MailingListProps) {
   const mailingList = rows.map((row: any) => ({ email: row.email }));
   const numberOfMailingListSubscribers = mailingList.length;
   // format list for sending a mass mailing
@@ -113,12 +113,12 @@ const mailto = `mailto:pomiamusic@gmail.com?bcc=${encodeURIComponent(
   return (
     <div className="w-full flex flex-col justify-center">
       <Heading
-        text="Mailing List Administration"
+        text="mailing list administration"
         headingLevel={2}
         className="font-bold text-3xl mb-4 text-center"
       />
-      <p>Total Mailing List Subscribers: {numberOfMailingListSubscribers}</p>
-      <p>Mailing List:</p>
+      <p>total mailing list subscribers: {numberOfMailingListSubscribers}</p>
+      <p>mailing list:</p>
       <ul>
         {mailingList.map((subscriber, index) => (
           <li key={index}>{subscriber.email}</li>
@@ -127,19 +127,20 @@ const mailto = `mailto:pomiamusic@gmail.com?bcc=${encodeURIComponent(
       <div>
         <Button
           icon={<IoIosCopy />}
-          label="Copy Mailing List"
+          label="copy mailing list"
           onClick={copyToClipboard}
-          ariaLabel="Copy mailing list to clipboard"
+          ariaLabel="copy mailing list to clipboard"
+          className="text-shadow-black-background-black"
         />
       </div>
       <form onSubmit={handleSubmit} className="mt-4 flex flex-col gap-2 w-full">
         <Heading
-          text="Email Mailing List"
+          text="email mailing list"
           headingLevel={3}
           className="font-bold text-2xl"
         />
         <label>
-          Subject:
+          subject:
           <input
             type="text"
             className="border rounded px-2 py-1 w-full"
@@ -149,7 +150,7 @@ const mailto = `mailto:pomiamusic@gmail.com?bcc=${encodeURIComponent(
           />
         </label>
         <label>
-          Body:
+          body:
           <textarea
             className="border rounded px-2 py-1 w-full"
             value={body}
@@ -160,8 +161,8 @@ const mailto = `mailto:pomiamusic@gmail.com?bcc=${encodeURIComponent(
         </label>
         <Button
           type="submit"
-          label="Email Mailing List"
-          ariaLabel="Open email client to email mailing list"
+          label="email mailing list"
+          ariaLabel="open email client to email mailing list"
         />
       </form>
     </div>

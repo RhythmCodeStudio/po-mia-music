@@ -156,17 +156,17 @@ export default function CalendarEventDisplay({
           {pathname.includes("admin") && (
             <div className="mt-4 flex justify-center gap-4">
               <Button
-                label="Edit"
+                label="edit"
                 onClick={handleModalToggle}
                 icon={<MdEdit size={20} />}
               />
               <Button
-                label="Duplicate"
+                label="duplicate"
                 onClick={handleDuplicateModalToggle}
                 icon={<MdOutlineContentCopy size={20} />}
               />
               <Button
-                label="Delete"
+                label="delete"
                 onClick={handleDelete}
                 icon={<MdDelete size={20} />}
               />

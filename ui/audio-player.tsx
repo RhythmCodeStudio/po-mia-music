@@ -78,7 +78,7 @@ export default function SimpleAudioPlayer({ song }: { song: Song }) {
   }
 
   return (
-    <div className="px-6 flex flex-col items-center gap-4 w-full max-w-2xl mx-auto p-2 rounded-4xl shadow-lg rainbow-gradient shadow-white border-2 border-[rgba(255,255,255,0.3)] relative">
+    <div className="px-6 flex flex-col items-center gap-4 w-full max-w-lg mx-auto p-2 rounded-4xl shadow-lg rainbow-gradient shadow-white border-2 border-[rgba(255,255,255,0.3)] relative">
       <audio ref={audioRef} src={`${song.src}`} controls={false} />
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <Image

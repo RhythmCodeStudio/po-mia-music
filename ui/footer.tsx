@@ -205,7 +205,7 @@ export default function Footer() {
           )}
         </p>
         <p className="">
-          Website by{" "}
+          website by{" "}
           <a
             href="https://rhythmcodestudio.tech"
             target="_blank"

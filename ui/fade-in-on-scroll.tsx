@@ -49,7 +49,7 @@ export default function FadeInOnScroll({
   return (
     <div
       ref={elementRef}
-      className={`flex flex-col items-center ${className} ${
+      className={`w-full flex flex-col items-center ${className} ${
         isVisible ? `animate-in fade-in  ${durationClass}` : "opacity-0"
       }`}>
       {children}

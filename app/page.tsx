@@ -65,7 +65,7 @@ export default async function Home() {
         </SlideInOnScroll>
         <FadeInOnScroll>
           {nextEvent && (
-            <div className="w-full max-w-sm mt-8 mx-auto flex justify-center items-center p-6">
+            <div className="w-full max-w-xs mt-8 mx-auto flex justify-center items-center p-6">
               <CalendarEventDisplay
                 id={nextEvent?.id}
                 title={nextEvent?.title}
@@ -122,7 +122,7 @@ export default async function Home() {
             </div>
           )}
           <div className="mt-8">
-            <LinkButton href="/music" label="Hear all the hits" />
+            <LinkButton href="/music" label="hear all the hits" />
           </div>
         </FadeInOnScroll>
       </div>
@@ -144,7 +144,7 @@ export default async function Home() {
             />
           </div>
           <div className="">
-            <LinkButton href="/photos" label="See all the pics" />
+            <LinkButton href="/photos" label="see all the pics" />
           </div>
         </FadeInOnScroll>
       </div>
@@ -157,7 +157,7 @@ export default async function Home() {
           />
         </SlideInOnScroll>
         <FadeInOnScroll>
-          <div className="w-full p-6 sm:p-4 md:p-2 lg:p-0 mt-2 sm:mt-4 md:mt-6 lg:mt-8">
+          <div className="w-full p-6 mt-2 sm:mt-4 md:mt-6 lg:mt-8">
             <ClientContainer
               component={
                 <YouTubeVideo
@@ -168,7 +168,7 @@ export default async function Home() {
             />
           </div>
           <div className="sm:mt-2 md:mt-6 lg:mt-8">
-            <LinkButton href="/videos" label="Watch all the vids" />
+            <LinkButton href="/videos" label="watch all the vids" />
           </div>
         </FadeInOnScroll>
       </div>

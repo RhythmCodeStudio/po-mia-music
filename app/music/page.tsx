@@ -4,8 +4,8 @@ import Image from "next/image";
 // import ReleaseDisplay from "../ui/release-display";
 import ReleaseDisplayContainer from "../../ui/release-display-container";
 import Heading from "../../ui/heading";
-// import IconLinkGroup from "../../ui/icon-link-group";
 import IconLinkGroupClientContainer from "@/ui/icon-link-group-client-container";
+import FadeInOnScroll from "@/ui/fade-in-on-scroll";
 // import link data
 import { musicLinkData } from "@/lib/music-link-data";
 
@@ -48,18 +48,22 @@ export default async function Music() {
           className="icon-shadow"
         />
       </div>
-      <div className="w-full max-w-6xl">
-        <ReleaseDisplayContainer />
-      </div>
-      <div className="p-8 pt-0 md:w-6/8 lg:w-5/8 h-auto">
-        <Image 
-          src="/images/po-venice-cafe.webp" 
-          width={1217} 
-          height={956} 
-          alt="po playing at Venice Cafe in St. Louis, MO" 
-          className="rounded-4xl shadow-lg shadow-white"
-        />
-      </div>
+      <FadeInOnScroll>
+        <div className="w-full max-w-6xl">
+          <ReleaseDisplayContainer />
+        </div>
+      </FadeInOnScroll>
+      <FadeInOnScroll>
+        <div className="p-8 pt-0 md:w-6/8 lg:w-5/8 h-auto">
+          <Image
+            src="/images/po-venice-cafe.webp"
+            width={1217}
+            height={956}
+            alt="po playing at Venice Cafe in St. Louis, MO"
+            className="rounded-4xl shadow-lg shadow-white"
+          />
+        </div>
+      </FadeInOnScroll>
     </div>
   );
 }

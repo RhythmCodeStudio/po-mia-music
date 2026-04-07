@@ -110,7 +110,7 @@ export default function MorePopover({
                       // if (onAnyAction) onAnyAction();
                     }}
                     className="rainbow-gradient p-1 rounded-full border-2 border-[rgba(255,255,255,0.3)] shadow-white shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full max-w-xs transform transition-transform transition-shadow duration-200 active:scale-95 text-shadow-black-background-black font-semibold">
-                    Install App
+                    install app
                   </button>
                 </div>
               )}
@@ -125,7 +125,7 @@ export default function MorePopover({
                     if (onAnyAction) onAnyAction(); // <-- close mobile menu if provided
                   }}
                   className="rainbow-gradient p-1 rounded-full  border-2 border-[rgba(255,255,255,0.3)] shadow-white shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full max-w-xs transform transition-transform transition-shadow duration-200 active:scale-95 text-shadow-black-background-black text-center font-semibold">
-                  Sign Up for Mailing List
+                  sign up for mailing list
                 </Link>
               </div>
               {/* <div className="flex items-center justify-center my-6 px-4">
