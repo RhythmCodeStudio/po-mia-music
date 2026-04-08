@@ -252,6 +252,7 @@ export default function ContactForm({
           setStateVariable={setLastName}
         /> */}
         <ContactFormInput
+          idPrefix="contact-form"
           inputType="input"
           label="name"
           name="name"
@@ -265,6 +266,7 @@ export default function ContactForm({
           setStateVariable={setName}
         />
         <ContactFormInput
+          idPrefix="contact-form"
           inputType="input"
           label="phone"
           name="phone"
@@ -278,6 +280,7 @@ export default function ContactForm({
           setStateVariable={setPhone}
         />
         <ContactFormInput
+          idPrefix="contact-form"
           inputType="input"
           label="email"
           name="email"
@@ -291,6 +294,7 @@ export default function ContactForm({
           setStateVariable={setEmail}
         />
         <ContactFormInput
+          idPrefix="contact-form"
           inputType="textarea"
           label="message"
           name="message"

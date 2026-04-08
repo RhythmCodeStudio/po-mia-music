@@ -84,6 +84,7 @@ export default function MailingListSignUpForm({
         onSubmit={handleFormSubmit}
         className="flex flex-col text-shadow-black-background-black">
         <ContactFormInput
+          idPrefix="mailing-list-sign-up-form"
           inputType="input"
           label="email Address"
           type="email"
