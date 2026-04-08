@@ -3,6 +3,8 @@ import Image from "next/image";
 // import components
 import Heading from "./heading";
 import IconLinkGroup from "./icon-link-group";
+// import from utils
+import { formatDate } from "../utils/utils";
 
 type Track = {
   id: string;
@@ -79,7 +81,7 @@ export default function ReleaseDisplay({ release }: ReleaseDisplayProps) {
         </p>
 
         <p className="text-shadow-black-background-black">
-          Released {release.release_date.toDateString()}
+          released {formatDate(release.release_date).toLowerCase()}
         </p>
         <div className="flex flex-wrap gap-4 icon-shadow">
           {release.links.map((link) => (

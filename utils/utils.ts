@@ -34,14 +34,24 @@ export function validateForm(
   );
 }
 
-export const formatDate = (dateStr: string | undefined) => {
-  if (!dateStr) {
+export const formatDate = (date: Date | string | undefined) => {
+  if (!date) {
     return "";
   }
-  // Split the string and create a local date
-  const [year, month, day] = dateStr.split("-").map(Number);
-  const date = new Date(year, month - 1, day); // month is 0-indexed
-  return date.toLocaleDateString(undefined, {
+  
+  // If it's already a Date, use it directly
+  if (date instanceof Date) {
+    return date.toLocaleDateString(undefined, {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+  }
+  
+  // If it's a string, parse it
+  const [year, month, day] = date.split("-").map(Number);
+  const dateObj = new Date(year, month - 1, day);
+  return dateObj.toLocaleDateString(undefined, {
     year: "numeric",
     month: "long",
     day: "numeric",
