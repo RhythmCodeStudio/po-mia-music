@@ -114,7 +114,7 @@ export default function MobileNav({ navListItems, user }: MobileMenuProps) {
             <nav className="mt-10 z-50">
               <ul className={`flex flex-col gap-10 font-semibold items-center`}>
                 {navListItems
-                  .filter((item) => item.label !== "Admin" || user)
+                  .filter((item) => item.label !== "admin" || user)
                   .map((item) => (
                     <NavListItem
                       key={item.label}

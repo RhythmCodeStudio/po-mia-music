@@ -55,7 +55,7 @@ export const metadata = {
 
 export default async function Calendar() {
   const events = await getCalendarEvents();
-  console.log("events:", events);
+  // console.log("events:", events);
   // upComingEvents should listed the events in the order of soonest to latest
   const eventsInOrder = events.sort((a, b) => {
     const dateA = new Date(a.start_date);

@@ -48,7 +48,7 @@ export default function MusicSwiperCube() {
       }}
       onSlideChange={handleSlideChange}>
       {releases.map((release) => (
-        console.log("release:", release),
+        // console.log("release:", release),
         <SwiperSlide
           key={release.id}
           title={`${release.title} by ${release.tracks[0]?.artist || "Unknown Artist"}`}>

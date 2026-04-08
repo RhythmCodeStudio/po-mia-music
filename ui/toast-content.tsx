@@ -24,7 +24,7 @@ export default function ToastContent({ message, component }: ToastContentProps) 
 
       <div className="mt-6 flex flex-col items-center text-center text-shadow-black-background-black rounded-[1rem]">
         <p>
-          {message || "Subscribe to notifications to stay up to date with the latest from po mia!"}
+          {message || "subscribe to notifications to stay up to date with the latest from po mia!"}
         </p>
         <div className="my-2 flex flex-col justify-center items-center">
           {component || <PushNotificationSubscriptionManager renderedAs="button" />}

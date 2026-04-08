@@ -22,7 +22,7 @@ import DesktopNav from "./desktop-nav";
 export default function Header() {
   const app = stackClientApp;
   const [user, setUser] = useState<any>(null);
-  // console.log("Header user:", user);
+  console.log("Header user:", user);
   const pathname = usePathname();
   const isHome = pathname === "/";
   // const { theme } = useTheme();

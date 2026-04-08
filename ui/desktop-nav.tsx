@@ -22,13 +22,13 @@ export default function DesktopNav({
   user: any;
 }) {
   const pathname = usePathname();
-  const isHome = pathname === "/";
+  // const isHome = pathname === "/";
   return (
     <div className="flex flex-col items-center mx-auto">
       <nav className="w-full">
         <ul className="w-full flex justify-center items-center gap-12 xl:gap-20 2xl:gap-24">
           {navListItems
-            .filter((item) => item.label !== "Admin" || user)
+            .filter((item) => item.label !== "admin" || user)
             .map((item) => (
               <NavListItem
                 key={item.label}
