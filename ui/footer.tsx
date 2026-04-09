@@ -97,8 +97,8 @@ export default function Footer() {
 
   return (
     <FadeInOnScroll className="w-full">
-    <footer className="p-2 flex flex-col items-center space-y-6 max-w-7xl mx-auto w-full">
-      {/* <div className="w-50 h-auto ">
+      <footer className="p-2 flex flex-col items-center space-y-6 max-w-7xl mx-auto w-full">
+        {/* <div className="w-50 h-auto ">
         <Image
           alt="po mia rubik's cube logo with butterflies"
           src="/icons/butterfly-logo.png"
@@ -106,33 +106,32 @@ export default function Footer() {
           height={700}
         />
       </div> */}
-       <div className="h-auto w-48 p-2 flex items-center justify-center">
-        <Image
-          className="w-full h-auto"
-          src="/logos/pomia-horizontal-logo-colorful.png"
-          width={1400}
-          height={460}
-          alt="Po Mia Logo"
+        <div className="h-auto w-48 p-2 flex items-center justify-center">
+          <Image
+            className="w-full h-auto"
+            src="/logos/pomia-horizontal-logo-colorful.png"
+            width={1400}
+            height={460}
+            alt="Po Mia Logo"
+          />
+        </div>
+        <IconLinkGroup
+          orientation="horizontal"
+          linkData={iconLinkData}
+          size={iconSize}
+          className="icon-shadow"
         />
-      </div>
-      <IconLinkGroup
-        orientation="horizontal"
-        linkData={iconLinkData}
-        size={iconSize}
-        className="icon-shadow"
-      />
-      <IconLinkGroup
-        orientation="horizontal"
-        linkData={musicLinkData}
-        size={iconSize}
-        className="icon-shadow"
-      />
-      {/* <div className="p-2 mb-6 w-full h-full">
+        <IconLinkGroup
+          orientation="horizontal"
+          linkData={musicLinkData}
+          size={iconSize}
+          className="icon-shadow"
+        />
+        {/* <div className="p-2 mb-6 w-full h-full">
         <CubeClientContainer />
       </div> */}
-     
 
-      {/* <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 w-full justify-items-center text-shadow-black-background-black">
+        {/* <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 w-full justify-items-center text-shadow-black-background-black">
         <div className="p-2 flex flex-col items-center order-0">
           <p className="mb-1 text-sm">Support:</p>
           <IconLinkGroup
@@ -151,7 +150,7 @@ export default function Footer() {
             className="icon-shadow"
           />
         </div> */}
-      {/* <div className="p-2 flex flex-col items-center order-2 lg:order-1">
+        {/* <div className="p-2 flex flex-col items-center order-2 lg:order-1">
           <p className="mb-1 text-sm">Listen:</p>
           <IconLinkGroup
             orientation="horizontal"
@@ -160,9 +159,9 @@ export default function Footer() {
             className="icon-shadow"
           />
         </div> */}
-      {/* </div> */}
+        {/* </div> */}
 
-      {/* <div
+        {/* <div
         className={clsx(
           "grid grid-cols-1 w-full gap-4 justify-items-center text-sm",
           `lg:${gridColsClass}`,
@@ -175,7 +174,7 @@ export default function Footer() {
                 // close();
                 // if (onAnyAction) onAnyAction();
               }}
-              className="rainbow-gradient p-1 px-16 rounded-full border-2 border-[rgba(255,255,255,0.3)] shadow-white shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full transform transition-transform transition-shadow duration-200 active:scale-95 text-shadow-black-background-black font-semibold">
+              className="rainbow-gradient p-1 px-16 rounded-full border-2 border-border-default shadow-white shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full transform transition-transform transition-shadow duration-200 active:scale-95 text-shadow-black-background-black font-semibold">
               Install App
             </button>
           </div>
@@ -190,33 +189,33 @@ export default function Footer() {
         )}
       </div> */}
 
-      <div className="text-sm text-white p-2 text-center text-shadow-black-background-black">
-        <p className="">
-          ©2026
-          {isHomePage ? (
-            " pomiamusic.com"
-          ) : (
-            <>
-              <Link href="/" onClick={() => track("Footer home link click")}>
-                {" "}
-                pomiamusic.com
-              </Link>
-            </>
-          )}
-        </p>
-        <p className="">
-          website by{" "}
-          <a
-            href="https://rhythmcodestudio.tech"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline cursor-pointer"
-            onClick={() => track("Rhythm Code Studio link_click")}>
-            Rhythm Code Studio LLC
-          </a>
-        </p>
-      </div>
-    </footer>
+        <div className="text-sm text-white p-2 text-center text-shadow-black-background-black">
+          <p className="">
+            ©2026
+            {isHomePage ? (
+              " pomiamusic.com"
+            ) : (
+              <>
+                <Link href="/" onClick={() => track("Footer home link click")}>
+                  {" "}
+                  pomiamusic.com
+                </Link>
+              </>
+            )}
+          </p>
+          <p className="">
+            website by{" "}
+            <a
+              href="https://rhythmcodestudio.tech"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline cursor-pointer"
+              onClick={() => track("Rhythm Code Studio link_click")}>
+              Rhythm Code Studio LLC
+            </a>
+          </p>
+        </div>
+      </footer>
     </FadeInOnScroll>
   );
 }

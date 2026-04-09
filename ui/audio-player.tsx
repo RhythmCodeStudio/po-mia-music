@@ -78,7 +78,7 @@ export default function SimpleAudioPlayer({ song }: { song: Song }) {
   }
 
   return (
-    <div className="px-6 flex flex-col items-center gap-4 w-full max-w-lg mx-auto p-2 rounded-4xl shadow-lg rainbow-gradient shadow-white border-2 border-[rgba(255,255,255,0.3)] relative">
+    <div className="px-6 flex flex-col items-center gap-4 w-full max-w-lg mx-auto p-2 rounded-4xl shadow-lg rainbow-gradient shadow-white border-2 border-border-default relative">
       <audio ref={audioRef} src={`${song.src}`} controls={false} />
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <Image
@@ -89,7 +89,7 @@ export default function SimpleAudioPlayer({ song }: { song: Song }) {
           className="opacity-20 max-w-[80%] max-h-[80%] object-contain"
         />
       </div>
-      <div className="text-center bg-black/50 border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-lg rounded-4xl px-4 mt-1">
+      <div className="text-center bg-black/50 border-border-default border-2 shadow-white shadow-lg rounded-4xl px-4 mt-1">
         <h3 className="text-lg font-semibold text-shadow-black-background-black font-indie-flower tracking-widest">
           {song.title || "Untitled"}
         </h3>

@@ -62,7 +62,7 @@ export default async function Music() {
             width={1217}
             height={956}
             alt="po playing at Venice Cafe in St. Louis, MO"
-            className="rounded-4xl shadow-lg shadow-white"
+            className="rounded-4xl shadow-lg shadow-white border-2 border-border-default"
           />
         </div>
       </FadeInOnScroll>

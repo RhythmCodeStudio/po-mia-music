@@ -34,16 +34,16 @@ export default function CalendarClientContainer({
           ? "w-full flex flex-col items-center"
           : !isAdminPath && !showViewToggle
             ? "w-full flex flex-col items-center p-8"
-            : "bg-black/50 rounded-4xl shadow-lg shadow-white border-2 border-[rgba(255,255,255,0.3)] w-full flex flex-col items-center p-8 pt-4 my-8"
+            : "bg-black/50 rounded-(--container-radius) shadow-lg shadow-white border-2 border-border-default w-full flex flex-col items-center p-(--container-padding) my-8 [--container-radius:var(--radius-4xl)] [--container-padding:--spacing(8)]"
       }>
       {showViewToggle && (
-        <div className="flex flex-row gap-4 mb-4">
+        <div className="flex flex-row gap-4 mb-8">
           <Button
             label="past"
             title="past events"
             onClick={() => setView("past")}
             className={clsx(
-              "w-22 text-white rounded-full border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-md px-4 py-1 active:scale-95 transition transition-transform transition-shadow duration-200 ease-in-out rainbow-gradient-hover",
+              "w-22 text-white rounded-full border-border-default border-2 shadow-white shadow-md px-4 py-1 active:scale-95 transition duration-200 ease-in-out rainbow-gradient-hover",
               view === "past"
                 ? "rainbow-gradient pointer-events-none"
                 : "bg-black/50 hover:shadow-lg",
@@ -55,7 +55,7 @@ export default function CalendarClientContainer({
             title="future events"
             onClick={() => setView("future")}
             className={clsx(
-              "w-22 text-white rounded-full border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-md px-4 py-1 active:scale-95 transition transition-transform transition-shadow duration-200 ease-in-out rainbow-gradient-hover",
+              "w-22 text-white rounded-full border-border-default border-2 shadow-white shadow-md px-4 py-1 active:scale-95 transition duration-200 ease-in-out rainbow-gradient-hover",
               view === "future"
                 ? "rainbow-gradient pointer-events-none"
                 : "bg-black/50 hover:shadow-lg",

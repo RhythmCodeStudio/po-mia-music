@@ -150,23 +150,22 @@ export default function AdminContainer({
   const contentMinHeight = "min-h-[42rem]"; // <-- change as needed
 
   return (
-   <section className="bg-black/50 rounded-4xl shadow-lg shadow-white border-2 border-[rgba(255,255,255,0.3)] w-full max-w-6xl min-w-[16rem] flex flex-col items-center p-4 pb-8">
+    <section className="bg-black/50 rounded-4xl shadow-lg shadow-white border-2 border-border-default w-full max-w-6xl min-w-[16rem] flex flex-col items-center p-4 pb-8">
       <Heading
         headingLevel={2}
         className="text-center text-xl mb-4"
         text="admin panel"
       />
       <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 mb-6 justify-center w-full px-6">
-
         <Button
           label="calendar"
           onClick={() => setView("calendar")}
           ariaLabel="View Calendar"
           className={clsx(
-             "rounded-full px-4 py-2 transition duration-200", // always applied
+            "rounded-full px-4 py-2 transition duration-200", // always applied
             view === "calendar"
               ? "bg-blue-600 text-white pointer-events-none"
-              : "bg-gray-200 text-gray-800"
+              : "bg-gray-200 text-gray-800",
           )}
         />
         <Button
@@ -174,10 +173,10 @@ export default function AdminContainer({
           onClick={() => setView("notifications")}
           ariaLabel="Send Notifications"
           className={clsx(
-             "rounded-full px-4 py-2 transition duration-200", // always applied
+            "rounded-full px-4 py-2 transition duration-200", // always applied
             view === "notifications"
               ? "bg-blue-600 text-white pointer-events-none"
-              : "bg-gray-200 text-gray-800"
+              : "bg-gray-200 text-gray-800",
           )}
         />
         <Button
@@ -185,10 +184,10 @@ export default function AdminContainer({
           onClick={() => setView("mailingList")}
           ariaLabel="View Mailing List"
           className={clsx(
-             "rounded-full px-4 py-2 transition duration-200", // always applied
+            "rounded-full px-4 py-2 transition duration-200", // always applied
             view === "mailingList"
               ? "bg-blue-600 text-white pointer-events-none"
-              : "bg-gray-200 text-gray-800"
+              : "bg-gray-200 text-gray-800",
           )}
         />
         {/* <Button
@@ -205,9 +204,9 @@ export default function AdminContainer({
       </div>
       {/* Conditional rendering: only the active panel is mounted */}
       <div className={`w-full ${contentMinHeight} h-auto`}>
-        {view === "calendar" && <AdminCalendar 
-          calendarEventRows={calendarEventRows}
-        />}
+        {view === "calendar" && (
+          <AdminCalendar calendarEventRows={calendarEventRows} />
+        )}
         {view === "mailingList" && <AdminMailingList rows={mailingListRows} />}
         {view === "notifications" && (
           <AdminNotificationPanel

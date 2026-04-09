@@ -11,7 +11,7 @@ interface ContactFormInputProps {
   idPrefix?: string;
   handleChange: (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-    setState: React.Dispatch<React.SetStateAction<any>>
+    setState: React.Dispatch<React.SetStateAction<any>>,
   ) => void;
   setStateVariable: React.Dispatch<React.SetStateAction<any>>;
 }
@@ -51,11 +51,11 @@ export default function ContactFormInput({
           required
           name={name}
           id={uniqueInputId}
-          className="shadow-md shadow-green-500/50 border-2 border-[rgba(255,255,255,0.3)] p-2 w-full text-black placeholder-neutral-800 rounded-2xl bg-neutral-100 tracking-wide h-80 resize-none w-full"
+          className="shadow-md shadow-black border-2 border-border-default p-2 w-full text-black placeholder-neutral-800 rounded-3xl bg-neutral-100 tracking-wide h-80 resize-none"
         />
       ) : (
         <input
-          className="shadow-md shadow-green-500/50 border-2 border-[rgba(255,255,255,0.3)] p-2 w-full text-black placeholder-neutral-800 rounded-2xl bg-neutral-100 tracking-wide h-10 w-full"
+          className="shadow-md shadow-black border-2 border-border-default p-2 w-full text-black placeholder-neutral-800 rounded-3xl bg-neutral-100 tracking-wide h-10"
           type={type}
           id={uniqueInputId}
           name={name}

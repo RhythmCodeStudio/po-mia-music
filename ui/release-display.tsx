@@ -41,25 +41,29 @@ interface ReleaseDisplayProps {
 
 export default function ReleaseDisplay({ release }: ReleaseDisplayProps) {
   return (
-    <section className="flex flex-col bg-black/50 border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-lg rounded-4xl p-6 z-50 w-full max-w-2xl lg:mx-auto text-sm lg:text-base" id={`release-${release.id}`}>
+    <section
+      className="flex flex-col bg-black/50 border-border-default border-2 shadow-white shadow-lg rounded-(--display-radius) p-(--display-padding) z-50 w-full max-w-2xl lg:mx-auto text-sm lg:text-base [--display-radius:var(--radius-4xl)] [--display-padding:--spacing(6)]"
+      id={`release-${release.id}`}>
       <Heading
         headingLevel={2}
         className="text-center mb-6 text-shadow-black-background-black text-xl lg:text-2xl font-semibold font-indie-flower tracking-widest"
         text={release.title}
       />
-      <div className="flex flex-col gap-6 items-center w-full">
+      <div className="flex flex-col gap-4 items-center w-full">
         <Image
           src={release.cover_image}
           alt={`${release.title} cover art`}
           width={300}
           height={300}
-          className="rounded-2xl shadow-white shadow-lg border-2 border-[rgba(255,255,255,0.3)]"
+          className="rounded-[calc(var(--display-radius)-var(--display-padding))] shadow-white shadow-lg border-2 border-border-default"
         />
         <div className="w-full flex justify-center min-w-md">
           <ol className="list-decimal list-inside md:min-h-26 xl:min-h-30 max-w-md">
             {release.tracks &&
               release.tracks.map((track) => (
-                <li key={track.id} className="text-shadow-black-background-black">
+                <li
+                  key={track.id}
+                  className="text-shadow-black-background-black">
                   <a
                     href={track.bandcamp_url}
                     target="_blank"
@@ -67,11 +71,6 @@ export default function ReleaseDisplay({ release }: ReleaseDisplayProps) {
                     className="underline hover:text-blue-400">
                     {track.title} - {track.length}
                   </a>
-                  {/* {track.hasLyricImages && (
-                    <p className="text-yellow-400 text-sm underline text-center my-1">
-                        Lyrics
-                    </p>
-                  )} */}
                 </li>
               ))}
           </ol>
@@ -187,7 +186,7 @@ export default function ReleaseDisplay({ release }: ReleaseDisplayProps) {
 //   const currentImage = currentImages[currentImageIndex];
 
 //   return (
-//     <section className="flex flex-col bg-black/50 border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-lg rounded-4xl p-6 z-50 w-full max-w-2xl lg:mx-auto text-sm lg:text-base">
+//     <section className="flex flex-col bg-black/50 border-border-default border-2 shadow-white shadow-lg rounded-4xl p-6 z-50 w-full max-w-2xl lg:mx-auto text-sm lg:text-base">
 //       <Heading
 //         headingLevel={2}
 //         className="text-center mb-6 text-shadow-black-background-black text-xl lg:text-2xl font-semibold font-indie-flower tracking-widest"
@@ -199,7 +198,7 @@ export default function ReleaseDisplay({ release }: ReleaseDisplayProps) {
 //           alt={`${release.title} cover art`}
 //           width={300}
 //           height={300}
-//           className="rounded-2xl shadow-white shadow-lg border-2 border-[rgba(255,255,255,0.3)]"
+//           className="rounded-2xl shadow-white shadow-lg border-2 border-border-default"
 //         />
 //         <div className="w-full flex justify-center min-w-md">
 //           <ol className="list-decimal list-inside md:min-h-26 xl:min-h-30 max-w-md">
@@ -261,10 +260,10 @@ export default function ReleaseDisplay({ release }: ReleaseDisplayProps) {
 
 //         {/* CHANGED: Use DialogPanel component directly */}
 //         <div className="fixed inset-0 flex items-center justify-center p-4">
-//           <DialogPanel className="rainbow-gradient border-2 border-[rgba(255,255,255,0.3)] rounded-4xl shadow-white shadow-lg w-full h-[98vh] flex flex-col justify-center items-center p-6 overflow-auto">
+//           <DialogPanel className="rainbow-gradient border-2 border-border-default rounded-4xl shadow-white shadow-lg w-full h-[98vh] flex flex-col justify-center items-center p-6 overflow-auto">
 //             <StarrySky />
 //             <div className="p-6">
-              
+
 //               <button
 //                 onClick={() => setIsDialogOpen(false)}
 //                 className="absolute top-6 right-10 text-2xl transition-colors">
@@ -273,14 +272,14 @@ export default function ReleaseDisplay({ release }: ReleaseDisplayProps) {
 
 //               {currentImage && (
 //                 <>
-                  
+
 //                   <div className="flex justify-center mb-4 w-xs md:w-2xl mx-auto">
 //                     <Image
 //                       src={currentImage}
 //                       alt={`${currentTrack?.title} lyrics page ${currentImageIndex + 1}`}
 //                       width={1700}
 //                       height={2224}
-//                       className=" w-full rounded-4xl border border-[rgba(255,255,255,0.3)]"
+//                       className=" w-full rounded-4xl border border-border-default"
 //                     />
 //                   </div>
 

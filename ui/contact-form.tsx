@@ -64,7 +64,7 @@ export default function ContactForm({
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-    setState: React.Dispatch<React.SetStateAction<any>>
+    setState: React.Dispatch<React.SetStateAction<any>>,
   ) => {
     const { name, value } = e.target;
     setState(value);
@@ -73,7 +73,7 @@ export default function ContactForm({
       setEmailErrorMessage(
         value && !validateEmail(value)
           ? "Please enter a valid email address."
-          : ""
+          : "",
       );
     }
     // if (name === "first_name") {
@@ -94,19 +94,19 @@ export default function ContactForm({
       setNameErrorMessage(
         value && !validateName(value)
           ? "Name can only contain letters and spaces."
-          : ""
+          : "",
       );
     }
     if (name === "phone") {
       setPhoneErrorMessage(
         value && !validatePhone(value)
           ? "Please enter a valid phone number."
-          : ""
+          : "",
       );
     }
     if (name === "message") {
       setMessageErrorMessage(
-        value && !validateMessage(value) ? "Please enter a valid message." : ""
+        value && !validateMessage(value) ? "Please enter a valid message." : "",
       );
     }
   };
@@ -156,12 +156,12 @@ export default function ContactForm({
           process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
           process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
           emailTemplateParams,
-          process.env.NEXT_PUBLIC_EMAILJS_USER_ID
+          process.env.NEXT_PUBLIC_EMAILJS_USER_ID,
         );
         // .then((result) => {
         track("Contact form submission");
         setButtonSubmitted(true);
-        setName
+        setName;
         // setFirstName("");
         // setLastName("");
         setEmail("");
@@ -175,7 +175,7 @@ export default function ContactForm({
         // });
       } catch (error) {
         setDeliveryErrorMessage(
-          "There was an error delivering your message. Please email me at kevinlong.dev@gmail.com. My apologies for the inconvenience."
+          "There was an error delivering your message. Please email me at kevinlong.dev@gmail.com. My apologies for the inconvenience.",
         );
         toast.error(
           <div className="p-2">
@@ -197,7 +197,7 @@ export default function ContactForm({
             closeOnClick: true,
             pauseOnHover: true,
             className: "border-2 border-neutral-400 text-white",
-          }
+          },
         );
       }
     } else if (errors.length === 1) {
@@ -325,7 +325,7 @@ export default function ContactForm({
           <span
             className={clsx(
               "transition-opacity duration-700",
-              isFormValid && !buttonSubmitted ? "opacity-100" : "opacity-60"
+              isFormValid && !buttonSubmitted ? "opacity-100" : "opacity-60",
             )}>
             <button
               id="contact-form-submit-button"
@@ -337,14 +337,16 @@ export default function ContactForm({
                 "text-shadow-black-background-black border border-2 rounded-2xl py-1 px-6 transition-colors transition-shadow transition-transform duration-700 ease-in-out tracking-widest will-change-transform rainbow-gradient border-2",
                 {
                   // enabled styles
-                  "border-green-500 hover:border-[rgba(255,255,255,0.3)] cursor-pointer shadow-lg shadow-green-500/50 hover:scale-105 active:scale-95":
+                  "border-green-500 hover:border-border-default cursor-pointer shadow-lg shadow-green-500/50 hover:scale-105 active:scale-95":
                     isFormValid && !buttonSubmitted,
                   // disabled styles
-                  "border-[rgba(255,255,255,0.3)] text-neutral-100 cursor-not-allowed":
+                  "border-border-default text-neutral-100 cursor-not-allowed":
                     !isFormValid || buttonSubmitted,
-                }
+                },
               )}>
-                <span className="z-50 font-semibold text-white tracking-wideest">{buttonSubmitted ? "message sent!" : "send"}</span>
+              <span className="z-50 font-semibold text-white tracking-wideest">
+                {buttonSubmitted ? "message sent!" : "send"}
+              </span>
             </button>
           </span>
         </div>

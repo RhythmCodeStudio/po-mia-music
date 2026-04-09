@@ -57,7 +57,7 @@ export default async function Videos() {
           width={768}
           height={1024}
           alt="po sitting on a frog sculpture looking through a viewfinder outside Venice Cafe in St. Louis, MO"
-          className="rounded-4xl shadow-lg shadow-white"
+          className="rounded-4xl shadow-lg shadow-white border-2 border-border-default"
         />
       </div>
       </FadeInOnScroll>

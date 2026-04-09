@@ -84,9 +84,10 @@ export default function Header() {
               alt="Po Mia Music Logo"
               width={2213}
               height={725}
-              priority
+              // priority
               // className="w-full h-auto pr-12 lg:pr-16"
               className="w-full h-auto"
+              loading="eager"
             />
             {/* <div className="w-30 lg:w-36 h-auto absolute -top-18 lg:-top-20 -right-8 lg:-right-8">
               <Image

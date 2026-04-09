@@ -7,7 +7,7 @@ function SkeletonBox({ className }: { className?: string }) {
 export default function UnsubscribeSkeleton() {
   return (
     <div className="flex flex-col justify-center items-center w-full p-8">
-      <div className="flex flex-col items-stretch w-full max-w-2xl p-4 lg:p-8 bg-black/50 border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-lg rounded-4xl">
+      <div className="flex flex-col items-stretch w-full max-w-2xl p-4 lg:p-8 bg-black/50 border-border-default border-2 shadow-white shadow-lg rounded-4xl">
         {/* Heading skeleton */}
         <SkeletonBox className="h-8 w-56 sm:h-10 sm:w-72 mb-6 mx-auto" />
         {/* Email input skeleton */}

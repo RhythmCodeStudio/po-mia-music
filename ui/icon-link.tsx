@@ -31,7 +31,7 @@ export default function IconLink({
       }}>
       <Icon
         size={size}
-        className={`${className} md:hover:scale-110 md:active:scale-95 transition transform transition-transform duration-200 ease-in-out`}
+        className={`${className} md:hover:scale-110 md:active:scale-95 transition transform duration-200 ease-in-out`}
       />
       {/* Screen reader only text for accessibility */}
       <span

@@ -97,15 +97,13 @@ export default async function Calendar() {
             width={2102}
             height={1401}
             alt="Po playing a keytar outdoors in a grassy area with trees in the background"
-            className="rounded-4xl shadow-lg shadow-white mb-8"
+            className="rounded-4xl shadow-lg shadow-white mb-8 border-2 border-border-default"
           />
         </div>
       </FadeInOnScroll>
       <Toaster
         message="Install the app for the best experience!"
         component={<InstallAppButton />}
-        // message="Join the Mailinglist!"
-        // component={<LinkButton href="/mailing-list?mode=sign-up" label="Sign Up" />}
       />
     </div>
   );

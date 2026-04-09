@@ -82,7 +82,7 @@ export default async function CalendarEventPage({
         className="text-4xl font-bold text-shadow-black-background-black"
       />
       <div className="px-8 w-full mx-auto flex flex-col justify-center items-center">
-        <div className="flex flex-col justify-center items-center p-8 gap-4 bg-black/50 rounded-4xl shadow-lg shadow-white border-2 border-[rgba(255,255,255,0.3)] w-full max-w-xl my-8">
+        <div className="flex flex-col justify-center items-center p-8 gap-4 bg-black/50 rounded-4xl shadow-lg shadow-white border-2 border-border-default w-full max-w-xl my-8">
           <div className="text-lg w-full max-w-4xl flex flex-col justify-center items-center ">
             <p className="text-shadow-black-background-black text-xl font-medium">
               {typeof event.start_date === "string"

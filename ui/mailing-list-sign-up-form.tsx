@@ -2,7 +2,10 @@
 // import from react
 import { useState } from "react";
 // import actions
-import { signUpForMailingList, removeFromMailingList } from "../actions/actions";
+import {
+  signUpForMailingList,
+  removeFromMailingList,
+} from "../actions/actions";
 // import from clsx
 import { clsx } from "clsx";
 // import from toastify
@@ -14,9 +17,9 @@ import Heading from "./heading";
 import { validateEmail } from "../utils/utils";
 
 export default function MailingListSignUpForm({
-  mode = "sign-up"
+  mode = "sign-up",
 }: {
-  mode?: "sign-up" | "remove"
+  mode?: "sign-up" | "remove";
 }) {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
@@ -36,14 +39,14 @@ export default function MailingListSignUpForm({
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const value = e.target.value;
     setEmail(value);
     setEmailErrorMessage(
       value && !validateEmail(value)
         ? "Please enter a valid email address."
-        : ""
+        : "",
     );
   };
 
@@ -56,7 +59,7 @@ export default function MailingListSignUpForm({
       setEmailErrorMessage("Please enter a valid email address.");
       return;
     }
-    
+
     try {
       if (mode === "sign-up") {
         await signUpForMailingList(trimmedEmail);
@@ -68,15 +71,19 @@ export default function MailingListSignUpForm({
     } catch (err) {
       console.error("Error signing up for mailing list:", err);
       showErrorToast(
-        "An error occurred while signing up. Please try again later."
+        "An error occurred while signing up. Please try again later.",
       );
     }
   };
 
   return (
-    <div className="flex flex-col items-stretch w-full max-w-2xl p-4 lg:p-8 bg-black/50 border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-lg rounded-4xl max-w-lg">
+    <div className="flex flex-col items-stretch w-full max-w-2xl p-4 lg:p-8 bg-black/50 border-border-default border-2 shadow-white shadow-lg rounded-4xl max-w-lg">
       <Heading
-        text={mode === "sign-up" ? "mailing list sign-up" : "unsubscribe from mailing list"}
+        text={
+          mode === "sign-up"
+            ? "mailing list sign-up"
+            : "unsubscribe from mailing list"
+        }
         headingLevel={3}
         className="text-xl lg:text-2xl font-semibold text-shadow-black-background-black mb-4 text-center font-indie-flower"
       />
@@ -102,17 +109,21 @@ export default function MailingListSignUpForm({
           type="submit"
           disabled={!isFormValid || submitted}
           className={clsx(
-            "z-50 border-2 border-[rgba(255,255,255,0.3)] p-1 px-4 rounded-full text-sm rainbow-gradient text-shadow-black-background-black transition-colors transition-shadow transition-opacity transition-transform duration-700 ease-in-out tracking-widest will-change-transform mx-auto",
+            "z-50 border-2 border-border-default p-1 px-4 rounded-full text-sm rainbow-gradient text-shadow-black-background-black transition-colors transition-shadow transition-opacity transition-transform duration-700 ease-in-out tracking-widest will-change-transform mx-auto",
             {
               "cursor-not-allowed opacity-40": !isFormValid || submitted,
-              "border-green-500 hover:border-[rgba(255,255,255,0.3)] cursor-pointer opacity-100 hover:scale-105 active:scale-95 shadow-lg shadow-white":
+              "border-green-500 hover:border-border-default cursor-pointer opacity-100 hover:scale-105 active:scale-95 shadow-lg shadow-white":
                 isFormValid && !submitted,
-            }
+            },
           )}>
           <span className="z-50 font-semibold text-white tracking-wideest">
-            {submitted 
-              ? (mode === "sign-up" ? "thank you for signing up!" : "thank you! sign up again at any time!") 
-              : (mode === "sign-up" ? "sign up" : "unsubscribe")}
+            {submitted
+              ? mode === "sign-up"
+                ? "thank you for signing up!"
+                : "thank you! sign up again at any time!"
+              : mode === "sign-up"
+                ? "sign up"
+                : "unsubscribe"}
           </span>
         </button>
       </form>

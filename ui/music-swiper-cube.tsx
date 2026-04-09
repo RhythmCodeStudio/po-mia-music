@@ -51,15 +51,17 @@ export default function MusicSwiperCube() {
         // console.log("release:", release),
         <SwiperSlide
           key={release.id}
-          title={`${release.title} by ${release.tracks[0]?.artist || "Unknown Artist"}`}>
+          title={`${release.title} by ${release.tracks[0]?.artist || "Unknown Artist"}`}
+          className="rounded-2xl"
+          >
           <div className="flex flex-col items-center justify-center mx-auto rounded-2xl relative">
-            <Link href={`/music/#release-${release.id}`}>
+            <Link href={`/music/#release-${release.id}`} aria-label={`Go to ${release.title} release page`}>
               <Image
                 src={release.cover_image}
                 alt={`${release.title} cover art`}
                 width={200}
                 height={200}
-                className="rounded-2xl shadow-white shadow-md border-2 border-[rgba(255,255,255,0.3)]"
+                className="rounded-2xl shadow-white shadow-md border-2 border-border-default"
               />
             </Link>
           </div>

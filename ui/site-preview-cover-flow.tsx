@@ -43,7 +43,7 @@ export default function sitePreviewCoverFlow() {
                 alt={`${release.title} cover art`}
                 width={200}
                 height={200}
-                className=" shadow-white shadow-lg border-2 border-[rgba(255,255,255,0.3)]"
+                className=" shadow-white shadow-lg border-2 border-border-default"
               />
               {/* <h3 className="mt-2 text-center text-shadow-black-background-black text-lg font-semibold font-indie-flower tracking-widest">
                 {release.title}

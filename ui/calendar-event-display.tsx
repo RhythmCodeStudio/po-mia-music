@@ -88,7 +88,7 @@ export default function CalendarEventDisplay({
 
   return (
     <>
-      <section className="rainbow-gradient border-[rgba(255,255,255,0.3)] border-2 shadow-white shadow-lg rounded-4xl p-0 w-full md:min-w-[20rem] text-center font-semibold">
+      <section className="rainbow-gradient border-border-default border-2 shadow-white shadow-lg rounded-4xl w-full md:min-w-[20rem] text-center font-semibold">
         <div className="w-full bg-black/50 rounded-4xl p-4 shadow-md shadow-white min-h-full flex flex-col items-center gap-1">
           <div className="w-full">
             <p className="text-shadow-black-background-black">
@@ -105,7 +105,7 @@ export default function CalendarEventDisplay({
             <Heading
               text={title}
               headingLevel={3}
-              className="text-lg md:text-xl font-bold text-shadow-black-background-black underline decoration-[#ff0000] break-words whitespace-normal min-w-[16rem] max-w-[16rem]"
+              className="text-lg md:text-xl font-bold text-shadow-black-background-black underline decoration-[#ff0000] wrap-break-word whitespace-normal min-w-[16rem] max-w-[16rem]"
             />
           </Link>
           {/* <div className="w-full"> */}
@@ -176,7 +176,7 @@ export default function CalendarEventDisplay({
         </div>
       </section>
       {editModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60 z-100 px-8 md:px-0">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60 px-8 md:px-0">
           <div className="rainbow-gradient rounded-2xl shadow-2xl p-6 max-w-lg w-full relative max-h-[90vh] overflow-y-auto">
             <button
               onClick={handleModalToggle}
@@ -212,7 +212,7 @@ export default function CalendarEventDisplay({
         </div>
       )}
       {duplicateModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60 z-100 px-8 md:px-0">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60 px-8 md:px-0">
           <div className="rainbow-gradient rounded-2xl shadow-2xl p-6 max-w-lg w-full relative max-h-[90vh] overflow-y-auto">
             <button
               onClick={() => setDuplicateModalOpen(false)}
