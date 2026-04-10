@@ -97,7 +97,7 @@ export default function SimpleAudioPlayer({ song }: { song: Song }) {
 
       <div className="w-full">
         <input
-          className="w-full h-2 bg-[rgba(255,255,255,0.3)] rounded-lg appearance-none cursor-pointer shadow shadow-black "
+          className="w-full h-2 bg-border-default rounded-lg appearance-none cursor-pointer shadow shadow-black "
           type="range"
           max="100"
           value={progress}
