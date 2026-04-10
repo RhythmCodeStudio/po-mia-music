@@ -174,7 +174,7 @@ export default function PhotoGallery({
             return (
               <SwiperSlide key={index}>
                 <div
-                  className="w-full max-w-3xl mx-auto flex flex-col items-center justify-center bg-transparent aspect-[3/2] "
+                  className="w-full max-w-3xl mx-auto flex flex-col items-center justify-center bg-transparent aspect-3/2 "
                   onClick={() => {
                     setFullScreenImage(pic);
                     track("image_view", { image: pic.alt });

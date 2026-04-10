@@ -99,7 +99,8 @@ export default async function Home() {
               />
             </div>
           )}
-          <div className={clsx("", !nextEvent && "mt-8")}>
+          {/* <div className={clsx("", !nextEvent && "mt-8")}> */}
+          <div className="mt-8">
             <LinkButton href="/calendar" label="catch all the shows" />
           </div>
         </FadeInOnScroll>
@@ -157,7 +158,7 @@ export default async function Home() {
           />
         </SlideInOnScroll>
         <FadeInOnScroll>
-          <div className="w-full p-6 mt-2 sm:mt-4 md:mt-6 lg:mt-8">
+          <div className="w-full p-6 md:p-0 mt-8">
             <ClientContainer
               component={
                 <YouTubeVideo
@@ -167,7 +168,7 @@ export default async function Home() {
               }
             />
           </div>
-          <div className="sm:mt-2 md:mt-6 lg:mt-8">
+          <div className="mt-8">
             <LinkButton href="/videos" label="watch all the vids" />
           </div>
         </FadeInOnScroll>
