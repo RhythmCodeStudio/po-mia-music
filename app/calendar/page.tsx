@@ -76,7 +76,7 @@ export default async function Calendar() {
   });
 
   return (
-    <div className="flex flex-col flex-grow items-center justify-center w-full">
+    <div className="flex flex-col grow items-center justify-center w-full">
       <Heading
         text="calendar"
         headingLevel={2}

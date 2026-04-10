@@ -4,7 +4,7 @@ export function validateEmail(email: string) {
   return re.test(String(email).toLowerCase());
 }
 export function validateName(name: string) {
-  const re = /^[a-zA-Z]+$/;
+  const re = /^[a-zA-Z\s]+$/;
   return re.test(String(name));
 }
 export function validateMessage(message: string) {

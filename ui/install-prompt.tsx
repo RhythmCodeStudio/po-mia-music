@@ -55,7 +55,7 @@ export default function InstallPrompt() {
         className="absolute top-2 right-2 hover:text-gray-700 text-2xl font-bold px-2 cursor-pointer text-shadow-black-background-black"
         aria-label="Dismiss install prompt"
         type="button">
-        ×
+        x
       </button>
       <div className="text-shadow-black-background-black">
         <h2 className="text-xl font-semibold mb-2">install po mia music</h2>

@@ -50,12 +50,13 @@ export default function ContactFormInput({
           value={value}
           required
           name={name}
+          placeholder={placeholder}
           id={uniqueInputId}
-          className="shadow-md shadow-black border-2 border-border-default p-2 w-full text-black placeholder-neutral-800 rounded-3xl bg-neutral-100 tracking-wide h-80 resize-none"
+          className="shadow-md shadow-black border-2 border-border-default p-2 w-full text-black placeholder-neutral-800 rounded-3xl bg-neutral-100 tracking-wide h-80 resize-none caret-[#ff7f00]"
         />
       ) : (
         <input
-          className="shadow-md shadow-black border-2 border-border-default p-2 w-full text-black placeholder-neutral-800 rounded-3xl bg-neutral-100 tracking-wide h-10"
+          className="shadow-md shadow-black border-2 border-border-default p-2 w-full text-black placeholder-neutral-800 rounded-3xl bg-neutral-100 tracking-wide h-10 caret-[#ff7f00]"
           type={type}
           id={uniqueInputId}
           name={name}
@@ -67,7 +68,7 @@ export default function ContactFormInput({
         />
       )}
       <p
-        className="text-red-200 text-xs mt-1 ml-2 min-h-[1.25rem] transition-opacity duration-300"
+        className="text-red-200 text-xs mt-1 ml-2 min-h-5 transition-opacity duration-300"
         style={{
           visibility: errorMessage ? "visible" : "hidden",
           opacity: errorMessage ? 1 : 0,

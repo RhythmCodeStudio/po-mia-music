@@ -29,8 +29,6 @@ export default function ContactForm({
   setFormSubmitted: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   const [name, setName] = useState("");
-  // const [firstName, setFirstName] = useState("");
-  // const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
@@ -38,19 +36,15 @@ export default function ContactForm({
   const [emailErrorMessage, setEmailErrorMessage] = useState("");
   const [phoneErrorMessage, setPhoneErrorMessage] = useState("");
   const [nameErrorMessage, setNameErrorMessage] = useState("");
-  // const [firstNameErrorMessage, setFirstNameErrorMessage] = useState("");
-  // const [lastNameErrorMessage, setLastNameErrorMessage] = useState("");
   const [messageErrorMessage, setMessageErrorMessage] = useState("");
   const [deliveryErrorMessage, setDeliveryErrorMessage] = useState("");
   const [buttonSubmitted, setButtonSubmitted] = useState(false);
 
-  const isFormValid =
-    validateName(name.trim()) &&
-    // validateName(firstName.trim()) &&
-    // validateName(lastName.trim()) &&
-    validateEmail(email.trim()) &&
-    validatePhone(phone.trim()) &&
-    validateMessage(message);
+ const isFormValid =
+  validateName(name.trim()) &&
+  validateEmail(email.trim()) &&
+  (phone.trim() === "" || validatePhone(phone.trim())) &&
+  validateMessage(message);
 
   const showErrorToast = (msg: string) => {
     toast.error(msg, {
@@ -76,20 +70,6 @@ export default function ContactForm({
           : "",
       );
     }
-    // if (name === "first_name") {
-    //   setFirstNameErrorMessage(
-    //     value && !validateName(value)
-    //       ? "Name can only contain letters and spaces."
-    //       : ""
-    //   );
-    // }
-    // if (name === "last_name") {
-    //   setLastNameErrorMessage(
-    //     value && !validateName(value)
-    //       ? "Name can only contain letters and spaces."
-    //       : ""
-    //   );
-    // }
     if (name === "name") {
       setNameErrorMessage(
         value && !validateName(value)
@@ -121,7 +101,7 @@ export default function ContactForm({
     const trimmedPhone = phone.trim();
     // validation  for inputs, handle errors accordingly
     const isEmailValid = validateEmail(trimmedEmail);
-    const isPhoneValid = validatePhone(trimmedPhone);
+    const isPhoneValid = trimmedPhone === "" || validatePhone(trimmedPhone);
     const isNameValid = validateName(trimmedName);
     // const isFirstNameValid = validateName(trimmedFirstName);
     // const isLastNameValid = validateName(trimmedLastName);
@@ -225,39 +205,13 @@ export default function ContactForm({
       <form
         onSubmit={handleFormSubmit}
         className="w-full max-w-6xl mx-auto relative text-shadow-black-background-black">
-        {/* <ContactFormInput
-          inputType="input"
-          label="First Name"
-          name="first_name"
-          type="text"
-          placeholder=""
-          value={firstName}
-          required={true}
-          autoComplete="given-name"
-          errorMessage={firstNameErrorMessage}
-          handleChange={handleChange}
-          setStateVariable={setFirstName}
-        />
-        <ContactFormInput
-          inputType="input"
-          label="Last Name"
-          name="last_name"
-          type="text"
-          placeholder=""
-          value={lastName}
-          required={true}
-          autoComplete="family-name"
-          errorMessage={lastNameErrorMessage}
-          handleChange={handleChange}
-          setStateVariable={setLastName}
-        /> */}
         <ContactFormInput
           idPrefix="contact-form"
           inputType="input"
           label="name"
           name="name"
           type="text"
-          placeholder=""
+          placeholder="enter your name"
           value={name}
           required={true}
           autoComplete="name"
@@ -271,7 +225,7 @@ export default function ContactForm({
           label="phone"
           name="phone"
           type="tel"
-          placeholder=""
+          placeholder="enter your phone number (optional)"
           value={phone}
           required={false}
           autoComplete="tel"
@@ -285,7 +239,7 @@ export default function ContactForm({
           label="email"
           name="email"
           type="text"
-          placeholder=""
+          placeholder="enter your email address"
           value={email}
           required={true}
           autoComplete="email"
@@ -299,7 +253,7 @@ export default function ContactForm({
           label="message"
           name="message"
           type="text"
-          placeholder=""
+          placeholder="enter your message for po!"
           value={message}
           required={true}
           autoComplete="off"
@@ -311,7 +265,7 @@ export default function ContactForm({
           type="checkbox"
           name="mailing-list-signup"
           id="mailing-list-signup"
-          className="m-2"
+          className="m-2 accent-[#00ff00]"
           checked={mailingListSignup}
           onChange={(e) => setMailingListSignup(e.target.checked)}
         />
@@ -334,7 +288,7 @@ export default function ContactForm({
               disabled={!isFormValid || buttonSubmitted}
               aria-disabled={!isFormValid || buttonSubmitted}
               className={clsx(
-                "text-shadow-black-background-black border border-2 rounded-2xl py-1 px-6 transition-colors transition-shadow transition-transform duration-700 ease-in-out tracking-widest will-change-transform rainbow-gradient border-2",
+                "text-shadow-black-background-black border-2 rounded-2xl py-1 px-6 transition duration-700 ease-in-out tracking-widest will-change-transform rainbow-gradient",
                 {
                   // enabled styles
                   "border-green-500 hover:border-border-default cursor-pointer shadow-lg shadow-green-500/50 hover:scale-105 active:scale-95":
