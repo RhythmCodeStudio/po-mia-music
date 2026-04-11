@@ -136,7 +136,7 @@ export default async function Home() {
           />
         </SlideInOnScroll>
         <FadeInOnScroll>
-          <div className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl mt-6">
+          <div className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl mt-6 px-6 lg:px-0">
             <PhotoGallery
               showOptions={false}
               showPagination={false}

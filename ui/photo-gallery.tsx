@@ -82,7 +82,7 @@ export default function PhotoGallery({
   return (
     <>
       {showOptions && (
-        <div className="flex flex-row justify-center items-center rounded-4xl shadow-white shadow-lg border-2 border-border-default bg-black/50 w-full max-w-[90vw] sm:w-7/12 md:w-6/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12 5xl:w-2/12 xl:max-w-[24rem] mx-auto text-sm md:text-base">
+        <div className="flex flex-row justify-center items-center rounded-4xl shadow-white shadow-lg border-2 border-border-default bg-black/50 w-full max-w-[90vw] sm:w-7/12 md:w-6/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12 5xl:w-2/12 xl:max-w-[24rem] mx-auto text-sm md:text-base mb-6">
           <Button
             label="band"
             onClick={() => {
@@ -124,7 +124,7 @@ export default function PhotoGallery({
           />
         </div>
       )}
-      <section className="text-center mx-auto w-full flex flex-col justify-center items-center font-bold max-w-4xl px-2 lg:px-0">
+      <section className="text-center mx-auto w-full flex flex-col justify-center items-center font-bold max-w-4xl">
         {/* <Heading
         text="Photo Gallery"
         headingLevel={2}
@@ -139,7 +139,7 @@ export default function PhotoGallery({
           speed={1000}
           // effect={"fade"}
           navigation={showNavigation}
-          // CHANGED: Made pagination conditional based on showPagination prop
+          // pagination conditional based on showPagination prop
           pagination={showPagination}
           autoplay={{
             delay: 4800,
@@ -174,14 +174,14 @@ export default function PhotoGallery({
             return (
               <SwiperSlide key={index}>
                 <div
-                  className="w-full max-w-3xl mx-auto flex flex-col items-center justify-center bg-transparent aspect-3/2 "
+                  className="w-full max-w-3xl mx-auto flex flex-col items-center justify-center bg-transparent aspect-3/2"
                   onClick={() => {
                     setFullScreenImage(pic);
                     track("image_view", { image: pic.alt });
                   }}>
                   <Image
                     src={pic.src}
-                    alt={pic.alt || " po mia gallery image"}
+                    alt={pic.alt || "po mia gallery image"}
                     width={imageWidth}
                     height={imageHeight}
                     priority

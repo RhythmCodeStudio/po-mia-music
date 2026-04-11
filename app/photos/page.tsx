@@ -17,7 +17,7 @@ export default function Photos() {
         className="font-bold text-5xl text-shadow-black-background-black font-indie-flower tracking-widest"
       />
       <FadeInOnScroll>
-        <div className="w-full mt-6">
+        <div className="w-full mt-6 px-6 lg:px-0">
           <PhotoGallery showOptions={true} showNavigation={!isMobile} />
         </div>
       </FadeInOnScroll>
