@@ -87,7 +87,7 @@ export default function MorePopover({
       <Popover>
         <PopoverButton
           className={clsx(
-            "inline-flex items-center justify-center appearance-none min-h-0 leading-none rounded-full border-border-default border-2 shadow-white shadow-md hover:shadow-lg px-4 py-2 font-semibold text-white bg-black/50 transition transition-transform transition-shadow duration-200 ease-in-out active:scale-95 rainbow-gradient-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 cursor-pointer active:scale-95 transition-transform duration-200 ease-in-out",
+            "inline-flex items-center justify-center appearance-none min-h-0 leading-none rounded-full border-border-default border-2 shadow-white shadow-md hover:shadow-lg px-4 py-2 text-white bg-black/50 transition duration-200 ease-in-out active:scale-95 rainbow-gradient-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500",
           )}>
           <span
             aria-label="More options"
@@ -109,7 +109,7 @@ export default function MorePopover({
                       // close();
                       // if (onAnyAction) onAnyAction();
                     }}
-                    className="rainbow-gradient p-1 rounded-full border-2 border-border-default shadow-white shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full max-w-xs transform transition-transform transition-shadow duration-200 active:scale-95 text-shadow-black-background-black font-semibold">
+                    className="rainbow-gradient p-1 rounded-full border-2 border-border-default shadow-white shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full max-w-xs transform transition-transform duration-200 active:scale-95 text-shadow-black-background-black font-medium tracking-wider">
                     install app
                   </button>
                 </div>
@@ -124,7 +124,7 @@ export default function MorePopover({
                     close();
                     if (onAnyAction) onAnyAction(); // <-- close mobile menu if provided
                   }}
-                  className="rainbow-gradient p-1 rounded-full  border-2 border-border-default shadow-white shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full max-w-xs transform transition-transform transition-shadow duration-200 active:scale-95 text-shadow-black-background-black text-center font-semibold">
+                  className="rainbow-gradient p-1 rounded-full  border-2 border-border-default shadow-white shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full max-w-xs transform transition-transform duration-200 active:scale-95 text-shadow-black-background-black text-center font-medium tracking-wider">
                   sign up for mailing list
                 </Link>
               </div>
@@ -170,7 +170,6 @@ export default function MorePopover({
               </p>
             </div>
           </div>
-          {/* <StarrySky /> */}
         </div>
       )}
     </>
