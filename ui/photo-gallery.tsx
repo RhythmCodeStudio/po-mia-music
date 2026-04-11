@@ -82,7 +82,7 @@ export default function PhotoGallery({
   return (
     <>
       {showOptions && (
-        <div className="flex flex-row justify-center items-center rounded-4xl shadow-white shadow-lg border-2 border-border-default bg-black/50 w-full max-w-[90vw] sm:w-7/12 md:w-6/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12 5xl:w-2/12 xl:max-w-[24rem] mx-auto text-sm md:text-base mb-6">
+        <div className="flex flex-row justify-center items-center rounded-4xl shadow-white shadow-lg border-2 border-border-default bg-black/50 w-full max-w-[90vw] sm:w-7/12 md:w-6/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12 5xl:w-2/12 xl:max-w-[24rem] mx-auto text-sm md:text-base mt-4 mb-8">
           <Button
             label="band"
             onClick={() => {
