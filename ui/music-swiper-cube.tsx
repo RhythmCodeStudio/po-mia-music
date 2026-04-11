@@ -19,7 +19,7 @@ export default function MusicSwiperCube() {
 
   // CHANGED: Added handler for slide change
   const handleSlideChange = (swiper: any) => {
-    console.log("Cube rotated to slide:", swiper.activeIndex);
+    // console.log("Cube rotated to slide:", swiper.activeIndex);
     setCurrentSlide(swiper.activeIndex);
     // Add your custom logic here
   };

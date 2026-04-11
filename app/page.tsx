@@ -35,7 +35,7 @@ export default async function Home() {
   );
   // await delayLoad(5000);
   return (
-    <div className="relative flex flex-col grow items-center justify-center space-y-12 lg:space-y-16">
+    <div className="relative flex flex-col grow items-center justify-center space-y-12">
       {/* <div className="fixed top-20 left-0 w-full z-50">
         <InstallPrompt />
       </div> */}
@@ -60,12 +60,12 @@ export default async function Home() {
           <Heading
             text="up next..."
             headingLevel={2}
-            className="font-bold text-5xl lg:text-6xl xl:text-7xl text-shadow-black-background-black font-indie-flower tracking-widest"
+            className="font-bold text-5xl lg:text-6xl xl:text-6xl text-shadow-black-background-black font-indie-flower tracking-widest"
           />
         </SlideInOnScroll>
         <FadeInOnScroll>
           {nextEvent && (
-            <div className="w-full max-w-xs mt-8 mx-auto flex justify-center items-center p-6">
+            <div className="w-full max-w-xs mt-8 mx-auto flex justify-center items-center">
               <CalendarEventDisplay
                 id={nextEvent?.id}
                 title={nextEvent?.title}
@@ -100,7 +100,7 @@ export default async function Home() {
             </div>
           )}
           {/* <div className={clsx("", !nextEvent && "mt-8")}> */}
-          <div className="mt-8">
+          <div className="mt-6">
             <LinkButton href="/calendar" label="catch all the shows" />
           </div>
         </FadeInOnScroll>
@@ -110,11 +110,11 @@ export default async function Home() {
           <Heading
             text="music"
             headingLevel={2}
-            className="font-bold text-5xl lg:text-6xl xl:text-7xl text-shadow-black-background-black font-indie-flower tracking-widest"
+            className="font-bold text-5xl lg:text-6xl xl:text-6xl text-shadow-black-background-black font-indie-flower tracking-widest"
           />
         </SlideInOnScroll>
         <FadeInOnScroll>
-          <div className="w-full p-8">
+          <div className="w-full p-6">
             <MusicSwiperCube />
           </div>
           {cyberchondria && (
@@ -122,7 +122,7 @@ export default async function Home() {
               <AudioPlayer song={cyberchondria} />
             </div>
           )}
-          <div className="mt-8">
+          <div className="mt-6">
             <LinkButton href="/music" label="hear all the hits" />
           </div>
         </FadeInOnScroll>
@@ -132,11 +132,11 @@ export default async function Home() {
           <Heading
             text="photos"
             headingLevel={2}
-            className="font-bold text-5xl lg:text-6xl xl:text-7xl text-shadow-black-background-black font-indie-flower tracking-widest"
+            className="font-bold text-5xl lg:text-6xl xl:text-6xl text-shadow-black-background-black font-indie-flower tracking-widest"
           />
         </SlideInOnScroll>
         <FadeInOnScroll>
-          <div className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl">
+          <div className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl mt-6">
             <PhotoGallery
               showOptions={false}
               showPagination={false}
@@ -144,7 +144,7 @@ export default async function Home() {
               showCaption={false}
             />
           </div>
-          <div className="">
+          <div className="mt-6">
             <LinkButton href="/photos" label="see all the pics" />
           </div>
         </FadeInOnScroll>
@@ -154,11 +154,11 @@ export default async function Home() {
           <Heading
             text="videos"
             headingLevel={2}
-            className="font-bold text-5xl lg:text-6xl xl:text-7xl text-shadow-black-background-black font-indie-flower tracking-widest"
+            className="font-bold text-5xl lg:text-6xl xl:text-6xl text-shadow-black-background-black font-indie-flower tracking-widest"
           />
         </SlideInOnScroll>
         <FadeInOnScroll>
-          <div className="w-full p-6 md:p-0 mt-8">
+          <div className="w-full mt-6 px-6 lg:px-0">
             <ClientContainer
               component={
                 <YouTubeVideo
@@ -168,7 +168,7 @@ export default async function Home() {
               }
             />
           </div>
-          <div className="mt-8">
+          <div className="mt-6">
             <LinkButton href="/videos" label="watch all the vids" />
           </div>
         </FadeInOnScroll>
@@ -179,7 +179,7 @@ export default async function Home() {
             <Heading
               text="keep in touch"
               headingLevel={2}
-              className="underline font-bold text-4xl xl:text-6xl rainbow-gradient-text font-indie-flower tracking-widest icon-shadow hover:scale-105 hover:-rotate-3 transition-transform duration-300 ease-in-out"
+              className="underline font-bold text-4xl xl:text-6xl rainbow-gradient-text font-indie-flower tracking-widest icon-shadow hover:scale-105 hover:-rotate-3 transition-transform duration-300 ease-in-out my-6"
             />
           </Link>
         </FadeInOnScroll>
