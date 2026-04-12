@@ -29,10 +29,23 @@ export default async function Home() {
     (event) => new Date(event.start_date) >= new Date(),
   );
   const nextEvent = upComingEvents.length > 0 ? upComingEvents[0] : null;
-  const poLogue = releases.find((release) => release.title === "po logue");
-  const cyberchondria = poLogue?.tracks.find(
-    (track) => track.title === "cyberchondria",
-  );
+  const tracks = [];
+  // const poLogue = releases.find((release) => release.title === "po logue");
+  // tracks.push(...(poLogue?.tracks || []));
+  const poLogueTracks = releases.find((release) => release.title === "po logue")?.tracks || [];
+  tracks.push(...poLogueTracks);
+  // const cyberchondria = poLogue?.tracks.find(
+  //   (track) => track.title === "cyberchondria",
+  // );
+  // tracks.push(cyberchondria);
+  // const hopeIsPlenty = releases.find(
+  //   (release) => release.title === "hope is plenty",
+  // );
+  // const hopeIsPlentyTrack = hopeIsPlenty?.tracks.find(
+  //   (track) => track.title === "hope is plenty",
+  // );
+  // tracks.push(hopeIsPlentyTrack);
+  console.log("tracks: ", tracks);
   // await delayLoad(5000);
   return (
     <div className="relative flex flex-col grow items-center justify-center space-y-12">
