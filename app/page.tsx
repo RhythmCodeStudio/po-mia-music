@@ -20,9 +20,6 @@ import { releases } from "../lib/releases";
 // import actions
 import { getCalendarEvents } from "../actions/actions";
 import Link from "next/link";
-function delayLoad(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
 
 export default async function Home() {
   const events = await getCalendarEvents();
@@ -55,7 +52,6 @@ export default async function Home() {
       ? allTracks[Math.floor(Math.random() * allTracks.length)]
       : null;
 
-  await delayLoad(8000);
   return (
     <div className="relative flex flex-col grow items-center justify-center space-y-12">
       {/* <div className="fixed top-20 left-0 w-full z-50">
