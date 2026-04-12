@@ -23,7 +23,7 @@ export default function IconLink({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex flex-col items-center relative"
+      className="flex flex-col relative"
       aria-label={label}
       onClick={() => {
         track("contact icon link clicked", { name: `${label}` });

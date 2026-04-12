@@ -59,7 +59,7 @@ export default function ReleaseDisplay({ release }: ReleaseDisplayProps) {
           className="rounded-2xl shadow-white shadow-lg border-2 border-border-default"
         />
         <div className="w-full flex justify-center min-w-md">
-          <ol className="list-decimal list-inside md:min-h-26 xl:min-h-30 max-w-md">
+          <ol className="list-decimal list-inside md:min-h-32 max-w-md">
             {release.tracks &&
               release.tracks.map((track) => (
                 <li
@@ -76,18 +76,19 @@ export default function ReleaseDisplay({ release }: ReleaseDisplayProps) {
               ))}
           </ol>
         </div>
-        <p className="text-shadow-black-background-black w-full max-w-md md:min-h-30 xl:min-h-24">
+        <p className="text-shadow-black-background-black w-full max-w-md md:min-h-32">
           {release.description}
         </p>
 
-        <p className="text-shadow-black-background-black">
+        <p className="-mb-2 text-shadow-black-background-black">
           released {formatDate(release.release_date).toLowerCase()}
         </p>
-        <div className="icon-shadow flex flex-wrap justify-center items-center gap-8">
+        {/* <div className="icon-shadow flex flex-wrap justify-center items-center gap-8">
           {release.links.map((link) => (
             <IconLinkGroupClientContainer
+            // <IconLinkGroup
               key={link.name}
-              size={24}
+              size={20}
               orientation="horizontal"
               linkData={[
                 {
@@ -99,7 +100,7 @@ export default function ReleaseDisplay({ release }: ReleaseDisplayProps) {
               ]}
             />
           ))}
-        </div>
+        </div> */}
       </div>
     </section>
   );
