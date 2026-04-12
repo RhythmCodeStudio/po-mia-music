@@ -1,5 +1,5 @@
 "use client";
-// import { releases } from "@/lib/po-data";
+
 import { releases } from "@/lib/releases";
 import ReleaseDisplay from "./release-display";
 

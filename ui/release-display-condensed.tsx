@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Heading from "./heading";
+// import Heading from "./heading";
 
 interface ReleaseDisplayCondensedProps {
   release: {
