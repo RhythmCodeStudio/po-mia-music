@@ -61,3 +61,7 @@ export const formatDate = (date: Date | string | undefined) => {
 export function delayPageLoad(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
+
+export function delayComponentLoad(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}

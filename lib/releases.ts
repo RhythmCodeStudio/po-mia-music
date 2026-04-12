@@ -141,7 +141,7 @@ export const releases = [
       },
       {
         id: "season-the-day",
-        title: "season the day",
+        title: "season the day!!!!!!!!!!!!!!!!!!!!",
         artist: "po mia",
         album: "REBIRTH",
         year: 2023,

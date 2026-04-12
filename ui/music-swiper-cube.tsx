@@ -11,7 +11,7 @@ import "swiper/css/effect-cube";
 import "swiper/css/pagination";
 import { EffectCube, Pagination, Autoplay } from "swiper/modules";
 // import data
-import { releases } from "../lib/po-data";
+import { releases } from "../lib/releases";
 
 export default function MusicSwiperCube() {
   // CHANGED: Added state to track current slide

@@ -15,7 +15,8 @@ import FadeInOnScroll from "@/ui/fade-in-on-scroll";
 import Heading from "@/ui/heading";
 import PhotoGallery from "@/ui/photo-gallery";
 // import data
-import { poBio, releases } from "../lib/po-data";
+import { poBio } from "../lib/po-data";
+import { releases } from "../lib/releases";
 // import actions
 import { getCalendarEvents } from "../actions/actions";
 import Link from "next/link";
@@ -29,24 +30,32 @@ export default async function Home() {
     (event) => new Date(event.start_date) >= new Date(),
   );
   const nextEvent = upComingEvents.length > 0 ? upComingEvents[0] : null;
-  const tracks = [];
-  // const poLogue = releases.find((release) => release.title === "po logue");
-  // tracks.push(...(poLogue?.tracks || []));
-  const poLogueTracks = releases.find((release) => release.title === "po logue")?.tracks || [];
-  tracks.push(...poLogueTracks);
-  // const cyberchondria = poLogue?.tracks.find(
-  //   (track) => track.title === "cyberchondria",
-  // );
-  // tracks.push(cyberchondria);
-  // const hopeIsPlenty = releases.find(
-  //   (release) => release.title === "hope is plenty",
-  // );
-  // const hopeIsPlentyTrack = hopeIsPlenty?.tracks.find(
-  //   (track) => track.title === "hope is plenty",
-  // );
-  // tracks.push(hopeIsPlentyTrack);
-  console.log("tracks: ", tracks);
-  // await delayLoad(5000);
+ 
+  const poLogueTracks =
+    releases.find((release) => release.title === "po logue")?.tracks || [];
+
+  const goldenTongueTracks =
+    releases.find((release) => release.title === "golden tongue")?.tracks || [];
+
+  const rebirthTracks =
+    releases.find((release) => release.title === "REBIRTH")?.tracks || [];
+ 
+  const hopeIsPlentyTracks =
+    releases.find((release) => release.title === "hope is plenty")?.tracks ||
+    [];
+  const allTracks = [
+    ...poLogueTracks.filter((track) => track.title !== "Ux4"),
+    ...goldenTongueTracks,
+    ...rebirthTracks,
+    ...hopeIsPlentyTracks,
+  ];
+
+  const randomTrack =
+    allTracks.length > 0
+      ? allTracks[Math.floor(Math.random() * allTracks.length)]
+      : null;
+
+  // await delayLoad(1000);
   return (
     <div className="relative flex flex-col grow items-center justify-center space-y-12">
       {/* <div className="fixed top-20 left-0 w-full z-50">
@@ -112,7 +121,6 @@ export default async function Home() {
               />
             </div>
           )}
-          {/* <div className={clsx("", !nextEvent && "mt-8")}> */}
           <div className="mt-6">
             <LinkButton href="/calendar" label="catch all the shows" />
           </div>
@@ -130,9 +138,9 @@ export default async function Home() {
           <div className="w-full p-6">
             <MusicSwiperCube />
           </div>
-          {cyberchondria && (
+          {randomTrack && (
             <div className="w-full px-6 lg:p-0 mt-2">
-              <AudioPlayer song={cyberchondria} />
+              <AudioPlayer song={randomTrack} />
             </div>
           )}
           <div className="mt-6">

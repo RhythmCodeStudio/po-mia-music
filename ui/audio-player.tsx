@@ -7,7 +7,14 @@ import { Song } from "@/lib/definitions";
 // import images
 import poLogo from "@/public/logos/pomia-horizontal-logo-black.png";
 
-export default function SimpleAudioPlayer({ song }: { song: Song }) {
+export default function AudioPlayer({ song }: { song: Song }) {
+  console.log("AudioPlayer received song:", song);
+  console.log("song.src:", song?.src);
+
+  if (!song || !song.src) {
+    console.error("AudioPlayer: Missing song or src", { song });
+    return <div className="text-black text-center">No song available</div>;
+  }
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -74,7 +81,7 @@ export default function SimpleAudioPlayer({ song }: { song: Song }) {
   }, [isPlaying]);
 
   if (!song || !song.src) {
-    return <div className="text-gray-400">No song available</div>;
+    return <div className="text-black text-center">No song available</div>;
   }
 
   return (
@@ -97,7 +104,7 @@ export default function SimpleAudioPlayer({ song }: { song: Song }) {
 
       <div className="w-full">
         <input
-          className="w-full h-2 bg-border-default rounded-lg appearance-none cursor-pointer shadow shadow-black "
+          className="w-full h-2 bg-border-default rounded-lg appearance-none cursor-pointer shadow shadow-black"
           type="range"
           max="100"
           value={progress}
