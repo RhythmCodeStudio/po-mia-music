@@ -24,7 +24,7 @@ export default function HomePageLoadingSkeleton() {
           ))}
         </div>
       </div>
-      {/* Toaster skeleton (optional, minimal) */}
+      {/* scroll to top button skeleton */}
       <div className="fixed bottom-4 right-4 z-50">
         <SkeletonBox className="h-12 w-12 rounded-full" />
       </div>
