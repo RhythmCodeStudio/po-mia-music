@@ -15,7 +15,7 @@ export const releases = [
         name: "Amazon Music",
         label: "Listen to 'hope is plenty' on Amazon Music",
         url: "https://www.amazon.com/music/player/albums/B0D8NH2B7B",
-        icon: "SiAmazonmusic",
+        icon: "FaAmazon",
       },
       {
         name: "Apple Music",
@@ -30,10 +30,22 @@ export const releases = [
         icon: "SiBandcamp",
       },
       {
+        name: "Deezer",
+        label: "Listen to 'hope is plenty' on Deezer",
+        url: "https://www.deezer.com/us/album/479891812",
+        icon: "FaDeezer",
+      },
+      {
         name: "Spotify",
         label: "Listen to 'hope is plenty' on Spotify",
         url: "https://open.spotify.com/album/1lpZTVvvQ5RgL7Vn7ixcL8",
         icon: "SiSpotify",
+      },
+      {
+        name: "Tidal",
+        label: "Listen to 'hope is plenty' on Tidal",
+        url: "https://tidal.com/browse/album/334891752",
+        icon: "SiTidal",
       },
       {
         name: "YouTube",
@@ -79,7 +91,7 @@ export const releases = [
         name: "Amazon Music",
         label: "Listen to 'REBIRTH' on Amazon Music",
         url: "https://www.amazon.com/music/player/albums/B0C5G76FT2",
-        icon: "SiAmazonmusic",
+        icon: "FaAmazon",
       },
       {
         name: "Apple Music",
@@ -94,10 +106,22 @@ export const releases = [
         icon: "SiBandcamp",
       },
       {
+        name: "Deezer",
+        label: "Listen to 'REBIRTH' on Deezer",
+        url: "https://www.deezer.com/us/album/432610722",
+        icon: "FaDeezer",
+      },
+      {
         name: "Spotify",
         label: "Listen to 'REBIRTH' on Spotify",
         url: "https://open.spotify.com/album/3QeQh5IfEDY70c3BgEMQyK",
         icon: "SiSpotify",
+      },
+      {
+        name: "Tidal",
+        label: "Listen to 'REBIRTH' on Tidal",
+        url: "https://tidal.com/browse/album/306891752",
+        icon: "SiTidal",
       },
       {
         name: "YouTube",
@@ -169,7 +193,7 @@ export const releases = [
         name: "Amazon Music",
         label: "Listen to 'golden tongue' on Amazon Music",
         url: "https://www.amazon.com/music/player/albums/B0BJJL17MW",
-        icon: "SiAmazonmusic",
+        icon: "FaAmazon",
       },
       {
         name: "Apple Music",
@@ -184,10 +208,22 @@ export const releases = [
         icon: "SiBandcamp",
       },
       {
+          name: "Deezer",
+          label: "Listen to 'golden tongue' on Deezer",
+          url: "https://www.deezer.com/us/album/432610722",
+          icon: "FaDeezer",
+      },
+      {
         name: "Spotify",
         label: "Listen to 'golden tongue' on Spotify",
         url: "https://open.spotify.com/album/3hnlpq3Rc5cCTZHoDeri2X",
         icon: "SiSpotify",
+      },
+      {
+        name: "Tidal",
+        label: "Listen to 'golden tongue' on Tidal",
+        url: "https://tidal.com/browse/album/306891752",
+        icon: "SiTidal",
       },
       {
         name: "YouTube",
@@ -234,7 +270,7 @@ export const releases = [
         name: "Amazon Music",
         label: "Listen to 'po logue' on Amazon Music",
         url: "https://www.amazon.com/music/player/albums/B09SVXBRGZ",
-        icon: "SiAmazonmusic",
+        icon: "FaAmazon",
       },
       {
         name: "Apple Music",
@@ -249,10 +285,22 @@ export const releases = [
         icon: "SiBandcamp",
       },
       {
+        name: "Deezer",
+        label: "Listen to 'po logue' on Deezer",
+        url: "https://www.deezer.com/us/album/432610722",
+        icon: "FaDeezer",
+      },
+      {
         name: "Spotify",
         label: "Listen to 'po logue' on Spotify",
         url: "https://open.spotify.com/album/6dn0pBQ85089ddx7zZ8VH1",
         icon: "SiSpotify",
+      },
+      {
+        name: "Tidal",
+        label: "Listen to 'po logue' on Tidal",
+        url: "https://tidal.com/browse/album/306891752",
+        icon: "SiTidal",
       },
       {
         name: "YouTube",

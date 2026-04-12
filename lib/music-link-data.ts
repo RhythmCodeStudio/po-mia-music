@@ -2,7 +2,7 @@ export const musicLinkData = [
   {
     name: "Amazon Music",
     href: "https://www.amazon.com/music/player/artists/B09SVWRR5L/po-mia",
-    icon: "SiAmazonmusic",
+    icon: "FaAmazon",
     label: "Listen to po mia on Amazon Music"
   },
    {

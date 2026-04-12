@@ -3,6 +3,7 @@ import Image from "next/image";
 // import components
 import Heading from "./heading";
 import IconLinkGroup from "./icon-link-group";
+import IconLinkGroupClientContainer from "./icon-link-group-client-container";
 // import from utils
 import { formatDate } from "../utils/utils";
 
@@ -42,7 +43,7 @@ interface ReleaseDisplayProps {
 export default function ReleaseDisplay({ release }: ReleaseDisplayProps) {
   return (
     <section
-      className="flex flex-col bg-black/50 border-border-default border-2 shadow-white shadow-lg rounded-(--display-radius) p-(--display-padding) z-50 w-full max-w-2xl lg:mx-auto text-sm lg:text-base [--display-radius:var(--radius-4xl)] [--display-padding:--spacing(6)]"
+      className="flex flex-col justify-center items-center bg-black/50 border-border-default border-2 shadow-white shadow-lg rounded-(--display-radius) p-(--display-padding) z-50 w-full max-w-2xl lg:mx-auto text-sm lg:text-base [--display-radius:var(--radius-4xl)] [--display-padding:--spacing(6)]"
       id={`release-${release.id}`}>
       <Heading
         headingLevel={2}
@@ -82,10 +83,11 @@ export default function ReleaseDisplay({ release }: ReleaseDisplayProps) {
         <p className="text-shadow-black-background-black">
           released {formatDate(release.release_date).toLowerCase()}
         </p>
-        <div className="flex flex-wrap gap-4 icon-shadow">
+        <div className="icon-shadow flex flex-wrap justify-center items-center gap-8">
           {release.links.map((link) => (
-            <IconLinkGroup
+            <IconLinkGroupClientContainer
               key={link.name}
+              size={24}
               orientation="horizontal"
               linkData={[
                 {

@@ -32,7 +32,7 @@ export const paymentLinks = [
 //         name: "Amazon Music",
 //         label: "Listen to 'hope is plenty' on Amazon Music",
 //         url: "https://www.amazon.com/music/player/albums/B0D8NH2B7B",
-//         icon: "SiAmazonmusic",
+//         icon: "FaAmazon",
 //       },
 //       {
 //         name: "Apple Music",
@@ -96,7 +96,7 @@ export const paymentLinks = [
 //         name: "Amazon Music",
 //         label: "Listen to 'REBIRTH' on Amazon Music",
 //         url: "https://www.amazon.com/music/player/albums/B0C5G76FT2",
-//         icon: "SiAmazonmusic",
+//         icon: "FaAmazon",
 //       },
 //       {
 //         name: "Apple Music",
@@ -186,7 +186,7 @@ export const paymentLinks = [
 //         name: "Amazon Music",
 //         label: "Listen to 'golden tongue' on Amazon Music",
 //         url: "https://www.amazon.com/music/player/albums/B0BJJL17MW",
-//         icon: "SiAmazonmusic",
+//         icon: "FaAmazon",
 //       },
 //       {
 //         name: "Apple Music",
@@ -251,7 +251,7 @@ export const paymentLinks = [
 //         name: "Amazon Music",
 //         label: "Listen to 'po logue' on Amazon Music",
 //         url: "https://www.amazon.com/music/player/albums/B09SVXBRGZ",
-//         icon: "SiAmazonmusic",
+//         icon: "FaAmazon",
 //       },
 //       {
 //         name: "Apple Music",

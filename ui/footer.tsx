@@ -97,15 +97,7 @@ export default function Footer() {
 
   return (
     <FadeInOnScroll className="w-full">
-      <footer className="p-2 flex flex-col items-center space-y-6 max-w-7xl mx-auto w-full">
-        {/* <div className="w-50 h-auto ">
-        <Image
-          alt="po mia rubik's cube logo with butterflies"
-          src="/icons/butterfly-logo.png"
-          width={700}
-          height={700}
-        />
-      </div> */}
+      <footer className="p-2 flex flex-col items-center justify-center space-y- max-w-7xl mx-auto w-full">
         <div className="h-auto w-48 p-2 flex items-center justify-center">
           <Image
             className="w-full h-auto"
@@ -119,13 +111,13 @@ export default function Footer() {
           orientation="horizontal"
           linkData={iconLinkData}
           size={iconSize}
-          className="icon-shadow"
+          className="icon-shadow flex justify-center items-center py-4"
         />
         <IconLinkGroup
           orientation="horizontal"
           linkData={musicLinkData}
           size={iconSize}
-          className="icon-shadow"
+          className="icon-shadow flex justify-center items-center py-4"
         />
         {/* <div className="p-2 mb-6 w-full h-full">
         <CubeClientContainer />

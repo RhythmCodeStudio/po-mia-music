@@ -107,7 +107,8 @@ export default function Header() {
                 width={2213}
                 height={725}
                 priority
-                className="w-full h-auto pr-12 lg:pr-16 "
+                className="w-full h-auto pr-12 lg:pr-16"
+                loading="eager"
               />
               <div className="w-30 lg:w-36 h-auto absolute -top-18 lg:-top-20 -right-8 lg:-right-8">
                 <Image
@@ -115,6 +116,7 @@ export default function Header() {
                   width={1184}
                   height={1776}
                   alt="Po sitting playing an acoustic guitar"
+                  loading="eager"
                 />
               </div>
             </div>

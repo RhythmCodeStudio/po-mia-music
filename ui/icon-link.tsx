@@ -23,12 +23,12 @@ export default function IconLink({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex flex-col items-center"
-      // title={label}
+      className="flex flex-col items-center relative"
       aria-label={label}
       onClick={() => {
         track("contact icon link clicked", { name: `${label}` });
       }}>
+        {/* <span className="absolute top-1/2 left-1/2 size-12 -translate-1/2 pointer-fine:hidden"></span> */}
       <Icon
         size={size}
         className={`${className} md:hover:scale-110 md:active:scale-95 transition transform duration-200 ease-in-out`}
