@@ -51,7 +51,7 @@ export default async function Music() {
         />
       </div>
       <FadeInOnScroll>
-        <div className="w-full max-w-6xl">
+        <div className="w-full max-w-6xl p-8">
           <ReleaseDisplayContainer />
         </div>
       </FadeInOnScroll>
