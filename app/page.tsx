@@ -179,8 +179,8 @@ export default async function Home() {
             <ClientContainer
               component={
                 <YouTubeVideo
-                  videoId="ABO_nv26QEc"
-                  title="po mia - exposé (My St. Louis Live!)"
+                  videoId="GuGbM0EH27U"
+                  title="po mia - season the day (NPR Tiny Desk Submission 2026)"
                 />
               }
             />
