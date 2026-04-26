@@ -1,10 +1,9 @@
 "use server";
+import { neon } from "@neondatabase/serverless";
+import { auth } from "@/auth/server";
+import { redirect } from "next/navigation";
 
-import postgres from "postgres";
-
-// const sql = postgres(process.env.POSTGRES_URL!, { ssl: "require" });
-
-const sql = postgres(process.env.POSTGRES_URL!, { ssl: "require", prepare: false });
+const sql = neon(`${process.env.DATABASE_URL}`);
 
 export async function signUpForMailingList(email: string) {
   await sql`
@@ -154,4 +153,15 @@ export async function updateCalendarEvent(event: {
       more_info_link = ${event.moreInfoLink ?? null}
     WHERE id = ${event.id}
   `;
+}
+
+export async function getSession() {
+  const session = await auth.getSession();
+  return session;
+}
+
+export async function signOut() {
+  await auth.signOut();
+  // redirect to "/"
+  redirect("/");
 }

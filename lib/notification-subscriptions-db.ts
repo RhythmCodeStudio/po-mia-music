@@ -1,5 +1,6 @@
-import postgres from "postgres";
-const sql = postgres(process.env.POSTGRES_URL!, { ssl: "require" });
+import { neon } from "@neondatabase/serverless";
+
+const sql = neon(`${process.env.DATABASE_URL}`);
 
 export async function saveSubscriptionToDB(sub: any) {
   await sql`

@@ -23,7 +23,7 @@ import { musicLinkData } from "@/lib/music-link-data";
 import { paymentLinks } from "@/lib/po-data";
 
 interface MobileMenuProps {
-  user: any;
+  isAuthenticated: boolean;
   navListItems: {
     label: string;
     href: string;
@@ -33,7 +33,7 @@ interface MobileMenuProps {
   }[];
 }
 
-export default function MobileNav({ navListItems, user }: MobileMenuProps) {
+export default function MobileNav({ navListItems, isAuthenticated }: MobileMenuProps) {
   const pathname = usePathname();
   const isHome = pathname === "/";
   // const { theme } = useTheme();
@@ -68,7 +68,7 @@ export default function MobileNav({ navListItems, user }: MobileMenuProps) {
 
         {/* Dialog Content */}
         <div className="fixed inset-0 flex flex-col items-center justify-center">
-          <DialogPanel className="h-[100vh] w-[100vw] relative border-2 border-black bg-black flex flex-col justify-center p-8">
+          <DialogPanel className="h-screen w-screen relative border-2 border-black bg-black flex flex-col justify-center p-8">
             {/* Close Button */}
             <button
               onClick={toggleMenu}
@@ -114,7 +114,7 @@ export default function MobileNav({ navListItems, user }: MobileMenuProps) {
             <nav className="mt-10 z-50">
               <ul className={`flex flex-col gap-10 font-semibold items-center`}>
                 {navListItems
-                  .filter((item) => item.label !== "admin" || user)
+                  .filter((item) => item.label !== "admin" || isAuthenticated)
                   .map((item) => (
                     <NavListItem
                       key={item.label}

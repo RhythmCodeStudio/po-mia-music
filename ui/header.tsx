@@ -1,16 +1,10 @@
 "use client";
-// import stack server app
-// import { stackServerApp } from "@/stack/server";
-import { stackClientApp } from "@/stack/client";
 // import from next
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 // import from react
 import { useEffect, useState } from "react";
-// import themes
-// import { useTheme } from "../context/theme-context";
-// import { themes } from "../lib/themes";
 // import navList items
 import { navListItemData } from "@/lib/nav-list-item-data";
 // import components
@@ -19,9 +13,9 @@ import DesktopNav from "./desktop-nav";
 // import PushNotificationSubscriptionManager from "./push-notification-subscription-manager";
 // import Heading from "./heading";
 
-export default function Header() {
-  const app = stackClientApp;
-  const [user, setUser] = useState<any>(null);
+export default function Header( { isAuthenticated }: { isAuthenticated: boolean }) {
+
+  // const [user, setUser] = useState<any>(null);
   // console.log("Header user:", user);
   const pathname = usePathname();
   const isHome = pathname === "/";
@@ -29,17 +23,17 @@ export default function Header() {
   // const themeObj = themes[theme];
   // const logoInvert = themeObj.logoInvert;
 
-  useEffect(() => {
-    let isMounted = true;
-    async function fetchUser() {
-      const u = await app.getUser();
-      if (isMounted) setUser(u);
-    }
-    fetchUser();
-    return () => {
-      isMounted = false;
-    };
-  }, []);
+  // useEffect(() => {
+  //   let isMounted = true;
+  //   async function fetchUser() {
+  //     const u = await app.getUser();
+  //     if (isMounted) setUser(u);
+  //   }
+  //   fetchUser();
+  //   return () => {
+  //     isMounted = false;
+  //   };
+  // }, []);
 
   return (
     <header className={`w-full p-6 pb-0`}>
@@ -68,11 +62,11 @@ export default function Header() {
           )}
         </div> */}
         <div className="hidden lg:flex items-center w-full justify-end font-indie-flower tracking-widest font-semibold text-xl">
-          <DesktopNav navListItems={navListItemData} user={user} />
+          <DesktopNav navListItems={navListItemData} isAuthenticated={isAuthenticated} />
           {/* <PushNotificationSubscriptionManager renderedAs="icon" /> */}
         </div>
         <div className="flex lg:hidden w-full font-indie-flower tracking-widest">
-          <MobileNav navListItems={navListItemData} user={user} />
+          <MobileNav navListItems={navListItemData} isAuthenticated={isAuthenticated} />
         </div>
       </div>
       <div className="relative w-64 lg:w-80 mx-auto mt-8 mb-8">

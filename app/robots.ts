@@ -8,6 +8,8 @@ export default function robots(): MetadataRoute.Robots {
       disallow: [
         '/handler/',
         '/admin/',
+        '/auth/sign-in/',
+        '/auth/sign-up/',
       ],
     },
     sitemap: 'https://pomiamusic.com/sitemap.xml',

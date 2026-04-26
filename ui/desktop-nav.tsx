@@ -10,7 +10,7 @@ import MorePopover from "./more-popover";
 
 export default function DesktopNav({
   navListItems,
-  user,
+  isAuthenticated,
 }: {
   navListItems: {
     label: string;
@@ -19,16 +19,16 @@ export default function DesktopNav({
     category?: string;
     onClick?: () => void;
   }[];
-  user: any;
+  isAuthenticated: boolean;
 }) {
-  const pathname = usePathname();
+  // const pathname = usePathname();
   // const isHome = pathname === "/";
   return (
     <div className="flex flex-col items-center w-full mx-auto">
       <nav className="w-full">
-        <ul className="w-full flex justify-around items-center max-w-6xl mx-auto py-4">
+        <ul className="w-full flex justify-around items-center max-w-6xl mx-auto py-4 space-x-18">
           {navListItems
-            .filter((item) => item.label !== "admin" || user)
+            .filter((item) => item.label !== "admin" || isAuthenticated)
             .map((item) => (
               <NavListItem
                 key={item.label}

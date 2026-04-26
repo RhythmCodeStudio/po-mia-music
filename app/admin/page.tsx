@@ -1,11 +1,11 @@
 export const dynamic = "force-dynamic";
 // import stack server app
-import { stackServerApp } from "@/stack/server";
+// import { stackServerApp } from "@/stack/server";
 // import data
 import { getSubscriptionsFromDB } from "@/lib/notification-subscriptions-db";
 import { getMailingList, getCalendarEvents } from "../../actions/actions";
 // import from neon auth
-import { SignIn } from "@stackframe/stack";
+// import { SignIn } from "@stackframe/stack";
 // import { AccountSettings } from "@stackframe/stack";
 // import components
 import Heading from "@/ui/heading";
@@ -13,21 +13,21 @@ import AdminContainer from "@/ui/admin/admin-container";
 // import AdminNotificationPanel from "@/app/ui/admin/admin-notification-panel";
 
 export default async function AdminPage() {
-  const app = stackServerApp;
-  const user = await app.getUser();
+  // const app = stackServerApp;
+  // const user = await app.getUser();
   const subsctiptions = await getSubscriptionsFromDB();
   const numberOfSubscriptions = subsctiptions.length;
   // const calendarEvents = await getCalendarEvents();
 
   return (
      <div className=" w-full">
-      {!user && (
+      {/* {!user && ( */}
         <div className="flex justify-center my-12">
-          <SignIn automaticRedirect={true} firstTab="password" />
+          {/* <SignIn automaticRedirect={true} firstTab="password" /> */}
         </div>
-      )}
+      {/* )} */}
 
-      {user && (
+      {/* {user && ( */}
         <div className="flex flex-col justify-center items-center text-shadow-black-background-black w-full">
           <Heading
             text="welcome back po"
@@ -42,7 +42,7 @@ export default async function AdminPage() {
             />
           </div>
         </div>
-      )}
+      {/* )} */}
     </div>
   );
 }

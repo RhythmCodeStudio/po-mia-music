@@ -1,5 +1,4 @@
-// import { StackProvider, StackTheme } from "@stackframe/stack";
-import { stackClientApp } from "../stack/client";
+// import { stackClientApp } from "../stack/client";
 // import from vercel
 import { Analytics } from "@vercel/analytics/next";
 // import from next
@@ -15,7 +14,8 @@ import ScrollToTopButton from "../ui/scroll-to-top-button";
 import "./globals.css";
 // import context providers
 import { PushNotificationContextProvider } from "../context/push-notification-context-provider";
-import { StackProvider, StackTheme } from "@stackframe/stack";
+// import actions
+import { getSession } from "../actions/actions";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -60,32 +60,32 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await getSession();
+  const isAuthenticated = session?.data?.user?.id ? true : false;
+  console.log("RootLayout session:", session);
+  console.log("RootLayout isAuthenticated:", isAuthenticated);
   return (
     <html lang="en">
       <body
         className={`flex flex-col min-h-screen antialiased rainbow-gradient relative ${indieFlower.variable} ${acme.variable} ${rubik.variable} ${agbalumo.variable}`}>
         <StarrySky />
-        <StackProvider app={stackClientApp}>
-          <StackTheme>
-            <PushNotificationContextProvider>
-              <Header />
-              <main className="flex-1 flex flex-col justify-center items-center w-full overflow-x-hidden relative">
-                <h1 className="sr-only text-4xl lg:text-6xl font-bold text-shadow-black-background-black ">
-                  po mia
-                </h1>
-                {children}
-                <ScrollToTopButton />
-              </main>
-              <Footer />
-              <Analytics />
-            </PushNotificationContextProvider>
-          </StackTheme>
-        </StackProvider>
+        <PushNotificationContextProvider>
+          <Header isAuthenticated={isAuthenticated} />
+          <main className="flex-1 flex flex-col justify-center items-center w-full overflow-x-hidden relative">
+            <h1 className="sr-only text-4xl lg:text-6xl font-bold text-shadow-black-background-black ">
+              po mia
+            </h1>
+            {children}
+            <ScrollToTopButton />
+          </main>
+          <Footer />
+          <Analytics />
+        </PushNotificationContextProvider>
       </body>
     </html>
   );

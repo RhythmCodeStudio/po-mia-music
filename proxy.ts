@@ -1,6 +1,30 @@
 import { NextRequest, NextResponse } from "next/server";
+import { auth } from "@/auth/server";
 
 export function proxy(request: NextRequest) {
+
+  const protectedRoutes = ["/admin"];
+  const isProtected = protectedRoutes.some(route => request.nextUrl.pathname.startsWith(route));
+
+  // Only apply auth middleware to protected routes
+  if (isProtected) {
+    const middleware = auth.middleware({
+      loginUrl: '/auth/sign-in',
+    });
+    
+    const authResponse = middleware(request);
+    if (authResponse) {
+      return authResponse;
+    }
+  }
+  // const middleware = auth.middleware({
+  //   loginUrl: "/auth/sign-in",
+  // });
+  // const authResponse = middleware(request);
+  // if (authResponse) {
+  //   return authResponse;
+  // }
+
   let cspHeader = "";
   const nonce = Buffer.from(crypto.randomUUID()).toString("base64");
   const environment = process.env.NEXT_PUBLIC_ENV || process.env.NODE_ENV;
@@ -61,7 +85,7 @@ export function proxy(request: NextRequest) {
   requestHeaders.set("x-nonce", nonce);
   requestHeaders.set(
     "Content-Security-Policy",
-    contentSecurityPolicyHeaderValue
+    contentSecurityPolicyHeaderValue,
   );
 
   const response = NextResponse.next({
@@ -71,7 +95,7 @@ export function proxy(request: NextRequest) {
   });
   response.headers.set(
     "Content-Security-Policy",
-    contentSecurityPolicyHeaderValue
+    contentSecurityPolicyHeaderValue,
   );
 
   response.headers.set("X-Frame-Options", "DENY");
