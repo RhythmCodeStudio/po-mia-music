@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 // import components
 import NavListItem from "./nav-list-item";
 import MorePopover from "./more-popover";
+import SignOutButton from "./sign-out-button";
 
 export default function DesktopNav({
   navListItems,
@@ -40,6 +41,7 @@ export default function DesktopNav({
               />
             ))}
           <MorePopover />
+          {isAuthenticated && <SignOutButton />}
         </ul>
       </nav>
       {/* <div className="relative w-72 mx-auto mt-24">
