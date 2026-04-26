@@ -1,10 +1,4 @@
-// import from next
-import { connection } from "next/server";
-import Link from "next/link";
-import Image from "next/image";
-
 export default async function NotFound() {
-  await connection();
 
   return (
     <div className="p-8 text-center flex flex-col items-center justify-center">
