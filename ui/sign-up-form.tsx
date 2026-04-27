@@ -660,7 +660,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { signUpWithEmail } from "@/app/auth/sign-up/actions";
 import { toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';  // ADD THIS LINE
+import "react-toastify/dist/ReactToastify.css"; // ADD THIS LINE
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
 import { ToastContainer } from "react-toastify";
 
@@ -679,7 +679,9 @@ export default function SignUpForm() {
 
     if (password.length < MIN_PASSWORD_LENGTH) {
       e.preventDefault();
-      toast.error(`Password must be at least ${MIN_PASSWORD_LENGTH} characters`);
+      toast.error(
+        `Password must be at least ${MIN_PASSWORD_LENGTH} characters`,
+      );
       return;
     }
 
@@ -724,17 +726,17 @@ export default function SignUpForm() {
       <form
         action={formAction}
         onSubmit={handleSubmit}
-        className="flex flex-col gap-5 items-center justify-center">
+        className="flex flex-col gap-5 items-center justify-center bg-black/50 border-border-default border-2 shadow-white shadow-lg rounded-4xl p-6 w-full max-w-md">
         <div className="md:w-sm">
-          <h1 className="mt-10 text-center text-2xl/9 font-bold text-white">
-            Create new account
+          <h1 className="text-center text-2xl/9 font-bold text-shadow-black-background-black">
+            create new account
           </h1>
         </div>
 
         <div className="flex flex-col gap-1.5 w-xs sm:w-sm">
           <label
             htmlFor="name"
-            className="block text-sm font-medium text-gray-100">
+            className="block text-sm font-medium text-shadow-black-background-black">
             Name
           </label>
           <input
@@ -742,17 +744,17 @@ export default function SignUpForm() {
             name="name"
             type="text"
             required
-            placeholder="John Doe"
+            placeholder="po mia"
             autoComplete="username"
             disabled={isPending}
-            className="block rounded-md w-full bg-white/5 px-2 py-1.5 placeholder:text-gray-500 text-white outline-1 outline-white/10 focus:outline-blue-600 disabled:opacity-50"
+            className="shadow-md shadow-black border-2 border-border-default p-2 w-full text-black placeholder-neutral-800 rounded-4xl bg-neutral-100 tracking-wide h-10 caret-[#ff7f00]"
           />
         </div>
 
         <div className="flex flex-col gap-1.5 w-xs sm:w-sm">
           <label
             htmlFor="email"
-            className="block text-sm font-medium text-gray-100">
+            className="block text-sm font-medium text-shadow-black-background-black">
             Email address
           </label>
           <input
@@ -760,19 +762,19 @@ export default function SignUpForm() {
             name="email"
             type="email"
             required
-            placeholder="john@my-company.com"
+            placeholder="enter your email address"
             autoComplete="email"
             disabled={isPending}
-            className="block rounded-md w-full bg-white/5 px-2 py-1.5 placeholder:text-gray-500 text-white outline-1 outline-white/10 focus:outline-blue-600 disabled:opacity-50"
+            className="shadow-md shadow-black border-2 border-border-default p-2 w-full text-black placeholder-neutral-800 rounded-4xl bg-neutral-100 tracking-wide h-10 caret-[#ff7f00]"
           />
         </div>
 
         <div className="flex flex-col gap-1.5 w-xs sm:w-sm">
           <label
             htmlFor="password"
-            className="block text-sm font-medium text-gray-100">
+            className="block text-sm font-medium text-shadow-black-background-black">
             Password
-            <span className="text-xs text-gray-400 ml-2">
+            <span className="text-xs ml-2">
               (minimum {MIN_PASSWORD_LENGTH} characters)
             </span>
           </label>
@@ -782,10 +784,10 @@ export default function SignUpForm() {
               name="password"
               type={showPassword ? "text" : "password"}
               required
-              placeholder="*****"
+              placeholder="enter a new password"
               autoComplete="new-password"
               disabled={isPending}
-              className="block rounded-md w-full bg-white/5 px-2 py-1.5 pr-10 placeholder:text-gray-500 text-white outline-1 outline-white/10 focus:outline-blue-600 disabled:opacity-50"
+              className="shadow-md shadow-black border-2 border-border-default p-2 w-full text-black placeholder-neutral-800 rounded-4xl bg-neutral-100 tracking-wide h-10 caret-[#ff7f00]"
             />
             <button
               type="button"
@@ -804,7 +806,7 @@ export default function SignUpForm() {
         <div className="flex flex-col gap-1.5 w-xs sm:w-sm">
           <label
             htmlFor="confirmPassword"
-            className="block text-sm font-medium text-gray-100">
+            className="block text-sm font-medium text-shadow-black-background-black">
             Confirm Password
           </label>
           <div className="relative">
@@ -813,10 +815,10 @@ export default function SignUpForm() {
               name="confirmPassword"
               type={showConfirmPassword ? "text" : "password"}
               required
-              placeholder="*****"
+              placeholder="confirm your password"
               autoComplete="new-password"
               disabled={isPending}
-              className="block rounded-md w-full bg-white/5 px-2 py-1.5 pr-10 placeholder:text-gray-500 text-white outline-1 outline-white/10 focus:outline-blue-600 disabled:opacity-50"
+              className="shadow-md shadow-black border-2 border-border-default p-2 w-full text-black placeholder-neutral-800 rounded-4xl bg-neutral-100 tracking-wide h-10 caret-[#ff7f00]"
             />
             <button
               type="button"
@@ -837,15 +839,17 @@ export default function SignUpForm() {
         <button
           type="submit"
           disabled={isPending}
-          className="flex w-xs sm:w-sm justify-center rounded-md bg-blue-600 px-3 py-1.5 text-sm/6 font-semibold text-white hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed">
-          {isPending ? "Creating account..." : "Create Account"}
+          className="flex w-xs sm:w-sm mt-2 justify-center rainbow-gradient px-3 py-1.5 text-sm/6 disabled:opacity-50 disabled:cursor-not-allowed border-2 border-border-default shadow-white shadow-md hover:shadow-lg rounded-full">
+          <span className="text-shadow-black-background-black">
+            {isPending ? "Creating account..." : "Create Account"}
+          </span>
         </button>
 
-        <p className="w-full text-center text-sm">
+        <p className="w-full text-center text-sm text-shadow-black-background-black">
           Already have an account?{" "}
           <Link
             href="/auth/sign-in"
-            className="font-medium text-blue-600 hover:text-blue-500">
+            className="font-medium text-blue-600 hover:text-blue-500 ml-1">
             Sign in
           </Link>
         </p>

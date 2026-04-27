@@ -25,9 +25,9 @@ export default function DesktopNav({
   // const pathname = usePathname();
   // const isHome = pathname === "/";
   return (
-    <div className="flex flex-col items-center w-full mx-auto">
+    <div className="flex flex-col justify-center items-center w-full mx-auto">
       <nav className="w-full">
-        <ul className="w-full flex justify-around items-center max-w-6xl mx-auto py-4 space-x-18">
+        <ul className="w-full flex justify-center items-center max-w-6xl mx-auto py-4 space-x-18">
           {navListItems
             .filter((item) => item.label !== "admin" || isAuthenticated)
             .map((item) => (

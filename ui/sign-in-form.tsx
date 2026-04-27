@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { signInWithEmail } from "@/app/auth/sign-in/actions";
 import { toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css'; // CHANGED: Added CSS import
+import "react-toastify/dist/ReactToastify.css"; // CHANGED: Added CSS import
 import { ToastContainer } from "react-toastify"; // CHANGED: Added ToastContainer import
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
 
@@ -27,8 +27,7 @@ export default function SignInForm() {
       toast.success("Signed in successfully!");
       router.refresh();
       const timer = setTimeout(() => {
-        
-        router.push('/admin');
+        router.push("/admin");
       }, 1200);
       return () => clearTimeout(timer);
     }
@@ -51,17 +50,17 @@ export default function SignInForm() {
 
       <form
         action={formAction}
-        className="flex flex-col gap-5 items-center justify-center">
+        className="flex flex-col gap-5 items-center justify-center bg-black/50 border-border-default border-2 shadow-white shadow-lg rounded-4xl p-6 w-full max-w-md">
         <div className="w-xs sm:w-sm">
-          <h1 className="mt-10 text-center text-2xl/9 font-bold text-white">
-            Sign in to your account
+          <h1 className="text-center text-2xl/9  text-shadow-black-background-black">
+            sign in
           </h1>
         </div>
-        
+
         <div className="flex flex-col gap-1.5 w-xs sm:w-sm">
           <label
             htmlFor="email"
-            className="block text-sm font-medium text-gray-100">
+            className="text-shadow-black-background-black block text-sm text-gray-100">
             Email address
           </label>
           {/* CHANGED: Added disabled state while pending */}
@@ -69,17 +68,18 @@ export default function SignInForm() {
             id="email"
             name="email"
             type="email"
+            autoComplete="email"
             required
-            placeholder="john@my-company.com"
+            placeholder="enter your email address"
             disabled={isPending}
-            className="block rounded-md w-full bg-white/5 px-2 py-1.5 placeholder:text-gray-500 text-white outline-1 outline-white/10 focus:outline-blue-600 disabled:opacity-50"
+            className="shadow-md shadow-black border-2 border-border-default p-2 w-full text-black placeholder-neutral-800 rounded-4xl bg-neutral-100 tracking-wide h-10 caret-[#ff7f00]"
           />
         </div>
-        
+
         <div className="flex flex-col gap-1.5 w-xs sm:w-sm">
           <label
             htmlFor="password"
-            className="block text-sm font-medium text-gray-100">
+            className="text-shadow-black-background-black block text-sm text-gray-100">
             Password
           </label>
           <div className="relative">
@@ -89,9 +89,10 @@ export default function SignInForm() {
               name="password"
               type={showPassword ? "text" : "password"}
               required
-              placeholder="*****"
+              autoComplete="current-password"
+              placeholder="enter your password"
               disabled={isPending}
-              className="block rounded-md w-full bg-white/5 px-2 py-1.5 placeholder:text-gray-500 text-white outline-1 outline-white/10 focus:outline-blue-600 disabled:opacity-50"
+              className="shadow-md shadow-black border-2 border-border-default p-2 w-full text-black placeholder-neutral-800 rounded-4xl bg-neutral-100 tracking-wide h-10 caret-[#ff7f00]"
             />
             {/* CHANGED: Added aria-label improvement */}
             <button
@@ -107,20 +108,22 @@ export default function SignInForm() {
             </button>
           </div>
         </div>
-        
+
         {/* CHANGED: Updated button text and disabled state */}
         <button
           type="submit"
           disabled={isPending}
-          className="flex w-xs sm:w-sm justify-center rounded-md bg-blue-600 px-3 py-1.5 text-sm/6 font-semibold text-white hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed">
-          {isPending ? "Signing in..." : "Sign in"}
+          className="flex w-xs sm:w-sm mt-2 justify-center rainbow-gradient px-3 py-1.5 text-sm/6 disabled:opacity-50 disabled:cursor-not-allowed border-2 border-border-default shadow-white shadow-md hover:shadow-lg rounded-full">
+          <span className="text-shadow-black-background-black">
+            {isPending ? "Signing in..." : "Sign in"}
+          </span>
         </button>
-        
-        <p className="w-full text-center text-sm">
-          Don't have an account?{" "}
+
+        <p className="text-shadow-black-background-black w-full text-center text-sm">
+          Don't have an account?
           <Link
             href="/auth/sign-up"
-            className="font-medium text-blue-600 hover:text-blue-500">
+            className="font-medium text-blue-600 hover:text-blue-500 ml-1">
             Sign up
           </Link>
         </p>
