@@ -21,7 +21,7 @@ export default function SignOutButton() {
   return (
     <Button
       onClick={handleSignOut}
-      className="text-blue-500 hover:underline"
+      className="text-black hover:underline"
       // label="Sign Out"
       type="button"
       ariaLabel="Sign out of your account"
