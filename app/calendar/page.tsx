@@ -101,10 +101,11 @@ export default async function Calendar() {
           />
         </div>
       </FadeInOnScroll>
-      <Toaster
+      {/* <Toaster
         message="Install pomiamusic.com on your device for the best experience!"
         component={<InstallAppButton />}
-      />
+      /> */}
+      <Toaster />
     </div>
   );
 }

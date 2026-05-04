@@ -4,6 +4,8 @@ import Image from "next/image";
 import Heading from "../../ui/heading";
 import YouTubeVideo from "../../ui/youtube-video";
 import FadeInOnScroll from "@/ui/fade-in-on-scroll";
+import Toaster from "@/ui/toaster";
+import InstallAppButton from "@/ui/install-app-button";
 // import data
 import { youTubeVideos } from "@/lib/video-data";
 
@@ -39,28 +41,32 @@ export default async function Videos() {
         className="font-bold text-5xl text-shadow-black-background-black font-indie-flower tracking-widest"
       />
       <FadeInOnScroll>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl w-full p-8">
-        {youTubeVideos.map((video, index) => (
-          <YouTubeVideo
-            key={index}
-            videoId={video.youTubeId}
-            title={video.title}
-            description={video.description}
-          />
-        ))}
-      </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl w-full p-8">
+          {youTubeVideos.map((video, index) => (
+            <YouTubeVideo
+              key={index}
+              videoId={video.youTubeId}
+              title={video.title}
+              description={video.description}
+            />
+          ))}
+        </div>
       </FadeInOnScroll>
       <FadeInOnScroll>
-      <div className="p-8 pt-0 w-full max-w-md h-auto flex justify-center">
-        <Image
-          src="/images/po-on-frog.webp"
-          width={768}
-          height={1024}
-          alt="po sitting on a frog sculpture looking through a viewfinder outside Venice Cafe in St. Louis, MO"
-          className="rounded-4xl shadow-lg shadow-white border-2 border-border-default"
-        />
-      </div>
+        <div className="p-8 pt-0 w-full max-w-md h-auto flex justify-center">
+          <Image
+            src="/images/po-on-frog.webp"
+            width={768}
+            height={1024}
+            alt="po sitting on a frog sculpture looking through a viewfinder outside Venice Cafe in St. Louis, MO"
+            className="rounded-4xl shadow-lg shadow-white border-2 border-border-default"
+          />
+        </div>
       </FadeInOnScroll>
+      <Toaster
+        message="Install pomiamusic.com on your device for the best experience!"
+        component={<InstallAppButton />}
+      />
     </div>
   );
 }

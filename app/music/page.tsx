@@ -7,6 +7,9 @@ import Heading from "../../ui/heading";
 import IconLinkGroupClientContainer from "@/ui/icon-link-group-client-container";
 import FadeInOnScroll from "@/ui/fade-in-on-scroll";
 import HashScrollHandler from "@/ui/hash-scroll-handler";
+import Toaster from "@/ui/toaster";
+import InstallAppButton from "@/ui/install-app-button";
+// import data
 // import link data
 import { musicLinkData } from "@/lib/music-link-data";
 
@@ -66,6 +69,10 @@ export default async function Music() {
           />
         </div>
       </FadeInOnScroll>
+      <Toaster
+        message="Install pomiamusic.com on your device for the best experience!"
+        component={<InstallAppButton />}
+      />
     </div>
   );
 }

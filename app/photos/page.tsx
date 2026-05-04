@@ -3,6 +3,7 @@
 import Heading from "../../ui/heading";
 import PhotoGallery from "@/ui/photo-gallery";
 import FadeInOnScroll from "@/ui/fade-in-on-scroll";
+import Toaster from "@/ui/toaster";
 // import useIsMobile
 import { useIsMobile } from "@/utils/useIsMobile";
 
@@ -21,6 +22,7 @@ export default function Photos() {
           <PhotoGallery showOptions={true} showNavigation={!isMobile} />
         </div>
       </FadeInOnScroll>
+      <Toaster />
     </div>
   );
 }

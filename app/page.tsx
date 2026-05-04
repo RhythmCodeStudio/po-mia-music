@@ -14,6 +14,7 @@ import SlideInOnScroll from "@/ui/slide-in-on-scroll";
 import FadeInOnScroll from "@/ui/fade-in-on-scroll";
 import Heading from "@/ui/heading";
 import PhotoGallery from "@/ui/photo-gallery";
+import InstallAppButton from "@/ui/install-app-button";
 // import data
 import { poBio } from "../lib/po-data";
 import { releases } from "../lib/releases";
@@ -27,7 +28,7 @@ export default async function Home() {
     (event) => new Date(event.start_date) >= new Date(),
   );
   const nextEvent = upComingEvents.length > 0 ? upComingEvents[0] : null;
- 
+
   const poLogueTracks =
     releases.find((release) => release.title === "po logue")?.tracks || [];
 
@@ -36,7 +37,7 @@ export default async function Home() {
 
   const rebirthTracks =
     releases.find((release) => release.title === "REBIRTH")?.tracks || [];
- 
+
   const hopeIsPlentyTracks =
     releases.find((release) => release.title === "hope is plenty")?.tracks ||
     [];
@@ -202,7 +203,11 @@ export default async function Home() {
           </Link>
         </FadeInOnScroll>
       </div>
-      <Toaster />
+      {/* <Toaster /> */}
+      <Toaster
+        message="Install pomiamusic.com on your device for the best experience!"
+        component={<InstallAppButton />}
+      />
     </div>
   );
 }
