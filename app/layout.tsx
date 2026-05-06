@@ -14,6 +14,7 @@ import ScrollToTopButton from "../ui/scroll-to-top-button";
 import "./globals.css";
 // import context providers
 import { PushNotificationContextProvider } from "../context/push-notification-context-provider";
+import { DismissedToastsProvider } from "@/context/dismissed-toasts-context-provider";
 // import actions
 import { getSession } from "../actions/actions";
 
@@ -75,16 +76,18 @@ export default async function RootLayout({
         className={`flex flex-col min-h-screen antialiased rainbow-gradient relative ${indieFlower.variable} ${acme.variable} ${rubik.variable} ${agbalumo.variable}`}>
         <StarrySky />
         <PushNotificationContextProvider>
-          <Header isAuthenticated={isAuthenticated} />
-          <main className="flex-1 flex flex-col justify-center items-center w-full overflow-x-hidden relative">
-            <h1 className="sr-only text-4xl lg:text-6xl font-bold text-shadow-black-background-black ">
-              po mia
-            </h1>
-            {children}
-            <ScrollToTopButton />
-          </main>
-          <Footer />
-          <Analytics />
+          <DismissedToastsProvider>
+            <Header isAuthenticated={isAuthenticated} />
+            <main className="flex-1 flex flex-col justify-center items-center w-full overflow-x-hidden relative">
+              <h1 className="sr-only text-4xl lg:text-6xl font-bold text-shadow-black-background-black ">
+                po mia
+              </h1>
+              {children}
+              <ScrollToTopButton />
+            </main>
+            <Footer />
+            <Analytics />
+          </DismissedToastsProvider>
         </PushNotificationContextProvider>
       </body>
     </html>

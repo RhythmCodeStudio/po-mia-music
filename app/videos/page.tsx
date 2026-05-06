@@ -64,6 +64,7 @@ export default async function Videos() {
         </div>
       </FadeInOnScroll>
       <Toaster
+        toastId="install-app-toast"
         message="Install pomiamusic.com on your device for the best experience!"
         component={<InstallAppButton />}
       />

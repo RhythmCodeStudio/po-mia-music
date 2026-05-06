@@ -77,7 +77,7 @@ export default function MailingListSignUpForm({
   };
 
   return (
-    <div className="flex flex-col items-stretch w-full max-w-2xl p-4 lg:p-8 bg-black/50 border-border-default border-2 shadow-white shadow-lg rounded-4xl max-w-lg">
+    <div className="flex flex-col items-stretch w-full p-4 lg:p-8 bg-black/50 border-border-default border-2 shadow-white shadow-lg rounded-4xl max-w-lg">
       <Heading
         text={
           mode === "sign-up"
@@ -93,7 +93,7 @@ export default function MailingListSignUpForm({
         <ContactFormInput
           idPrefix="mailing-list-sign-up-form"
           inputType="input"
-          label="email Address"
+          label="email address"
           type="email"
           name="email"
           value={email}
@@ -109,7 +109,7 @@ export default function MailingListSignUpForm({
           type="submit"
           disabled={!isFormValid || submitted}
           className={clsx(
-            "z-50 border-2 border-border-default p-1 px-4 rounded-full text-sm rainbow-gradient text-shadow-black-background-black transition-colors transition-shadow transition-opacity transition-transform duration-700 ease-in-out tracking-widest will-change-transform mx-auto",
+            "z-50 border-2 border-border-default p-1 px-4 rounded-full text-sm rainbow-gradient text-shadow-black-background-black transition duration-700 ease-in-out tracking-widest will-change-transform mx-auto",
             {
               "cursor-not-allowed opacity-40": !isFormValid || submitted,
               "border-green-500 hover:border-border-default cursor-pointer opacity-100 hover:scale-105 active:scale-95 shadow-lg shadow-white":

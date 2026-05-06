@@ -205,6 +205,7 @@ export default async function Home() {
       </div>
       {/* <Toaster /> */}
       <Toaster
+        toastId="install-app-toast"
         message="Install pomiamusic.com on your device for the best experience!"
         component={<InstallAppButton />}
       />

@@ -1,50 +1,20 @@
 "use client";
-// import from react
 import { useEffect, useRef } from "react";
-// import from react-toastify
 import { ToastContainer, toast, Slide } from "react-toastify";
-//  import components
-// import PushNotificationSubscriptionManager from "./push-notification-subscription-manager";
-// import Button from "./button";
 import ToastContent from "./toast-content";
-// import context
 import { usePushNotification } from "../context/push-notification-context-provider";
-// import icon
-// import { RiCloseCircleFill } from "react-icons/ri";
-
-// Toast content as a component to accept props from react-toastify
-// function ToastContent() {
-//   return (
-//     <div>
-//       <Button
-//         onClick={() => toast.dismiss()}
-//         className="absolute top-2 right-2 p-1"
-//         aria-label="Close notification"
-//         icon={<RiCloseCircleFill size={18} className="icon-shadow" />}
-//       />
-
-//       <div className="mt-6 flex flex-col items-center text-center text-shadow-black-background-black rounded-[1rem]">
-//         <p>
-//           Subscribe to notifications to stay up to date with the latest from po
-//           mia!
-//         </p>
-//         <div className="flex justify-center mx-auto">🎵✨🎵✨</div>
-//         <div className="my-2">
-//           <PushNotificationSubscriptionManager renderedAs="button" />
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
+import { useDismissedToasts } from "../context/dismissed-toasts-context-provider";
 
 interface ToasterProps {
+  toastId: string;
   message?: string;
   component?: React.ReactNode;
 }
 
-const toastMessage = (message?: string, component?: React.ReactNode) => {
+const toastMessage = (toastId: string, message?: string, component?: React.ReactNode, onDismiss?: () => void) => {
   toast(<ToastContent message={message} component={component} />, {
-    position: "bottom-center", // softer position
+    toastId: toastId,
+    position: "bottom-center",
     autoClose: 7000,
     hideProgressBar: false,
     closeOnClick: false,
@@ -52,7 +22,10 @@ const toastMessage = (message?: string, component?: React.ReactNode) => {
     draggable: true,
     closeButton: false,
     progress: undefined,
-    transition: Slide, // smoother transition
+    transition: Slide,
+    onClose: () => {
+      onDismiss?.();
+    },
     style: {
       borderRadius: "1rem 1rem 1rem 1rem",
       background:
@@ -72,8 +45,9 @@ const toastMessage = (message?: string, component?: React.ReactNode) => {
   });
 };
 
-export default function Toaster({ message, component }: ToasterProps) {
+export default function Toaster({ toastId, message, component }: ToasterProps) {
   const { isSubscribed } = usePushNotification();
+  const { dismissedToasts, addDismissedToast } = useDismissedToasts();
   const shownRef = useRef(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -82,20 +56,26 @@ export default function Toaster({ message, component }: ToasterProps) {
 
     const handler = () => {
       if (shownRef.current) return;
+
+      // Check if already dismissed THIS SESSION
+      if (dismissedToasts.has(toastId)) {
+        return;
+      }
+
       shownRef.current = true;
       timeoutRef.current = setTimeout(() => {
-        // Double-check before showing toast
         if (isSubscribed === false) {
-          toastMessage(message, component);
+          toastMessage(toastId, message, component, () =>
+            addDismissedToast(toastId),
+          );
         }
       }, 1500);
     };
 
     window.addEventListener("pointerdown", handler, { once: true });
     return () => window.removeEventListener("pointerdown", handler);
-  }, [isSubscribed, message, component]);
+  }, [isSubscribed, message, component, toastId, dismissedToasts, addDismissedToast]);
 
-  // If user subscribes before toast shows, clear the pending timeout
   useEffect(() => {
     if (isSubscribed && timeoutRef.current) {
       clearTimeout(timeoutRef.current);

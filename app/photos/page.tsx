@@ -22,7 +22,7 @@ export default function Photos() {
           <PhotoGallery showOptions={true} showNavigation={!isMobile} />
         </div>
       </FadeInOnScroll>
-      <Toaster />
+      <Toaster toastId="default"/>
     </div>
   );
 }

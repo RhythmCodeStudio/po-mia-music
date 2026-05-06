@@ -74,7 +74,7 @@ export default async function Contact() {
           </div>
         </FadeInOnScroll>
       </div>
-      <Toaster />
+      <Toaster toastId="default"/>
     </section>
   );
 }

@@ -105,7 +105,7 @@ export default async function Calendar() {
         message="Install pomiamusic.com on your device for the best experience!"
         component={<InstallAppButton />}
       /> */}
-      <Toaster />
+      <Toaster toastId="default"/>
     </div>
   );
 }
