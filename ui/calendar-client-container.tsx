@@ -37,7 +37,7 @@ export default function CalendarClientContainer({
             : "bg-black/50 rounded-(--container-radius) shadow-lg shadow-white border-2 border-border-default w-full flex flex-col items-center p-(--container-padding) my-8 [--container-radius:var(--radius-4xl)] [--container-padding:--spacing(8)]"
       }>
       {showViewToggle && (
-        <div className="flex flex-row gap-4 mb-8">
+        <div className="flex flex-row gap-4 mb-8 justify-center">
           <Button
             label="past"
             title="past events"
