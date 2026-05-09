@@ -78,13 +78,13 @@ export default function PushNotificationSubscriptionManager({
     setSubscription(sub);
     setIsSubscribed(true);
     const serializedSub = JSON.parse(JSON.stringify(sub));
-    console.log("Subscribing to push notifications:", serializedSub);
+    // console.log("Subscribing to push notifications:", serializedSub);
     await subscribeUser(serializedSub);
   }
 
   async function unsubscribeFromPush() {
     if (subscription) {
-      console.log("Unsubscribing from push notifications:", subscription);
+      // console.log("Unsubscribing from push notifications:", subscription);
       await subscription.unsubscribe();
     }
     setSubscription(null);

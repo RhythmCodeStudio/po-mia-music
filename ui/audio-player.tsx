@@ -8,8 +8,8 @@ import { Song } from "@/lib/definitions";
 import poLogo from "@/public/logos/pomia-horizontal-logo-black.png";
 
 export default function AudioPlayer({ song }: { song: Song }) {
-  console.log("AudioPlayer received song:", song);
-  console.log("song.src:", song?.src);
+  // console.log("AudioPlayer received song:", song);
+  // console.log("song.src:", song?.src);
 
   if (!song || !song.src) {
     console.error("AudioPlayer: Missing song or src", { song });

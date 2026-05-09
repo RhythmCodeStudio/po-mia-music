@@ -79,7 +79,7 @@ self.addEventListener('push', function (event) {
       ],
     };
     event.waitUntil(self.registration.showNotification(data.title, options));
-    console.log('Push notification received:', data);
+    // console.log('Push notification received:', data);
   }
 });
  
@@ -91,7 +91,7 @@ self.addEventListener('push', function (event) {
 
 self.addEventListener("notificationclick", function (event) {
   event.notification.close();
-  console.log("Notification click received.");
+  // console.log("Notification click received.");
   event.waitUntil(
     clients.openWindow(event.notification.data.url)
   );

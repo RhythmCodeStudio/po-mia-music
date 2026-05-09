@@ -67,7 +67,7 @@ export async function signUpWithEmail(
   formData: FormData,
 ): Promise<ActionState> {
   const email = formData.get("email") as string;
-  console.log("Sign up attempt for:", email);
+  // console.log("Sign up attempt for:", email);
   
   if (!email) {
     return { error: "Email address must be provided." };
@@ -90,7 +90,7 @@ export async function signUpWithEmail(
     password,
   });
   
-  console.log("Auth signUp result:", result);
+  // console.log("Auth signUp result:", result);
 
   // CHANGED: Enhanced error handling with user-friendly messages
   if (result.error) {

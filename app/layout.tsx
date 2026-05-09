@@ -68,8 +68,8 @@ export default async function RootLayout({
 }>) {
   const session = await getSession();
   const isAuthenticated = session?.data?.user?.id ? true : false;
-  console.log("RootLayout session:", session);
-  console.log("RootLayout isAuthenticated:", isAuthenticated);
+  // console.log("RootLayout session:", session);
+  // console.log("RootLayout isAuthenticated:", isAuthenticated);
   return (
     <html lang="en">
       <body

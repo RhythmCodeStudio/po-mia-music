@@ -7,7 +7,7 @@ export default function AdminNotificationPanel({
 }: {
   numberOfSubscriptions?: number;
 }) {
-  console.log("numberOfSubscriptions in client:", numberOfSubscriptions);
+  // console.log("numberOfSubscriptions in client:", numberOfSubscriptions);
   const [message, setMessage] = useState("");
   const [url, setUrl] = useState("");
   const [status, setStatus] = useState<null | string>(null);
