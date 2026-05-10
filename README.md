@@ -20,3 +20,4 @@ The official web application for po mia. po is an eclectic, up-and-coming singer
 - Installable Progressive Web Application
 - Push notifications
 - Mailing list integration for fan engagement
+- Contact form for booking inquiries and fan messages
