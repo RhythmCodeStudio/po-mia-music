@@ -74,16 +74,17 @@ export default async function Home() {
           {poBio}
         </p>
       </div>
-      <div className="flex flex-col justify-center items-center w-full mx-auto">
-        <SlideInOnScroll>
-          <Heading
-            text="up next..."
-            headingLevel={2}
+      {nextEvent && (
+        <div className="flex flex-col justify-center items-center w-full mx-auto">
+          <SlideInOnScroll>
+            <Heading
+              text="up next..."
+              headingLevel={2}
             className="font-bold text-5xl lg:text-6xl xl:text-6xl text-shadow-black-background-black font-indie-flower tracking-widest"
           />
         </SlideInOnScroll>
         <FadeInOnScroll>
-          {nextEvent && (
+          
             <div className="w-full max-w-xs mt-8 mx-auto flex justify-center items-center">
               <CalendarEventDisplay
                 id={nextEvent?.id}
@@ -117,12 +118,13 @@ export default async function Home() {
                 eventLink={nextEvent?.event_link}
               />
             </div>
-          )}
+          
           <div className="mt-6">
             <LinkButton href="/calendar" label="catch all the shows" />
           </div>
         </FadeInOnScroll>
       </div>
+      )}
       <div className="flex flex-col justify-center items-center w-full max-w-2xl mx-auto">
         <SlideInOnScroll>
           <Heading
