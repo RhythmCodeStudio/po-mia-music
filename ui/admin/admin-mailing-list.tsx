@@ -1,58 +1,3 @@
-// "use client";
-
-// // import icons
-// import { IoIosCopy } from "react-icons/io";
-// // import components
-// import Button from "../button";
-
-// type MailingListProps = {
-//   rows: { email: string }[];
-// };
-
-// export default function MailingList({ rows }: MailingListProps) {
-//   const mailingList = rows.map((row: any) => ({ email: row.email }));
-//   const numberOfMailingListSubscribers = mailingList.length;
-//   // format list for sending a mass mailing
-//   const formattedMailingList = mailingList
-//     .map((subscriber) => subscriber.email)
-//     .join(", ");
-//   const copyToClipboard = async () => {
-//     try {
-//       await navigator.clipboard.writeText(formattedMailingList);
-//       alert("Mailing list copied to clipboard!");
-//     } catch (err) {
-//       alert("Failed to copy mailing list: " + err);
-//     }
-//   };
-
-//   return (
-//     <div className="">
-//       <p>Total Mailing List Subscribers: {numberOfMailingListSubscribers}</p>
-//       <p>Mailing List:</p>
-//       <ul>
-//         {mailingList.map((subscriber, index) => (
-//           <li key={index}>{subscriber.email}</li>
-//         ))}
-//       </ul>
-//       <div>
-//         <Button
-//           icon={<IoIosCopy />}
-//           label="Copy Mailing List"
-//           onClick={copyToClipboard}
-//           ariaLabel="Copy mailing list to clipboard"
-//         />
-//       </div>
-//       <a
-//         href={`mailto:?bcc=${encodeURIComponent(formattedMailingList)}`}
-//         className="inline-block mt-2 underline text-blue-600 hover:text-blue-800"
-//         title="Open email client with mailing list in BCC">
-//         Compose Email to Mailing List
-//       </a>
-//     </div>
-//   );
-// }
-
-
 "use client";
 // import from react
 import { useState } from "react";
@@ -61,6 +6,8 @@ import { IoIosCopy } from "react-icons/io";
 // import components
 import Button from "../button";
 import Heading from "../heading";
+// import clsx
+import clsx from "clsx";
 
 type MailingListProps = {
   rows: { email: string }[];
@@ -85,30 +32,16 @@ export default function AdminMailingList({ rows }: MailingListProps) {
   const [subject, setSubject] = useState("");
   const [body, setBody] = useState("");
 
-  // const handleSubmit = (e: React.FormEvent) => {
-  //   e.preventDefault();
-  //   const mailto = `mailto:pomiamusic@gmail.com?bcc=${encodeURIComponent(
-  //     formattedMailingList
-  //   )}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  //   window.location.href = mailto;
-  //   setSubject("");
-  //   setBody("");
-  // };
-
-  const handleSubmit = (e: React.FormEvent) => {
-  e.preventDefault();
-  // const unsubscribeText = `\n\nTo unsubscribe, reply to this email with "unsubscribe" or visit: https://www.pomiamusic.com/mailing-list?mode=remove`;
-  // const mailto = `mailto:pomiamusic@gmail.com?bcc=${encodeURIComponent(
-  //   formattedMailingList
-  // )}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body + unsubscribeText)}`;
-  const unsubscribeText = `\n\nTo unsubscribe, please visit:\nhttps://www.pomiamusic.com/mailing-list/unsubscribe`;
-const mailto = `mailto:pomiamusic@gmail.com?bcc=${encodeURIComponent(
-  formattedMailingList
-)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body + unsubscribeText)}`;
-  window.location.href = mailto;
-  setSubject("");
-  setBody("");
-};
+  const handleSubmit = (e: React.SubmitEvent) => {
+    e.preventDefault();
+    const unsubscribeText = `\n\nTo unsubscribe, please visit:\nhttps://www.pomiamusic.com/mailing-list/unsubscribe`;
+    const mailto = `mailto:pomiamusic@gmail.com?bcc=${encodeURIComponent(
+      formattedMailingList,
+    )}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body + unsubscribeText)}`;
+    window.location.href = mailto;
+    setSubject("");
+    setBody("");
+  };
 
   return (
     <div className="w-full flex flex-col justify-center">
@@ -117,30 +50,32 @@ const mailto = `mailto:pomiamusic@gmail.com?bcc=${encodeURIComponent(
         headingLevel={2}
         className="font-bold text-3xl mb-4 text-center"
       />
-      <p>total mailing list subscribers: {numberOfMailingListSubscribers}</p>
-      <p>mailing list:</p>
+      <p className="text-center">total mailing list subscribers: {numberOfMailingListSubscribers}</p>
+      {/* <p>mailing list:</p>
       <ul>
         {mailingList.map((subscriber, index) => (
           <li key={index}>{subscriber.email}</li>
         ))}
-      </ul>
-      <div>
+      </ul> */}
+      <div className="flex items-center justify-center mt-6 mb-4">
         <Button
           icon={<IoIosCopy />}
           label="copy mailing list"
           onClick={copyToClipboard}
           ariaLabel="copy mailing list to clipboard"
-          className="text-shadow-black-background-black"
+          className={clsx(
+            "items-center justify-center appearance-none min-h-0 leading-none rounded-full border-border-default border-2 shadow-white shadow-md hover:shadow-lg px-4 py-2 text-white bg-black/50 transition duration-200 ease-in-out active:scale-95 rainbow-gradient-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 whitespace-nowrap",
+          )}
         />
       </div>
       <form onSubmit={handleSubmit} className="mt-4 flex flex-col gap-2 w-full">
         <Heading
-          text="email mailing list"
+          text="send email to mailing list"
           headingLevel={3}
-          className="font-bold text-2xl"
+          className="font-bold text-2xl text-center"
         />
         <label>
-          subject:
+          enter subject:
           <input
             type="text"
             className="border rounded px-2 py-1 w-full"
@@ -150,7 +85,7 @@ const mailto = `mailto:pomiamusic@gmail.com?bcc=${encodeURIComponent(
           />
         </label>
         <label>
-          body:
+          enter message:
           <textarea
             className="border rounded px-2 py-1 w-full"
             value={body}
@@ -161,10 +96,21 @@ const mailto = `mailto:pomiamusic@gmail.com?bcc=${encodeURIComponent(
         </label>
         <Button
           type="submit"
-          label="email mailing list"
+          label="open email to send message"
           ariaLabel="open email client to email mailing list"
+          className={clsx(
+            "items-center justify-center appearance-none min-h-0 leading-none rounded-full border-border-default border-2 shadow-white shadow-md hover:shadow-lg px-4 py-2 text-white bg-black/50 transition duration-200 ease-in-out active:scale-95 rainbow-gradient-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 whitespace-nowrap",
+          )}
         />
       </form>
+      <div className="my-4" >
+      <p>mailing list:</p>
+      <ul>
+        {mailingList.map((subscriber, index) => (
+          <li key={index}>{subscriber.email}</li>
+        ))}
+      </ul>
+      </div>
     </div>
   );
 }
