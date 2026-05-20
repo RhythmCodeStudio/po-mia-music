@@ -16,6 +16,7 @@ The official web application for po mia. po is an eclectic, up-and-coming singer
 
 - Responsive design for optimal viewing on various devices
 - Dynamic content showcasing po mia's music, videos, and upcoming events
+- Audio player for streaming music directly from the website
 - Custom content management system for easy updates
 - Installable Progressive Web Application
 - Push notifications for direct fan engagement
