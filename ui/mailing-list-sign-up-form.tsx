@@ -11,7 +11,7 @@ import { clsx } from "clsx";
 // import from toastify
 import { ToastContainer, Zoom, toast } from "react-toastify";
 // import components
-import ContactFormInput from "./contact-form-input";
+import ContactFormInput from "./form-input";
 import Heading from "./heading";
 // import from utils
 import { validateEmail } from "../utils/utils";

@@ -8,7 +8,7 @@ import { clsx } from "clsx";
 // import from toastify
 import { ToastContainer, Zoom, toast } from "react-toastify";
 // import components
-import ContactFormInput from "./contact-form-input";
+import FormInput from "./form-input";
 import Button from "./button";
 import Heading from "./heading";
 // import from utils
@@ -40,11 +40,11 @@ export default function ContactForm({
   const [deliveryErrorMessage, setDeliveryErrorMessage] = useState("");
   const [buttonSubmitted, setButtonSubmitted] = useState(false);
 
- const isFormValid =
-  validateName(name.trim()) &&
-  validateEmail(email.trim()) &&
-  (phone.trim() === "" || validatePhone(phone.trim())) &&
-  validateMessage(message);
+  const isFormValid =
+    validateName(name.trim()) &&
+    validateEmail(email.trim()) &&
+    (phone.trim() === "" || validatePhone(phone.trim())) &&
+    validateMessage(message);
 
   const showErrorToast = (msg: string) => {
     toast.error(msg, {
@@ -205,7 +205,7 @@ export default function ContactForm({
       <form
         onSubmit={handleFormSubmit}
         className="w-full max-w-6xl mx-auto relative text-shadow-black-background-black">
-        <ContactFormInput
+        <FormInput
           idPrefix="contact-form"
           inputType="input"
           label="name"
@@ -219,7 +219,7 @@ export default function ContactForm({
           handleChange={handleChange}
           setStateVariable={setName}
         />
-        <ContactFormInput
+        <FormInput
           idPrefix="contact-form"
           inputType="input"
           label="phone"
@@ -233,7 +233,7 @@ export default function ContactForm({
           handleChange={handleChange}
           setStateVariable={setPhone}
         />
-        <ContactFormInput
+        <FormInput
           idPrefix="contact-form"
           inputType="input"
           label="email"
@@ -247,7 +247,7 @@ export default function ContactForm({
           handleChange={handleChange}
           setStateVariable={setEmail}
         />
-        <ContactFormInput
+        <FormInput
           idPrefix="contact-form"
           inputType="textarea"
           label="message"

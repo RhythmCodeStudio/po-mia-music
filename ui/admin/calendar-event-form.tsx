@@ -2,9 +2,12 @@
 // import from react
 import { useState, useEffect } from "react";
 // import actions
-import { createCalendarEvent, updateCalendarEvent } from "../../actions/actions";
+import {
+  createCalendarEvent,
+  updateCalendarEvent,
+} from "../../actions/actions";
 // import components
-import ContactFormInput from "../contact-form-input";
+import ContactFormInput from "../form-input";
 import Button from "../button";
 import Heading from "../heading";
 
@@ -66,9 +69,13 @@ export default function CalendarEventForm({
   const [allDay, setAllDay] = useState(initialAllDay || false);
   const [cost, setCost] = useState(initialCost || "");
   const [locationName, setLocationName] = useState(initialLocationName || "");
-  const [locationStreetAddress, setLocationStreetAddress] = useState(initialLocationStreetAddress || "");
+  const [locationStreetAddress, setLocationStreetAddress] = useState(
+    initialLocationStreetAddress || "",
+  );
   const [locationCity, setLocationCity] = useState(initialLocationCity || "");
-  const [locationState, setLocationState] = useState(initialLocationState || "");
+  const [locationState, setLocationState] = useState(
+    initialLocationState || "",
+  );
   const [locationZip, setLocationZip] = useState(initialLocationZip || "");
   const [description, setDescription] = useState(initialDescription || "");
   const [imageUrl, setImageUrl] = useState(initialImageUrl || "");
@@ -123,7 +130,7 @@ export default function CalendarEventForm({
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-    setStateVariable: React.Dispatch<React.SetStateAction<string>>
+    setStateVariable: React.Dispatch<React.SetStateAction<string>>,
   ) => {
     const value = e.target.value;
     setStateVariable(value);
@@ -226,7 +233,7 @@ export default function CalendarEventForm({
     } catch (err) {
       console.error("Error saving calendar event:", err);
       alert(
-        "An error occurred while saving the event. Please try again later."
+        "An error occurred while saving the event. Please try again later.",
       );
     }
   };
@@ -236,7 +243,7 @@ export default function CalendarEventForm({
       <Heading
         headingLevel={2}
         className="text-center text-2xl font-bold"
-       text={mode === "edit" ? "edit event" : "add a new event"}
+        text={mode === "edit" ? "edit event" : "add a new event"}
       />
       <form onSubmit={handleFormSubmit}>
         <ContactFormInput

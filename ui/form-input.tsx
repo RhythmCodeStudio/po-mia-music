@@ -1,4 +1,4 @@
-interface ContactFormInputProps {
+interface FormInputProps {
   inputType: string;
   label: string;
   name: string;
@@ -16,7 +16,7 @@ interface ContactFormInputProps {
   setStateVariable: React.Dispatch<React.SetStateAction<any>>;
 }
 
-export default function ContactFormInput({
+export default function FormInput({
   inputType,
   label,
   name,
@@ -29,7 +29,7 @@ export default function ContactFormInput({
   idPrefix = "",
   handleChange,
   setStateVariable,
-}: ContactFormInputProps) {
+}: FormInputProps) {
   const uniqueInputId = idPrefix ? `${idPrefix}-${name}` : name;
   return (
     <div className="flex flex-col justify-start w-full">
