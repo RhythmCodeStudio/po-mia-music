@@ -269,14 +269,14 @@ export default function CalendarEventForm({
             id="date"
             name="date"
             required
-            className="shadow-md shadow-green-500/50 border-2 border-green-500 p-2 max-w-xs w-full text-black placeholder-neutral-800 rounded-2xl bg-neutral-100 tracking-wide h-10 w-full"
+            className="shadow-md shadow-green-500/50 border-2 border-green-500 p-2 max-w-xs w-full text-black placeholder-neutral-800 rounded-2xl bg-neutral-100 tracking-wide h-10"
             value={date}
             autoComplete="off"
             onChange={(e) => setDate(e.target.value)}
             onBlur={() => setDateTouched(true)}
           />
           <p
-            className="text-red-200 text-xs mt-1 ml-2 min-h-[1.25rem] transition-opacity duration-300"
+            className="text-red-200 text-xs mt-1 ml-2 min-h-5 transition-opacity duration-300"
             style={{
               visibility:
                 (dateTouched && !date) || errors.date ? "visible" : "hidden",
@@ -295,7 +295,7 @@ export default function CalendarEventForm({
             type="date"
             id="endDate"
             name="endDate"
-            className="shadow-md shadow-green-500/50 border-2 border-green-500 p-2 w-xs text-black placeholder-neutral-800 rounded-2xl bg-neutral-100 tracking-wide h-10 w-full"
+            className="shadow-md shadow-green-500/50 border-2 border-green-500 p-2 text-black placeholder-neutral-800 rounded-2xl bg-neutral-100 tracking-wide h-10 w-full"
             value={endDate}
             autoComplete="off"
             onChange={(e) => setDate(e.target.value)}
