@@ -43,7 +43,7 @@ export async function sendNotification(message: string, url?: string) {
         return webpush.sendNotification(
           subscription,
           JSON.stringify({
-            title: "Notification from indieStream",
+            title: "Notification from po mia",
             body: message,
             icon: "/icons/web-app-manifest-192x192.png",
             data: {

@@ -147,7 +147,8 @@ export default function MorePopover({
         <div
           className="fixed inset-0 rainbow-gradient flex items-center justify-center z-50"
           role="dialog"
-          aria-modal="true">
+          aria-modal="true"
+          aria-labelledby="ios-install-dialog-title">
           <div className="p-6 w-11/12 max-w-md relative z-50">
             <Button
               title="Close"

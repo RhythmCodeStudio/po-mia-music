@@ -1,5 +1,3 @@
-// import from next
-import Link from "next/link";
 // import components
 import SignUpForm from "@/ui/sign-up-form";
 
