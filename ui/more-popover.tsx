@@ -87,11 +87,11 @@ export default function MorePopover({
       <Popover>
         <PopoverButton
           className={clsx(
-            "inline-flex items-center justify-center appearance-none min-h-0 leading-none rounded-full border-border-default border-2 shadow-white shadow-md hover:shadow-lg px-4 py-2 text-white bg-black/50 transition duration-200 ease-in-out active:scale-95 rainbow-gradient-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500",
+            "flex items-center justify-center font-semibold text-white rounded-full border-border-default border-2 shadow-white shadow-md px-4 py-2 active:scale-95 transition duration-200 ease-in-out rainbow-gradient-hover bg-black/50 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500",
           )}>
           <span
             aria-label="More options"
-            className="text-shadow-black-background-black lg:text-xl -mb-1">
+            className="text-shadow-black-background-black lg:text-xl mb-0 lg:-mb-1">
             more
           </span>
         </PopoverButton>
