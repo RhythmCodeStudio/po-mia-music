@@ -111,8 +111,8 @@ export default function MobileNav({ navListItems, isAuthenticated }: MobileMenuP
             )}
 
             {/* Navigation */}
-            <nav className="mt-10 z-50">
-              <ul className={`flex flex-col gap-10 font-semibold items-center`}>
+            <nav className="w-full mt-10 z-50">
+              <ul className={`w-full flex flex-col gap-10 font-semibold justify-center items-center`}>
                 {navListItems
                   .filter((item) => item.label !== "admin" || isAuthenticated)
                   .map((item) => (

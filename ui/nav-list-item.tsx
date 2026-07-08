@@ -47,7 +47,7 @@ export default function NavListItem({
           tabIndex={isActive ? -1 : 0}
           aria-disabled={isActive ? "true" : undefined}
           onClick={onClick}>
-          <span className="text-shadow-black-background-black -mb-1">
+          <span className="text-shadow-black-background-black mb-0 lg:-mb-1">
             {label}
           </span>
         </Link>
