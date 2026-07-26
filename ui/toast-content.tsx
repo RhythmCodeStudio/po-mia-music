@@ -12,7 +12,10 @@ interface ToastContentProps {
   component?: React.ReactNode;
 }
 
-export default function ToastContent({ message, component }: ToastContentProps) {
+export default function ToastContent({
+  message,
+  component,
+}: ToastContentProps) {
   return (
     <div>
       <Button
@@ -24,10 +27,16 @@ export default function ToastContent({ message, component }: ToastContentProps) 
 
       <div className="mt-6 flex flex-col items-center text-center text-shadow-black-background-black rounded-2xl">
         <p>
-          {message || "subscribe to notifications to stay up to date with the latest from po mia!"}
+          {message ||
+            "subscribe to notifications to stay up to date with the latest from po mia!"}
         </p>
         <div className="my-2 flex flex-col justify-center items-center">
-          {component || <PushNotificationSubscriptionManager renderedAs="button" />}
+          {component || (
+            <PushNotificationSubscriptionManager
+              renderedAs="button"
+              buttonClassName="flex items-center justify-center font-semibold text-white rounded-full border-border-default border-2 shadow-white shadow-md px-4 py-2 active:scale-95 transition duration-200 ease-in-out rainbow-gradient-hover bg-black/50 hover:shadow-lg"
+            />
+          )}
         </div>
       </div>
     </div>

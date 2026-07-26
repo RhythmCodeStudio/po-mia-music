@@ -32,7 +32,7 @@ export default function ContactForm({
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
-  const [mailingListSignup, setMailingListSignup] = useState(false);
+  const [mailingListSignup, setMailingListSignup] = useState(true);
   const [emailErrorMessage, setEmailErrorMessage] = useState("");
   const [phoneErrorMessage, setPhoneErrorMessage] = useState("");
   const [nameErrorMessage, setNameErrorMessage] = useState("");
@@ -272,7 +272,7 @@ export default function ContactForm({
         <label
           htmlFor="mailing-list-signup"
           className="text-sm text-neutral-300 mx-2">
-          sign me up for the po mia mailing list!
+          sign me up for the po mia mailing list! (i understand that i can unsubscribe at any time.)
         </label>
 
         <div className="flex justify-center items-center p-6 mt-4">

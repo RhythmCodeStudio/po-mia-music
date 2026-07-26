@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 // import components
 import Button from "./button";
+// import clsx
+import clsx from "clsx";
 
 export default function InstallAppButton() {
   const [isIOS, setIsIOS] = useState(false);
@@ -58,7 +60,13 @@ export default function InstallAppButton() {
           onClick={async () => {
             await handleInstallClick();
           }}
-          className="rainbow-gradient p-1 rounded-full border-2 border-border-default shadow-white shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full max-w-xs transform transition-transform duration-200 active:scale-95 text-shadow-black-background-black font-medium tracking-wider px-4"
+          // className="rainbow-gradient p-1 rounded-full border-2 border-border-default shadow-white shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full max-w-xs transform transition-transform duration-200 active:scale-95 text-shadow-black-background-black font-medium tracking-wider px-4"
+          className={clsx(
+            "flex items-center justify-center font-semibold text-white rounded-full border-border-default border-2 shadow-white shadow-md px-4 py-2 active:scale-95 transition duration-200 ease-in-out rainbow-gradient-hover",
+            deferredPrompt
+              ? "rainbow-gradient pointer-events-none"
+              : "bg-black/50 hover:shadow-lg",
+          )}
           label="install app"
         />
       )}

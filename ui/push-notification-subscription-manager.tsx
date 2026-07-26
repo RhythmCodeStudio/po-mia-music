@@ -37,10 +37,12 @@ function urlBase64ToUint8Array(base64String: string) {
 
 interface PushNotificationSubscriptionManagerProps {
   renderedAs: "icon" | "button";
+  buttonClassName?: string;
 }
 // Manage the browser's push subscription
 export default function PushNotificationSubscriptionManager({
   renderedAs,
+  buttonClassName,
 }: PushNotificationSubscriptionManagerProps) {
   const { setIsSubscribed } = usePushNotification();
   const [isSupported, setIsSupported] = useState(false);
@@ -128,14 +130,18 @@ export default function PushNotificationSubscriptionManager({
       ) : subscription ? (
         <button
           onClick={unsubscribeFromPush}
-          className="cursor-pointer border-2 p-1 rounded-full px-4 text-sm w-full text-shadow-black-background-black">
-          Unsubscribe from Notifications
+          className={buttonClassName || `cursor-pointer border-2 border-border-default p-1 px-4 rounded-full rainbow-gradient text-shadow-black-background-black w-full shadow-white shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] transform transition-transform duration-200 active:scale-95`}>
+          <span className=" font-medium tracking-wider z-50">
+            unsubscribe from notifications
+          </span>
         </button>
       ) : (
         <button
           onClick={subscribeToPush}
-          className="cursor-pointer border-2 border-border-default p-1 px-4 rounded-full rainbow-gradient text-shadow-black-background-black w-full shadow-white shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] transform transition-transform duration-200 active:scale-95">
-          <span className=" font-medium tracking-wider z-50">subscribe to notifications</span>
+          className={buttonClassName || `cursor-pointer border-2 border-border-default p-1 px-4 rounded-full rainbow-gradient text-shadow-black-background-black w-full shadow-white shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] transform transition-transform duration-200 active:scale-95`}>
+          <span className=" font-medium tracking-wider z-50">
+            subscribe to notifications
+          </span>
         </button>
       )}
     </>

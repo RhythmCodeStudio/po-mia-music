@@ -59,10 +59,19 @@ export default async function Home() {
         <InstallPrompt />
       </div> */}
       <div className="flex flex-col items-center w-full max-w-2xl mx-auto px-6 lg:px-0">
-        <Image
+        {/* <Image
           fetchPriority="high"
           src="/images/po-hearts.webp"
           alt="po surrounded by hearts"
+          width={2664}
+          height={1902}
+          priority
+          className="rounded-4xl shadow-white shadow-lg border-2 border-border-default"
+        /> */}
+         <Image
+          fetchPriority="high"
+          src="/images/final-pics/free-4-all-close-up-25.png"
+          alt="guitar future bright"
           width={2664}
           height={1902}
           priority
