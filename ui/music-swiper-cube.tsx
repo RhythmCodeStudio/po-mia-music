@@ -59,8 +59,8 @@ export default function MusicSwiperCube() {
               <Image
                 src={release.cover_image}
                 alt={`${release.title} cover art`}
-                width={200}
-                height={200}
+                width={320}
+                height={320}
                 className="rounded-2xl shadow-white shadow-md border-2 border-border-default"
               />
             </Link>

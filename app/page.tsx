@@ -15,6 +15,7 @@ import FadeInOnScroll from "@/ui/fade-in-on-scroll";
 import Heading from "@/ui/heading";
 import PhotoGallery from "@/ui/photo-gallery";
 import InstallAppButton from "@/ui/install-app-button";
+import RubiksCube from "@/ui/rubiks-cube";
 // import data
 import { poBio } from "../lib/po-data";
 import { releases } from "../lib/releases";
@@ -54,32 +55,27 @@ export default async function Home() {
       : null;
 
   return (
-    <div className="relative flex flex-col grow items-center justify-center space-y-12">
+    <div className=" flex flex-col grow items-center justify-center space-y-12">
       {/* <div className="fixed top-20 left-0 w-full z-50">
         <InstallPrompt />
       </div> */}
-      <div className="flex flex-col items-center w-full max-w-2xl mx-auto px-6 lg:px-0">
-        {/* <Image
+      <div className="flex flex-col items-center w-full max-w-2xl mx-auto px-6 lg:px-0 relative">
+        <Image
           fetchPriority="high"
-          src="/images/po-hearts.webp"
-          alt="po surrounded by hearts"
+          // src="/images/final-pics/free-4-all-close-up-25.png"
+          // src="/images/final-pics/cut-outs/po-look.png"
+          // src="/images/final-pics/cut-outs/po-sits.png"
+          // src="/images/final-pics/cut-outs/po-plays-guitar.png"
+          src="/images/final-pics/cut-outs/po-guitar-crop.png"
+          alt="po with their custom branded guitar"
           width={2664}
           height={1902}
           priority
-          className="rounded-4xl shadow-white shadow-lg border-2 border-border-default"
-        /> */}
-         <Image
-          fetchPriority="high"
-          src="/images/final-pics/free-4-all-close-up-25.png"
-          alt="guitar future bright"
-          width={2664}
-          height={1902}
-          priority
-          className="rounded-4xl shadow-white shadow-lg border-2 border-border-default"
+          className="rounded-4xl -mb-12 ml-24 w-[90%] md:w-3/4 "
         />
       </div>
-      <div className="bg-black/50 mx-6 lg:mx-auto py-4 rounded-4xl shadow-white shadow-lg max-w-2xl border-2 border-border-default px-6 lg:px-0">
-        <p className="lg:px-6 text-shadow-black-background-black w-full max-w-xl lg:max-w-2xl mx-auto font-acme tracking-widest md:text-lg">
+      <div className="bg-black/50 mx-6 lg:mx-auto py-4 rounded-4xl shadow-white shadow-lg max-w-2xl border-2 border-border-default px-6 lg:px-0 z-10">
+        <p className="lg:px-6 text-shadow-black-background-black w-full max-w-xl lg:max-w-2xl mx-auto font-acme tracking-widest md:text-lg ">
           {poBio}
         </p>
       </div>
@@ -89,11 +85,10 @@ export default async function Home() {
             <Heading
               text="up next..."
               headingLevel={2}
-            className="font-bold text-5xl lg:text-6xl xl:text-6xl text-shadow-black-background-black font-indie-flower tracking-widest"
-          />
-        </SlideInOnScroll>
-        <FadeInOnScroll>
-          
+              className="font-bold text-5xl lg:text-6xl xl:text-6xl text-shadow-black-background-black font-indie-flower tracking-widest"
+            />
+          </SlideInOnScroll>
+          <FadeInOnScroll>
             <div className="w-full max-w-xs mt-8 mx-auto flex justify-center items-center">
               <CalendarEventDisplay
                 id={nextEvent?.id}
@@ -127,12 +122,12 @@ export default async function Home() {
                 eventLink={nextEvent?.event_link}
               />
             </div>
-          
-          <div className="mt-6">
-            <LinkButton href="/calendar" label="catch all the shows" />
-          </div>
-        </FadeInOnScroll>
-      </div>
+
+            <div className="mt-6">
+              <LinkButton href="/calendar" label="catch all the shows" />
+            </div>
+          </FadeInOnScroll>
+        </div>
       )}
       <div className="flex flex-col justify-center items-center w-full max-w-2xl mx-auto">
         <SlideInOnScroll>
@@ -166,11 +161,21 @@ export default async function Home() {
         </SlideInOnScroll>
         <FadeInOnScroll>
           <div className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl mt-6 px-6 lg:px-0">
-            <PhotoGallery
+            {/* <PhotoGallery
               showOptions={false}
               showPagination={false}
               showNavigation={false}
               showCaption={false}
+            /> */}
+
+            <Image
+              fetchPriority="high"
+              src="/images/final-pics/free-4-all-close-up-25.png"
+              alt="guitar future bright"
+              width={2664}
+              height={1902}
+              priority
+              className="rounded-4xl border-2 border-border-default shadow-white shadow-lg"
             />
           </div>
           <div className="mt-6">
@@ -217,7 +222,7 @@ export default async function Home() {
       {/* <Toaster /> */}
       <Toaster
         toastId="install-app-toast"
-        message="Install pomiamusic.com on your device for the best experience!"
+        message="install pomiamusic.com on your device for the best experience!"
         component={<InstallAppButton />}
       />
     </div>
