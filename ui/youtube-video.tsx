@@ -9,12 +9,14 @@ import Heading from "./heading";
 interface YouTubeVideoProps {
   videoId: string;
   title: string;
+  headingLevel?: 1 | 2 | 3 | 4 | 5 | 6;
   description?: string;
 }
 
 export default function YouTubeVideo({
   videoId,
   title,
+  headingLevel = 3,
   description,
 }: YouTubeVideoProps) {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -25,7 +27,7 @@ export default function YouTubeVideo({
       <div className="w-full z-50 bg-black/50 p-(--card-padding) rounded-(--card-radius) shadow-lg shadow-white border-2 border-border-default [--card-radius:var(--radius-4xl)] [--card-padding:--spacing(4)]">
         <Heading
           text={title}
-          headingLevel={3}
+          headingLevel={headingLevel}
           className="px-2 pb-2 text-center lg:text-lg text-shadow-black-background-black font-indie-flower tracking-widest font-semibold"
         />
         <div

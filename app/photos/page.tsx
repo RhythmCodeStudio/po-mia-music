@@ -19,7 +19,7 @@ export default function Photos() {
       />
       <FadeInOnScroll>
         <div className="w-full mt-6 px-6 lg:px-0">
-          <PhotoGallery showOptions={true} showNavigation={!isMobile} />
+          <PhotoGallery showNavigation={!isMobile} />
         </div>
       </FadeInOnScroll>
       <Toaster toastId="default"/>

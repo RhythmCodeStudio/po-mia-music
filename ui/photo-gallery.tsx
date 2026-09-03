@@ -1,5 +1,3 @@
-//
-
 "use client";
 // import from vercel
 import { track } from "@vercel/analytics/react";
@@ -22,6 +20,7 @@ import { bandPics } from "@/lib/band-pics";
 import { soloPics } from "@/lib/solo-pics";
 import { promoPics } from "@/lib/promo-pics";
 import { headshots } from "@/lib/headshots";
+import { finalPics } from "@/lib/final-pics";
 // import components
 import Button from "./button";
 
@@ -41,17 +40,18 @@ export default function PhotoGallery({
   showCaption = true,
 }: PhotoGalleryProps) {
   const [currentPicSet, setCurrentPicSet] = useState<
-    typeof promoPics | typeof bandPics | typeof soloPics | typeof headshots
-  >(bandPics);
+    typeof promoPics | typeof bandPics | typeof soloPics | typeof headshots | typeof finalPics
+  >(finalPics);
   const [fullScreenImage, setFullScreenImage] = useState<
     | (typeof promoPics)[number]
     | (typeof bandPics)[number]
     | (typeof soloPics)[number]
     | (typeof headshots)[number]
+    | (typeof finalPics)[number]
     | null
   >(null);
   const [activeCategory, setActiveCategory] = useState<
-    "band" | "solo" | "headshots" | "promo"
+    "band" | "solo" | "headshots" | "promo" | "final"
   >("band");
   const swiperRef = useRef<SwiperType | null>(null);
 
@@ -122,6 +122,15 @@ export default function PhotoGallery({
             }}
             className={`m-2 px-2 rounded-4xl text-shadow-black-background-black ${activeCategory === "promo" ? "rainbow-gradient" : "rainbow-gradient-hover"}`}
           />
+          <Button
+            label="final pics"
+            onClick={() => {
+              setCurrentPicSet(finalPics);
+              setActiveCategory("final");
+              track("gallery_switch", { gallery: "final_pics" });
+            }}
+            className={`m-2 px-2 rounded-4xl text-shadow-black-background-black ${activeCategory === "final" ? "rainbow-gradient" : "rainbow-gradient-hover"}`}
+          />
         </div>
       )}
       <section className="text-center mx-auto w-full flex flex-col justify-center items-center font-bold max-w-4xl">
@@ -145,7 +154,7 @@ export default function PhotoGallery({
             delay: 4800,
             disableOnInteraction: false,
           }}
-          // CHANGED: Conditionally include Pagination and Navigation modules based on showPagination and showNavigation props
+          // Conditionally include Pagination and Navigation modules based on showPagination and showNavigation props
           modules={
             showPagination || showNavigation
               ? [Autoplay, Navigation, Pagination]
@@ -153,24 +162,10 @@ export default function PhotoGallery({
           }
           onSwiper={(swiper) => (swiperRef.current = swiper)}>
           {currentPicSet.map((pic, index) => {
-            // const isPortrait = pic.orientation === "portrait";
-            // const isLandscape = pic.orientation === "landscape";
-            // const isSquare = pic.orientation === "square";
-            // if (!isPortrait && !isLandscape && !isSquare) {
-            //   return null; // Skip images with unknown orientation
-            // }
+            
             let imageWidth = pic.width;
             let imageHeight = pic.height;
-            // if (isSquare) {
-            //   imageWidth = 1000;
-            //   imageHeight = 1000;
-            // } else if (isPortrait) {
-            //   imageWidth = 1280;
-            //   imageHeight = 1920;
-            // } else if (isLandscape) {
-            //   imageWidth = 1920;
-            //   imageHeight = 1280;
-            // }
+          
             return (
               <SwiperSlide key={index}>
                 <div
@@ -207,7 +202,6 @@ export default function PhotoGallery({
               width={fullScreenImage.width}
               height={fullScreenImage.height}
               priority
-              // className="max-w-[90vw] max-h-[90vh] w-auto h-auto"
               className="w-full h-full"
               style={{ objectFit: "contain" }}
             />
