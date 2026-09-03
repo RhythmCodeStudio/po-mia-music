@@ -59,7 +59,7 @@ export default async function Home() {
       {/* <div className="fixed top-20 left-0 w-full z-50">
         <InstallPrompt />
       </div> */}
-      <div className="flex flex-col items-center w-full max-w-2xl mx-auto px-6 lg:px-0 relative">
+      {/* <div className="flex flex-col items-center w-full max-w-2xl mx-auto px-6 lg:px-0 relative">
         <Image
           fetchPriority="high"
           // src="/images/final-pics/free-4-all-close-up-25.png"
@@ -78,7 +78,26 @@ export default async function Home() {
         <p className="lg:px-6 text-shadow-black-background-black w-full max-w-xl lg:max-w-2xl mx-auto font-acme tracking-widest md:text-lg ">
           {poBio}
         </p>
+      </div> */}
+
+      <div className="grid w-full max-w-2xl px-8 mx-auto">
+        <Image
+          fetchPriority="high"
+          src="/images/final-pics/cut-outs/po-guitar-crop.png"
+          alt="po with their custom branded guitar"
+          width={2664}
+          height={1902}
+          priority
+          className="col-start-1 row-start-1 z-20 justify-self-end w-7/8 px-2"
+        />
+
+        <div className="col-start-1 row-start-2 z-10 bg-black/50 py-4 rounded-4xl shadow-white shadow-lg border-2 border-border-default px-6 lg:px-0">
+          <p className="lg:px-6 text-shadow-black-background-black w-full max-w-xl lg:max-w-2xl mx-auto font-acme tracking-widest md:text-lg">
+            {poBio}
+          </p>
+        </div>
       </div>
+
       {nextEvent && (
         <div className="flex flex-col justify-center items-center w-full mx-auto">
           <SlideInOnScroll>
@@ -89,7 +108,7 @@ export default async function Home() {
             />
           </SlideInOnScroll>
           <FadeInOnScroll>
-            <div className="w-full max-w-xs mt-8 mx-auto flex justify-center items-center">
+            <div className="w-full max-w-2xl px-8 mt-8 mx-auto flex justify-center items-center">
               <CalendarEventDisplay
                 id={nextEvent?.id}
                 title={nextEvent?.title}
@@ -142,7 +161,7 @@ export default async function Home() {
             <MusicSwiperCube />
           </div>
           {randomTrack && (
-            <div className="w-full px-6 lg:p-0 mt-2">
+            <div className="w-full p-8 mt-2">
               <AudioPlayer song={randomTrack} />
             </div>
           )}
@@ -160,7 +179,7 @@ export default async function Home() {
           />
         </SlideInOnScroll>
         <FadeInOnScroll>
-          <div className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl mt-6 px-6 lg:px-0">
+          <div className="w-full max-w-2xl p-8 ">
             {/* <PhotoGallery
               showOptions={false}
               showPagination={false}
@@ -192,7 +211,7 @@ export default async function Home() {
           />
         </SlideInOnScroll>
         <FadeInOnScroll>
-          <div className="w-full mt-6 px-6 lg:px-0">
+          <div className="w-full max-w-2xl mt-6 px-8">
             <ClientContainer
               component={
                 <YouTubeVideo
