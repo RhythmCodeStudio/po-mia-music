@@ -2,10 +2,21 @@
 import Image from "next/image";
 // import components
 import Heading from "./heading";
-import IconLinkGroup from "./icon-link-group";
+// import IconLinkGroup from "./icon-link-group";
+import IconLink from "./icon-link";
 import IconLinkGroupClientContainer from "./icon-link-group-client-container";
 // import from utils
 import { formatDate } from "../utils/utils";
+
+import {
+  SiApplemusic,
+  SiBandcamp,
+  SiSpotify,
+  SiTidal,
+  SiYoutube,
+  SiYoutubemusic,
+} from "react-icons/si";
+import { FaAmazon, FaDeezer } from "react-icons/fa";
 
 type Track = {
   id: string;
@@ -39,6 +50,17 @@ interface ReleaseDisplayProps {
     tracks: Track[];
   };
 }
+
+const iconMap = {
+  SiApplemusic,
+  SiBandcamp,
+  SiSpotify,
+  SiTidal,
+  SiYoutube,
+  SiYoutubemusic,
+  FaAmazon,
+  FaDeezer,
+};
 
 export default function ReleaseDisplay({ release }: ReleaseDisplayProps) {
   return (
@@ -79,7 +101,6 @@ export default function ReleaseDisplay({ release }: ReleaseDisplayProps) {
         <p className="text-shadow-black-background-black w-full max-w-md md:min-h-32">
           {release.description}
         </p>
-
         <p className="-mb-2 text-shadow-black-background-black">
           released {formatDate(release.release_date).toLowerCase()}
         </p>
@@ -101,6 +122,24 @@ export default function ReleaseDisplay({ release }: ReleaseDisplayProps) {
             />
           ))}
         </div> */}
+        <div className="grid grid-cols-8 md:grid-cols-4 lg:grid-cols-8 gap-6">
+          {release.links.map((link) => {
+            const Icon = iconMap[link.icon as keyof typeof iconMap];
+
+            if (!Icon) return null;
+
+            return (
+              <IconLink
+                key={link.name}
+                href={link.url}
+                icon={Icon}
+                size={20}
+                label={link.label}
+                className="icon-shadow"
+              />
+            );
+          })}
+        </div>
       </div>
     </section>
   );

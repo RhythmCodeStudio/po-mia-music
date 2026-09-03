@@ -88,9 +88,9 @@ export default async function Home() {
           width={2664}
           height={1902}
           priority
+          loading="eager"
           className="col-start-1 row-start-1 z-20 justify-self-end w-7/8 px-2"
         />
-
         <div className="col-start-1 row-start-2 z-10 bg-black/50 py-4 rounded-4xl shadow-white shadow-lg border-2 border-border-default px-6 lg:px-0">
           <p className="lg:px-6 text-shadow-black-background-black w-full max-w-xl lg:max-w-2xl mx-auto font-acme tracking-widest md:text-lg">
             {poBio}
@@ -189,11 +189,12 @@ export default async function Home() {
 
             <Image
               fetchPriority="high"
-              src="/images/final-pics/free-4-all-close-up-25.png"
+              src="/images/final-pics/free-4-all.png"
               alt="guitar future bright"
               width={2664}
               height={1902}
               priority
+              loading="eager"
               className="rounded-4xl border-2 border-border-default shadow-white shadow-lg"
             />
           </div>

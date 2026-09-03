@@ -81,7 +81,7 @@ export default function IconLinkGroup({
 
     return (
     <div
-      className={`flex items-center justify-center flex-wrap gap-6 md:gap-8 lg:gap-12 2xl:gap-14 ${className ?? ""} ${
+      className={`flex flex-wrap items-center justify-center gap-6 md:gap-8 lg:gap-12 2xl:gap-14 ${className ?? ""} ${
         orientation === "vertical" ? "flex-col" : "flex-row"
       } `}
     >
