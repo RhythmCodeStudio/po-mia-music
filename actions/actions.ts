@@ -29,39 +29,59 @@ export async function removeFromMailingList(email: string) {
 
 // create calendar event
 export async function createCalendarEvent(event: {
-  title: string,
-  startDate: Date | string,
-  endDate?: Date | string,
-  startTime: string,
-  endTime?: string,
-  allDay?: boolean,
-  cost?: string,
-  locationName: string,
-  locationStreetAddress: string,
-  locationCity: string,
-  locationState: string,
-  locationZip: string,
-  description?: string,
-  image?: string
-  ticketLink?: string,
-  eventLink?: string,
-  venueLink?: string,
-  moreInfoLink?: string
+  // title: string,
+  // startDate: Date | string,
+  // endDate?: Date | string,
+  // startTime: string,
+  // endTime?: string,
+  // allDay?: boolean,
+  // cost?: string,
+  // locationName: string,
+  // locationStreetAddress: string,
+  // locationCity: string,
+  // locationState: string,
+  // locationZip: string,
+  // description?: string,
+  // image?: string
+  // ticketLink?: string,
+  // eventLink?: string,
+  // venueLink?: string,
+  // moreInfoLink?: string
+  id: number;
+  title: string;
+  // startDate: Date;
+  // endDate?: Date;
+  date: Date;
+  dayOfWeek: string;
+  startTime: string;
+  endTime?: string;
+  // allDay?: boolean;
+  cost?: string;
+  venueName: string;
+  venueStreetAddress: string;
+  venueCity: string;
+  venueState: string;
+  venueZip: string;
+  description?: string;
+  image?: string;
+  ticketLink?: string;
+  eventLink?: string;
+  venueLink?: string;
+  moreInfoLink?: string;
 }) {
   await sql`
     INSERT INTO calendar_events (
       title,
-      start_date,
-      end_date,
+      date,
+      day_of_week,
       start_time,
       end_time,
-      all_day,
       cost,
-      location_name,
-      location_street_address,
-      location_city,
-      location_state,
-      location_zip,
+      venue_name,
+      venue_street_address,
+      venue_city,
+      venue_state,
+      venue_zip,
       description,
       image,
       ticket_link,
@@ -70,17 +90,16 @@ export async function createCalendarEvent(event: {
       more_info_link
     ) VALUES (
       ${event.title},
-      ${event.startDate},
-      ${event.endDate ?? null},
+      ${event.date},
+      ${event.dayOfWeek},
       ${event.startTime},
       ${event.endTime ?? null},
-      ${event.allDay ?? false},
       ${event.cost ?? null},
-      ${event.locationName},
-      ${event.locationStreetAddress},
-      ${event.locationCity},
-      ${event.locationState},
-      ${event.locationZip},
+      ${event.venueName},
+      ${event.venueStreetAddress},
+      ${event.venueCity},
+      ${event.venueState},
+      ${event.venueZip},
       ${event.description ?? null},
       ${event.image ?? null},
       ${event.ticketLink ?? null},
@@ -110,41 +129,43 @@ export async function deleteCalendarEvent(id: string) {
 
 // update calendar event by id
 export async function updateCalendarEvent(event: {
-  id: string,
-  title: string,
-  startDate: Date | string,
-  endDate?: Date | string,
-  startTime: string,
-  endTime?: string,
-  allDay?: boolean,
-  cost?: string,
-  locationName: string,
-  locationStreetAddress: string,
-  locationCity: string,
-  locationState: string,
-  locationZip: string,
-  description?: string,
-  image?: string,
-  ticketLink?: string,
-  eventLink?: string,
-  venueLink?: string,
-  moreInfoLink?: string
+  id: string;
+  title: string;
+  date: Date;
+  // startDate: Date | string;
+  // endDate?: Date | string;
+  dayOfWeek: string;
+  startTime: string;
+  endTime?: string;
+  allDay?: boolean;
+  cost?: string;
+  venueName: string;
+  venueStreetAddress: string;
+  venueCity: string;
+  venueState: string;
+  venueZip: string;
+  description?: string;
+  image?: string;
+  ticketLink?: string;
+  eventLink?: string;
+  venueLink?: string;
+  moreInfoLink?: string;
 }) {
   await sql`
     UPDATE calendar_events
     SET
       title = ${event.title},
-      start_date = ${event.startDate},
-      end_date = ${event.endDate ?? null},
+      date = ${event.date},
+      day_of_week = ${event.dayOfWeek},
       start_time = ${event.startTime},
       end_time = ${event.endTime ?? null},
       all_day = ${event.allDay ?? false},
       cost = ${event.cost ?? null},
-      location_name = ${event.locationName},
-      location_street_address = ${event.locationStreetAddress},
-      location_city = ${event.locationCity},
-      location_state = ${event.locationState},
-      location_zip = ${event.locationZip},
+      venue_name = ${event.venueName},
+      venue_street_address = ${event.venueStreetAddress},
+      venue_city = ${event.venueCity},
+      venue_state = ${event.venueState},
+      venue_zip = ${event.venueZip},
       description = ${event.description ?? null},
       image = ${event.image ?? null},
       ticket_link = ${event.ticketLink ?? null},
