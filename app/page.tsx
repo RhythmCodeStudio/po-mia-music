@@ -228,7 +228,7 @@ export default async function Home() {
           </div>
         </FadeInOnScroll>
       </div>
-      <div className="flex flex-col justify-center items-center w-full mx-auto">
+      <div className="flex flex-col justify-center items-center w-full mx-auto -mb-2">
         <FadeInOnScroll>
           <Link href="/contact">
             <Heading

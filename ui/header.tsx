@@ -69,7 +69,7 @@ export default function Header( { isAuthenticated }: { isAuthenticated: boolean 
           <MobileNav navListItems={navListItemData} isAuthenticated={isAuthenticated} />
         </div>
       </div>
-      <div className="relative w-64 lg:w-80 mx-auto mt-8 mb-8">
+      <div className="relative w-64 lg:w-80 mx-auto mt-8">
         {/* Logo */}
         {isHome ? (
           <>
@@ -80,7 +80,7 @@ export default function Header( { isAuthenticated }: { isAuthenticated: boolean 
               height={725}
               // priority
               // className="w-full h-auto pr-12 lg:pr-16"
-              className="w-full h-auto"
+              className="w-full h-auto mb-8"
               loading="eager"
             />
             {/* <div className="w-30 lg:w-36 h-auto absolute -top-18 lg:-top-20 -right-8 lg:-right-8">
@@ -94,7 +94,7 @@ export default function Header( { isAuthenticated }: { isAuthenticated: boolean 
           </>
         ) : (
           <Link href="/" aria-label="Go to home">
-            <div className="w-full hover:scale-105 hover:-rotate-3 transition-transform duration-300 ease-in-out mt-8 lg:mt-24">
+            <div className="w-full hover:scale-105 hover:-rotate-3 transition-transform duration-300 ease-in-out mt-8 lg:mt-24 mb-12">
               <Image
                 src="/logos/pomia-horizontal-logo-colorful.png"
                 alt="Po Mia Music Logo"
