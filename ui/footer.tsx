@@ -12,6 +12,8 @@ import FadeInOnScroll from "@/ui/fade-in-on-scroll";
 // import PushNotificationSubscriptionManager from "./push-notification-subscription-manager";
 // import IconLink from "./icon-link";
 import IconLinkGroup from "./icon-link-group";
+import ThreejsRubiksCube from "./rubiks-cube";
+import CubeClientContainer from "./cube-client-container";
 // import MailingListSignupModal from "./mailinglist-signup-modal";
 // import link data
 import { contactLinkData } from "../lib/contact-link-data";
@@ -44,15 +46,15 @@ export default function Footer() {
   ].filter(Boolean).length;
 
   // Build grid-cols class
-  const gridColsClass = `grid-cols-${gridItems}`;
-  useEffect(() => {
-    function handleResize() {
-      setIconSize(window.innerWidth >= 768 ? 24 : 20); // 24 for md+ screens, 20 for small
-    }
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  // const gridColsClass = `grid-cols-${gridItems}`;
+  // useEffect(() => {
+  //   function handleResize() {
+  //     setIconSize(window.innerWidth >= 768 ? 24 : 20); // 24 for md+ screens, 20 for small
+  //   }
+  //   handleResize();
+  //   window.addEventListener("resize", handleResize);
+  //   return () => window.removeEventListener("resize", handleResize);
+  // }, []);
 
   useEffect(() => {
     setIsIOS(
@@ -98,6 +100,8 @@ export default function Footer() {
   return (
     <FadeInOnScroll className="w-full">
       <footer className="p-2 flex flex-col items-center justify-center space-y- max-w-7xl mx-auto w-full">
+        {/* <ThreejsRubiksCube /> */}
+        <CubeClientContainer />
         <div className="h-auto w-48 p-2 flex items-center justify-center">
           <Image
             className="w-full h-auto"

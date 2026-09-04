@@ -133,7 +133,7 @@ export default function PhotoGallery({
           />
         </div>
       )}
-      <section className="text-center mx-auto w-full flex flex-col justify-center items-center font-bold max-w-4xl">
+      <section className="text-center mx-auto w-full flex flex-col justify-center items-center max-w-4xl">
         {/* <Heading
         text="Photo Gallery"
         headingLevel={2}

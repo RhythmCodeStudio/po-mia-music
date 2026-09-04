@@ -1,7 +1,7 @@
 export const finalPics = [
   {
     id: 1,
-    src: "/images/final-pics/free-4-all.png",
+    src: "/images/final-webp/free-4-all.webp",
     alt: "po performing at Free 4 All",
     width: 939,  
     height: 939,
@@ -9,7 +9,7 @@ export const finalPics = [
   },
   {
     id: 2,
-    src: "/images/final-pics/guitar-future-bright-25.png",
+    src: "/images/final-webp/guitar-future-bright.webp",
     alt: "",
     width: 1708,  
     height: 1366,
@@ -17,7 +17,7 @@ export const finalPics = [
   },
   {
     id: 3,
-    src: "/images/final-pics/guitar-headstock.jpg",
+    src: "/images/final-webp/guitar-headstock.webp",
     alt: "",
     width: 5454,  
     height: 5454,
@@ -25,7 +25,7 @@ export const finalPics = [
   },
   {
     id: 4,
-    src: "/images/final-pics/guitar-logo.jpg",
+    src: "/images/final-webp/guitar-logo.webp",
     alt: "",
     width: 5369,  
     height: 5369,
@@ -33,7 +33,7 @@ export const finalPics = [
   },
    {
     id: 5,
-    src: "/images/final-pics/guitar-playing.jpg",
+    src: "/images/final-webp/guitar-playing.webp",
     alt: "",
     width: 5234,  
     height: 7328,
@@ -41,7 +41,7 @@ export const finalPics = [
   },
   {
     id: 6,
-    src: "/images/final-pics/guitar-pout.jpg",
+    src: "/images/final-webp/guitar-pout.webp",
     alt: "",
     width: 6830,  
     height: 5464,
@@ -49,7 +49,7 @@ export const finalPics = [
   },
   {
     id: 7,
-    src: "/images/final-pics/guitar-smiling.jpg",
+    src: "/images/final-webp/guitar-smiling.webp",
     alt: "",
     width: 5101,  
     height: 7142,
@@ -57,7 +57,7 @@ export const finalPics = [
   },
   {
     id: 8,
-    src: "/images/final-pics/headshot.jpg",
+    src: "/images/final-webp/headshot.webp",
     alt: "",
     width: 3998,  
     height: 3998,
@@ -65,7 +65,7 @@ export const finalPics = [
   },
   {
     id: 9,
-    src: "/images/final-pics/heavy-anchor.jpg",
+    src: "/images/final-webp/heavy-anchor.webp",
     alt: "",
     width: 4344,  
     height: 5784,
@@ -73,17 +73,15 @@ export const finalPics = [
   },
   {
     id: 10,
-    src: "/images/final-pics/kaleidoscope-po.jpg",
+    src: "/images/final-webp/kaleidoscope-po.webp",
     alt: "",
     width: 2912,  
     height: 4368,
     orientation: "portrait",
   },
-  
- 
   {
     id: 11,
-    src: "/images/final-pics/po-slso.jpg",
+    src: "/images/final-webp/po-slso.webp",
     alt: "",
     width: 1667,  
     height: 2500,
@@ -91,7 +89,7 @@ export const finalPics = [
   },
   {
     id: 12,
-    src: "/images/final-pics/po-tiny-guitar.jpg",
+    src: "/images/final-webp/po-tiny-guitar.webp",
     alt: "",
     width: 814,  
     height: 1148,
