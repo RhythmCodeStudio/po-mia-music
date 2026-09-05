@@ -112,27 +112,27 @@ export default async function Home() {
               <CalendarEventDisplay
                 id={nextEvent?.id}
                 title={nextEvent?.title}
-                startDate={
+                date={
                   typeof nextEvent?.start_date === "string"
                     ? nextEvent?.start_date
                     : nextEvent?.start_date?.toISOString().slice(0, 10)
                 }
-                endDate={
-                  nextEvent?.end_date
-                    ? typeof nextEvent?.end_date === "string"
-                      ? nextEvent?.end_date
-                      : nextEvent?.end_date?.toISOString().slice(0, 10)
-                    : undefined
-                }
+                // endDate={
+                //   nextEvent?.end_date
+                //     ? typeof nextEvent?.end_date === "string"
+                //       ? nextEvent?.end_date
+                //       : nextEvent?.end_date?.toISOString().slice(0, 10)
+                //     : undefined
+                // }
                 startTime={nextEvent?.start_time}
                 endTime={nextEvent?.end_time}
                 allDay={nextEvent?.all_day}
                 cost={nextEvent?.cost}
-                locationName={nextEvent?.location_name}
-                locationStreetAddress={nextEvent?.location_street_address}
-                locationCity={nextEvent?.location_city}
-                locationState={nextEvent?.location_state}
-                locationZip={nextEvent?.location_zip}
+                venueName={nextEvent?.location_name}
+                venueStreetAddress={nextEvent?.location_street_address}
+                venueCity={nextEvent?.location_city}
+                venueState={nextEvent?.location_state}
+                venueZip={nextEvent?.location_zip}
                 description={nextEvent?.description}
                 imageUrl={nextEvent?.image}
                 ticketLink={nextEvent?.ticket_link}

@@ -74,27 +74,27 @@ export default function CalendarClientContainer({
                   id={event.id}
                   key={event.id}
                   title={event.title}
-                  startDate={
+                  date={
                     typeof event.start_date === "string"
                       ? event.start_date
                       : event.start_date?.toISOString().slice(0, 10)
                   }
-                  endDate={
-                    event.end_date
-                      ? typeof event.end_date === "string"
-                        ? event.end_date
-                        : event.end_date?.toISOString().slice(0, 10)
-                      : undefined
-                  }
+                    // endDate={
+                    //   event.end_date
+                    //     ? typeof event.end_date === "string"
+                    //       ? event.end_date
+                    //       : event.end_date?.toISOString().slice(0, 10)
+                    //     : undefined
+                    // }
                   startTime={event.start_time}
                   endTime={event.end_time}
                   allDay={event.all_day}
                   cost={event.cost}
-                  locationName={event.location_name}
-                  locationStreetAddress={event.location_street_address}
-                  locationCity={event.location_city}
-                  locationState={event.location_state}
-                  locationZip={event.location_zip}
+                  venueName={event.location_name}
+                  venueStreetAddress={event.location_street_address}
+                  venueCity={event.location_city}
+                  venueState={event.location_state}
+                  venueZip={event.location_zip}
                   description={event.description}
                   imageUrl={event.image}
                   ticketLink={event.ticket_link}
@@ -122,27 +122,27 @@ export default function CalendarClientContainer({
                 id={event.id}
                 key={event.id}
                 title={event.title}
-                startDate={
+                date={
                   typeof event.start_date === "string"
                     ? event.start_date
                     : event.start_date?.toISOString().slice(0, 10)
                 }
-                endDate={
-                  event.end_date
-                    ? typeof event.end_date === "string"
-                      ? event.end_date
-                      : event.end_date?.toISOString().slice(0, 10)
-                    : undefined
-                }
+                // endDate={
+                //   event.end_date
+                //     ? typeof event.end_date === "string"
+                //       ? event.end_date
+                //       : event.end_date?.toISOString().slice(0, 10)
+                //     : undefined
+                // }
                 startTime={event.start_time}
                 endTime={event.end_time}
                 allDay={event.all_day}
                 cost={event.cost}
-                locationName={event.location_name}
-                locationStreetAddress={event.location_street_address}
-                locationCity={event.location_city}
-                locationState={event.location_state}
-                locationZip={event.location_zip}
+                venueName={event.location_name}
+                venueStreetAddress={event.location_street_address}
+                venueCity={event.location_city}
+                venueState={event.location_state}
+                venueZip={event.location_zip}
                 description={event.description}
                 imageUrl={event.image}
                 ticketLink={event.ticket_link}
