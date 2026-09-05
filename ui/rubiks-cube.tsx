@@ -354,7 +354,7 @@ export default function ThreejsRubiksCube() {
 
   return (
     <div className="w-full flex justify-center items-center cursor-grab">
-      <div className="w-[120px] md:w-[140px] lg:w-[160px] 2xl:w-[160px] h-[120px] md:h-[140px] lg:h-[160px] 2xl:h-[160px] bg-transparent">
+      <div className="w-30 md:w-35 lg:w-40 2xl:w-40 h-30 md:h-35 lg:h-40 2xl:h-40 bg-transparent">
         <Canvas camera={{ position: [4, 4, 4], fov: 50 }}>
           <ambientLight intensity={1.2} />
           <directionalLight position={[5, 5, 5]} intensity={0.7} />
