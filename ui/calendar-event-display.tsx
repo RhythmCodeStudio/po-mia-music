@@ -22,17 +22,17 @@ import { MdOutlineContentCopy } from "react-icons/md";
 interface CalendarEventProps {
   id: string;
   title: string;
-  startDate: string;
-  endDate?: string;
+  date: string;
+  // endDate?: string;
   startTime: string;
   endTime?: string;
   allDay: boolean;
   cost: string;
-  locationName: string;
-  locationStreetAddress: string;
-  locationCity: string;
-  locationState: string;
-  locationZip: string;
+  venueName: string;
+  venueStreetAddress: string;
+  venueCity: string;
+  venueState: string;
+  venueZip: string;
   imageUrl?: string;
   description?: string;
   ticketLink?: string;
@@ -44,17 +44,17 @@ interface CalendarEventProps {
 export default function CalendarEventDisplay({
   id,
   title,
-  startDate,
-  endDate,
+  date,
+  // endDate,
   startTime,
   endTime,
   allDay,
   cost,
-  locationName,
-  locationStreetAddress,
-  locationCity,
-  locationState,
-  locationZip,
+  venueName,
+  venueStreetAddress,
+  venueCity,
+  venueState,
+  venueZip,
   description,
   imageUrl,
   ticketLink,
@@ -64,8 +64,8 @@ export default function CalendarEventDisplay({
 }: CalendarEventProps) {
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [duplicateModalOpen, setDuplicateModalOpen] = useState(false);
-  const formattedStartDate = formatDate(startDate);
-  const formattedEndDate = endDate ? formatDate(endDate) : undefined;
+  const formattedDate = formatDate(date);
+  // const formattedEndDate = endDate ? formatDate(endDate) : undefined;
 
   const pathname = usePathname();
 
@@ -92,8 +92,7 @@ export default function CalendarEventDisplay({
         <div className="w-full bg-black/50 rounded-4xl p-4 shadow-md shadow-white min-h-full flex flex-col items-center gap-1">
           <div className="w-full">
             <p className="text-shadow-black-background-black">
-              {formattedStartDate}{" "}
-              {formattedEndDate ? `- ${formattedEndDate}` : ""}
+              {formattedDate}
             </p>
             <p className="text-shadow-black-background-black">
               {startTime} {endTime ? `- ${endTime}` : ""}
@@ -116,21 +115,21 @@ export default function CalendarEventDisplay({
                 target="_blank"
                 rel="noopener noreferrer"
                 className="underline decoration-[#ff7f00]">
-                {locationName}
+                {venueName}
               </a>
             ) : (
-              locationName
+              venueName
             )}
           </p>
           <p className="text-shadow-black-background-black">
             {cost && cost.toLowerCase() !== "free" ? `${cost}` : "Free"}
           </p>
           <GoogleMapsLink
-            addressLineOne={locationStreetAddress}
+            addressLineOne={venueStreetAddress}
             addressLineTwo={""}
-            city={locationCity}
-            state={locationState}
-            zipCode={Number(locationZip)}
+            city={venueCity}
+            state={venueState}
+            zipCode={Number(venueZip)}
             className="text-shadow-black-background-black underline decoration-[#ffff00]"
           />
           {ticketLink && (
@@ -189,17 +188,17 @@ export default function CalendarEventDisplay({
               mode="edit"
               eventId={id}
               initialTitle={title}
-              initialStartDate={startDate}
-              initialEndDate={endDate}
+              initialDate={date}
+              // initialEndDate={endDate}
               initialStartTime={startTime}
               initialEndTime={endTime}
               initialAllDay={allDay}
               initialCost={cost}
-              initialLocationName={locationName}
-              initialLocationStreetAddress={locationStreetAddress}
-              initialLocationCity={locationCity}
-              initialLocationState={locationState}
-              initialLocationZip={locationZip}
+              initialVenueName={venueName}
+              initialVenueStreetAddress={venueStreetAddress}
+              initialVenueCity={venueCity}
+              initialVenueState={venueState}
+              initialVenueZip={venueZip}
               initialDescription={description}
               initialImageUrl={imageUrl}
               initialTicketLink={ticketLink}
@@ -225,17 +224,17 @@ export default function CalendarEventDisplay({
               mode="create"
               eventId=""
               initialTitle={title}
-              initialStartDate={startDate}
-              initialEndDate={endDate}
+              initialDate={date}
+              // initialEndDate={endDate}
               initialStartTime={startTime}
               initialEndTime={endTime}
               initialAllDay={allDay}
               initialCost={cost}
-              initialLocationName={locationName}
-              initialLocationStreetAddress={locationStreetAddress}
-              initialLocationCity={locationCity}
-              initialLocationState={locationState}
-              initialLocationZip={locationZip}
+              initialVenueName={venueName}
+              initialVenueStreetAddress={venueStreetAddress}
+              initialVenueCity={venueCity}
+              initialVenueState={venueState}
+              initialVenueZip={venueZip}
               initialDescription={description}
               initialImageUrl={imageUrl}
               initialTicketLink={ticketLink}
