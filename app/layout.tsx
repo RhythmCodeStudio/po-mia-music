@@ -78,7 +78,7 @@ export default async function RootLayout({
         <PushNotificationContextProvider>
           <DismissedToastsProvider>
             <Header isAuthenticated={isAuthenticated} />
-            <main className="flex-1 flex flex-col justify-center items-center w-full overflow-x-hidden relative">
+            <main className="flex-1 flex flex-col justify-center items-center w-full overflow-x-clip relative">
               <h1 className="sr-only text-4xl lg:text-6xl font-bold text-shadow-black-background-black ">
                 po mia
               </h1>
