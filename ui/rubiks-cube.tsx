@@ -168,6 +168,7 @@ import { Canvas, useLoader } from "@react-three/fiber";
 import { TrackballControls, useCursor } from "@react-three/drei";
 import * as THREE from "three";
 import poMiaLogoBlack from "../public/logos/pomia-horizontal-logo-black.png";
+// import poMiaLogoColorful from "../public/logos/pomia-horizontal-logo-colorful.png";
 import { musicLinkData } from "@/lib/music-link-data";
 
 const rubikColors = [

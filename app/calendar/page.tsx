@@ -4,7 +4,7 @@ import Image from "next/image";
 import Heading from "../../ui/heading";
 import CalendarClientContainer from "../../ui/calendar-client-container";
 import Toaster from "../../ui/toaster";
-import InstallAppButton from "../../ui/install-app-button";
+// import InstallAppButton from "../../ui/install-app-button";
 import FadeInOnScroll from "../../ui/fade-in-on-scroll";
 // import data
 import { getCalendarEvents } from "../../actions/actions";
