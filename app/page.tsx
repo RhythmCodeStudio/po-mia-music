@@ -92,7 +92,7 @@ export default async function Home() {
           className="col-start-1 row-start-1 z-20 justify-self-end w-7/8 px-2"
         />
         <div className="col-start-1 row-start-2 z-10 bg-black/50 py-4 rounded-4xl shadow-white shadow-lg border-2 border-border-default px-6 lg:px-0">
-          <p className="lg:px-6 text-shadow-black-background-black w-full max-w-xl lg:max-w-2xl mx-auto font-acme tracking-widest md:text-lg">
+          <p className="lg:px-6 text-shadow-black-background-black w-full max-w-xl lg:max-w-2xl mx-auto font-acme tracking-widest md:text-lg text-pretty">
             {poBio}
           </p>
         </div>

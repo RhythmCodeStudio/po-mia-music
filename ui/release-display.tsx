@@ -4,7 +4,7 @@ import Image from "next/image";
 import Heading from "./heading";
 // import IconLinkGroup from "./icon-link-group";
 import IconLink from "./icon-link";
-import IconLinkGroupClientContainer from "./icon-link-group-client-container";
+// import IconLinkGroupClientContainer from "./icon-link-group-client-container";
 // import from utils
 import { formatDate } from "../utils/utils";
 
@@ -39,7 +39,7 @@ interface ReleaseDisplayProps {
     title: string;
     type: string;
     cover_image: string;
-    release_date: Date;
+    release_date: string;
     description: string;
     links: {
       name: string;
