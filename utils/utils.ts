@@ -20,6 +20,20 @@ export function validatePhone(phone: string) {
     /^(?:\+1\s?|001\s?)?(?:\(\d{3}\)\s?|\d{3}[-.\s]?)?\d{3}[-.\s]?\d{4}$/;
   return re.test(String(phone));
 }
+export function validateCity(city: string) {
+  const re = /^[a-zA-Z\s]+$/;
+  return re.test(String(city));
+}
+
+export function validateState(state: string) {
+  const re = /^[a-zA-Z\s]+$/;
+  return re.test(String(state));
+}
+
+export function validateVenue(venue: string) {
+  const re = /^[a-zA-Z\s]+$/;
+  return re.test(String(venue));
+}
 export function validateForm(
   name: string,
   email: string,
@@ -57,6 +71,27 @@ export const formatDate = (date: Date | string | undefined) => {
     day: "numeric",
   });
 };
+
+export const formatTime = (time: string | undefined) => {
+  if (!time) {
+    return "";
+  }
+  const [hour, minute] = time.split(":").map(Number);
+  const date = new Date();
+  date.setHours(hour, minute);
+  return date.toLocaleTimeString(undefined, {
+    hour: "numeric",
+    minute: "2-digit",
+  });
+};
+
+export function getDayOfWeek(date: string) {
+  if (!date) return "";
+  const [year, month, day] = date.split("-").map(Number);
+  return new Date(year, month - 1, day).toLocaleDateString("en-US", {
+    weekday: "long",
+  });
+}
 
 export function delayPageLoad(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));

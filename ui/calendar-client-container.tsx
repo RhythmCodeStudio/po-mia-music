@@ -4,6 +4,8 @@ import { useState } from "react";
 // import from next
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+// import defintions
+import type { CalendarEvent } from "@/defintions/definitions";
 // import components
 import CalendarEventDisplay from "./calendar-event-display";
 import Button from "./button";
@@ -11,8 +13,8 @@ import Button from "./button";
 import clsx from "clsx";
 
 interface CalendarClientContainerProps {
-  upComingEvents: any[];
-  pastEvents?: any[];
+  upComingEvents: CalendarEvent[];
+  pastEvents?: CalendarEvent[];
   numberOfEventsToShow?: number;
   showViewToggle?: boolean;
 }
@@ -23,27 +25,25 @@ export default function CalendarClientContainer({
   numberOfEventsToShow,
   showViewToggle = true,
 }: CalendarClientContainerProps) {
-  const [view, setView] = useState<"future" | "past">("future");
+  const [view, setView] = useState<"upcoming" | "past">("upcoming");
   const pathname = usePathname();
   const isAdminPath = pathname.startsWith("/admin");
 
   return (
     <section
-      className={
-        isAdminPath && !showViewToggle
-          ? "w-full flex flex-col items-center"
-          : !isAdminPath && !showViewToggle
-            ? "w-full flex flex-col items-center p-8"
-            : "bg-black/50 rounded-(--container-radius) shadow-lg shadow-white border-2 border-border-default w-full flex flex-col items-center p-(--container-padding) my-8 [--container-radius:var(--radius-4xl)] [--container-padding:--spacing(8)]"
-      }>
+      className={clsx(
+        "w-full flex flex-col items-center",
+        showViewToggle ? "p-6" : !isAdminPath && "p-8",
+        showViewToggle && isAdminPath && "pt-0"
+      )}>
       {showViewToggle && (
-        <div className="flex flex-row gap-4 mb-8 justify-center">
+        <div className="flex flex-row justify-center items-center pb-6 w-full gap-4">
           <Button
             label="past"
             title="past events"
             onClick={() => setView("past")}
             className={clsx(
-              "w-22 text-white rounded-full border-border-default border-2 shadow-white shadow-md px-4 py-1 active:scale-95 transition duration-200 ease-in-out rainbow-gradient-hover",
+              "w-28 text-white rounded-full border-border-default border-2 shadow-white shadow-md px-4 py-1 active:scale-95 transition duration-200 ease-in-out rainbow-gradient-hover",
               view === "past"
                 ? "rainbow-gradient pointer-events-none"
                 : "bg-black/50 hover:shadow-lg",
@@ -51,12 +51,12 @@ export default function CalendarClientContainer({
             labelClassName="text-shadow-black-background-black"
           />
           <Button
-            label="future"
-            title="future events"
-            onClick={() => setView("future")}
+            label="upcoming"
+            title="upcoming events"
+            onClick={() => setView("upcoming")}
             className={clsx(
-              "w-22 text-white rounded-full border-border-default border-2 shadow-white shadow-md px-4 py-1 active:scale-95 transition duration-200 ease-in-out rainbow-gradient-hover",
-              view === "future"
+              "w-28 text-white rounded-full border-border-default border-2 shadow-white shadow-md px-4 py-1 active:scale-95 transition duration-200 ease-in-out rainbow-gradient-hover",
+              view === "upcoming"
                 ? "rainbow-gradient pointer-events-none"
                 : "bg-black/50 hover:shadow-lg",
             )}
@@ -65,42 +65,34 @@ export default function CalendarClientContainer({
         </div>
       )}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-8 w-full z-50">
-        {view === "future" ? (
+        {view === "upcoming" ? (
           upComingEvents.length > 0 ? (
             upComingEvents
               .slice(0, numberOfEventsToShow)
               .map((event) => (
                 <CalendarEventDisplay
-                  id={event.id}
+                  id={String(event.id)}
                   key={event.id}
-                  title={event.title}
+                  // title={event.title}
                   date={
-                    typeof event.start_date === "string"
-                      ? event.start_date
-                      : event.start_date?.toISOString().slice(0, 10)
+                    typeof event.date === "string"
+                      ? event.date
+                      : event.date?.toISOString().slice(0, 10)
                   }
-                    // endDate={
-                    //   event.end_date
-                    //     ? typeof event.end_date === "string"
-                    //       ? event.end_date
-                    //       : event.end_date?.toISOString().slice(0, 10)
-                    //     : undefined
-                    // }
-                  startTime={event.start_time}
-                  endTime={event.end_time}
-                  allDay={event.all_day}
-                  cost={event.cost}
-                  venueName={event.location_name}
-                  venueStreetAddress={event.location_street_address}
-                  venueCity={event.location_city}
-                  venueState={event.location_state}
-                  venueZip={event.location_zip}
+                  dayOfWeek={event.dayOfWeek}
+                  time={event.time}
+                  cost={event.cost ?? ""}
+                  venueName={event.venueName}
+                  venueStreetAddress={event.venueStreetAddress}
+                  venueCity={event.venueCity}
+                  venueState={event.venueState}
+                  venueZip={event.venueZip}
                   description={event.description}
-                  imageUrl={event.image}
-                  ticketLink={event.ticket_link}
-                  moreInfoLink={event.more_info_link}
-                  venueLink={event.venue_link}
-                  eventLink={event.event_link}
+                  image={event.image}
+                  ticketLink={event.ticketLink}
+                  moreInfoLink={event.moreInfoLink}
+                  venueLink={event.venueLink}
+                  eventLink={event.eventLink}
                 />
               ))
           ) : (
@@ -119,36 +111,28 @@ export default function CalendarClientContainer({
         {view === "past"
           ? pastEvents.map((event) => (
               <CalendarEventDisplay
-                id={event.id}
+                id={String(event.id)}
                 key={event.id}
-                title={event.title}
+                // title={event.title}
                 date={
-                  typeof event.start_date === "string"
-                    ? event.start_date
-                    : event.start_date?.toISOString().slice(0, 10)
+                  typeof event.date === "string"
+                    ? event.date
+                    : event.date?.toISOString().slice(0, 10)
                 }
-                // endDate={
-                //   event.end_date
-                //     ? typeof event.end_date === "string"
-                //       ? event.end_date
-                //       : event.end_date?.toISOString().slice(0, 10)
-                //     : undefined
-                // }
-                startTime={event.start_time}
-                endTime={event.end_time}
-                allDay={event.all_day}
-                cost={event.cost}
-                venueName={event.location_name}
-                venueStreetAddress={event.location_street_address}
-                venueCity={event.location_city}
-                venueState={event.location_state}
-                venueZip={event.location_zip}
+                dayOfWeek={event.dayOfWeek}
+                time={event.time}
+                cost={event.cost ?? ""}
+                venueName={event.venueName}
+                venueStreetAddress={event.venueStreetAddress}
+                venueCity={event.venueCity}
+                venueState={event.venueState}
+                venueZip={event.venueZip}
                 description={event.description}
-                imageUrl={event.image}
-                ticketLink={event.ticket_link}
-                moreInfoLink={event.more_info_link}
-                venueLink={event.venue_link}
-                eventLink={event.event_link}
+                image={event.image}
+                ticketLink={event.ticketLink}
+                moreInfoLink={event.moreInfoLink}
+                venueLink={event.venueLink}
+                eventLink={event.eventLink}
               />
             ))
           : null}

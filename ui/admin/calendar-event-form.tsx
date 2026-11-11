@@ -1,24 +1,29 @@
 "use client";
 // import from react
 import { useState, useEffect } from "react";
+// import from cloudinary
+// import { CldUploadWidget } from "next-cloudinary";
+// import { removeCalendarEventImage } from "@/actions/cloudinary";
 // import actions
 import {
   createCalendarEvent,
   updateCalendarEvent,
 } from "../../actions/actions";
 // import components
-import ContactFormInput from "../form-input";
+import FormInput from "../form-input";
+import FormDateInput from "../form-date-input";
+import StateAutoComplete from "../state-auto-complete";
 import Button from "../button";
 import Heading from "../heading";
+// import from utils
+import { getDayOfWeek } from "@/utils/utils";
 
 interface CalendarEventFormProps {
   mode: "create" | "edit";
   eventId: string;
-  initialTitle: string;
+  initialDayOfWeek: string;
   initialDate: string;
-  initialStartTime: string;
-  initialEndTime?: string;
-  initialAllDay: boolean;
+  initialTime: string;
   initialCost: string;
   initialVenueName: string;
   initialVenueStreetAddress: string;
@@ -26,7 +31,8 @@ interface CalendarEventFormProps {
   initialVenueState: string;
   initialVenueZip: string;
   initialDescription?: string;
-  initialImageUrl?: string;
+  initialImage?: string;
+  initialImagePublicId?: string;
   initialTicketLink?: string;
   initialEventLink?: string;
   initialVenueLink?: string;
@@ -37,11 +43,9 @@ interface CalendarEventFormProps {
 export default function CalendarEventForm({
   mode,
   eventId,
-  initialTitle,
+  initialDayOfWeek,
   initialDate,
-  initialStartTime,
-  initialEndTime,
-  initialAllDay,
+  initialTime,
   initialCost,
   initialVenueName,
   initialVenueStreetAddress,
@@ -49,22 +53,18 @@ export default function CalendarEventForm({
   initialVenueState,
   initialVenueZip,
   initialDescription,
-  initialImageUrl,
+  initialImage,
+  initialImagePublicId,
   initialTicketLink,
   initialEventLink,
   initialVenueLink,
   initialMoreInfoLink,
   onClose,
 }: CalendarEventFormProps) {
-  const [id, setId] = useState(1);
-
   // initialize state with initial props for editing, or empty/default for create ---
-  const [eventTitle, setEventTitle] = useState(initialTitle || "");
+  const [dayOfWeek, setDayOfWeek] = useState(initialDayOfWeek || "");
   const [date, setDate] = useState(initialDate || "");
-  // const [endDate, setEndDate] = useState(initialEndDate || "");
-  const [time, setTime] = useState(initialStartTime || "");
-  const [endTime, setEndTime] = useState(initialEndTime || "");
-  const [allDay, setAllDay] = useState(initialAllDay || false);
+  const [time, setTime] = useState(initialTime || "");
   const [cost, setCost] = useState(initialCost || "");
   const [venueName, setVenueName] = useState(initialVenueName || "");
   const [venueStreetAddress, setVenueStreetAddress] = useState(
@@ -74,7 +74,10 @@ export default function CalendarEventForm({
   const [venueState, setVenueState] = useState(initialVenueState || "");
   const [venueZip, setVenueZip] = useState(initialVenueZip || "");
   const [description, setDescription] = useState(initialDescription || "");
-  const [imageUrl, setImageUrl] = useState(initialImageUrl || "");
+  const [image, setImage] = useState(initialImage || "");
+  const [imagePublicId, setImagePublicId] = useState(
+    initialImagePublicId || "",
+  );
   const [ticketLink, setTicketLink] = useState(initialTicketLink || "");
   const [eventLink, setEventLink] = useState(initialEventLink || "");
   const [venueLink, setVenueLink] = useState(initialVenueLink || "");
@@ -84,12 +87,9 @@ export default function CalendarEventForm({
 
   // update state if initial props change (for editing different events) ---
   useEffect(() => {
-    setEventTitle(initialTitle || "");
+    setDayOfWeek(initialDayOfWeek || "");
     setDate(initialDate || "");
-    // setEndDate(initialEndDate || "");
-    setTime(initialStartTime || "");
-    setEndTime(initialEndTime || "");
-    setAllDay(initialAllDay || false);
+    setTime(initialTime || "");
     setCost(initialCost || "");
     setVenueName(initialVenueName || "");
     setVenueStreetAddress(initialVenueStreetAddress || "");
@@ -97,18 +97,16 @@ export default function CalendarEventForm({
     setVenueState(initialVenueState || "");
     setVenueZip(initialVenueZip || "");
     setDescription(initialDescription || "");
-    setImageUrl(initialImageUrl || "");
+    setImage(initialImage || "");
+    setImagePublicId(initialImagePublicId || "");
     setTicketLink(initialTicketLink || "");
     setEventLink(initialEventLink || "");
     setVenueLink(initialVenueLink || "");
     setMoreInfoLink(initialMoreInfoLink || "");
   }, [
-    initialTitle,
     initialDate,
-    // initialEndDate,
-    initialStartTime,
-    initialEndTime,
-    initialAllDay,
+    initialTime,
+    initialDayOfWeek,
     initialCost,
     initialVenueName,
     initialVenueStreetAddress,
@@ -116,7 +114,8 @@ export default function CalendarEventForm({
     initialVenueState,
     initialVenueZip,
     initialDescription,
-    initialImageUrl,
+    initialImage,
+    initialImagePublicId,
     initialTicketLink,
     initialEventLink,
     initialVenueLink,
@@ -133,7 +132,7 @@ export default function CalendarEventForm({
 
   const validate = () => {
     const newErrors: { [key: string]: string } = {};
-    if (!eventTitle) newErrors.eventTitle = "Event title is required";
+    // if (!eventTitle) newErrors.eventTitle = "Event title is required";
     if (!date) newErrors.date = "Date is required";
     if (!time) newErrors.time = "Time is required";
     // if (!cost) newErrors.cost = "Cost is required";
@@ -145,6 +144,17 @@ export default function CalendarEventForm({
     if (!venueZip) newErrors.venueZip = "Zip code is required";
     return newErrors;
   };
+
+  // const handleRemoveImage = async () => {
+  //   try {
+  //     await removeCalendarEventImage(eventId, imagePublicId);
+  //     setImage("");
+  //     setImagePublicId("");
+  //   } catch (error) {
+  //     console.error("Image removal failed:", error);
+  //     setImageUploadError("Could not remove the image. Please try again.");
+  //   }
+  // };
 
   const handleFormSubmit = async (e: React.SubmitEvent) => {
     e.preventDefault();
@@ -161,15 +171,9 @@ export default function CalendarEventForm({
       if (mode === "edit") {
         await updateCalendarEvent({
           id: eventId,
-          title: eventTitle,
           date: new Date(date),
-          // endDate: endDate ? new Date(endDate) : undefined,
-          dayOfWeek: new Date(`${date}T00:00:00`).toLocaleDateString("en-US", {
-            weekday: "long",
-          }),
-          startTime: time,
-          endTime: endTime ? endTime : undefined,
-          allDay: allDay,
+          dayOfWeek,
+          time: time,
           cost: cost,
           venueName,
           venueStreetAddress,
@@ -181,20 +185,16 @@ export default function CalendarEventForm({
           eventLink,
           venueLink,
           moreInfoLink,
-          image: imageUrl,
+          image: image,
+          imagePublicId: imagePublicId,
         });
         alert("Event updated successfully!");
         onClose();
       } else {
         await createCalendarEvent({
-          id,
-          title: eventTitle,
           date: new Date(date),
-          dayOfWeek: new Date(`${date}T00:00:00`).toLocaleDateString("en-US", {
-            weekday: "long",
-          }),
-          startTime: time,
-          endTime: endTime ? endTime : undefined,
+          dayOfWeek,
+          time: time,
           cost: cost,
           venueName,
           venueStreetAddress,
@@ -206,14 +206,12 @@ export default function CalendarEventForm({
           eventLink,
           venueLink,
           moreInfoLink,
-          image: imageUrl,
+          image: image,
+          imagePublicId: imagePublicId,
         });
-        setEventTitle("");
+        setDayOfWeek("");
         setDate("");
-        // setEndDate("");
         setTime("");
-        setEndTime("");
-        setAllDay(false);
         setCost("");
         setVenueName("");
         setVenueStreetAddress("");
@@ -221,7 +219,8 @@ export default function CalendarEventForm({
         setVenueState("");
         setVenueZip("");
         setDescription("");
-        setImageUrl("");
+        setImage("");
+        setImagePublicId("");
         setTicketLink("");
         setEventLink("");
         setVenueLink("");
@@ -246,7 +245,7 @@ export default function CalendarEventForm({
         text={mode === "edit" ? "edit event" : "add a new event"}
       />
       <form onSubmit={handleFormSubmit}>
-        <ContactFormInput
+        {/* <FormInput
           label="event title"
           name="eventTitle"
           inputType="input"
@@ -258,7 +257,7 @@ export default function CalendarEventForm({
           errorMessage={errors.eventTitle || ""}
           handleChange={(e) => handleChange(e, setEventTitle)}
           setStateVariable={setEventTitle}
-        />
+        /> */}
         <div className="w-full grid grid-cols-1 md:grid-cols-3 md:gap-6">
           <div className="flex flex-col justify-start w-full">
             <label className="m-2 text-left text-base" htmlFor="date">
@@ -311,7 +310,7 @@ export default function CalendarEventForm({
             {(dateTouched && !date) || errors.date ? (errors.date || "Date is required") : " "}
           </p> */}
           {/* </div> */}
-          <ContactFormInput
+          <FormInput
             label="time"
             name="time"
             inputType="input"
@@ -324,7 +323,7 @@ export default function CalendarEventForm({
             handleChange={(e) => handleChange(e, setTime)}
             setStateVariable={setTime}
           />
-          <ContactFormInput
+          <FormInput
             label="cost"
             name="cost"
             inputType="input"
@@ -337,7 +336,7 @@ export default function CalendarEventForm({
             handleChange={(e) => handleChange(e, setCost)}
             setStateVariable={setCost}
           />
-          {/* <ContactFormInput
+          {/* <FormInput
             label="end time"
             name="endTime"
             inputType="input"
@@ -362,7 +361,7 @@ export default function CalendarEventForm({
           all day event
         </label> */}
 
-        <ContactFormInput
+        <FormInput
           label="venue name"
           name="venueName"
           inputType="input"
@@ -375,7 +374,7 @@ export default function CalendarEventForm({
           handleChange={(e) => handleChange(e, setVenueName)}
           setStateVariable={setVenueName}
         />
-        <ContactFormInput
+        <FormInput
           label="street address"
           name="venueStreetAddress"
           inputType="input"
@@ -388,7 +387,7 @@ export default function CalendarEventForm({
           handleChange={(e) => handleChange(e, setVenueStreetAddress)}
           setStateVariable={setVenueStreetAddress}
         />
-        <ContactFormInput
+        <FormInput
           label="city"
           name="venueCity"
           inputType="input"
@@ -401,7 +400,7 @@ export default function CalendarEventForm({
           handleChange={(e) => handleChange(e, setVenueCity)}
           setStateVariable={setVenueCity}
         />
-        <ContactFormInput
+        <FormInput
           label="state"
           name="venueState"
           inputType="input"
@@ -414,7 +413,7 @@ export default function CalendarEventForm({
           handleChange={(e) => handleChange(e, setVenueState)}
           setStateVariable={setVenueState}
         />
-        <ContactFormInput
+        <FormInput
           label="zip code"
           name="venueZip"
           inputType="input"
@@ -427,7 +426,7 @@ export default function CalendarEventForm({
           handleChange={(e) => handleChange(e, setVenueZip)}
           setStateVariable={setVenueZip}
         />
-        <ContactFormInput
+        <FormInput
           label="description"
           name="description"
           inputType="textarea"
@@ -440,7 +439,7 @@ export default function CalendarEventForm({
           handleChange={(e) => handleChange(e, setDescription)}
           setStateVariable={setDescription}
         />
-        <ContactFormInput
+        <FormInput
           label="venue link"
           name="venueLink"
           inputType="input"
@@ -453,7 +452,7 @@ export default function CalendarEventForm({
           handleChange={(e) => handleChange(e, setVenueLink)}
           setStateVariable={setVenueLink}
         />
-        {/* <ContactFormInput
+        {/* <FormInput
           label="image url"
           name="imageUrl"
           inputType="input"
@@ -466,7 +465,7 @@ export default function CalendarEventForm({
           handleChange={(e) => handleChange(e, setImageUrl)}
           setStateVariable={setImageUrl}
         /> */}
-        <ContactFormInput
+        <FormInput
           label="ticket link"
           name="ticketLink"
           inputType="input"
@@ -479,7 +478,7 @@ export default function CalendarEventForm({
           handleChange={(e) => handleChange(e, setTicketLink)}
           setStateVariable={setTicketLink}
         />
-        <ContactFormInput
+        <FormInput
           label="more info link"
           name="moreInfoLink"
           inputType="input"

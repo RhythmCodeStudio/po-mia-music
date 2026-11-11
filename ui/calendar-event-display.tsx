@@ -4,7 +4,7 @@ import { useState } from "react";
 // import from next
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-// import Image from "next/image";
+import Image from "next/image";
 // import actions
 import { deleteCalendarEvent } from "@/actions/actions";
 // import components
@@ -13,7 +13,7 @@ import GoogleMapsLink from "./google-maps-link";
 import Button from "./button";
 import CalendarEventForm from "./admin/calendar-event-form";
 // import from utils
-import { formatDate } from "../utils/utils";
+import { formatDate, formatTime } from "../utils/utils";
 // import from react icons
 import { MdEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
@@ -21,19 +21,17 @@ import { MdOutlineContentCopy } from "react-icons/md";
 
 interface CalendarEventProps {
   id: string;
-  title: string;
+  // title: string;
   date: string;
-  // endDate?: string;
-  startTime: string;
-  endTime?: string;
-  allDay: boolean;
+  dayOfWeek: string;
+  time: string;
   cost: string;
   venueName: string;
   venueStreetAddress: string;
   venueCity: string;
   venueState: string;
   venueZip: string;
-  imageUrl?: string;
+  image?: string;
   description?: string;
   ticketLink?: string;
   venueLink?: string;
@@ -43,12 +41,10 @@ interface CalendarEventProps {
 
 export default function CalendarEventDisplay({
   id,
-  title,
+  // title,
   date,
-  // endDate,
-  startTime,
-  endTime,
-  allDay,
+  dayOfWeek,
+  time,
   cost,
   venueName,
   venueStreetAddress,
@@ -56,7 +52,7 @@ export default function CalendarEventDisplay({
   venueState,
   venueZip,
   description,
-  imageUrl,
+  image,
   ticketLink,
   venueLink,
   eventLink,
@@ -65,7 +61,7 @@ export default function CalendarEventDisplay({
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [duplicateModalOpen, setDuplicateModalOpen] = useState(false);
   const formattedDate = formatDate(date);
-  // const formattedEndDate = endDate ? formatDate(endDate) : undefined;
+  const formattedTime = formatTime(time);
 
   const pathname = usePathname();
 
@@ -90,23 +86,29 @@ export default function CalendarEventDisplay({
     <>
       <section className="rainbow-gradient border-border-default border-2 shadow-white shadow-lg rounded-4xl w-full md:min-w-[20rem] text-center font-semibold">
         <div className="w-full bg-black/50 rounded-4xl p-4 shadow-md shadow-white min-h-full flex flex-col items-center gap-1">
-          <div className="w-full">
-            <p className="text-shadow-black-background-black">
-              {formattedDate}
-            </p>
-            <p className="text-shadow-black-background-black">
-              {startTime} {endTime ? `- ${endTime}` : ""}
-            </p>
-          </div>
-          <Link
+        <Link
             href={`/calendar/events/${id}`}
-            title={`View details for ${title}`}>
-            <Heading
+            title={`View details for this event`}>
+        <Image
+          src={`${image}`}
+          alt="Show poster"
+          width={300}
+          height={425}
+          className="shadow-md shadow-white rounded-3xl border-2 border-slate-400"
+        />
+        </Link>
+           <div className="w-full flex flex-col items-center">
+            <p>{dayOfWeek}</p>
+            <p>{formattedDate}</p>
+            <p>{formattedTime}</p>
+          </div>
+          
+            {/* <Heading
               text={title}
               headingLevel={3}
               className="text-lg md:text-xl font-bold text-shadow-black-background-black underline decoration-[#ff0000] wrap-break-word whitespace-normal min-w-[16rem] max-w-[16rem]"
-            />
-          </Link>
+            /> */}
+          
           {/* <div className="w-full"> */}
           <p className="text-shadow-black-background-black md:text-lg">
             {venueLink ? (
@@ -187,12 +189,9 @@ export default function CalendarEventDisplay({
             <CalendarEventForm
               mode="edit"
               eventId={id}
-              initialTitle={title}
               initialDate={date}
-              // initialEndDate={endDate}
-              initialStartTime={startTime}
-              initialEndTime={endTime}
-              initialAllDay={allDay}
+              initialDayOfWeek={dayOfWeek}
+              initialTime={time}
               initialCost={cost}
               initialVenueName={venueName}
               initialVenueStreetAddress={venueStreetAddress}
@@ -200,7 +199,7 @@ export default function CalendarEventDisplay({
               initialVenueState={venueState}
               initialVenueZip={venueZip}
               initialDescription={description}
-              initialImageUrl={imageUrl}
+              initialImage={image}
               initialTicketLink={ticketLink}
               initialEventLink={eventLink}
               initialVenueLink={venueLink}
@@ -223,12 +222,11 @@ export default function CalendarEventDisplay({
             <CalendarEventForm
               mode="create"
               eventId=""
-              initialTitle={title}
+              // initialTitle={title}
               initialDate={date}
               // initialEndDate={endDate}
-              initialStartTime={startTime}
-              initialEndTime={endTime}
-              initialAllDay={allDay}
+              initialDayOfWeek={dayOfWeek}
+              initialTime={time}
               initialCost={cost}
               initialVenueName={venueName}
               initialVenueStreetAddress={venueStreetAddress}
@@ -236,7 +234,7 @@ export default function CalendarEventDisplay({
               initialVenueState={venueState}
               initialVenueZip={venueZip}
               initialDescription={description}
-              initialImageUrl={imageUrl}
+              initialImage={image}
               initialTicketLink={ticketLink}
               initialEventLink={eventLink}
               initialVenueLink={venueLink}

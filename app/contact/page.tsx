@@ -52,11 +52,11 @@ export default async function Contact() {
         />
       </div>
       <div className="w-full p-8 flex flex-col justify-center items-center gap-8">
-        <FadeInOnScroll>
+        {/* <FadeInOnScroll>
           <div className="w-full flex items-center justify-center max-w-lg">
             <MailingListSignUpForm />
           </div>
-        </FadeInOnScroll>
+        </FadeInOnScroll> */}
         <FadeInOnScroll>
           <div className="w-42 h-auto">
             <Image

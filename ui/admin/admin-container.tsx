@@ -4,6 +4,7 @@ import AdminMailingList from "./admin-mailing-list";
 import AdminNotificationPanel from "./admin-notification-panel";
 import AdminCalendar from "./admin-calendar";
 import Messages from "./messages";
+import MusicManager from "./music-manager";
 import Button from "../button";
 import Heading from "../heading";
 import clsx from "clsx";
@@ -22,7 +23,7 @@ export default function AdminContainer({
   calendarEventRows,
 }: AdminContainerProps) {
   const [view, setView] = useState<
-    "calendar" | "mailingList" | "notifications" | "messages"
+    "calendar" | "mailingList" | "messages" | "music" | "notifications" 
   >("calendar");
 
   // Adjust this value based on your shortest panel
@@ -80,6 +81,17 @@ export default function AdminContainer({
               : "bg-gray-200 text-gray-800"
           )}
         /> */}
+        <Button
+          label="music"
+          onClick={() => setView("music")}
+          ariaLabel="View Music Manager"
+          className={clsx(
+            "rounded-full px-4 py-2 transition duration-200", // always applied
+            view === "music"
+              ? "bg-blue-600 text-white pointer-events-none"
+              : "bg-gray-200 text-gray-800",
+          )}
+        />
       </div>
       {/* Conditional rendering: only the active panel is mounted */}
       <div className={`w-full ${contentMinHeight} h-auto`}>
@@ -93,6 +105,7 @@ export default function AdminContainer({
           />
         )}
         {view === "messages" && <Messages />}
+        {view === "music" && <MusicManager />}
       </div>
     </section>
   );

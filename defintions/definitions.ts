@@ -1,0 +1,21 @@
+export type CalendarEvent = {
+  id: number;
+  // title: string;
+  date: Date;
+  dayOfWeek: string;
+  time: string;
+  cost?: string;
+  venueName: string;
+  venueStreetAddress: string;
+  venueCity: string;
+  venueState: string;
+  venueZip: string;
+  description?: string;
+  image?: string;
+  imagePublicId?: string;
+  ticketLink?: string;
+  eventLink?: string;
+  venueLink?: string;
+  moreInfoLink?: string;
+  createdAt: Date;
+};

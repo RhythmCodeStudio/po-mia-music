@@ -93,10 +93,10 @@ export default async function Calendar() {
       <FadeInOnScroll>
         <div className="px-8 w-full max-w-2xl h-auto">
           <Image
-            src="/images/free-4-all.webp"
+            src="/images/po-hearts-25.webp"
             width={2102}
             height={1401}
-            alt="Po playing a keytar outdoors in a grassy area with trees in the background"
+            alt=""
             className="rounded-4xl shadow-lg shadow-white mb-8 border-2 border-border-default"
           />
         </div>
