@@ -97,18 +97,16 @@ export default function StateAutocomplete({
   return (
     <div className="flex flex-col justify-start w-full relative">
       <label
-        className="m-2 text-left text-base"
+        className="m-2 text-left text-base text-shadow-black"
         htmlFor="show-request-form-state">
-        State
+        state
       </label>
-
       <input
         id="show-request-form-state"
         type="text"
         name="state"
-        placeholder="Type or choose a state"
+        placeholder="type or choose a state"
         value={value}
-        // autoComplete="address-level1"
         onFocus={() => setShowSuggestions(true)}
         onBlur={() => {
           setTimeout(() => setShowSuggestions(false), 120);
@@ -121,11 +119,11 @@ export default function StateAutocomplete({
           }
         }}
         onKeyDown={handleStateKeyDown}
-        className="shadow-md shadow-white border-2 border-slate-400 w-full text-whitesmoke placeholder-white/40 rounded-3xl tracking-wide caret-blue-500 bg-[linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),url('/images/masks-no-text.png')] bg-no-repeat bg-cover bg-center px-6 pb-1 pt-2 flex items-center focus:border-slate-400 focus:shadow-md focus:shadow-white focus:outline-none focus-visible:outline-2 focus-visible:outline-customBlue focus-visible:outline-offset-2"
+        className="shadow-md shadow-black border-2 border-border-default py-2 pl-4 pr-2 w-full text-black placeholder-neutral-800 rounded-3xl bg-neutral-100 tracking-wide h-10 caret-[#ff7f00]"
       />
 
       {showSuggestions && filteredStates.length > 0 && (
-        <div className="absolute top-full left-0 right-0 z-20 rounded-3xl border-2 border-slate-400 bg-black shadow-md shadow-white">
+        <div className="absolute top-full left-0 right-0 z-20 rounded-3xl border-2 border-border-default bg-black shadow-md shadow-white">
           {filteredStates.slice(0, 6).map((stateName) => (
             <button
               key={stateName}

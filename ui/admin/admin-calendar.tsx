@@ -33,7 +33,7 @@ export default function AdminCalendar({
     "w-28 text-white rounded-full border-border-default border-2 shadow-white shadow-md px-4 py-1 active:scale-95 transition duration-200 ease-in-out rainbow-gradient-hover active:scale-95 bg-black/50 hover:shadow-lg";
   
     return (
-      <div className="w-full flex flex-col space-y-6 items-center">
+      <div className="w-full flex flex-col space-y- items-center">
         <div className="flex gap-4">
           <Button
             label="view events"
@@ -73,7 +73,7 @@ export default function AdminCalendar({
           initialVenueState=""
           initialVenueZip=""
           initialDescription=""
-          initialImageUrl=""
+          initialImage=""
           initialTicketLink=""
           initialEventLink=""
           initialVenueLink=""

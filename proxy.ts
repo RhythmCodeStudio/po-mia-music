@@ -34,10 +34,10 @@ export function proxy(request: NextRequest) {
   const developmentCspHeader = `
     font-src 'self' https://fonts.gstatic.com;
     style-src 'self' 'unsafe-inline';
-    script-src 'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com;
+    script-src 'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com https://upload-widget.cloudinary.com/global/all.js;
     connect-src 'self' https://api.emailjs.com/ https://vercel.live https://vercel.com https://api.stack-auth.com https://api.stack-auth.com/ https://api.stack-auth.com/api/v1/projects/current https://api.stack-auth.com/health https://app.stack-auth.com https://app.stack-auth.com/ https://va vercel-scripts.com https://va.vercel-scripts.com/v1/script.debug.js https://1.1.1.1 https://r.stack-auth.com/api/v1/analytics/events/batch;
-    img-src 'self' data: blob: https://swiperjs.com;
-    frame-src https://www.youtube.com/ https://www.google.com/ https://maps.google.com/;
+    img-src 'self' data: blob: https://swiperjs.com https://res.cloudinary.com/t53x7ri1/;
+    frame-src https://www.youtube.com/ https://www.google.com/ https://maps.google.com/ https://upload-widget.cloudinary.com/2.76.12/;
   `;
   const previewCspHeader = `
     default-src 'self';

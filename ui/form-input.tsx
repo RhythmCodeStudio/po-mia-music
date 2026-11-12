@@ -32,7 +32,7 @@ export default function FormInput({
 }: FormInputProps) {
   const uniqueInputId = idPrefix ? `${idPrefix}-${name}` : name;
   return (
-    <div className="flex flex-col justify-start w-full">
+    <div className="flex flex-col justify-start w-full text-shadow-black-background-black">
       <label className="m-2 text-left text-base" htmlFor={uniqueInputId}>
         {label}
         {required && (

@@ -1,9 +1,11 @@
 "use client";
 // import from react
 import { useState, useEffect } from "react";
+// import from next
+import Image from "next/image";
 // import from cloudinary
-// import { CldUploadWidget } from "next-cloudinary";
-// import { removeCalendarEventImage } from "@/actions/cloudinary";
+import { CldUploadWidget } from "next-cloudinary";
+import { removeCalendarEventImage } from "@/actions/cloudinary";
 // import actions
 import {
   createCalendarEvent,
@@ -61,6 +63,8 @@ export default function CalendarEventForm({
   initialMoreInfoLink,
   onClose,
 }: CalendarEventFormProps) {
+  const [uploadingImage, setUploadingImage] = useState(false);
+  const [imageUploadError, setImageUploadError] = useState("");
   // initialize state with initial props for editing, or empty/default for create ---
   const [dayOfWeek, setDayOfWeek] = useState(initialDayOfWeek || "");
   const [date, setDate] = useState(initialDate || "");
@@ -82,8 +86,8 @@ export default function CalendarEventForm({
   const [eventLink, setEventLink] = useState(initialEventLink || "");
   const [venueLink, setVenueLink] = useState(initialVenueLink || "");
   const [moreInfoLink, setMoreInfoLink] = useState(initialMoreInfoLink || "");
-  const [dateTouched, setDateTouched] = useState(false);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
+  const [venueStateErrorMessage, setVenueStateErrorMessage] = useState("");
 
   // update state if initial props change (for editing different events) ---
   useEffect(() => {
@@ -145,16 +149,16 @@ export default function CalendarEventForm({
     return newErrors;
   };
 
-  // const handleRemoveImage = async () => {
-  //   try {
-  //     await removeCalendarEventImage(eventId, imagePublicId);
-  //     setImage("");
-  //     setImagePublicId("");
-  //   } catch (error) {
-  //     console.error("Image removal failed:", error);
-  //     setImageUploadError("Could not remove the image. Please try again.");
-  //   }
-  // };
+  const handleRemoveImage = async () => {
+    try {
+      await removeCalendarEventImage(eventId, imagePublicId);
+      setImage("");
+      setImagePublicId("");
+    } catch (error) {
+      console.error("Image removal failed:", error);
+      setImageUploadError("Could not remove the image. Please try again.");
+    }
+  };
 
   const handleFormSubmit = async (e: React.SubmitEvent) => {
     e.preventDefault();
@@ -163,7 +167,6 @@ export default function CalendarEventForm({
 
     if (Object.keys(validationErrors).length > 0) {
       // Optionally, scroll to first error or focus
-      setDateTouched(true);
       return;
     }
 
@@ -226,7 +229,6 @@ export default function CalendarEventForm({
         setVenueLink("");
         setMoreInfoLink("");
         setErrors({});
-        setDateTouched(false);
         alert("Event created successfully!");
       }
     } catch (err) {
@@ -244,123 +246,96 @@ export default function CalendarEventForm({
         className="text-center text-2xl font-bold"
         text={mode === "edit" ? "edit event" : "add a new event"}
       />
-      <form onSubmit={handleFormSubmit}>
-        {/* <FormInput
-          label="event title"
-          name="eventTitle"
+      <form onSubmit={handleFormSubmit} className="w-full max-w-3xl mx-auto">
+        <div className="relative mx-auto w-50 h-70.75 overflow-hidden rounded-3xl border-2 border-border-default shadow-md shadow-white bg-gray-800/40">
+          {image ? (
+            <Image
+              src={image}
+              alt="Event image preview"
+              fill
+              sizes="200px"
+              className="object-cover"
+              unoptimized
+            />
+          ) : (
+            <div className="flex h-full items-center justify-center text-sm text-gray-100">
+              No image
+            </div>
+          )}
+        </div>
+        <div className="flex justify-center items-center">
+          <CldUploadWidget
+            signatureEndpoint="/api/cloudinary-signature"
+            uploadPreset={
+              process.env
+                .NEXT_PUBLIC_CLOUDINARY_CALENDAR_EVENT_IMAGE_UPLOAD_PRESET
+            }
+            options={{
+              folder: "the-long-emergency/events",
+              clientAllowedFormats: ["jpg", "jpeg", "png", "webp"],
+              maxFileSize: 10 * 1024 * 1024,
+              multiple: false,
+            }}
+            onSuccess={(result) => {
+              if (result.info && typeof result.info !== "string") {
+                setImage(result.info.secure_url);
+                setImagePublicId(result.info.public_id);
+                setImageUploadError("");
+              }
+            }}>
+            {({ open }) => (
+              <Button
+                type="button"
+                disabled={uploadingImage}
+                onClick={image ? handleRemoveImage : () => open()}
+                label={image ? "Remove Image" : "upload image"}
+                className="mt-4 text-white rounded-full border-border-default border-2 shadow-white shadow-md px-4 py-1 active:scale-95 transition duration-200 ease-in-out rainbow-gradient-hover bg-black/50 hover:shadow-lg"
+                labelClassName="text-shadow-black-background-black"
+              />
+            )}
+          </CldUploadWidget>
+        </div>
+
+        {imageUploadError && (
+          <p className="text-sm text-red-500">{imageUploadError}</p>
+        )}
+        {/* <div className="w-full grid grid-cols-1 md:grid-cols-3 md:gap-6"> */}
+        <FormDateInput
+          label="date"
+          name="date"
+          value={date}
+          required={true}
+          errorMessage={errors.date || ""}
+          handleChange={(e) => handleChange(e, setDate)}
+        />
+        {dayOfWeek && <p className="text-sm text-gray-400">{dayOfWeek}</p>}
+
+        <FormInput
+          label="time"
+          name="time"
           inputType="input"
           type="text"
           placeholder=""
-          value={eventTitle}
+          value={time}
           required={true}
           autoComplete="off"
-          errorMessage={errors.eventTitle || ""}
-          handleChange={(e) => handleChange(e, setEventTitle)}
-          setStateVariable={setEventTitle}
-        /> */}
-        <div className="w-full grid grid-cols-1 md:grid-cols-3 md:gap-6">
-          <div className="flex flex-col justify-start w-full">
-            <label className="m-2 text-left text-base" htmlFor="date">
-              date*
-              <span className="text-xs"> (required)</span>
-            </label>
-            <input
-              type="date"
-              id="date"
-              name="date"
-              required
-              className="shadow-md shadow-black border-2 border-border-default p-2 w-full text-black placeholder-neutral-800 rounded-3xl bg-neutral-100 tracking-wide h-10"
-              value={date}
-              autoComplete="off"
-              onChange={(e) => setDate(e.target.value)}
-              onBlur={() => setDateTouched(true)}
-            />
-            <p
-              className="text-red-200 text-xs mt-1 ml-2 min-h-5 transition-opacity duration-300"
-              style={{
-                visibility:
-                  (dateTouched && !date) || errors.date ? "visible" : "hidden",
-                opacity: (dateTouched && !date) || errors.date ? 1 : 0,
-              }}>
-              {(dateTouched && !date) || errors.date
-                ? errors.date || "Date is required"
-                : " "}
-            </p>
-          </div>
-          {/* <div className="flex flex-col justify-start w-full mb-4"> */}
-          {/* <label className="m-2 text-left text-base" htmlFor="endDate">
-            end date
-          </label> */}
-          {/* <input
-            type="date"
-            id="endDate"
-            name="endDate"
-            className="shadow-md shadow-green-500/50 border-2 border-green-500 p-2 text-black placeholder-neutral-800 rounded-2xl bg-neutral-100 tracking-wide h-10 w-full"
-            value={endDate}
-            autoComplete="off"
-            onChange={(e) => setDate(e.target.value)}
-            // onBlur={() => setDateTouched(true)}
-          /> */}
-          {/* <p
-            className="text-red-200 text-xs mt-1 ml-2 min-h-[1.25rem] transition-opacity duration-300"
-            style={{
-              visibility: (dateTouched && !date) || errors.date ? "visible" : "hidden",
-              opacity: (dateTouched && !date) || errors.date ? 1 : 0,
-            }}>
-            {(dateTouched && !date) || errors.date ? (errors.date || "Date is required") : " "}
-          </p> */}
-          {/* </div> */}
-          <FormInput
-            label="time"
-            name="time"
-            inputType="input"
-            type="text"
-            placeholder=""
-            value={time}
-            required={true}
-            autoComplete="off"
-            errorMessage={errors.time || ""}
-            handleChange={(e) => handleChange(e, setTime)}
-            setStateVariable={setTime}
-          />
-          <FormInput
-            label="cost"
-            name="cost"
-            inputType="input"
-            type="text"
-            placeholder=""
-            value={cost}
-            required={true}
-            autoComplete="off"
-            errorMessage={errors.cost || ""}
-            handleChange={(e) => handleChange(e, setCost)}
-            setStateVariable={setCost}
-          />
-          {/* <FormInput
-            label="end time"
-            name="endTime"
-            inputType="input"
-            type="text"
-            placeholder=""
-            value={endTime}
-            required={false}
-            autoComplete="off"
-            errorMessage=""
-            handleChange={(e) => handleChange(e, setEndTime)}
-            setStateVariable={setEndTime}
-          /> */}
-        </div>
-
-        {/* <input
-          type="checkbox"
-          checked={allDay}
-          onChange={() => setAllDay(!allDay)}
-          className="ml-2 mt-4 mb-6"
+          errorMessage={errors.time || ""}
+          handleChange={(e) => handleChange(e, setTime)}
+          setStateVariable={setTime}
         />
-        <label htmlFor="allDay" className="ml-4">
-          all day event
-        </label> */}
-
+        <FormInput
+          label="cost"
+          name="cost"
+          inputType="input"
+          type="text"
+          placeholder=""
+          value={cost}
+          required={true}
+          autoComplete="off"
+          errorMessage={errors.cost || ""}
+          handleChange={(e) => handleChange(e, setCost)}
+          setStateVariable={setCost}
+        />
         <FormInput
           label="venue name"
           name="venueName"
@@ -400,18 +375,14 @@ export default function CalendarEventForm({
           handleChange={(e) => handleChange(e, setVenueCity)}
           setStateVariable={setVenueCity}
         />
-        <FormInput
-          label="state"
-          name="venueState"
-          inputType="input"
-          type="text"
-          placeholder=""
+        <StateAutoComplete
           value={venueState}
-          required={true}
-          autoComplete="off"
-          errorMessage={errors.venueState || ""}
-          handleChange={(e) => handleChange(e, setVenueState)}
-          setStateVariable={setVenueState}
+          errorMessage={venueStateErrorMessage}
+          onChange={(nextValue) => {
+            setVenueState(nextValue);
+            setVenueStateErrorMessage("");
+          }}
+          onErrorMessageChange={setVenueStateErrorMessage}
         />
         <FormInput
           label="zip code"
@@ -452,19 +423,6 @@ export default function CalendarEventForm({
           handleChange={(e) => handleChange(e, setVenueLink)}
           setStateVariable={setVenueLink}
         />
-        {/* <FormInput
-          label="image url"
-          name="imageUrl"
-          inputType="input"
-          type="text"
-          placeholder=""
-          value={imageUrl}
-          required={false}
-          autoComplete="off"
-          errorMessage=""
-          handleChange={(e) => handleChange(e, setImageUrl)}
-          setStateVariable={setImageUrl}
-        /> */}
         <FormInput
           label="ticket link"
           name="ticketLink"
@@ -491,20 +449,21 @@ export default function CalendarEventForm({
           handleChange={(e) => handleChange(e, setMoreInfoLink)}
           setStateVariable={setMoreInfoLink}
         />
-        <div className="flex justify-center mt-4">
+        <div className="flex justify-center gap-6">
           <Button
             type="submit"
             label={mode === "edit" ? "edit event" : "create event"}
-            // onClick={handleFormSubmit}
             ariaLabel={mode === "edit" ? "edit event" : "create event"}
-            className="bg-blue-600 text-white rounded-full px-4 py-2 transition duration-200 text-shadow-black"
+            className="w-30 mt-4 text-white rounded-full border-border-default border-2 shadow-white shadow-md px-4 py-1 active:scale-95 transition duration-200 ease-in-out rainbow-gradient-hover bg-black/50 hover:shadow-lg"
+            labelClassName="text-shadow-black-background-black"
           />
           <Button
+            type="button"
             label="cancel"
             onClick={onClose}
             ariaLabel="cancel"
-            className="ml-2 bg-gray-500 text-shadow-black text-white rounded-full px-4 py-2 transition duration-200"
-            type="button"
+            className="w-30 mt-4 text-white rounded-full border-border-default border-2 shadow-white shadow-md px-4 py-1 active:scale-95 transition duration-200 ease-in-out rainbow-gradient-hover bg-black/50 hover:shadow-lg"
+            labelClassName="text-shadow-black-background-black"
           />
         </div>
       </form>

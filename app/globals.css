@@ -96,18 +96,6 @@ a, button {
 
 .text-shadow-black {
  text-shadow: 2px 2px 0 black;
-    /* 1px 1px 0 white, */
-    /* -1px -1px 0 white, */
-    /* 1px -1px 0 white, */
-    /* -1px 1px 0 white, */
-    /* 0px 1px 0 white, */
-    /* 0px -1px 0 white, */
-    /* -1px 0px 0 white, */
-    /* 1px 0px 0 white; */
-  /* background-color: rgba(0, 0, 0, 1);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -moz-background-clip: text; */
 }
 
 .icon-shadow {
@@ -291,4 +279,12 @@ a, button {
   .animate-slide-in {
     animation: slideIn 1s ease-in-out forwards;
   }
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+.hide-native-date-text::-webkit-datetime-edit {
+  visibility: hidden;
 }

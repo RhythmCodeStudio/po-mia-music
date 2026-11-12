@@ -42,33 +42,36 @@ export default function AdminContainer({
           onClick={() => setView("calendar")}
           ariaLabel="View Calendar"
           className={clsx(
-            "rounded-full px-4 py-2 transition duration-200", // always applied
+            "text-white rounded-full border-border-default border-2 shadow-white shadow-md px-4 py-1 active:scale-95 transition duration-200 ease-in-out ",
             view === "calendar"
-              ? "bg-blue-600 text-white pointer-events-none"
-              : "bg-gray-200 text-gray-800",
+              ? "rainbow-gradient pointer-events-none"
+              : "rainbow-gradient-hover bg-black/50 hover:shadow-lg",
           )}
+          labelClassName="text-shadow-black-background-black"
         />
         <Button
           label="notifications"
           onClick={() => setView("notifications")}
           ariaLabel="Send Notifications"
           className={clsx(
-            "rounded-full px-4 py-2 transition duration-200", // always applied
+            "text-white rounded-full border-border-default border-2 shadow-white shadow-md px-4 py-1 active:scale-95 transition duration-200 ease-in-out ",
             view === "notifications"
-              ? "bg-blue-600 text-white pointer-events-none"
-              : "bg-gray-200 text-gray-800",
+              ? "rainbow-gradient pointer-events-none"
+              : "rainbow-gradient-hover bg-black/50 hover:shadow-lg",
           )}
+          labelClassName="text-shadow-black-background-black"
         />
         <Button
           label="mailing list"
           onClick={() => setView("mailingList")}
           ariaLabel="View Mailing List"
           className={clsx(
-            "rounded-full px-4 py-2 transition duration-200", // always applied
+            "text-white rounded-full border-border-default border-2 shadow-white shadow-md px-4 py-1 active:scale-95 transition duration-200 ease-in-out ",
             view === "mailingList"
-              ? "bg-blue-600 text-white pointer-events-none"
-              : "bg-gray-200 text-gray-800",
+              ? "rainbow-gradient pointer-events-none"
+              : "rainbow-gradient-hover bg-black/50 hover:shadow-lg",
           )}
+          labelClassName="text-shadow-black-background-black"
         />
         {/* <Button
           label="Messages"
@@ -86,11 +89,12 @@ export default function AdminContainer({
           onClick={() => setView("music")}
           ariaLabel="View Music Manager"
           className={clsx(
-            "rounded-full px-4 py-2 transition duration-200", // always applied
+            "text-white rounded-full border-border-default border-2 shadow-white shadow-md px-4 py-1 active:scale-95 transition duration-200 ease-in-out ",
             view === "music"
-              ? "bg-blue-600 text-white pointer-events-none"
-              : "bg-gray-200 text-gray-800",
+              ? "rainbow-gradient pointer-events-none"
+              : "rainbow-gradient-hover bg-black/50 hover:shadow-lg",
           )}
+          labelClassName="text-shadow-black-background-black"
         />
       </div>
       {/* Conditional rendering: only the active panel is mounted */}

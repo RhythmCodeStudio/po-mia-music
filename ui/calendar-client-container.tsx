@@ -37,7 +37,7 @@ export default function CalendarClientContainer({
         showViewToggle && isAdminPath && "pt-0"
       )}>
       {showViewToggle && (
-        <div className="flex flex-row justify-center items-center pb-6 w-full gap-4">
+        <div className="flex flex-row justify-center items-center p-6 w-full gap-4">
           <Button
             label="past"
             title="past events"

@@ -33,7 +33,9 @@ export default function FormDateInput({
 
   return (
     <div className="flex w-full flex-col justify-start">
-      <label className="m-2 text-left" htmlFor={uniqueInputId}>
+      <label
+        className="m-2 text-left text-shadow-black-background-black"
+        htmlFor={uniqueInputId}>
         {label}
         {required && (
           <>
@@ -56,20 +58,18 @@ export default function FormDateInput({
           onClick={openDatePicker}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
-          className={`box-border w-full appearance-none rounded-3xl border-2 border-slate-400 bg-[linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),url('/images/masks-no-text.png')] bg-cover bg-center pl-5 pb-1 pt-2 shadow-md shadow-white [&::-webkit-calendar-picker-indicator]:hidden focus:border-slate-400 focus:shadow-md focus:shadow-white focus:outline-none focus-visible:outline-2 focus-visible:outline-customBlue focus-visible:outline-offset-2 text-base [&::-webkit-datetime-edit]:text-base ${
-            value || isFocused ? "text-whitesmoke" : "text-transparent"
-          }`}
+          className="shadow-md shadow-black border-2 border-border-default p-2 w-full rounded-3xl bg-neutral-100 tracking-wide h-10 text-black hide-native-date-text"
         />
 
         {showCustomPlaceholder && (
-          <span className="pointer-events-none  absolute inset-y-0 left-5 flex items-center text-white">
+          <span className="pointer-events-none absolute inset-y-0 left-5 flex items-center text-black">
             mm/dd/yyyy
           </span>
         )}
 
         <FiCalendar
           aria-hidden="true"
-          className="pointer-events-none absolute right-5 top-1/2 h-5 w-5 -translate-y-1/2 text-white"
+          className="pointer-events-none absolute right-5 top-1/2 h-5 w-5 -translate-y-1/2 text-black"
         />
       </div>
 

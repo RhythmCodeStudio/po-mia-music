@@ -13,28 +13,28 @@ export default async function AdminPage() {
   // const calendarEvents = await getCalendarEvents();
 
   return (
-     <div className=" w-full">
-      {/* {!user && ( */}
+    <div className=" w-full">
+      {/* {!user && (
         <div className="flex justify-center my-12">
-          {/* <SignIn automaticRedirect={true} firstTab="password" /> */}
+          <SignIn automaticRedirect={true} firstTab="password" />
         </div>
-      {/* )} */}
+      )} */}
 
       {/* {user && ( */}
-        <div className="flex flex-col justify-center items-center text-shadow-black-background-black w-full">
-          <Heading
-            text="welcome back po"
-            headingLevel={2}
-            className="font-bold text-4xl text-shadow-black-background-black tracking-widest"
+      <div className="flex flex-col justify-center items-center w-full">
+        <Heading
+          text="welcome back po"
+          headingLevel={2}
+          className="font-bold text-4xl text-shadow-black-background-black tracking-widest"
+        />
+        <div className="w-full flex justify-center p-8">
+          <AdminContainer
+            mailingListRows={await getMailingList()}
+            numberOfNotificationSubscriptions={numberOfSubscriptions}
+            calendarEventRows={await getCalendarEvents()}
           />
-          <div className="w-full flex justify-center p-8">
-            <AdminContainer
-              mailingListRows={await getMailingList()}
-              numberOfNotificationSubscriptions={numberOfSubscriptions}
-              calendarEventRows={await getCalendarEvents()}
-            />
-          </div>
         </div>
+      </div>
       {/* )} */}
     </div>
   );

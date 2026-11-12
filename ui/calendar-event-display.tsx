@@ -86,29 +86,29 @@ export default function CalendarEventDisplay({
     <>
       <section className="rainbow-gradient border-border-default border-2 shadow-white shadow-lg rounded-4xl w-full md:min-w-[20rem] text-center font-semibold">
         <div className="w-full bg-black/50 rounded-4xl p-4 shadow-md shadow-white min-h-full flex flex-col items-center gap-1">
-        <Link
+          <Link
             href={`/calendar/events/${id}`}
             title={`View details for this event`}>
-        <Image
-          src={`${image}`}
-          alt="Show poster"
-          width={300}
-          height={425}
-          className="shadow-md shadow-white rounded-3xl border-2 border-slate-400"
-        />
-        </Link>
-           <div className="w-full flex flex-col items-center">
+            <Image
+              src={`${image}`}
+              alt="Show poster"
+              width={300}
+              height={425}
+              className="shadow-md shadow-white rounded-3xl border-2 border-border-default"
+            />
+          </Link>
+          <div className="w-full flex flex-col items-center">
             <p>{dayOfWeek}</p>
             <p>{formattedDate}</p>
             <p>{formattedTime}</p>
           </div>
-          
-            {/* <Heading
+
+          {/* <Heading
               text={title}
               headingLevel={3}
               className="text-lg md:text-xl font-bold text-shadow-black-background-black underline decoration-[#ff0000] wrap-break-word whitespace-normal min-w-[16rem] max-w-[16rem]"
             /> */}
-          
+
           {/* <div className="w-full"> */}
           <p className="text-shadow-black-background-black md:text-lg">
             {venueLink ? (
