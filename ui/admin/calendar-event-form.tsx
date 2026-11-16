@@ -13,7 +13,7 @@ import {
 } from "../../actions/actions";
 // import components
 import FormInput from "../form-input";
-import FormDateInput from "../form-date-input";
+import FormPickerInput from "../form-picker-input";
 import StateAutoComplete from "../state-auto-complete";
 import Button from "../button";
 import Heading from "../heading";
@@ -300,7 +300,8 @@ export default function CalendarEventForm({
           <p className="text-sm text-red-500">{imageUploadError}</p>
         )}
         {/* <div className="w-full grid grid-cols-1 md:grid-cols-3 md:gap-6"> */}
-        <FormDateInput
+        <FormPickerInput
+          type="date"
           label="date"
           name="date"
           value={date}
@@ -310,18 +311,14 @@ export default function CalendarEventForm({
         />
         {dayOfWeek && <p className="text-sm text-gray-400">{dayOfWeek}</p>}
 
-        <FormInput
+        <FormPickerInput
+          type="time"
           label="time"
           name="time"
-          inputType="input"
-          type="text"
-          placeholder=""
           value={time}
           required={true}
-          autoComplete="off"
           errorMessage={errors.time || ""}
           handleChange={(e) => handleChange(e, setTime)}
-          setStateVariable={setTime}
         />
         <FormInput
           label="cost"

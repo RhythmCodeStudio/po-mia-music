@@ -62,8 +62,11 @@ export default function CalendarEventDisplay({
   const [duplicateModalOpen, setDuplicateModalOpen] = useState(false);
   const formattedDate = formatDate(date);
   const formattedTime = formatTime(time);
-
   const pathname = usePathname();
+
+  console.log("formattedDate:", formattedDate);
+  console.log("formattedTime:", formattedTime);
+  console.log("dayOfWeek:", dayOfWeek);
 
   const handleDelete = async () => {
     if (confirm("Are you sure you want to delete this event?")) {
@@ -102,7 +105,9 @@ export default function CalendarEventDisplay({
             <p>{formattedDate}</p>
             <p>{formattedTime}</p>
           </div>
-
+          <p className="text-shadow-black-background-black">
+            {cost && cost.toLowerCase() !== "free" ? `${cost}` : "Free"}
+          </p>
           {/* <Heading
               text={title}
               headingLevel={3}
@@ -123,9 +128,7 @@ export default function CalendarEventDisplay({
               venueName
             )}
           </p>
-          <p className="text-shadow-black-background-black">
-            {cost && cost.toLowerCase() !== "free" ? `${cost}` : "Free"}
-          </p>
+
           <GoogleMapsLink
             addressLineOne={venueStreetAddress}
             addressLineTwo={""}

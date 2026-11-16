@@ -1,6 +1,10 @@
+// import from react
 import { useRef, useState } from "react";
+// import from react-icons
 import { FiCalendar } from "react-icons/fi";
-interface FormDateInputProps {
+import { FiClock } from "react-icons/fi";
+interface FormPickerInputProps {
+  type: "date" | "time";
   label: string;
   name: string;
   value: string;
@@ -11,7 +15,8 @@ interface FormDateInputProps {
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export default function FormDateInput({
+export default function FormPickerInput({
+  type,
   label,
   name,
   value,
@@ -20,7 +25,7 @@ export default function FormDateInput({
   idPrefix = "",
   min,
   handleChange,
-}: FormDateInputProps) {
+}: FormPickerInputProps) {
   const uniqueInputId = idPrefix ? `${idPrefix}-${name}` : name;
   const inputRef = useRef<HTMLInputElement>(null);
   const [isFocused, setIsFocused] = useState(false);
@@ -48,7 +53,7 @@ export default function FormDateInput({
       <div className="relative w-full">
         <input
           ref={inputRef}
-          type="date"
+          type={type}
           id={uniqueInputId}
           name={name}
           value={value}
@@ -58,19 +63,35 @@ export default function FormDateInput({
           onClick={openDatePicker}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
-          className="shadow-md shadow-black border-2 border-border-default p-2 w-full rounded-3xl bg-neutral-100 tracking-wide h-10 text-black hide-native-date-text"
+          className={`shadow-md shadow-black border-2 border-border-default p-2 w-full rounded-3xl bg-neutral-100 tracking-wide h-10 text-black ${
+            showCustomPlaceholder ? "hide-native-picker-text" : ""
+          }`}
         />
 
-        {showCustomPlaceholder && (
-          <span className="pointer-events-none absolute inset-y-0 left-5 flex items-center text-black">
+        {showCustomPlaceholder && type === "date" && (
+          <span className="pointer-events-none absolute inset-y-0 left-4 flex items-center text-black">
             mm/dd/yyyy
           </span>
         )}
 
-        <FiCalendar
-          aria-hidden="true"
-          className="pointer-events-none absolute right-5 top-1/2 h-5 w-5 -translate-y-1/2 text-black"
-        />
+        {showCustomPlaceholder && type === "time" && (
+          <span className="pointer-events-none absolute inset-y-0 left-4 flex items-center text-black">
+            hh:mm am/pm
+          </span>
+        )}
+
+        {type === "date" && (
+          <FiCalendar
+            aria-hidden="true"
+            className="pointer-events-none absolute right-5 top-1/2 h-5 w-5 -translate-y-1/2 text-black"
+          />
+        )}
+        {type === "time" && (
+          <FiClock
+            aria-hidden="true"
+            className="pointer-events-none absolute right-5 top-1/2 h-5 w-5 -translate-y-1/2 text-black"
+          />
+        )}
       </div>
 
       <p

@@ -119,7 +119,7 @@ export default function StateAutocomplete({
           }
         }}
         onKeyDown={handleStateKeyDown}
-        className="shadow-md shadow-black border-2 border-border-default py-2 pl-4 pr-2 w-full text-black placeholder-neutral-800 rounded-3xl bg-neutral-100 tracking-wide h-10 caret-[#ff7f00]"
+        className="shadow-md shadow-black border-2 border-border-default py-2 pl-2 pr-2 w-full text-black placeholder-neutral-800 rounded-3xl bg-neutral-100 tracking-wide h-10 caret-[#ff7f00]"
       />
 
       {showSuggestions && filteredStates.length > 0 && (

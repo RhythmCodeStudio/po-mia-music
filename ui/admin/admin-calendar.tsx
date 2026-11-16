@@ -18,12 +18,12 @@ export default function AdminCalendar({
 }: AdminCalendarProps) {
   const [view, setView] = useState<"viewEvents" | "addEvent">("viewEvents");
   const upComingEvents = calendarEventRows.filter((event) => {
-    const eventDate = new Date(event.start_date);
+    const eventDate = new Date(event.date);
     const currentDate = new Date();
     return eventDate >= currentDate;
   });
   const pastEvents = calendarEventRows.filter((event) => {
-    const eventDate = new Date(event.start_date);
+    const eventDate = new Date(event.date);
     const currentDate = new Date();
     return eventDate < currentDate;
   });

@@ -137,10 +137,29 @@ export async function getCalendarEventById(id: string) {
 // get all calendar events
 export async function getCalendarEvents() {
   const events = await sql`
-    SELECT * FROM calendar_events
+    SELECT
+      id,
+      date,
+      day_of_week          AS "dayOfWeek",
+      time,
+      cost,
+      venue_name           AS "venueName",
+      venue_street_address AS "venueStreetAddress",
+      venue_city           AS "venueCity",
+      venue_state          AS "venueState",
+      venue_zip            AS "venueZip",
+      description,
+      image,
+      image_public_id      AS "imagePublicId",
+      ticket_link          AS "ticketLink",
+      event_link           AS "eventLink",
+      venue_link           AS "venueLink",
+      more_info_link       AS "moreInfoLink",
+      created_at           AS "createdAt"
+    FROM calendar_events
     ORDER BY date, time
   `;
-  return events;
+  return events as CalendarEvent[];
 }
 
 // update calendar event by id

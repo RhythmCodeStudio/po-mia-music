@@ -285,6 +285,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   display: none;
 }
 
-.hide-native-date-text::-webkit-datetime-edit {
+.hide-native-picker-text::-webkit-datetime-edit {
   visibility: hidden;
 }
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+/* input[type="time"]::-webkit-datetime-edit {
+  visibility: hidden;
+} */

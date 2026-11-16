@@ -58,20 +58,20 @@ export default async function Calendar() {
   // console.log("events:", events);
   // upComingEvents should listed the events in the order of soonest to latest
   const eventsInOrder = events.sort((a, b) => {
-    const dateA = new Date(a.start_date);
-    const dateB = new Date(b.start_date);
+    const dateA = new Date(a.date);
+    const dateB = new Date(b.date);
     return dateA.getTime() - dateB.getTime();
   });
 
   const currentDate = new Date();
   // filter out past events
   const upComingEvents = eventsInOrder.filter((event) => {
-    const eventDate = new Date(event.start_date);
+    const eventDate = new Date(event.date);
     return eventDate >= currentDate;
   });
 
   const pastEvents = eventsInOrder.filter((event) => {
-    const eventDate = new Date(event.start_date);
+    const eventDate = new Date(event.date);
     return eventDate < currentDate;
   });
 
